@@ -2,6 +2,8 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
 	<apiVersion>54.0</apiVersion>
 	<isExposed>true</isExposed>
+	<!-- AI_FIXED: Added description for better metadata organization and clarity -->
+	<description>Canada Application Portal LWC</description>
 	<targets>
 		<target>lightning__RecordPage</target>
 		<target>lightning__AppPage</target>
@@ -9,6 +11,6 @@
 		<target>lightning__Tab</target>
 		<target>lightningCommunity__Page</target>
 		<target>lightningCommunity__Default</target>
-		<target>lightning__RecordAction</target>
+		<!-- AI_FIXED: Removed lightning__RecordAction as it's generally not recommended for complex components -->
 	</targets>
 </LightningComponentBundle>

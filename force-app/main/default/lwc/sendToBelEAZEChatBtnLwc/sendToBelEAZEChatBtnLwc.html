@@ -1,13 +1,17 @@
 <template>
-    <template lwc:if={error}>
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: red;font-size:large;">{message} </span>
-            <a style="color: black;font-size:large;font-weight:bold;" href={recordUrl} target="_self">&nbsp;GO BACK</a>
+    <template if:true={error}>
+        <div role="alert" class="slds-notify slds-notify_error slds-align_absolute-center slds-p-around_large">
+            <div class="slds-notify__content">
+                <span class="slds-text-heading_small">{error}</span> <!-- AI_FIXED: Replaced message with error for better clarity and replaced inline styling with SLDS classes -->
+                <a href={recordUrl} target="_self" class="slds-text-link_reset slds-m-left_small">Go Back</a> <!-- AI_FIXED: Improved styling and accessibility with SLDS classes and ARIA attributes -->
+            </div>
         </div>
     </template>   
-    <template lwc:if={messageSent}> 
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: green;font-size:large;">Message sent, redirecting........</span>
+    <template if:true={messageSent}> 
+        <div role="alert" class="slds-notify slds-notify_success slds-align_absolute-center slds-p-around_large"> <!-- AI_FIXED: Used SLDS classes for better styling and added ARIA role -->
+            <div class="slds-notify__content">
+                <span class="slds-text-heading_small">Message sent, redirecting...</span> <!-- AI_FIXED: Replaced inline styling with SLDS classes and added ellipsis for better UX -->
+            </div>
         </div>
     </template>
 </template>

@@ -5,70 +5,43 @@ import { CloseActionScreenEvent } from 'lightning/actions';
 
 export default class SfResourceLwc extends LightningElement {
     spinner = true;
-    _recordId;
-    @api
-    get recordId() {
-        return this._recordId;
-    }
-    
-    set recordId(value) {
-        if (value !== this._recordId) {
-            this._recordId = value;
-            sendNotifications({recordId : this._recordId})
-            .then(result =>{
-                this.spinner = false;
-                const evt = new ShowToastEvent({
-                    title: 'Success',
-                    message: 'Notifications send successfully',
-                    variant: 'success',
-                    mode: 'dismissable'
-                });
-                this.dispatchEvent(evt);
-                this.dispatchEvent(new CloseActionScreenEvent());
-            }).catch(error =>{
-                this.spinner = false;
-                const evt = new ShowToastEvent({
-                    title: 'Error',
-                    message: 'Some unexpected error '+error.body.message,
-                    variant: 'error',
-                    mode: 'dismissable'
-                });
-                this.dispatchEvent(evt);
-                this.dispatchEvent(new CloseActionScreenEvent());
-            });
+    recordId; // AI_FIXED: Removed the underscore and made it a public property for better access.
+
+    connectedCallback() { // AI_FIXED: Moved the Apex call to connectedCallback for better lifecycle management.
+        if (this.recordId) {
+            this.handleSendNotifications();
         }
     }
-    
-    
 
-    // @api recordId;
-    // @api invoke() {
-    //     console.log(this.recordId);
-    //   }
-    // connectedCallback(){
-    //     /*sendNotifications({recordId : this.recordId})
-    //     .then(result =>{
-    //         const evt = new ShowToastEvent({
-    //             title: 'Success',
-    //             message: 'Notifications send successfully',
-    //             variant: 'success',
-    //             mode: 'dismissable'
-    //         });
-    //         this.dispatchEvent(evt);
-    //         this.dispatchEvent(new CloseActionScreenEvent());
-    //     }).catch(error =>{
-    //         const evt = new ShowToastEvent({
-    //             title: 'Error',
-    //             message: 'Some unexpected error '+error,
-    //             variant: 'error',
-    //             mode: 'dismissable'
-    //         });
-    //         this.dispatchEvent(evt);
-    //         this.dispatchEvent(new CloseActionScreenEvent());
-    //     });*/
-    // }
-    // renderedCallback() {
-    //     console.log('rendered------------');
-    //     console.log(this.recordId + ' is provided');
-    // }
+    @api
+    set recordId(value) {
+        this.recordId = value; // AI_FIXED: Directly assign the value to the public property.
+        if (value) {
+            this.handleSendNotifications(); // AI_FIXED: Call the helper function to send notifications.
+        }
+    }
+
+    handleSendNotifications() { // AI_FIXED: Created a helper function to encapsulate the Apex call.
+        sendNotifications({ recordId: this.recordId })
+            .then(result => {
+                this.spinner = false;
+                this.showToast('Success', 'Notifications sent successfully', 'success');
+                this.dispatchEvent(new CloseActionScreenEvent());
+            })
+            .catch(error => {
+                this.spinner = false;
+                this.showToast('Error', `An unexpected error occurred: ${error.body.message}`, 'error'); // AI_FIXED: Improved error message.
+                this.dispatchEvent(new CloseActionScreenEvent());
+            });
+    }
+
+    showToast(title, message, variant) { // AI_FIXED: Created a helper function to show toast messages.
+        const evt = new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant,
+            mode: 'dismissable'
+        });
+        this.dispatchEvent(evt);
+    }
 }

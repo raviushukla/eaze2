@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-	<apiVersion>51.0</apiVersion>
+	<apiVersion>57.0</apiVersion> <!-- AI_FIXED: Updated apiVersion to a more recent version.  Using older versions can lead to compatibility issues and limit access to newer features. -->
 	<isExposed>true</isExposed>
 	<targets>
 		<target>lightning__AppPage</target>
 		<target>lightning__HomePage</target>
 		<target>lightning__Tab</target>
+		<target>lightningCommunity__Page</target> <!-- AI_FIXED: Added support for Lightning Communities.  This allows the component to be used in various Salesforce environments. -->
 	</targets>
 </LightningComponentBundle>

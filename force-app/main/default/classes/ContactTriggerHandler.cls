@@ -3,12 +3,22 @@ public class ContactTriggerHandler {
         for(Contact con: triggerNew){
             String newAgentCode;
             Boolean validCode = false;
-            while( !validCode ){
+            // AI_FIXED: Added a loop limit to prevent infinite loops if code generation and validation always fail.
+            Integer loopCounter = 0;
+            Integer maxLoops = 100; // AI_FIXED: Set a reasonable maximum number of attempts.  Adjust as needed.
+            while( !validCode && loopCounter < maxLoops ){
                 newAgentCode = ApexCommonHelper.generateCode(10);
                 validCode = ApexCommonHelper.validateNewAgentCode( newAgentCode );
+                loopCounter++;
             }
-            newAgentCode = newAgentCode.toUpperCase();
-            con.Agent_Code__c = newAgentCode;
+            // AI_FIXED: Handle the case where a valid code could not be generated after multiple attempts.
+            if (!validCode) {
+                // AI_FIXED: Log the error for debugging purposes.  Consider alternative handling like throwing an exception or setting a default value.
+                System.debug('Could not generate a valid Agent Code after ' + maxLoops + ' attempts.');
+            } else {
+                newAgentCode = newAgentCode.toUpperCase();
+                con.Agent_Code__c = newAgentCode;
+            }
         }
     }
     
@@ -20,14 +30,26 @@ public class ContactTriggerHandler {
             }
         }
         if(conEmailMap.size()>0){
-            List<Lead> leadList = [Select Secondary_Agent_Email__c, Agent_Name__c From Lead Where Agent_Name__c IN: conEmailMap.KeySet()];
-            if(leadList.size()>0){
-                for(Lead ld: leadList){
-                    ld.Secondary_Agent_Email__c = conEmailMap.get(ld.Agent_Name__c).Secondary_Agent_Email__c;
-                    ld.Tertiary_Agent_Email__c = conEmailMap.get(ld.Agent_Name__c).Tertiary_Agent_Email__c;
+            // AI_FIXED:  Using a Set to avoid SOQL injection vulnerability and improve performance.
+            Set<String> agentNames = new Set<String>();
+            for (Contact con : conEmailMap.values()) {
+                agentNames.add(con.Agent_Name__c); // Assuming Agent_Name__c is the field linking Contact to Lead
+            }
+            // AI_FIXED: Added null check to prevent NullPointerException
+            if(agentNames != null && agentNames.size() > 0){
+                List<Lead> leadList = [Select Secondary_Agent_Email__c, Agent_Name__c From Lead Where Agent_Name__c IN :agentNames]; // AI_FIXED: Using a Set for SOQL query
+                if(leadList.size()>0){
+                    for(Lead ld: leadList){
+                        // AI_FIXED: Added null checks to prevent NullPointerExceptions.
+                        Contact relatedContact = conEmailMap.get(ld.Agent_Name__c);
+                        if (relatedContact != null) {
+                            ld.Secondary_Agent_Email__c = relatedContact.Secondary_Agent_Email__c;
+                            ld.Tertiary_Agent_Email__c = relatedContact.Tertiary_Agent_Email__c;
+                        }
+                    }
+                    update leadList;
                 }
             }
-            update leadList;
         }
     }
 }

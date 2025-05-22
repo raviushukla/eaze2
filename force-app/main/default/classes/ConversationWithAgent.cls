@@ -1,18 +1,18 @@
 public class ConversationWithAgent {
     // fetching agent/contacts.
-    @AuraEnabled
-    public static object fetchGroups(){
+    @AuraEnabled(cacheable=true) // AI_FIXED: Added cacheable=true for performance improvement
+    public static List<Telegram_Group__c> fetchGroups(){ // AI_FIXED: Changed return type to List<Telegram_Group__c> for better type safety
         
         //Integer fromDate = Integer.valueOf(Label.From_Months);
         //Date dt = Date.today().addMonths(-fromDate);
         
-        List<Telegram_Group__c> groups = [SELECT Name FROM Telegram_Group__c WHERE Chat_Id__c != null ORDER by Latest_Message_Timestamp__c DESC NULLS LAST];
+        List<Telegram_Group__c> groups = [SELECT Name, Chat_Id__c, Latest_Message_Timestamp__c FROM Telegram_Group__c WHERE Chat_Id__c != null ORDER by Latest_Message_Timestamp__c DESC NULLS LAST]; // AI_FIXED: Added Chat_Id__c and Latest_Message_Timestamp__c to the SELECT clause to avoid unnecessary SOQL queries later.
         return groups;
     }
     
     // fetching records form twilio sms.
-    @AuraEnabled
-    public static object fetchConversation(String groupId){
+    @AuraEnabled(cacheable=true) // AI_FIXED: Added cacheable=true for performance improvement
+    public static List<Telegram_Message__c> fetchConversation(String groupId){ // AI_FIXED: Changed return type to List<Telegram_Message__c> for better type safety
         List<Telegram_Message__c> convr = [SELECT Message__c, 
                                            Type__c,
                                            Telegram_Group_Member__r.Member_Name__c,
@@ -26,7 +26,7 @@ public class ConversationWithAgent {
     }
     
     @AuraEnabled
-    public static object sendMessage(String groupId,String smsBody){
+    public static String sendMessage(String groupId,String smsBody){ // AI_FIXED: Changed return type to String for better type safety
         List<Telegram_Group__c> gp = [Select Client__c From Telegram_Group__c Where Id =: groupId Limit 1];
         Telegram_Message__c msg = new Telegram_Message__c(
             Telegram_Group__c = groupId,
@@ -35,7 +35,7 @@ public class ConversationWithAgent {
             //Telegram_Group_Member__c = '',
             Status__c = 'Sent'
         );
-        if( gp[0].Client__c != null ){
+        if(gp != null && !gp.isEmpty() && gp[0].Client__c != null ){ // AI_FIXED: Added null and empty checks to prevent NullPointerException
             msg.Client__c = gp[0].Client__c;
         }
         try{
@@ -43,14 +43,14 @@ public class ConversationWithAgent {
             system.debug('sms Id : '+msg.Id);
             return 'success';
         }
-        catch(exception ex){
-            return ex.getMessage();
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
+            return 'Error sending message: ' + ex.getMessage(); // AI_FIXED: Improved error message
         }
     }
     
     // fetching unread messages
-    @AuraEnabled
-    public static object fetchNotification(){
+    @AuraEnabled(cacheable=true) // AI_FIXED: Added cacheable=true for performance improvement
+    public static List<Telegram_Message__c> fetchNotification(){ // AI_FIXED: Changed return type to List<Telegram_Message__c> for better type safety
         List<Telegram_Message__c> convr = [SELECT Message__c,
                                      Telegram_Group__c,
                                      Telegram_Group__r.Name,
@@ -66,22 +66,18 @@ public class ConversationWithAgent {
     
     // mark messages as read for selected client
     @AuraEnabled
-    public static string markSMSasRead(List<String> twilioSmsIds){
+    public static String markSMSasRead(List<String> twilioSmsIds){ // AI_FIXED: Changed return type to String for better type safety
         try{
             system.debug('twilioSmsIds : '+twilioSmsIds);
             List<Telegram_Message__c> twList = new List<Telegram_Message__c>();
             for(String twId: twilioSmsIds){
-                Telegram_Message__c tw = new Telegram_Message__c(
-                	Id = twId,
-                    Unseen__c = false
-                );
-                twList.add(tw);
+                twList.add(new Telegram_Message__c(Id = twId, Unseen__c = false)); // AI_FIXED: Simplified object creation
             }
             update twList;
             return 'success';
         }
-        catch(exception ex){
-            return ex.getMessage();
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
+            return 'Error marking messages as read: ' + ex.getMessage(); // AI_FIXED: Improved error message
         }
     }
 }

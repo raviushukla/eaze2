@@ -1,124 +1,149 @@
 <template>
     <div class="slds-m-top_large slds-m-bottom_large">
-        <h2 class="h2Class">Prequalifying Questions</h2>
+        <h2 class="slds-text-heading_medium">Prequalifying Questions</h2> <!-- AI_FIXED: Replaced custom h2Class with standard Salesforce design system class slds-text-heading_medium for consistency and accessibility -->
     </div>
-        <div class="slds-m-top_large slds-m-bottom_large" style="">
-            <table style="border-collapse: separate;border-spacing: 0 1em;">
-                <tr>
-                    <td>
-                        <label class="field_label slds-p-bottom_x-small" for="first_name">First Name<span class="field_required">*</span></label>
-                    </td>
-                    <td>
-                        <input type="text" onkeyup={validateFirstName} id="preFirstName" autocomplete="given-name" placeholder="First name" name="first_name" maxlength="50" value={preFirstNameValue}  required class="ltFormControl PhoneNumber">
+    <div class="slds-m-top_large slds-m-bottom_large">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer"> <!-- AI_FIXED: Replaced inline styles with Salesforce design system classes for table styling and accessibility -->
+            <tr>
+                <td class="slds-text-heading_label"> <!-- AI_FIXED: Added Salesforce design system class for label styling -->
+                    <label class="slds-form-element__label" for="preFirstName">First Name<span class="slds-required">*</span></label> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class for label and added required indicator -->
+                </td>
+                <td>
+                    <div class="slds-form-element"> <!-- AI_FIXED: Wrapped input and error message in slds-form-element for better structure -->
+                        <input type="text" onkeyup={validateFirstName} id="preFirstName" autocomplete="given-name" placeholder="First name" name="first_name" maxlength="50" value={preFirstNameValue} required class="slds-input" aria-describedby="preFirstNameError"> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class and added aria-describedby for accessibility -->
                         <template if:true={preFirstNameError}>
-                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid First Name. </div>
+                            <div id="preFirstNameError" role="alert" class="slds-form-element__help slds-text-color_error" aria-live="assertive"> <!-- AI_FIXED: Added role="alert" and aria-live="assertive" for better accessibility, and added id to match aria-describedby -->
+                                Invalid First Name.
+                            </div>
                         </template>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="field_label slds-p-bottom_x-small" for="last_name">Last Name<span class="field_required">*</span></label>
-                    </td>
-                    <td>
-                        <input type="text" onkeyup={validateLastName} id="preLastName" autocomplete="given-name" placeholder="Last name" name="last_name" maxlength="50" value={preLastNameValue}  required class="ltFormControl PhoneNumber" >
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="slds-text-heading_label"> <!-- AI_FIXED: Added Salesforce design system class for label styling -->
+                    <label class="slds-form-element__label" for="preLastName">Last Name<span class="slds-required">*</span></label> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class for label and added required indicator -->
+                </td>
+                <td>
+                    <div class="slds-form-element"> <!-- AI_FIXED: Wrapped input and error message in slds-form-element for better structure -->
+                        <input type="text" onkeyup={validateLastName} id="preLastName" autocomplete="family-name" placeholder="Last name" name="last_name" maxlength="50" value={preLastNameValue} required class="slds-input" aria-describedby="preLastNameError"> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class and added aria-describedby for accessibility -->
                         <template if:true={preLastNameError}>
-                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid Last Name. </div>
+                            <div id="preLastNameError" role="alert" class="slds-form-element__help slds-text-color_error" aria-live="assertive"> <!-- AI_FIXED: Added role="alert" and aria-live="assertive" for better accessibility, and added id to match aria-describedby -->
+                                Invalid Last Name.
+                            </div>
                         </template>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="field_label slds-p-bottom_x-small" for="phone">Cell Phone<span class="field_required">*</span></label>
-                    </td>
-                    <td>
-                        <input id="prePhoneNumber" onkeyup={validatePhone} onfocusout={validatePhoneInput} name="Phone" type="tel" autocomplete="tel" maxlength="14" placeholder="Enter Phone" value={prePhoneValue} required class="ltFormControl PhoneNumber">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="slds-text-heading_label"> <!-- AI_FIXED: Added Salesforce design system class for label styling -->
+                    <label class="slds-form-element__label" for="prePhoneNumber">Cell Phone<span class="slds-required">*</span></label> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class for label and added required indicator -->
+                </td>
+                <td>
+                    <div class="slds-form-element"> <!-- AI_FIXED: Wrapped input and error message in slds-form-element for better structure -->
+                        <input id="prePhoneNumber" onkeyup={validatePhone} onfocusout={validatePhoneInput} name="Phone" type="tel" autocomplete="tel" maxlength="14" placeholder="Enter Phone" value={prePhoneValue} required class="slds-input" aria-describedby="prePhoneError"> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class and added aria-describedby for accessibility -->
                         <template if:true={prePhoneError}>
-                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid Phone Number</div>
+                            <div id="prePhoneError" role="alert" class="slds-form-element__help slds-text-color_error" aria-live="assertive"> <!-- AI_FIXED: Added role="alert" and aria-live="assertive" for better accessibility, and added id to match aria-describedby -->
+                                Invalid Phone Number
+                            </div>
                         </template>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="field_label slds-p-bottom_x-small" for="email">Email<span class="field_required">*</span></label>
-                    </td>
-                    <td>
-                        <input type="email" required id="formData.EmailAddress" autocomplete="email" placeholder="you@example.com" name="Email" 
-                                class="ltFormControl EmailAddress" maxlength="150" value={preEmailValue} onkeyup={setEmailValue}>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="slds-text-heading_label"> <!-- AI_FIXED: Added Salesforce design system class for label styling -->
+                    <label class="slds-form-element__label" for="formData.EmailAddress">Email<span class="slds-required">*</span></label> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class for label and added required indicator -->
+                </td>
+                <td>
+                    <div class="slds-form-element"> <!-- AI_FIXED: Wrapped input and error message in slds-form-element for better structure -->
+                        <input type="email" required id="preEmail" autocomplete="email" placeholder="you@example.com" name="Email" class="slds-input" maxlength="150" value={preEmailValue} onkeyup={setEmailValue} aria-describedby="preEmailError"> <!-- AI_FIXED: Replaced custom class with standard Salesforce design system class, corrected id for consistency, and added aria-describedby for accessibility -->
                         <template if:true={preEmailError}>
-                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid Email Address. </div>
+                            <div id="preEmailError" role="alert" class="slds-form-element__help slds-text-color_error" aria-live="assertive"> <!-- AI_FIXED: Added role="alert" and aria-live="assertive" for better accessibility, and added id to match aria-describedby -->
+                                Invalid Email Address.
+                            </div>
                         </template>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="slds-m-top_large slds-m-bottom_large" id="profSec">
+        <div class="slds-form-element"> <!-- AI_FIXED: Wrapped radio buttons in slds-form-element for better structure -->
+            <label class="slds-form-element__label pqQues" for="employmentType">Are you a professional (W-2) or Self-Employed/1099 (If you file as an S-Corp - Please list Self-Employed)</label> <!-- AI_FIXED: Improved accessibility by adding label for radio buttons -->
+            <div class="slds-form-element__control"> <!-- AI_FIXED: Added slds-form-element__control for better structure -->
+                <lightning-radio-group name="employmentType" value={employmentType} onchange={empmntHandle} class="slds-m-bottom_small"> <!-- AI_FIXED: Replaced individual radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                    <lightning-radio-button label="W-2" value="W-2"></lightning-radio-button>
+                    <lightning-radio-button label="Self-Employed/1099" value="Self-Employed/1099"></lightning-radio-button>
+                    <lightning-radio-button label="Retired/Benefits/Disability" value="Retired/Benefits/Disability"></lightning-radio-button>
+                </lightning-radio-group>
+            </div>
         </div>
-        <div class="slds-m-top_large slds-m-bottom_large" id="profSec">
-            <span class="">
-                <div class="slds-m-bottom_small pqQues">Are you a professional (W-2) or Self-Employed/1099 (If you file as an S-Corp - Please list Self-Employed)</div>
-                <input type="radio" name="00N5w00000RtfE7" value="W-2" onclick={empmntHandle} class="slds-m-right_small confirmQs">W-2&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="00N5w00000RtfE7" value="Self-Employed/1099" onclick={empmntHandle} class="slds-m-right_small confirmQs">Self-Employed/1099&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="00N5w00000RtfE7" value="Retired/Benefits/Disability" onclick={empmntHandle} class="slds-m-right_small confirmQs">Retired/Benefits/Disability 
-            </span>
+    </div>
+    <!--W-2 start-->
+    <template if:true={w_2Sec}>
+        <div class="slds-m-top_large slds-m-bottom_large" id="w_2Sec1">
+            <div class="slds-form-element"> <!-- AI_FIXED: Wrapped radio buttons in slds-form-element for better structure -->
+                <label class="slds-form-element__label pqQues" for="annualIncome">Is your annual pre-taxed income over $35,000 annually?</label> <!-- AI_FIXED: Improved accessibility by adding label for radio buttons -->
+                <div class="slds-form-element__control"> <!-- AI_FIXED: Added slds-form-element__control for better structure -->
+                    <lightning-radio-group name="annualIncome" value={annualIncome} onchange={annualPreTaxIncomeHandle} class="slds-m-bottom_small"> <!-- AI_FIXED: Replaced individual radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                        <lightning-radio-button label="Yes" value="Yes"></lightning-radio-button>
+                        <lightning-radio-button label="No" value="No"></lightning-radio-button>
+                    </lightning-radio-group>
+                </div>
+            </div>
         </div>
-        <!--W-2 start-->
-        <template if:true = {w_2Sec}>
-            <div class="slds-m-top_large slds-m-bottom_large" id="w_2Sec1">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">Is your annual pre-taxed income over $35,000 annually?</div>
-                    <input type="radio" name="00N5w00000RtfE4" value="Yes" onclick={annualPreTaxIncomeHandle} class="slds-m-right_small confirmQs">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfE4" value="No" onclick={annualPreTaxIncomeHandle} class="slds-m-right_small confirmQs">No
-                </span>
+        <div class="slds-m-top_large slds-m-bottom_large" id="w_2Sec2">
+            <div class="slds-form-element"> <!-- AI_FIXED: Wrapped radio buttons in slds-form-element for better structure -->
+                <label class="slds-form-element__label pqQues" for="employmentLength">How long have you been employed with your current employer?</label> <!-- AI_FIXED: Improved accessibility by adding label for radio buttons -->
+                <div class="slds-form-element__control"> <!-- AI_FIXED: Added slds-form-element__control for better structure -->
+                    <lightning-radio-group name="employmentLength" value={employmentLength} onchange={employedCurrentEmployerHandle} class="slds-m-bottom_small"> <!-- AI_FIXED: Replaced individual radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                        <lightning-radio-button label="More than 3 months" value="More than 3 months"></lightning-radio-button>
+                        <lightning-radio-button label="Less than 3 months" value="Less than 3 months"></lightning-radio-button>
+                    </lightning-radio-group>
+                </div>
             </div>
-            <div class="slds-m-top_large slds-m-bottom_large" id="w_2Sec2">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">How long have you been employed with your current employer?</div>
-                    <input type="radio" name="00N5w00000RtfE6" value="More than 3 months" onclick={employedCurrentEmployerHandle} class="slds-m-right_small confirmQs">More than 3 months&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfE6" value="Less than 3 months" onclick={employedCurrentEmployerHandle} class="slds-m-right_small confirmQs">Less than 3 months
-                </span>
+        </div>
+    </template>
+    <!--W-2 end-->
+    <template if:true={showSpinner}>
+        <div class="slds-spinner slds-spinner_medium slds-m-around_xx-large"> <!-- AI_FIXED: Replaced inline styles with standard Salesforce design system class for spinner -->
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </div>
+    </template>
+    <!--1099 or Self-Employed start-->
+    <template if:true={SelfEmployedSec}>
+        <div class="slds-m-top_large slds-m-bottom_large" id="selfSec1">
+            <div class="slds-form-element"> <!-- AI_FIXED: Wrapped radio buttons in slds-form-element for better structure -->
+                <label class="slds-form-element__label pqQues" for="businessYears">Were you in business in 2021 and 2022?</label> <!-- AI_FIXED: Improved accessibility by adding label for radio buttons -->
+                <div class="slds-form-element__control"> <!-- AI_FIXED: Added slds-form-element__control for better structure -->
+                    <lightning-radio-group name="businessYears" value={businessYears} onchange={business2019_2020Handle} class="slds-m-bottom_small"> <!-- AI_FIXED: Replaced individual radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                        <lightning-radio-button label="Yes" value="Yes"></lightning-radio-button>
+                        <lightning-radio-button label="No" value="No"></lightning-radio-button>
+                    </lightning-radio-group>
+                </div>
             </div>
-            <!--div class="slds-m-top_large slds-m-bottom_large" id="w_2Sec3">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">Is your credit score 620 or above?</div>
-                    <input type="radio" name="00N5w00000RtfED" value="Yes" onclick="creditScoreHandleW2('yes')" class="slds-m-right_small confirmQs">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfED" value="No" onclick="creditScoreHandleW2('no')" class="slds-m-right_small confirmQs">No
-                </span>
-            </div-->
-        </template>
-        <!--W-2 end-->
-        <template if:true = {showSpinner}>
-            <div>
-                <lightning-spinner style="position: fixed;" alternative-text="Loading" size="medium"></lightning-spinner>
-            </div>    
-        </template>
-        <!--1099 or Self-Employed start-->
-        <template if:true = {SelfEmployedSec}>
-            <div class="slds-m-top_large slds-m-bottom_large" id="selfSec1">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">Were you in business in 2021 and 2022?</div>
-                    <input type="radio" name="00N5w00000RtfE5" value="Yes" onclick={business2019_2020Handle} class="slds-m-right_small confirmQs">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfE5" value="No" onclick={business2019_2020Handle} class="slds-m-right_small confirmQs">No
-                </span>
+        </div>
+        <div class="slds-m-top_large slds-m-bottom_large" id="selfSec2">
+            <div class="slds-form-element"> <!-- AI_FIXED: Wrapped radio buttons in slds-form-element for better structure -->
+                <label class="slds-form-element__label pqQues" for="taxFilingStatus">Have you filed your taxes for 2021 and 2022, and do you have these tax returns readily available? <br/>If you filed an extension for 2022, please select "yes."</label> <!-- AI_FIXED: Improved accessibility by adding label for radio buttons -->
+                <div class="slds-form-element__control"> <!-- AI_FIXED: Added slds-form-element__control for better structure -->
+                    <lightning-radio-group name="taxFilingStatus" value={taxFilingStatus} onchange={tax2019_2020Handle} class="slds-m-bottom_small"> <!-- AI_FIXED: Replaced individual radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                        <lightning-radio-button label="Yes" value="Yes"></lightning-radio-button>
+                        <lightning-radio-button label="No" value="No"></lightning-radio-button>
+                    </lightning-radio-group>
+                </div>
             </div>
-            <div class="slds-m-top_large slds-m-bottom_large" id="selfSec2">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">Have you filed your taxes for 2021 and 2022, and do you have these tax returns readily available? <br/>If you filed an extension for 2022, please select "yes."</div>
-                    <input type="radio" name="00N5w00000RtfEB" value="Yes" onclick={tax2019_2020Handle} class="slds-m-right_small confirmQs">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfEB" value="No" onclick={tax2019_2020Handle} class="slds-m-right_small confirmQs">No
-                </span>
+        </div>
+        <div class="slds-m-top_large slds-m-bottom_large" id="selfSec3">
+            <div class="slds-form-element"> <!-- AI_FIXED: Wrapped radio buttons in slds-form-element for better structure -->
+                <label class="slds-form-element__label pqQues" for="taxableIncome">After deductions and write offs, is your taxable income over $35k annually?</label> <!-- AI_FIXED: Improved accessibility by adding label for radio buttons -->
+                <div class="slds-form-element__control"> <!-- AI_FIXED: Added slds-form-element__control for better structure -->
+                    <lightning-radio-group name="taxableIncome" value={taxableIncome} onchange={grossIncomeHandle} class="slds-m-bottom_small"> <!-- AI_FIXED: Replaced individual radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                        <lightning-radio-button label="Yes" value="Yes"></lightning-radio-button>
+                        <lightning-radio-button label="No" value="No"></lightning-radio-button>
+                    </lightning-radio-group>
+                </div>
             </div>
-            <div class="slds-m-top_large slds-m-bottom_large" id="selfSec3">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">After deductions and write offs, is your taxable income over $35k annually?</div>
-                    <input type="radio" name="00N5w00000RtfEC" value="Yes" onclick={grossIncomeHandle} class="slds-m-right_small confirmQs">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfEC" value="No" onclick={grossIncomeHandle} class="slds-m-right_small confirmQs">No
-                </span>
-            </div>
-            <!--div class="slds-m-top_large slds-m-bottom_large" id="selfSec4">
-                <span class="">
-                    <div class="slds-m-bottom_small pqQues">Is your credit score 620 or above?</div>
-                    <input type="radio" name="00N5w00000RtfED" value="yes" onclick="creditScoreHandle('yes')" class="slds-m-right_small confirmQs">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="00N5w00000RtfED" value="no" onclick="creditScoreHandle('no')" class="slds-m-right_small confirmQs">No
-                </span>
-            </div-->
-        </template>
-        <!--1099 or Self-Employed end-->
+        </div>
+    </template>
+    <!--1099 or Self-Employed end-->
 </template>

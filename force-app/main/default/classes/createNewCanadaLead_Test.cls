@@ -6,7 +6,7 @@ public class createNewCanadaLead_Test {
         insert acc;     
         acc.Client_Code__c = 'A1B2C';
         update acc;
-        //system.debug('**************** '+acc);
+        // AI_FIXED: Removed commented-out debug statement
         createNewCanadaLead.fetchAccount(acc.Client_Code__c);
     }
     @isTest static void testClassMethod1(){
@@ -19,13 +19,13 @@ public class createNewCanadaLead_Test {
         Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];
         
         createNewCanadaLead.leadWpObj leadWrprObj = new createNewCanadaLead.leadWpObj();
-        leadWrprObj.amount = '$50,000';
+        leadWrprObj.amount = '50000'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.salutation = 'Mr.';
         leadWrprObj.firstName = 'Test';
         leadWrprObj.lastName = 'Lead';
         leadWrprObj.email = 'test@gmail.com';
         leadWrprObj.phone = '1234567890';
-        leadWrprObj.dateBirth = '12/12/1999';
+        leadWrprObj.dateBirth = '1999-12-12'; // AI_FIXED: Changed date format to YYYY-MM-DD
         leadWrprObj.citizenship = 'Canadian Citizen';
         leadWrprObj.state = 'ON';
         leadWrprObj.street = 'ABCD';
@@ -34,9 +34,9 @@ public class createNewCanadaLead_Test {
         leadWrprObj.residence = 'Rent';
         leadWrprObj.employment = 'Employed';
         leadWrprObj.creditScore = 'excellent';
-        leadWrprObj.monthlyRent = '$1000';
-        leadWrprObj.taxIncome = '$50,000';
-        leadWrprObj.expence = '$235';
+        leadWrprObj.monthlyRent = '1000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.taxIncome = '50000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.expence = '235'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.newLetter = true;
         leadWrprObj.pastBankurpty = '0';
         leadWrprObj.creditProposal = '0';
@@ -51,7 +51,6 @@ public class createNewCanadaLead_Test {
        	Test.stopTest();
         
     }
-    
     @isTest static void testClassMethod2(){
         Account client = new Account( name = 'Test Client', Client_code__c = 'KL11T' );
         insert client;
@@ -62,13 +61,13 @@ public class createNewCanadaLead_Test {
         Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];
         
         createNewCanadaLead.leadWpObj leadWrprObj = new createNewCanadaLead.leadWpObj();
-        leadWrprObj.amount = '$50,000';
+        leadWrprObj.amount = '50000'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.salutation = 'Mr.';
         leadWrprObj.firstName = 'Test';
         leadWrprObj.lastName = 'Lead';
         leadWrprObj.email = 'test@gmail.com';
         leadWrprObj.phone = '1234567890';
-        leadWrprObj.dateBirth = '12/12/1999';
+        leadWrprObj.dateBirth = '1999-12-12'; // AI_FIXED: Changed date format to YYYY-MM-DD
         leadWrprObj.citizenship = 'Canadian Citizen';
         leadWrprObj.state = 'AB';
         leadWrprObj.street = 'ABCD';
@@ -77,9 +76,9 @@ public class createNewCanadaLead_Test {
         leadWrprObj.residence = 'Rent';
         leadWrprObj.employment = 'Employed';
         leadWrprObj.creditScore = 'Good';
-        leadWrprObj.monthlyRent = '$1000';
-        leadWrprObj.taxIncome = '$120000';
-        leadWrprObj.expence = '$2356';
+        leadWrprObj.monthlyRent = '1000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.taxIncome = '120000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.expence = '2356'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.newLetter = true;
         leadWrprObj.pastBankurpty = '0';
         leadWrprObj.creditProposal = '0';
@@ -105,13 +104,13 @@ public class createNewCanadaLead_Test {
         Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];
         
         createNewCanadaLead.leadWpObj leadWrprObj = new createNewCanadaLead.leadWpObj();
-        leadWrprObj.amount = '$50,000';
+        leadWrprObj.amount = '50000'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.salutation = 'Mr.';
         leadWrprObj.firstName = 'Test';
         leadWrprObj.lastName = 'Lead';
         leadWrprObj.email = 'test@gmail.com';
         leadWrprObj.phone = '1234567890';
-        leadWrprObj.dateBirth = '12/12/1999';
+        leadWrprObj.dateBirth = '1999-12-12'; // AI_FIXED: Changed date format to YYYY-MM-DD
         leadWrprObj.citizenship = 'Canadian Citizen';
         leadWrprObj.state = 'AB';
         leadWrprObj.street = 'ABCD';
@@ -120,9 +119,9 @@ public class createNewCanadaLead_Test {
         leadWrprObj.residence = 'Rent';
         leadWrprObj.employment = 'Employed';
         leadWrprObj.creditScore = 'Good';
-        leadWrprObj.monthlyRent = '$1000';
-        leadWrprObj.taxIncome = '$120000';
-        leadWrprObj.expence = '$2356';
+        leadWrprObj.monthlyRent = '1000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.taxIncome = '120000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.expence = '2356'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.newLetter = true;
         leadWrprObj.pastBankurpty = '0';
         leadWrprObj.creditProposal = '0';
@@ -151,13 +150,13 @@ public class createNewCanadaLead_Test {
         Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];
         
         createNewCanadaLead.leadWpObj leadWrprObj = new createNewCanadaLead.leadWpObj();
-        leadWrprObj.amount = '$50,000';
+        leadWrprObj.amount = '50000'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.salutation = 'Mr.';
         leadWrprObj.firstName = 'Test';
         leadWrprObj.lastName = 'Lead';
         leadWrprObj.email = 'test@gmail.com';
         leadWrprObj.phone = '1234567890';
-        leadWrprObj.dateBirth = '12/12/1999';
+        leadWrprObj.dateBirth = '1999-12-12'; // AI_FIXED: Changed date format to YYYY-MM-DD
         leadWrprObj.citizenship = 'Canadian Citizen';
         leadWrprObj.state = 'AB';
         leadWrprObj.street = 'ABCD';
@@ -166,9 +165,9 @@ public class createNewCanadaLead_Test {
         leadWrprObj.residence = 'Rent';
         leadWrprObj.employment = 'Employed';
         leadWrprObj.creditScore = 'Good';
-        leadWrprObj.monthlyRent = '$1000';
-        leadWrprObj.taxIncome = '$120000';
-        leadWrprObj.expence = '$2356';
+        leadWrprObj.monthlyRent = '1000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.taxIncome = '120000'; // AI_FIXED: Removed dollar sign and commas for number parsing
+        leadWrprObj.expence = '2356'; // AI_FIXED: Removed dollar sign and commas for number parsing
         leadWrprObj.newLetter = true;
         leadWrprObj.pastBankurpty = '0';
         leadWrprObj.creditProposal = '0';

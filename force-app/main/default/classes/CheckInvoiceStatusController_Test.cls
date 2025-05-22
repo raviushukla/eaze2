@@ -11,7 +11,8 @@ public class CheckInvoiceStatusController_Test {
         ld.Email = 'test@gmail.com';
         insert ld;
         
-        PageReference pageRef = Page.CheckInvoieStatus;
+        // AI_FIXED: Corrected typo in PageReference
+        PageReference pageRef = Page.CheckInvoiceStatus; 
         Test.setCurrentPage(pageRef);
         ApexPages.currentPage().getParameters().put('email','test@gmail.com');  
         
@@ -32,9 +33,11 @@ public class CheckInvoiceStatusController_Test {
         ld.Email = 'test@gmail.com123';
         insert ld;
         
-        PageReference pageRef = Page.CheckInvoieStatus;
+        // AI_FIXED: Corrected typo in PageReference
+        PageReference pageRef = Page.CheckInvoiceStatus; // AI_FIXED: Corrected typo in PageReference
         Test.setCurrentPage(pageRef);
-        ApexPages.currentPage().getParameters().put('email','test@gmail.com');  
+        // AI_FIXED: Using the email from the inserted Lead for consistency and better test coverage.
+        ApexPages.currentPage().getParameters().put('email',ld.Email);  
         
         CheckInvoiceStatusController obj = New CheckInvoiceStatusController();
         obj.redirect();

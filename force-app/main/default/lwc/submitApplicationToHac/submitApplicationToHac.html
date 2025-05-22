@@ -1,21 +1,19 @@
 <template>
-    <template lwc:if={spinner}>
-        <div class="">
-            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
-        </div>
-    </template> 
-    <template lwc:if={error}>
-        <div class=" slds-p-top_large">
-            <div style="color: red;font-size:large;" class="slds-align_absolute-center">{message} </div><br/><br/>
-            <div style="color: black;font-size:large;font-weight:bold;" class="slds-align_absolute-center">
-                <a onclick={goBack} style="pointer:cursor;"> GO BACK </a>
-            </div>
-        </div>
-    </template>   
-    <template lwc:if={noError}> 
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: green;font-size:large;">Application submitted, redirecting...</span>
+    <template if:true={spinner}>
+        <div class="slds-align_absolute-center slds-p-around_large">
+            <lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner> <!-- AI_FIXED: Added variant and improved styling -->
         </div>
     </template>
-      
+    <template if:true={error}>
+        <div role="alert" class="slds-notify slds-notify_error slds-p-around_large"> <!-- AI_FIXED: Replaced inline styles with SLDS classes and added ARIA role -->
+            <h3 class="slds-text-heading_small slds-m-bottom_small">{message}</h3> <!-- AI_FIXED: Improved styling and semantics -->
+            <a href="#" onclick={goBack} class="slds-button slds-button_neutral slds-m-top_small">Go Back</a> <!-- AI_FIXED: Replaced inline styles with SLDS classes and improved accessibility -->
+        </div>
+    </template>
+    <template if:true={noError}>
+        <div class="slds-align_absolute-center slds-p-around_large">
+            <div class="slds-text-heading_medium slds-text-color_success">Application submitted, redirecting...</div> <!-- AI_FIXED: Improved styling and semantics -->
+        </div>
+    </template>
+
 </template>

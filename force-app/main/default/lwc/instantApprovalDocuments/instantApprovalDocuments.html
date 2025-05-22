@@ -1,30 +1,45 @@
 <template>
-    <table style="width:100%;" cellspacing="0">
-        <tr>
-            <th colspan="2" style="text-align:center;" >Actions</th>
-            <th>Title</th>
-            <th>Created Date</th>
-        </tr>
-        <template for:each={filesListUsed} for:item="file">
-            <tr style="border: 1px solid black;" key={file.value} >
-                <td class="slds-p-around_medium" style="text-align:center;"><a href={file.previewUrl} target="_blank" >Preview</a></td>
-                <td class="slds-p-around_medium" style="text-align:center;">
-                    <lightning-button
-                        variant="brand"
-                        label="Download"
-                        icon-name="utility:download"
-                        icon-position="right"
-                        onclick={handleDownloadClick}
-                        data-url={file.url}
-                    >
-                    </lightning-button>
-                </td>
-                <td class="slds-p-around_medium"><Strong><a href={file.previewUrl} target="_blank" >{file.title}</a></Strong></td>
-                <td class="slds-p-around_medium">{file.createdDate}</td>
+    <table class="slds-table slds-table_cell-buffer" role="grid" aria-label="Approved Documents">
+        <thead role="rowgroup">
+            <tr role="row">
+                <th scope="col" aria-label="Actions">Actions</th>
+                <th scope="col" aria-label="Title">Title</th>
+                <th scope="col" aria-label="Created Date">Created Date</th>
             </tr>
-        </template>
-        <tr>
-            <td style="text-align: end;" class="slds-p-around_xx-small" colspan="4" ><a href="javascript:void(0);" onclick={showList}>Show more</a></td>
-        </tr>
+        </thead>
+        <tbody role="rowgroup">
+            <template for:each={filesListUsed} for:item="file">
+                <tr key={file.Id} role="row" class="slds-hint-parent"> <!-- AI_FIXED: Added key based on unique Id, role and class for accessibility and styling -->
+                    <td role="gridcell" class="slds-text-align_center"> <!-- AI_FIXED: Added role and class for better accessibility and styling -->
+                        <a href={file.previewUrl} target="_blank" title="Preview Document">Preview</a> <!-- AI_FIXED: Added title attribute for better accessibility -->
+                    </td>
+                    <td role="gridcell" class="slds-text-align_center"> <!-- AI_FIXED: Added role and class for better accessibility and styling -->
+                        <lightning-button
+                            variant="brand"
+                            label="Download"
+                            icon-name="utility:download"
+                            icon-position="right"
+                            title="Download Document"  <!-- AI_FIXED: Added title attribute for better accessibility -->
+                            onclick={handleDownloadClick}
+                            data-url={file.url}
+                        >
+                        </lightning-button>
+                    </td>
+                    <td role="gridcell"> <!-- AI_FIXED: Added role for better accessibility -->
+                        <a href={file.previewUrl} target="_blank" title={file.title}> {file.title}</a> <!-- AI_FIXED: Added title attribute for better accessibility -->
+                    </td>
+                    <td role="gridcell"> <!-- AI_FIXED: Added role for better accessibility -->
+                        {file.createdDate}
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+        <tfoot>
+            <tr role="row">
+                <td colspan="4" class="slds-text-align_right slds-p-around_xx-small"> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+                    <a href="javascript:void(0);" onclick={showList} role="button" aria-label="Show More Documents">Show more</a> <!-- AI_FIXED: Added role and aria-label for better accessibility -->
+                </td>
+            </tr>
+        </tfoot>
     </table>
- </template>
+</template>

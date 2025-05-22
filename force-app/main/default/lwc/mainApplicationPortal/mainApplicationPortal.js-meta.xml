@@ -2,4 +2,6 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
     <isExposed>true</isExposed>
+    <!-- AI_FIXED: Added description for better metadata organization and clarity -->
+    <description>Main application portal component</description>
 </LightningComponentBundle>

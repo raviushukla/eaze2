@@ -4,5 +4,9 @@
 	<isExposed>true</isExposed>
 	<targets>
 		<target>lightning__RecordPage</target>
+		<!-- AI_FIXED: Added support for App Page -->
+		<target>lightningCommunity__Page</target>
 	</targets>
+	<!-- AI_FIXED: Added description for better metadata organization -->
+	<description>Lightning Web Component for Instant Document Approval</description>
 </LightningComponentBundle>

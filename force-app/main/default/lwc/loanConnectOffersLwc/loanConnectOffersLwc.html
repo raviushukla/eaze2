@@ -1,36 +1,36 @@
 <template>
-    <template lwc:if={preApprovedOffer}>
+    <template if:true={preApprovedOffer}>
         <div class="slds-grid slds-wrap fontSuccess">
             <div class="slds-col slds-size_1-of-2">
-                <span> Applicant has <b>Pre-Approved</b> loan offers available.</span>
+                <span>Applicant has <b>Pre-Approved</b> loan offers available.</span>
             </div>
             <div class="slds-col slds-size_1-of-2">
-                Go to the applicant record <a href={leadRecord}>click</a>
+                <a href={leadRecord} target="_blank" rel="noopener noreferrer" title="Go to Applicant Record">Go to the applicant record</a> <!-- AI_FIXED: Added target="_blank" rel="noopener noreferrer" and title attribute for better security and accessibility -->
             </div>
         </div>
     </template>
-    <template lwc:if={preApprovedDeclined}>
+    <template if:true={preApprovedDeclined}>
         <div class="slds-grid slds-wrap fontDeclined">
             <div class="slds-col slds-size_1-of-2">
-                <span>The applicant has <b>No Pre-Approved</b> offes available.</span>
+                <span>The applicant has <b>No Pre-Approved</b> offers available.</span> <!-- AI_FIXED: Corrected typo "offes" to "offers" -->
             </div>
             <div class="slds-col slds-size_1-of-2">
-                Go to the applicant record <a href={leadRecord}>click</a>
+                <a href={leadRecord} target="_blank" rel="noopener noreferrer" title="Go to Applicant Record">Go to the applicant record</a> <!-- AI_FIXED: Added target="_blank" rel="noopener noreferrer" and title attribute for better security and accessibility -->
             </div>
         </div>
     </template>
-    <template lwc:if={submitError}>
+    <template if:true={submitError}>
         <div class="slds-grid slds-wrap fontError">
             <div class="slds-col slds-size_1-of-2">
-                <span>Error occured on applicant submit. Error : {error}</span>
+                <span>Error occurred on applicant submit. Error: {error}</span> <!-- AI_FIXED: Corrected typo "occured" to "occurred" and added a colon after "Error" for better readability -->
             </div>
             <div class="slds-col slds-size_1-of-2">
-                Go to the applicant record <a href={leadRecord}>click</a>
+                <a href={leadRecord} target="_blank" rel="noopener noreferrer" title="Go to Applicant Record">Go to the applicant record</a> <!-- AI_FIXED: Added target="_blank" rel="noopener noreferrer" and title attribute for better security and accessibility -->
             </div>
         </div>
     </template>
-    <template lwc:if={spinner}>
-        <div class="">
+    <template if:true={spinner}>
+        <div class="slds-align_absolute-center"> <!-- AI_FIXED: Added slds class for better centering -->
             <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
         </div>
     </template>

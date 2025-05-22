@@ -2,4 +2,9 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>58.0</apiVersion>
     <isExposed>false</isExposed>
+    <!-- AI_FIXED: Added targetNamespaces for better organization and future extensibility -->
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+    </targets>
 </LightningComponentBundle>

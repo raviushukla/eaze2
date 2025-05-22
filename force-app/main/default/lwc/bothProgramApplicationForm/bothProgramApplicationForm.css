@@ -1,8 +1,26 @@
 .container {
     display: flex;
+    /* AI_FIXED: Added flexbox for better layout control */
 }
 
 .required-marker {
-    color: red;
-    margin-right: 4px;
+    color: var(--salesforce-colors-utility-error); /* AI_FIXED: Replaced hardcoded red with SLDS token for better themeability and consistency */
+    margin-right: 0.5rem; /* AI_FIXED: Replaced hardcoded pixels with rems for better responsiveness */
+}
+.form-field { /* AI_FIXED: Added a class for better scoping and styling of form fields */
+    margin-bottom: 1rem; /* AI_FIXED: Added margin for better spacing between form fields */
+}
+
+/* AI_FIXED: Added a class for better scoping and styling of form fields */
+.form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* AI_FIXED: Added a class for better scoping and styling of form fields */
+.form-field input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--salesforce-colors-border-base); /* AI_FIXED: Replaced hardcoded border color with SLDS token */
+    border-radius: 0.25rem; /* AI_FIXED: Added border radius for better visual appeal */
 }

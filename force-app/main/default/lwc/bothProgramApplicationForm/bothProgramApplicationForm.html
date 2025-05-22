@@ -1,276 +1,164 @@
 <template>
-    <template if:true = {showSpinner}>
-        <lightning-spinner alternative-text="Loading" size="medium" class=""></lightning-spinner>
+    <template if:true={showSpinner}>
+        <!-- AI_FIXED: Corrected if:true condition syntax -->
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
     </template>
     <lightning-record-edit-form object-api-name="Guaranteed_Approval_Application__c" onsubmit={handleSubmit} onload={formOnLoad} onsuccess={handleSuccess}>
         <div class="slds-p-around_medium">
             <div class="slds-grid slds-wrap slds-p-top_small">
-                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-3" style="margin-left: auto;margin-right: auto;border: 2px solid black;">
-                    <div style="text-align: center;font-weight:bold">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-3 slds-m-auto">
+                    <!-- AI_FIXED: Replaced inline styles with SLDS classes for better maintainability and responsiveness -->
+                    <div class="slds-text-heading_medium slds-text-align_center">
+                        <!-- AI_FIXED: Improved heading structure and styling -->
                         <p>MAIN PROGRAM AND DIRECT GUARANTEED APPROVAL WITH EAZE</p>
                         <p>CLIENT APPLICATION</p> 
                     </div>
                     <div class="slds-grid slds-wrap">
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-align_absolute-center">
-                            Name of your associate : <lightning-input-field data-id="associate" field-name="Associate__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1">
+                            <lightning-input-field data-id="associate" field-name="Associate__c" label="Name of your associate" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Date:<lightning-input-field data-id="todayDate" field-name="Form_Filled_Date__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field data-id="todayDate" field-name="Form_Filled_Date__c" label="Date" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Date Company Established:<lightning-input-field field-name="Date_Company_Established__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Date_Company_Established__c" label="Date Company Established" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
-                            Corporate/Business Name:<lightning-input-field field-name="Corporate_Business_Name__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1">
+                            <lightning-input-field field-name="Corporate_Business_Name__c" label="Corporate/Business Name" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            DBA: <lightning-input-field field-name="DBA__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="DBA__c" label="DBA" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Company Website:<lightning-input-field field-name="Company_Website__c" variant="label-hidden" required="true" onfocusout={validateWebsite}></lightning-input-field>
-                            <p data-id="Company_Website__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Company_Website__c" label="Company Website" required onfocusout={validateWebsite}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Company_Website__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
-                            Address:<lightning-input-field field-name="Address__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1">
+                            <lightning-input-field field-name="Address__c" label="Address" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3">
-                            City: <lightning-input-field field-name="City__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-3">
+                            <lightning-input-field field-name="City__c" label="City" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3">
-                            State:<lightning-input-field field-name="State__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-3">
+                            <lightning-input-field field-name="State__c" label="State" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>  
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3">
-                            Zip:<lightning-input-field field-name="Zip__c" variant="label-hidden" required="true" onkeyup={formatZip} onfocusout={validateZip}></lightning-input-field>
-                            <p data-id="Zip__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-3">
+                            <lightning-input-field field-name="Zip__c" label="Zip" required onkeyup={formatZip} onfocusout={validateZip}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Zip__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Phone #:<lightning-input-field field-name="Phone__c" variant="label-hidden" required="true" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
-                            <p data-id="Phone__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Phone__c" label="Phone #" required onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Phone__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Company Email:<lightning-input-field field-name="Company_Email__c" variant="label-hidden" placeholder="registered with Eaze Consulting" required="true" onfocusout={validateEmail}></lightning-input-field>
-                            <p data-id="Company_Email__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Company_Email__c" label="Company Email" placeholder="registered with Eaze Consulting" required onfocusout={validateEmail}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Company_Email__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
-                            Property Owned by/or Landlord Name:<lightning-input-field field-name="Property_Owned_by_or_Landlord_Name__c" variant="label-hidden" onkeyup={formatOnlyText}></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1">
+                            <lightning-input-field field-name="Property_Owned_by_or_Landlord_Name__c" label="Property Owned by/or Landlord Name" onkeyup={formatOnlyText}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Address:<lightning-input-field field-name="Property_Owner_Address__c" variant="label-hidden"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Property_Owner_Address__c" label="Address"></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Phone #:<lightning-input-field field-name="Property_Owner_Phone__c" variant="label-hidden" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
-                            <p data-id="Property_Owner_Phone__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Property_Owner_Phone__c" label="Phone #" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Property_Owner_Phone__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1"><!--PRINCIPAL/OWNERS/OFFICERS-->
-                            <span style="font-weight:bold;">PRINCIPAL/OWNERS/OFFICERS:</span>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1">
+                            <span class="slds-text-heading_small slds-text-bold_medium">PRINCIPAL/OWNERS/OFFICERS:</span>
+                            <!-- AI_FIXED: Improved styling for section heading -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Name: <lightning-input-field field-name="Principal_Name_1__c" variant="label-hidden" required="true" onkeyup={formatOnlyText}></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_Name_1__c" label="Name" required onkeyup={formatOnlyText}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
-                            Name: <lightning-input-field field-name="Principal_Name_2__c" variant="label-hidden" onkeyup={formatOnlyText}></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2"> 
+                            <lightning-input-field field-name="Principal_Name_2__c" label="Name" onkeyup={formatOnlyText}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Title:<lightning-input-field field-name="Principal_1_Title__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_1_Title__c" label="Title" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Title:<lightning-input-field field-name="Principal_2_Title__c" variant="label-hidden"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_2_Title__c" label="Title"></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Address:<lightning-input-field field-name="Principal_Address_1__c" variant="label-hidden" required="true"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_Address_1__c" label="Address" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Address:<lightning-input-field field-name="Principal_Address_2__c" variant="label-hidden"></lightning-input-field>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_Address_2__c" label="Address"></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Phone:<lightning-input-field field-name="Principal_Phone_1__c" variant="label-hidden" required="true" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
-                            <p data-id="Principal_Phone_1__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_Phone_1__c" label="Phone" required onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Principal_Phone_1__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            Phone:<lightning-input-field field-name="Principal_Phone_2__c" variant="label-hidden" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
-                            <p data-id="Principal_Phone_2__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_Phone_2__c" label="Phone" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Principal_Phone_2__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            SS #:<lightning-input-field field-name="Principal_1_SS__c" variant="label-hidden" required="true" onkeyup={formatSSN} onfocusout={validateSSN}></lightning-input-field>
-                            <p data-id="Principal_1_SS__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_1_SS__c" label="SS #" required onkeyup={formatSSN} onfocusout={validateSSN}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Principal_1_SS__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
-                            SS #:<lightning-input-field field-name="Principal_2_SS__c" variant="label-hidden" onkeyup={formatSSN} onfocusout={validateSSN}></lightning-input-field>
-                            <p data-id="Principal_2_SS__c_Id" style="color:red;display:none">Invalid Input</p>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input-field field-name="Principal_2_SS__c" label="SS #" onkeyup={formatSSN} onfocusout={validateSSN}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Principal_2_SS__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
-                        <!--div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
-                            <span style="font-weight:bold;">TRADE REFERENCES: -</span><span>Include: Address, Telephone #, and Account #</span>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            <lightning-input-field field-name="Trade_Name_1__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Address:<lightning-input-field field-name="Trade_Address_1__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Phone #:<lightning-input-field field-name="Trade_Phone_1__c" variant="label-hidden" onkeyup={formatPhone}></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            A/C #:<lightning-input-field field-name="Trade_A_C_1__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            <lightning-input-field field-name="Trade_Name_2__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Address:<lightning-input-field field-name="Trade_Address_2__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Phone #:<lightning-input-field field-name="Trade_Phone_2__c" variant="label-hidden" onkeyup={formatPhone}></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            A/C #:<lightning-input-field field-name="Trade_A_C_2__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            <lightning-input-field field-name="Trade_Name_3__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Address:<lightning-input-field field-name="Trade_Address_3__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Phone #:<lightning-input-field field-name="Trade_Phone_3__c" variant="label-hidden" onkeyup={formatPhone}></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            A/C #:<lightning-input-field field-name="Trade_A_C_3__c" variant="label-hidden"></lightning-input-field>
-                        </div-->
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1"><!--BUSINESS CHECKING ACCOUNT-->
-                            <span style="font-weight:bold;">BUSINESS CHECKING ACCOUNT:</span>
+                        <div class="slds-col slds-p-around_small slds-size_1-of-1">
+                            <span class="slds-text-heading_small slds-text-bold_medium">BUSINESS CHECKING ACCOUNT:</span>
+                            <!-- AI_FIXED: Improved styling for section heading -->
                         </div>
                         <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
-                            Bank Name:<lightning-input-field field-name="Bank_Name__c" variant="label-hidden" required="true"></lightning-input-field>
+                            <lightning-input-field field-name="Bank_Name__c" label="Bank Name" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
                         <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
-                            Account #:<lightning-input-field field-name="Account_Number__c" variant="label-hidden" required="true" onkeyup={formatNumber} onfocusout={validateAccountNum}></lightning-input-field>
-                            <p data-id="Account_Number__c_Id" style="color:red;display:none">Invalid Input</p>
+                            <lightning-input-field field-name="Account_Number__c" label="Account #" required onkeyup={formatNumber} onfocusout={validateAccountNum}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Account_Number__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
                         <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
-                            Bank Routing #:<lightning-input-field field-name="Bank_Routing__c" variant="label-hidden" required="true" onkeyup={formatNumber} onfocusout={validateSSN}></lightning-input-field>
-                            <p data-id="Bank_Routing__c_Id" style="color:red;display:none">Invalid Input</p>
+                            <lightning-input-field field-name="Bank_Routing__c" label="Bank Routing #" required onkeyup={formatNumber} onfocusout={validateSSN}></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
+                            <p data-id="Bank_Routing__c_Id" class="slds-text-color_error slds-hide">Invalid Input</p>
+                            <!-- AI_FIXED: Improved error message styling and visibility -->
                         </div>
                         <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            City:<lightning-input-field field-name="Bank_City__c" variant="label-hidden" required="true"></lightning-input-field>
+                            <lightning-input-field field-name="Bank_City__c" label="City" required></lightning-input-field>
+                            <!-- AI_FIXED: Added label to lightning-input-field for better accessibility -->
                         </div>
                         <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            State:<lightning-input-field field-name="Bank_State__c" variant="label-hidden" required="true"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Phone #:<lightning-input-field field-name="Bank_Phone__c" variant="label-hidden" required="true" onkeyup={formatPhone} onfocusout={validatePhone}></lightning-input-field>
-                            <p data-id="Bank_Phone__c_Id" style="color:red;display:none">Invalid Input</p>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Contact:<lightning-input-field field-name="Bank_Contact__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1"><!--PRINCIPAL/OWNERS/OFFICERS-->
-                            <span style="font-weight:bold;">BUSINESS INFO:</span>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
-                            How long have you been in Business?:<lightning-input-field field-name="Been_In_Business_Years__c" variant="label-hidden" required="true"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
-                            How many Sales Agent do you have?:<lightning-input-field field-name="Number_of_Sales_Agent__c" variant="label-hidden" required="true"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
-                            Who were you referred by? #:<lightning-input-field field-name="Referred_By__c" variant="label-hidden" required="true"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Name of Associate who handles of Accounting:<lightning-input-field field-name="Accounting_Associate__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            Email address of accounting contact:<lightning-input-field field-name="Accounting_Associate_Contact_Email__c" variant="label-hidden"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            What was your total Sales in 2023?:<lightning-input-field field-name="Total_Sales_For_2023__c" variant="label-hidden" required="true"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
-                            What state is your business incorporated:<lightning-input-field field-name="Business_Incorporation_State__c" variant="label-hidden" required="true"></lightning-input-field>
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1"><!--OFFICE PROFILE-->
-                            <span style="font-weight:bold;">OFFICE PROFILE:</span>
-                            <p>What is your current revenue per month? <lightning-input-field field-name="Current_Revenue_Per_Month__c" variant="label-hidden" required="true"></lightning-input-field></p>
-                            <p>Average Requested Amount: <lightning-input-field field-name="Average_Requested_Amount__c" variant="label-hidden" required="true"></lightning-input-field></p>
-                            <p>How many clients request financing per week?<lightning-input-field field-name="Financing_Request_Per_Week__c" variant="label-hidden" required="true" ></lightning-input-field></p>
-                            <p>Brief description of the services/products you provide:</p>
-                            <lightning-input-field field-name="Service_Product_Description__c" variant="label-hidden" required="true"></lightning-input-field>
-                            <br/><br/>
-                            <p>Please include the following information when you submit this form:</p>
-                            <div class="container slds-p-around_small">
-                                <span class="required-marker">*</span>
-                                <lightning-file-upload
-                                    label="Articles of Incorporation (Must be active and in good standing)"
-                                    name="articleOfIncorp"
-                                    accept={acceptedFormats}
-                                    onuploadfinished={handleUploadIncorp}
-                                    required
-                                >
-                                </lightning-file-upload>
-                                <span style="color: rgb(11, 197, 11);">{articleOfIncorp}</span>
-                            </div>
-                            
-                            <div class="container slds-p-around_small">
-                                <span class="required-marker"> </span>
-                                <lightning-file-upload
-                                    label="Year to date profit and loss statement"
-                                    name="profitAndLoss"
-                                    accept={acceptedFormats}
-                                    onuploadfinished={handleUploadProfitLoss}
-                                >
-                                </lightning-file-upload>
-                                <span style="color: rgb(11, 197, 11);">{profitAndLoss}</span>
-                            </div>
-                            
-                            <div class="container slds-p-around_small">
-                                <span class="required-marker">*</span>
-                                <lightning-file-upload
-                                    label="Bank statements from last month (All pages showing monthly transactions)"
-                                    name="lastMonthBank"
-                                    accept={acceptedFormats}
-                                    onuploadfinished={handleUploadLastMonthBank}
-                                    required
-                                >
-                                </lightning-file-upload>
-                                <span style="color: rgb(11, 197, 11);">{lastMonthBank}</span>
-                            </div>
-                            
-                            <div class="container slds-p-around_small">
-                                <span class="required-marker">*</span>
-                                <lightning-file-upload
-                                    label="Bank statements from 2 months ago (All pages showing monthly transactions)"
-                                    name="lastSecondBank"
-                                    accept={acceptedFormats}
-                                    onuploadfinished={handleUploadLastSecondBank}
-                                    required
-                                >
-                                </lightning-file-upload>
-                                <span style="color: rgb(11, 197, 11);">{lastSecondBank}</span>
-                            </div>
-                            
-                            <div class="container slds-p-around_small">
-                                <span class="required-marker">*</span>
-                                <lightning-file-upload
-                                    label="Bank statements from 3 months ago(All pages showing monthly transactions)"
-                                    name="lastThirdBank"
-                                    accept={acceptedFormats}
-                                    onuploadfinished={handleUploadLastThirdBank}
-                                    required
-                                >
-                                </lightning-file-upload>
-                                <span style="color: rgb(11, 197, 11);">{lastThirdBank}</span>
-                            </div>
-                            <br/><br/>
-                            <p><b>EAZE Guarantee Approval Application</b> is authorized to investigate my (our) credit reports, police records and any other public or private information supplier of data.  <b>EAZE</b> may verify any and all information given throughout this application or within any other documents provided to <b>EAZE</b>.  With reference to <b>EAZE's</b> investigation, should any person, company or agency request specific written authorization to release requested information, photo copies or facsimiles of my (our) signatures below may be utilized to show my (our) acknowledgement and authorization to release requested information.  I (we) hereby certify that all of the statements made throughout this application are true and correct.</p>
-                            <p><lightning-input-field field-name="Video_Confirmation__c" variant="label-hidden" required="true"></lightning-input-field>I confirm I have watched the two videos above, including the summary video which covers how the Direct Guaranteed Approval program works, and am ready to submit my application. </p>                
-                        </div>
-                        <div class="slds-col slds-p-around_small slds-size_1-of-1 slds-align_absolute-center">
-                            <lightning-button class="slds-m-top_small" type="submit" label="Submit" variant="brand"></lightning-button>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </lightning-record-edit-form>
-</template>
+                            <lightning-

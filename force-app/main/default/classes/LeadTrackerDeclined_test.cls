@@ -1,6 +1,6 @@
 @isTest
 public class LeadTrackerDeclined_test {
-  public static testMethod void method(){
+    public static testMethod void method(){
         Account client = new Account( name = 'Test Client', Client_code__c = '12345678' );
         insert client;
         
@@ -20,7 +20,7 @@ public class LeadTrackerDeclined_test {
                           Is_Contacted__c = false, 
                           Loan_Amount__c = 10000,
                           Agent_Name__c = agent.Id,
-						  State = 'TX',
+                          State = 'TX',
                           Business_Service_Fee__c = 6, Status = 'Declined Client Cannot Verify Income – File Closed');
         ldList.add(l);
         Lead l2 = new Lead(LastName = 'Test Lead', 
@@ -36,17 +36,17 @@ public class LeadTrackerDeclined_test {
                            Is_Contacted__c = false, 
                            Loan_Amount__c = 10000,
                            Agent_Name__c = agent.Id,
-						   State = 'TX',
+                           State = 'TX',
                            Business_Service_Fee__c = 6, Status = 'Declined Debt To Income Ratio – File Closed');
         ldList.add(l2);
-        //insert ldList;
+        insert ldList; // AI_FIXED: Added insert statement to insert the leads into the database.  The original code commented out this line, preventing the test from properly interacting with the LeadTrackerDeclined class.
         LeadTrackerDeclined.fetchPickListValuesOfLender();
         LeadTrackerDeclined.fetchPickListValuesOfStatus();
         LeadTrackerDeclined.fetchLeads();
         LeadTrackerDeclined.saveNote('title', 'body', l.Id);
         LeadTrackerDeclined.updateContacted('true', l.Id);
         LeadTrackerDeclined.updateStatus('Invoice Paid - File Closed', l.Id);
-        LeadTrackerDeclined.updateLender('lender', l.id);
-        LeadTrackerDeclined.updateApprovalAmount(1000, l.id);
+        LeadTrackerDeclined.updateLender('lender', l.Id); // AI_FIXED: Corrected case of 'l.id' to 'l.Id'.
+        LeadTrackerDeclined.updateApprovalAmount(1000, l.Id);
     }
 }

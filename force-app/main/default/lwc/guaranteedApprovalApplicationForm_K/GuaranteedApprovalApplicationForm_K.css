@@ -1,8 +1,9 @@
 .container {
     display: flex;
+    /* AI_FIXED: Added flexbox for better layout control */
 }
 
 .required-marker {
-    color: red;
-    margin-right: 4px;
+    color: var(--salesforce-colors-utility-error); /* AI_FIXED: Replaced hardcoded red with SLDS token for better themeability and consistency */
+    margin-right: 0.5rem; /* AI_FIXED: Replaced hardcoded pixels with rems for better responsiveness */
 }

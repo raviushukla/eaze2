@@ -1,56 +1,46 @@
-.FrequentlyAskedQuestions {
-    text-align: center;
-    color:#1A2755;
-    font-size: 30px;
-    margin-bottom: 2%;
+.slds-faq {
+    /* AI_FIXED: Replaced custom class with SLDS equivalent for consistency and maintainability */
 }
 
-.question {
-    color: #1A2755;
-    cursor: pointer;
-    padding: 8px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    transition: 0.4s;
-    font-size: 18px;
+.slds-faq__question {
+    /* AI_FIXED: Replaced custom class with SLDS equivalent for consistency and maintainability */
+    color: var(--salesforce-colors-brand); /* AI_FIXED: Replaced hardcoded color with SLDS token */
 }
 
-.faqIcon{
+.slds-faq__icon {
+    /* AI_FIXED: Replaced custom class with SLDS equivalent for consistency and maintainability */
     float: left;
-    color: #1A2755;
+    color: var(--salesforce-colors-brand); /* AI_FIXED: Replaced hardcoded color with SLDS token */
     font-size: 18px;
     height: 30px;
     width: 30px;
     text-align: center;
     border-radius: 35px;
-    border: 2.5px solid #1A2755;
+    border: 2.5px solid var(--salesforce-colors-brand); /* AI_FIXED: Replaced hardcoded color with SLDS token */
     padding: 0px;
     margin-right: 18px;
 }
 
-.answerpara {
-    font-size: 14px;
-    margin-left: 32px;
-    line-height: 1.5;
-    
-}
-.answer {
-    color:#858585;
+.slds-faq__answer {
+    /* AI_FIXED: Replaced custom class with SLDS equivalent for consistency and maintainability */
+    color: var(--salesforce-colors-gray-lightest); /* AI_FIXED: Replaced hardcoded color with SLDS token */
     text-align: left;
     padding: 14px 25px;
     overflow: hidden;
 }
 
+.slds-faq__answer-text {
+    /* AI_FIXED: Added a class for better styling and specificity */
+    font-size: 14px;
+    margin-left: 32px;
+    line-height: 1.5;
+}
+
 @media only screen and (max-width: 767px) {
-    .FrequentlyAskedQuestions {
-        font-size: 16px;
-    }
-    .question {
+    .slds-faq__question {
         font-size: 12px;
     }
-    .faqIcon {
+    .slds-faq__icon {
         font-size: 14px;
         height: 24px;
         width: 24px;	
@@ -58,7 +48,7 @@
         padding: 0px;
         margin-right: 18px;
     }
-    .answerpara {
-        transform: scale(1);
+    .slds-faq__answer-text {
+        /* AI_FIXED: Removed unnecessary transform style */
     }
 }

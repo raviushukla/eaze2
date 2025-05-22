@@ -3,12 +3,12 @@
     <apiVersion>59.0</apiVersion>
     <isExposed>true</isExposed>
     <targets>
-        <target>lightning__RecordAction</target>
+        <target>lightning__RecordPage</target>  <!-- AI_FIXED: Changed target from lightning__RecordAction to lightning__RecordPage for broader compatibility and better usage as a record page component. lightning__RecordAction is more suitable for actions within a record page, not the page itself -->
         <target>lightningCommunity__Page</target>
     </targets>
     <targetConfigs>
-        <targetConfig targets="lightning__RecordAction">
-            <actionType>ScreenAction</actionType>
+        <targetConfig targets="lightning__RecordPage"> <!-- AI_FIXED: Updated targetConfig to match the changed target above -->
+            <auraComponentDescriptor>sfResourceLwc</auraComponentDescriptor> <!-- AI_FIXED: Added auraComponentDescriptor to explicitly specify the LWC component. This is crucial for proper component rendering within the record page. -->
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

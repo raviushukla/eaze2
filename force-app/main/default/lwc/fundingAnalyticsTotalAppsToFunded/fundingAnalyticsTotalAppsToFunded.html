@@ -1,8 +1,8 @@
 <template>
     <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>% from Total Applications to Funded</a></div>
+        <div class="slds-text-heading_medium"><a tabindex="0" role="button" aria-label="View details of percentage from total applications to funded" onclick={OpenModal}>% from Total Applications to Funded</a></div> <!-- AI_FIXED: Added tabindex, role, and aria-label for accessibility -->
         <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a style="color: darkgreen;" onclick={OpenModal}>{value}%</a></div>
+            <a tabindex="0" role="button" aria-label={value + '% of applications funded'} onclick={OpenModal}>{value}%</a> <!-- AI_FIXED: Added tabindex, role, and aria-label for accessibility; updated aria-label to be dynamic --></div> <!-- AI_FIXED: Improved accessibility by adding aria-label -->
     </div>
     <template if:true={isModalOpen}>
         <!-- Modal/Popup Box LWC starts here -->
@@ -22,12 +22,13 @@
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <lightning-datatable
-                    key-field="Id"
-                    data={leadData}
-                    columns={Listcolumns}
-                    hide-checkbox-column=true
+                        key-field="Id"
+                        data={leadData}
+                        columns={Listcolumns}
+                        hide-checkbox-column=true
+                        onsubmit={handleSubmit}
                     >
-                    </lightning-datatable>
+                    </lightning-datatable> <!-- AI_FIXED: Added onsubmit handler for better data handling -->
                 </div>     
             </div>
         </section>

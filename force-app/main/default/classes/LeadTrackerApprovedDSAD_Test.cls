@@ -24,11 +24,11 @@ public class LeadTrackerApprovedDSAD_Test {
                           State = 'TX',
                           Business_Service_Fee__c = 6, Status = 'Approved By Lender-Funding In Progress');
         ldList.add(l);
-        Lead l2 = new Lead(LastName = 'Test Lead', 
-                           Email = 'test@te.com', 
-                           Company = 'test Company', 
+        Lead l2 = new Lead(LastName = 'Test Lead2', // AI_FIXED: Changed LastName to avoid duplicate lead error
+                           Email = 'test2@te.com', // AI_FIXED: Changed Email to avoid duplicate lead error
+                           Company = 'test Company2', // AI_FIXED: Changed Company to avoid duplicate lead error
                            Agent_code__c = '111111', 
-                           Social_Security_Number__c = '121-322-434',
+                           Social_Security_Number__c = '121-322-4345', // AI_FIXED: Changed SSN to avoid duplicate lead error
                            Payroll_Frequency__c = 'bi-weekly',
                            Payroll_Type__c = 'Direct_Deposit',
                            Current_Residence_Status__c = 'Rent',
@@ -48,8 +48,8 @@ public class LeadTrackerApprovedDSAD_Test {
         LeadTrackerApprovedDSAD.saveNote('title', 'body', l.Id);
         LeadTrackerApprovedDSAD.updateContacted('true', l.Id);
         LeadTrackerApprovedDSAD.updateStatus('Funded - Invoice EAZE Client', l.Id);
-        LeadTrackerApprovedDSAD.updateLender('lender', l.id);
-        LeadTrackerApprovedDSAD.updateInvcPaidDate('', l.id);
-        LeadTrackerApprovedDSAD.updateApprovalAmount(1000, l.id);
+        LeadTrackerApprovedDSAD.updateLender('lender', l.Id); // AI_FIXED: Corrected case of 'l.id' to 'l.Id'
+        LeadTrackerApprovedDSAD.updateInvcPaidDate('', l.Id); // AI_FIXED: Corrected case of 'l.id' to 'l.Id'
+        LeadTrackerApprovedDSAD.updateApprovalAmount(1000, l.Id); // AI_FIXED: Corrected case of 'l.id' to 'l.Id'
     }
 }

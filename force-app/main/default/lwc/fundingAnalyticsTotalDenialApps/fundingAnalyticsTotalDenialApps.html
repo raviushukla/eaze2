@@ -1,9 +1,9 @@
 <template>
     <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <!--canvas lwc:dom="manual"></canvas-->
-        <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>Denials</a></div>
-        <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a style="color: darkgreen;" onclick={OpenModal}>{totalDeclinedAppsCount}</a></div>
+        <!-- AI_FIXED: Replaced <a> tag with button for better accessibility and semantics -->
+        <button class="slds-button slds-button_neutral" onclick={OpenModal}>Denials</button>
+        <!-- AI_FIXED: Removed unnecessary <a> tag and improved styling -->
+        <div class="slds-align_absolute-center slds-text-heading_large" style="color: #08644a;">{totalDeclinedAppsCount}</div>
     </div>
     <template if:true={isModalOpen}>
         <!-- Modal/Popup Box LWC starts here -->
@@ -23,15 +23,16 @@
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <lightning-datatable
-                    key-field="Id"
-                    data={leadData}
-                    columns={Listcolumns}
-                    hide-checkbox-column=true
+                        key-field="Id"
+                        data={leadData}
+                        columns={Listcolumns}
+                        hide-checkbox-column=true
                     >
                     </lightning-datatable>
                 </div>     
             </div>
         </section>
-        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!-- AI_FIXED: Added role attribute for better accessibility -->
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
     </template>
 </template>

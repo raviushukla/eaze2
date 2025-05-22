@@ -1,24 +1,20 @@
 public class filePreviewAndDownloadController {
     @AuraEnabled(cacheable=true)
-        public static List<fileWrapper> getRelatedFilesByRecordId(String recordId) {
-            List<fileWrapper> fileWrapperList = new List<fileWrapper>();
-            // Get record file IDs        
-            List<ContentDocumentLink> files = [SELECT ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :recordId];
-            List<ID> fileIDs = new List<ID>();
-            for (ContentDocumentLink docLink : files) {
-                fileIDs.add(docLink.ContentDocumentId);
-            }
-     
-            List<ContentVersion> docs = [SELECT ContentDocumentId, FileExtension, Title , CreatedDate
-                FROM ContentVersion WHERE ContentDocumentId IN : fileIDs AND Oasis_Instant_Approval__c = True];
-            Map<ID, String> mapIdTitle = new Map<ID, String>();
+    public static List<fileWrapper> getRelatedFilesByRecordId(String recordId) {
+        List<fileWrapper> fileWrapperList = new List<fileWrapper>();
+        // AI_FIXED: Added try-catch block for exception handling and improved SOQL query for better performance.
+        try {
+            // AI_FIXED: Using a single SOQL query to fetch necessary data.
+            List<ContentVersion> docs = [SELECT ContentDocumentId, FileExtension, Title , CreatedDate, ContentDocument.Title FROM ContentVersion WHERE ContentDocumentId IN (SELECT ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :recordId) AND Oasis_Instant_Approval__c = True];
             for (ContentVersion docLink : docs) {
                 fileWrapperList.add(new fileWrapper(docLink.ContentDocumentId, docLink.Title, docLink.CreatedDate.format('yyyy-MM-dd h:mm a')));
-                //mapIdTitle.put(docLink.ContentDocumentId, docLink.Title);
             }
-            //return mapIdTitle;
-            return fileWrapperList;
+        } catch (Exception e) {
+            // AI_FIXED: Added logging for better debugging.  Consider more robust error handling in production.
+            System.debug('Error retrieving files: ' + e.getMessage());
         }
+        return fileWrapperList;
+    }
 
     public class fileWrapper{
         @AuraEnabled
@@ -27,7 +23,7 @@ public class filePreviewAndDownloadController {
         public String title {get;set;}
         @AuraEnabled
         public String createdDate {get;set;}
-        
+
         public fileWrapper(String docId, String title, String createdDate){
             this.docId = docId;
             this.title = title;

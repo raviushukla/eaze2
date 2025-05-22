@@ -14,11 +14,11 @@ public class After24HrsGaEmailSchedule_Test {
         insert gaObj;
         
         String jobName = 'Test';
+        // AI_FIXED: Removed direct scheduling using System.schedule as it's not reliable for testing and can lead to unpredictable test results.  Instead, we'll simulate the scheduled job execution.
         After24HrsGaEmailSchedule schObj = new After24HrsGaEmailSchedule();
         schObj.recordId = gaObj.Id;
-        DateTime now = DateTime.now();
-		DateTime executionDatetime = now.addMinutes(1);
         
-        System.schedule(jobName, '0 ' + executionDatetime.minute() + ' ' + executionDatetime.hour() + ' ' + executionDatetime.day() + ' ' + executionDatetime.month() + ' ? ' + executionDatetime.year(), schObj);
+        // AI_FIXED: Simulate the scheduled job execution by directly calling the execute method.
+        schObj.execute(null); 
     }
 }

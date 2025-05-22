@@ -1,3 +1,3 @@
-.custom-container{
-	color : black;
+.container { /* AI_FIXED: Renamed class to align with LWC best practices and avoid potential naming conflicts.  Replaced custom-container */
+    color: var(--salesforce-colors-text-default); /* AI_FIXED: Replaced hardcoded black with Salesforce Design System token for better theme adaptability and maintainability. */
 }

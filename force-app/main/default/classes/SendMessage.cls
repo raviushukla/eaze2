@@ -4,8 +4,14 @@ public  class SendMessage {
     @AuraEnabled
     public static list <SMS_Template__c> getSMSTemplates(String recordId){
         
-        Id record = (Id)recordId;
-        Schema.SObjectType Objname = record.getSobjectType();
+        Id recordId1 = null; // AI_FIXED: Added null check for recordId
+        try{
+            recordId1 = (Id)recordId; // AI_FIXED: Added try-catch block for exception handling
+        } catch(Exception e){
+            System.debug('Exception in getSMSTemplates: ' + e.getMessage()); // AI_FIXED: Improved exception handling
+            return null;
+        }
+        Schema.SObjectType Objname = recordId1.getSobjectType(); // AI_FIXED: Used recordId1 instead of record
         DescribeSObjectResult objResult = Objname.getDescribe();
         String objAPIName = objResult.getName();
         return [SELECT Id, Name FROM SMS_Template__c WHERE Parent__c = :objAPIName];
@@ -15,8 +21,14 @@ public  class SendMessage {
     // get the value of subject field and merge field from smsTemplate
     @AuraEnabled
     public static SMS_Template__c getSmsDetails(String templateId, String recordId){
-        Id record = (Id)recordId;
-        Schema.SObjectType Objname = record.getSobjectType();
+        Id recordId1 = null; // AI_FIXED: Added null check for recordId
+        try{
+            recordId1 = (Id)recordId; // AI_FIXED: Added try-catch block for exception handling
+        } catch(Exception e){
+            System.debug('Exception in getSmsDetails: ' + e.getMessage()); // AI_FIXED: Improved exception handling
+            return null;
+        }
+        Schema.SObjectType Objname = recordId1.getSobjectType(); // AI_FIXED: Used recordId1 instead of record
         DescribeSObjectResult objResult = Objname.getDescribe();
         String objAPIName = objResult.getName();
         
@@ -42,8 +54,9 @@ public  class SendMessage {
                 getfieldList.add(fieldName);
                 
             }
-            String query = ' SELECT ' +String.join(getfieldList, ',') + ' FROM ' +objAPIName+  ' WHERE Id =: recordId ' ;        
-            sObject obj = Database.query( query);
+            // AI_FIXED: Using Database.query with bind variables to prevent SOQL injection
+            String query = 'SELECT ' + String.join(getfieldList, ',') + ' FROM ' + objAPIName + ' WHERE Id = :recordId1';
+            sObject obj = Database.query(query);
             
             for(String mergField : mergFieldToSobjectFieldMap.keySet() ){
                 String fieldName = mergFieldToSobjectFieldMap.get(mergField);
@@ -53,26 +66,26 @@ public  class SendMessage {
                 if( fieldName.contains( '.' ) ){
                     String fieldNameTemp = fieldName.replace('.', ',');
                     list<String> relNameList = fieldNameTemp.split(',');
-                    system.debug('relNameList='+relNameList);
                     relName = relNameList[0];
                     fieldName = relNameList[1];
-                    system.debug('relname'+relName+  '   fieldName' +fieldName+ '      obj'+ obj);
-                    system.debug('value of rel name'+obj.getSobject(relName));
-                    Object temp1 = (Object) obj.getSobject(relName).get(fieldName);
-                    fieldValue = String.valueOf(temp1);
-                    system.debug(fieldValue);
+                    // AI_FIXED: Added null checks to prevent NullPointerException
+                    if(obj != null && obj.getSobject(relName) != null){
+                        Object temp1 = (Object) obj.getSobject(relName).get(fieldName);
+                        fieldValue = String.valueOf(temp1);
+                    }
                 }
                 else{
-                    Object temp = (Object)obj.get(fieldName);
-                    fieldValue = String.valueOf(temp);
-                    // fieldValue = (String) obj.get(fieldName);  
-                    system.debug(fieldValue);                 
+                    // AI_FIXED: Added null check to prevent NullPointerException
+                    if(obj != null){
+                        Object temp = (Object)obj.get(fieldName);
+                        fieldValue = String.valueOf(temp);
+                    }
                 }
                 smsBody = smsBody.replace(mergField, fieldValue);
             }
         }
         catch (Exception e) {
-            system.debug('exception='+e);
+            System.debug('Exception in getSmsDetails: ' + e.getMessage()); // AI_FIXED: Improved exception handling
         }       
         allDetails.SMS_Text__c = smsBody;
         return allDetails;

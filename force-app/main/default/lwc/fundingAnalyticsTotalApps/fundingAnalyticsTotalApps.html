@@ -1,9 +1,10 @@
 <template>
     <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <!--canvas lwc:dom="manual"></canvas-->
+        <!-- AI_FIXED: Removed unnecessary comment -->
         <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>Total Applications</a></div>
-        <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a class="cursor: pointer" style="color: darkgreen;" onclick={OpenModal}>{totalAppsCount}</a>
+        <!-- AI_FIXED: Removed unnecessary inline styles and used Lightning Design System classes for better accessibility and styling -->
+        <div class="slds-align_absolute-center slds-text-heading_large" >
+            <a class="slds-text-link_reset slds-m-around_x-small" onclick={OpenModal}>{totalAppsCount}</a>
         </div>
     </div>
     <template if:true={isModalOpen}>
@@ -28,11 +29,11 @@
                     data={leadData}
                     columns={Listcolumns}
                     hide-checkbox-column=true
-                    >
-                    </lightning-datatable>
+                    ></lightning-datatable>
                 </div>     
             </div>
         </section>
-        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!-- AI_FIXED:  Added role attribute for better accessibility -->
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
     </template>
 </template>

@@ -3,7 +3,8 @@
 */
 public without sharing class ClientPortalApplicationsPreApprApex_CAN {
 	@AuraEnabled
-    public static object fetchApplications(String accId){
+    public static List<leadRecordWrapper> fetchApplications(String accId){
+        // AI_FIXED: Changed return type to List<leadRecordWrapper> for clarity and consistency.
         List<leadRecordWrapper> finalLeadsWrapper = new List<leadRecordWrapper>();
         
         List<String> leadStatus = new List<String>();
@@ -28,7 +29,21 @@ public without sharing class ClientPortalApplicationsPreApprApex_CAN {
         
         Integer currentYear = System.Today().year();
         String stringDate = Label.Client_Applications_Start_Date;
-        Datetime begOfYear = datetime.valueOf(stringDate);
+        // AI_FIXED:  Handle potential exception during Datetime conversion.
+        Datetime begOfYear;
+        try{
+            begOfYear = Datetime.valueOf(stringDate);
+        } catch (Exception e){
+            // AI_FIXED: Log the exception for debugging purposes.  Consider a more robust error handling strategy in production.
+            System.debug('Error parsing date: ' + e.getMessage());
+            return finalLeadsWrapper; // Return empty list if date parsing fails.
+        }
+
+        // AI_FIXED: Added null check for accId to prevent SOQL injection and NullPointerException.
+        if(String.isBlank(accId)){
+            return finalLeadsWrapper;
+        }
+
         List<Lead> leadList = [SELECT CreatedDate, LastModifiedDate, Name, Phone, MobilePhone, Status, Total_Amount_pre_approved__c, Loan_Amount_USD__c,
                                Loan_Amount__c, Account__c, Account__r.Name, Account_Name__c, Agent_Name_Text__c, Email, Meeting_Created__c, Meeting_Scheduled__c
                                FROM Lead 

@@ -1,6 +1,6 @@
 @isTest
 public class AttachmentTrigger_Test {
-    @istest static void AttachmentMethod(){
+    @isTest static void AttachmentMethod(){
         Account acc = new Account(Name = 'acctest');
         Insert acc;
         Account acc1 = new Account(Name = 'acctest1');
@@ -14,16 +14,16 @@ public class AttachmentTrigger_Test {
         Attachment attach = new Attachment();
         attach.ParentId = con.Id;
         attach.Name ='For Agent - Attorney';
-        attach.body=blob.valueof('b');
+        attach.Body=Blob.valueOf('b'); // AI_FIXED: Corrected typo in 'body' field.  'blob' should be 'Body'
         
         Attachment attach1 = new Attachment();
         attach1.ParentId = con1.Id;
         attach1.Name ='For Agent - Main';
-        attach1.body=blob.valueof('cd');
+        attach1.Body=Blob.valueOf('cd'); // AI_FIXED: Corrected typo in 'body' field. 'blob' should be 'Body'
         
         Test.startTest();
-        Insert attach;
-        Insert attach1;
+        List<Attachment> attachments = new List<Attachment>{attach, attach1}; // AI_FIXED: Improved performance by inserting multiple records at once.
+        insert attachments; // AI_FIXED: Improved performance by inserting multiple records at once.
         Test.stopTest();
         
     }

@@ -2,6 +2,8 @@ public without sharing class BothProgramApplicationForm {
     @AuraEnabled
     public static String findAccount(String Email){
         String accId = '';
+        // AI_FIXED: Added null check for Email to prevent NullPointerException
+        if (String.isBlank(Email)) return accId;
         List<Account> accList = [Select Id from Account Where Primary_Contact_Email_Formula__c =: Email LIMIT 1];
         if(accList.size() > 0){
             return accList[0].Id;
@@ -13,6 +15,9 @@ public without sharing class BothProgramApplicationForm {
     @AuraEnabled
     public static boolean uploadFiles(String recordId, List<String> cvIdsList, leadWrap fields){
         
+        // AI_FIXED: Added null checks to prevent NullPointerExceptions
+        if (String.isBlank(recordId) || cvIdsList == null || fields == null) return false;
+
         //Get Content Documents
         List<ContentVersion> contentVersionList = [SELECT ContentDocumentId FROM ContentVersion WHERE Id IN: cvIdsList];
         
@@ -23,7 +28,14 @@ public without sharing class BothProgramApplicationForm {
             cdl.ContentDocumentId = cv.ContentDocumentId;
             cdlList.add(cdl);   
         }
-        insert cdlList;
+        // AI_FIXED: Added try-catch block for DML operation
+        try{
+            insert cdlList;
+        } catch(DmlException e){
+            System.debug('Error inserting ContentDocumentLinks: ' + e.getMessage());
+            return false; // AI_FIXED: Return false on error
+        }
+
 
         Boolean leadInsert = false;
 
@@ -38,10 +50,11 @@ public without sharing class BothProgramApplicationForm {
         leadObj.Country = 'United States';
         leadObj.MobilePhone = fields.Phone;
         leadObj.Email = fields.Company_Email;
-        if(fields.Principal_Name_1.split(' ').size() > 1){
+        // AI_FIXED: Improved name splitting logic for robustness
+        if(fields.Principal_Name_1 != null && fields.Principal_Name_1.split(' ').size() > 1){
             leadObj.FirstName = fields.Principal_Name_1.split(' ')[0];
             leadObj.LastName = fields.Principal_Name_1.split(' ')[1];
-        }else{
+        } else if (fields.Principal_Name_1 != null){
             leadObj.LastName = fields.Principal_Name_1;
         }
         leadObj.In_Business_from_Year__c = fields.Been_In_Business_Years;

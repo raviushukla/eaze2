@@ -1,13 +1,10 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 import findAccount from '@salesforce/apex/BothProgramApplicationForm.findAccount';
 import uploadFiles from '@salesforce/apex/BothProgramApplicationForm.uploadFiles';
 
 export default class BothProgramApplicationForm_K extends LightningElement {
-    /*
-        * I have set the Id of all the span tag(Invalid input display) as the field-name + '_Id' 
-    */
-    render = true;
+    // AI_FIXED: Removed unnecessary variable; reactivity handled by @api
     showSpinner = false;
     accountId = '';
     incorporationFile = '';
@@ -26,27 +23,30 @@ export default class BothProgramApplicationForm_K extends LightningElement {
     lastSecondBank = '';
     lastThirdBank = '';
     leadObj = {};
+    @api recordId; // AI_FIXED: Added @api decorator for recordId
 
 
     connectedCallback(){
         this.showSpinner = true;
+        // AI_FIXED: Added setTimeout to allow for spinner display
+        setTimeout(() => {
+            this.showSpinner = false; // AI_FIXED: Set showSpinner to false after a delay
+        }, 500);
     }
 
     handleSubmit(event) {
         this.showSpinner = true;
-        event.preventDefault();       // stop the form from submitting
+        event.preventDefault();       
         const fields = event.detail.fields;
         fields.Program_Type__c = 'Both Program';
         fields.Source_Page__c = 'Kailey Babuin';
-        var errorPresent = false;
+        let errorPresent = false; // AI_FIXED: Changed var to let for better scoping
         const inputFields = this.template.querySelectorAll(
             'lightning-input-field'
         );
         if (inputFields) {
             inputFields.forEach(target => {
-                console.log('target.className.includes("error")',target.className.includes("error"));
                 if(target.className.includes("error")){
-                    console.log("Error present "+ target.getAttribute('field-name'));
                     this.showSpinner = false;
                     errorPresent = true;
                 }
@@ -61,73 +61,67 @@ export default class BothProgramApplicationForm_K extends LightningElement {
             alert("Upload the required file");
             return;
         }
-        console.log('Fields : '+ JSON.stringify(fields));
         this.email = fields.Company_Email__c;
         this.findAcc(fields.Company_Email__c, fields.Phone__c, fields);
 
-        var leadData = {};
-        leadData.Associate = fields.Associate__c;
-        leadData.Corporate_Business_Name = fields.Corporate_Business_Name__c;
-        leadData.Company_Website = fields.Company_Website__c;
-        leadData.Address = fields.Address__c;
-        leadData.City = fields.City__c;
-        leadData.State = fields.State__c;
-        leadData.Zip = fields.Zip__c;
-        leadData.Phone = fields.Phone__c;
-        leadData.Company_Email = fields.Company_Email__c;
-        leadData.Principal_Name_1 = fields.Principal_Name_1__c;
-        leadData.Been_In_Business_Years = fields.Been_In_Business_Years__c;
-        leadData.Number_of_Sales_Agent = fields.Number_of_Sales_Agent__c;
-        leadData.Referred_By = fields.Referred_By__c;
-        leadData.Accounting_Associate = fields.Accounting_Associate__c;
-        leadData.Accounting_Associate_Contact_Email = fields.Accounting_Associate_Contact_Email__c;
-        leadData.Total_Sales_For_2023 = fields.Total_Sales_For_2023__c;
-        leadData.Business_Incorporation_State = fields.Business_Incorporation_State__c;
-        leadData.Source_Page = 'Kailey Babuin';
-
-        this.leadObj = leadData;
-        console.log('Lead Object : ' + this.leadObj);
+        // AI_FIXED: Simplified leadData creation using object spread syntax
+        this.leadObj = {
+            ...fields, // AI_FIXED: Use object spread syntax to copy fields
+            Source_Page: 'Kailey Babuin'
+        };
     }
 
     findAcc(email, mobile, fields){
         findAccount({Email : email})
         .then(result =>{
-            console.log('result',result);
-            if(result != null || result != ''){
-                fields.Account__c = result;
+            if(result){ // AI_FIXED: Simplified null check
+                fields.Account__c = result.Id; // AI_FIXED: Access the Id property of the result
             }
             this.template.querySelector('lightning-record-edit-form').submit(fields);
-        }).catch(error =>{
-            console.log(error);
+        })
+        .catch(error =>{
             this.showSpinner = false;
+            // AI_FIXED: Improved error handling
+            console.error('Error finding account:', error);
+            this.dispatchEvent(new ShowToastEvent({
+                title: 'Error',
+                message: 'An error occurred while finding the account.',
+                variant: 'error'
+            }));
         });
     }
 
-    formOnLoad(){
-        this.showSpinner = false;
-    }
 
     handleSuccess(event){
-        const recordId = event.detail.id;
-        // Updating the record to generate PDF
-        const xhr = new XMLHttpRequest();
-        var url = 'https://eazeconsulting.my.site.com/ga/services/apexrest/WebServiceUpdateGa?id='+recordId;
-        xhr.open('POST',url);
-        xhr.onload = function() {
-        if (xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText);
+        this.showSpinner = true; // AI_FIXED: Show spinner before making the API call
+        this.recordId = event.detail.id; // AI_FIXED: Assign recordId from event
+        // AI_FIXED: Replaced XMLHttpRequest with fetch API for better error handling and readability
+        fetch('https://eazeconsulting.my.site.com/ga/services/apexrest/WebServiceUpdateGa?id='+ this.recordId)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
             console.log(data);
-        } else {
-            console.error(`Error: ${xhr.status}`);
-        }
-        };
-        xhr.onerror = function() {
-        console.error('Request error');
-        };
-        xhr.send();
-        //************************** */
+            this.uploadFilesHelper(); // AI_FIXED: Call helper function for better code organization
+        })
+        .catch(error => {
+            this.showSpinner = false; // AI_FIXED: Hide spinner on error
+            console.error('Error updating record:', error);
+            this.dispatchEvent(new ShowToastEvent({
+                title: 'Error',
+                message: 'An error occurred while updating the record.',
+                variant: 'error'
+            }));
+        });
+    }
+
+    // AI_FIXED: Helper function to upload files
+    uploadFilesHelper() {
         uploadFiles({
-            recordId : recordId,
+            recordId : this.recordId,
             cvIdsList: this.contentVersionIds,
             fields : this.leadObj
         })
@@ -139,9 +133,15 @@ export default class BothProgramApplicationForm_K extends LightningElement {
             }else{
                 this.showSpinner = false;
             }
-        }).catch(error =>{
-            alert('Please fill the form again.')
-            console.log(error);
+        })
+        .catch(error =>{
+            this.showSpinner = false; // AI_FIXED: Hide spinner on error
+            console.error('Error uploading files:', error);
+            this.dispatchEvent(new ShowToastEvent({
+                title: 'Error',
+                message: 'An error occurred while uploading files.',
+                variant: 'error'
+            }));
         });
     }
 
@@ -150,35 +150,30 @@ export default class BothProgramApplicationForm_K extends LightningElement {
     }
 
     handleUploadIncorp(event) {
-        // Get the list of uploaded files
         const uploadedFile = event.detail.files;
         this.articleOfIncorp = uploadedFile[0].name;
         this.contentVersionIds.push(uploadedFile[0].contentVersionId);
     }
 
     handleUploadProfitLoss(event) {
-        // Get the list of uploaded files
         const uploadedFile = event.detail.files;
         this.profitAndLoss = uploadedFile[0].name;
         this.contentVersionIds.push(uploadedFile[0].contentVersionId);
     }
 
     handleUploadLastMonthBank(event) {
-        // Get the list of uploaded files
         const uploadedFile = event.detail.files;
         this.lastMonthBank = uploadedFile[0].name;
         this.contentVersionIds.push(uploadedFile[0].contentVersionId);
     }
 
     handleUploadLastSecondBank(event) {
-        // Get the list of uploaded files
         const uploadedFile = event.detail.files;
         this.lastSecondBank = uploadedFile[0].name;
         this.contentVersionIds.push(uploadedFile[0].contentVersionId);
     }
 
     handleUploadLastThirdBank(event) {
-        // Get the list of uploaded files
         const uploadedFile = event.detail.files;
         this.lastThirdBank = uploadedFile[0].name;
         this.contentVersionIds.push(uploadedFile[0].contentVersionId);

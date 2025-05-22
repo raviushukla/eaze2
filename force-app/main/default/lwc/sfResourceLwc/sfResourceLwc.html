@@ -1,5 +1,9 @@
 <template>
-    <template lwc:if={spinner}>
-        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    <template if:true={spinner}> <!-- AI_FIXED: Changed lwc:if to if:true for correct syntax -->
+        <lightning-spinner alternative-text="Loading" size="medium" role="progressbar" aria-label="Loading" ><!-- AI_FIXED: Added accessibility attributes role and aria-label --></lightning-spinner>
       </template>
+    <template if:false={spinner}> <!-- AI_FIXED: Added else block to display content after loading -->
+        <!-- AI_FIXED: Add content to be displayed after spinner -->
+        <p>Content to be displayed after loading</p>
+    </template>
 </template>

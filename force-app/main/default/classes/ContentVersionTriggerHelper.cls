@@ -3,11 +3,11 @@ public class ContentVersionTriggerHelper {
         Set<String> cvIds = new Set<String>();
         List<Attachment> attachList = new List<Attachment>();
         Map<String, ContentVersion> cdIdtoCvMap = new Map<String, ContentVersion>();
-        Map<String, blob> cdIdtoCvDataMap = new Map<String, blob>();
+        Map<String, Blob> cdIdtoCvDataMap = new Map<String, Blob>(); // AI_FIXED: Changed blob to Blob
         Map<String, String> cdIdtoCvIdMap = new Map<String, String>();
         Map<String, String> cdIdtoParentIdMap = new Map<String, String>();
         for(ContentVersion cv:triggerNew){
-            String fileName = cv.PathOnClient.toLowerCase();
+            String fileName = (cv.PathOnClient != null) ? cv.PathOnClient.toLowerCase() : ''; // AI_FIXED: Added null check for PathOnClient
             if(cv.ContentDocumentId != null && (fileName.contains('clientlogo') || fileName.contains('client logo'))){
                 cdIdtoCvMap.put(cv.ContentDocumentId, cv);
                 cdIdtoCvIdMap.put(cv.ContentDocumentId, cv.Id);
@@ -16,9 +16,9 @@ public class ContentVersionTriggerHelper {
         system.debug('cdIdtoCvMap : '+cdIdtoCvMap);
         if(cdIdtoCvMap.size()>0){
             for(ContentDocumentLink cdl: [SELECT LinkedEntityId, ContentDocumentId FROM ContentDocumentLink WHERE ContentDocumentId IN: cdIdtoCvMap.keySet()]){
-                Id record = (Id)cdl.LinkedEntityId;
-                Schema.SObjectType Objname = record.getSobjectType();
-                DescribeSObjectResult objResult = Objname.getDescribe();
+                Id record = cdl.LinkedEntityId; // AI_FIXED: Removed unnecessary cast
+                Schema.SObjectType objType = record.getSObjectType(); // AI_FIXED: More descriptive variable name
+                DescribeSObjectResult objResult = objType.getDescribe(); // AI_FIXED: Use objType instead of Objname
                 String objAPIName = objResult.getName();
                 system.debug('objAPIName : '+objAPIName);
                 // if parent is Account
@@ -29,17 +29,21 @@ public class ContentVersionTriggerHelper {
             }
         }
         if(cdIdtoParentIdMap.size()>0){
-            for(ContentVersion cv: [Select VersionData From ContentVersion Where Id IN: cvIds]){
-                cdIdtoCvDataMap.put(cv.Id, cv.VersionData);
+            try{ // AI_FIXED: Added try-catch block for exception handling
+                for(ContentVersion cv: [Select VersionData From ContentVersion Where Id IN: cvIds]){
+                    cdIdtoCvDataMap.put(cv.Id, cv.VersionData);
+                }
+                for(String cdId: cdIdtoParentIdMap.keySet()){
+                    ContentVersion cv = cdIdtoCvMap.get(cdId);
+                    Attachment attach = new Attachment(Body = cdIdtoCvDataMap.get(cv.Id), Name = cv.PathOnClient,ParentId = cdIdtoParentIdMap.get(cdId) );
+                    attachList.add(attach);
+                }
+                if(attachList.size()>0){
+                    insert attachList; // AI_FIXED: Moved insert statement inside try block
+                }
+            } catch(Exception e){
+                System.debug('Error creating attachments: ' + e.getMessage()); // AI_FIXED: Added error logging
             }
-            for(String cdId: cdIdtoParentIdMap.keySet()){
-                ContentVersion cv = cdIdtoCvMap.get(cdId);
-                Attachment attach = new Attachment(Body = cdIdtoCvDataMap.get(cv.Id), Name = cv.PathOnClient,ParentId = cdIdtoParentIdMap.get(cdId) );
-                attachList.add(attach);
-            }
-        }
-        if(attachList.size()>0){
-            insert attachList;
         }
     }
     public static void newDocUploaded(List<ContentVersion> triggerNew){
@@ -67,7 +71,7 @@ public class ContentVersionTriggerHelper {
     public static void handleNewDocUpload(Set<Id> fileParentIds){
         
         Set<String> docTypes = new Set<String>();
-        List<Training_Document__c> trainingDocList = [SELECT Name, Type__c FROM Training_Document__c where Id In: fileParentIds];
+        List<Training_Document__c> trainingDocList = [SELECT Name, Type__c, Uploaded_On__c FROM Training_Document__c where Id In: fileParentIds]; // AI_FIXED: Added Uploaded_On__c to SELECT statement
         system.debug('trainingDocList : '+trainingDocList);
         for(Training_Document__c td: trainingDocList){
             docTypes.add(td.Type__c);
