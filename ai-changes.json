@@ -1,504 +1,3000 @@
 [
   {
-    "file": "force-app/main/default/classes/AccountAndProductSearchController.cls",
+    "file": "force-app/main/default/classes/AccountTriggerHandler.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved Apex code enhances performance by reducing SOQL queries, improves err..."
+    "summary": "- **Summary**: The improved `AccountTriggerHandler` addresses inefficient code generation and pot..."
   },
   {
-    "file": "force-app/main/default/classes/AccountAndProductSearchControllerTest.cls",
+    "file": "force-app/main/default/classes/AccountTrigger_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change addresses a vulnerability in the test class by ensuring unique ..."
+    "summary": "- **Summary**: The original test class lacked the `@isTest` annotation on the test method and the..."
   },
   {
-    "file": "force-app/main/default/classes/AccountSearchHandler.cls",
+    "file": "force-app/main/default/classes/AdobeAutoSendQueueable.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved Apex code enhances efficiency, robustness, and security.  Key changes..."
+    "summary": "- **Summary**: The improved `AdobeAutoSendQueueable` class now includes robust error handling and..."
   },
   {
-    "file": "force-app/main/default/classes/AnimationController.cls",
+    "file": "force-app/main/default/classes/After24HrsGaEmailSchedule.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved Apex code adds crucial null checks for the `customerId` parameter, in..."
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling, prevents null pointer e..."
   },
   {
-    "file": "force-app/main/default/classes/AnimationControllerTest.cls",
+    "file": "force-app/main/default/classes/After24HrsGaEmailSchedule_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change improves the `testUser` username generation in the `@testSetup`..."
+    "summary": "- **Summary**: The primary change in this Apex test class removes the unreliable `System.schedule..."
   },
   {
-    "file": "force-app/main/default/classes/OrderPDFControllerTest.cls",
+    "file": "force-app/main/default/classes/AgentDeclinedEmailHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "AgentDeclinedEmailHelper Class Improvements"
+  },
+  {
+    "file": "force-app/main/default/classes/AgentDeclinedEmailHelper_test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by correcting casing inconsistencies in object an..."
+  },
+  {
+    "file": "force-app/main/default/classes/AgentSignUpWebService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances security by using bind variables in SOQL queries, ..."
+  },
+  {
+    "file": "force-app/main/default/classes/AgentSignUpWebService_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class eliminates redundant DML operations, uses a single `RestRe..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApexCommonHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: This improved Apex class enhances robustness and performance. Key changes include ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApexCommonHelper_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding robust error handling using `try-catch` blocks aroun..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_Home.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by correcting a SOQL query syntax error, adding excepti..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_Home_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by removing sensitive data (Social Security Numbe..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_Login.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses SOQL injection vulnerabilities by using parameter..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_Login_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling using try-catch blocks ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_Offers.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling using try-catch blocks i..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_Offers_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes inserting the `Loan_Connect_Offer__c` record,..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_ResetPassword.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses null pointer exceptions by adding input validatio..."
+  },
+  {
+    "file": "force-app/main/default/classes/ApplicantPortal_ResetPassword_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by enhancing the Record Type retrieval to prevent..."
+  },
+  {
+    "file": "force-app/main/default/classes/AttachmentTriggerHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code significantly enhances performance and robustness by replacing i..."
+  },
+  {
+    "file": "force-app/main/default/classes/AttachmentTrigger_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class addresses a typo in the `Attachment` object's `Body` field..."
+  },
+  {
+    "file": "force-app/main/default/classes/AutoSendAgreement_AdobeSign.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code addresses several key issues:  It initializes the `agreementId` ..."
+  },
+  {
+    "file": "force-app/main/default/classes/AutoSendAgreement_AdobeSignScheduler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code addresses performance issues and adds robustness by using bulkif..."
+  },
+  {
+    "file": "force-app/main/default/classes/AutoSendAgreement_AdobeSignSchedulerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change in the Apex test class was updating the `System.schedule` metho..."
+  },
+  {
+    "file": "force-app/main/default/classes/AutoSendAgreement_AdobeSign_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling using a `try-catch` blo..."
+  },
+  {
+    "file": "force-app/main/default/classes/BothProgramApplicationForm.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates crucial null checks to prevent `NullPointerExc..."
+  },
+  {
+    "file": "force-app/main/default/classes/BothProgramApplicationForm_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding `try-catch` blocks to handle potential `DMLException..."
+  },
+  {
+    "file": "force-app/main/default/classes/BulkTextMessageBatch.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling, simplifies phone number..."
+  },
+  {
+    "file": "force-app/main/default/classes/ChangePasswordController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `ChangePasswordController` now includes robust error handling, correc..."
+  },
+  {
+    "file": "force-app/main/default/classes/ChangePasswordControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now correctly tests the `changePassword` method by creatin..."
+  },
+  {
+    "file": "force-app/main/default/classes/CheckInvoiceStatusController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `CheckInvoiceStatusController` addresses potential null pointer excep..."
+  },
+  {
+    "file": "force-app/main/default/classes/CheckInvoiceStatusController_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes were correcting a typo in the `PageReference` and improving th..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationMainTraining.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code addresses potential null pointer exceptions by initializing the ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationMainTraining_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of robust error handling to the test class..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplications.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates crucial error handling using try-catch blocks ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsApproved.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsApproved_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now handles potential exceptions during `ClientApplication..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsDeclined.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances CSV generation efficiency, adds robust error handl..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsDeclined_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of `try-catch` blocks around calls to `Cli..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsHome.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsHome_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes explicit null checks for the Lead Record Type..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsNewLeads.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances robustness and efficiency by adding exception hand..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsNewLeads_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now handles potential exceptions during `ClientApplication..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsPreApproved.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses potential exceptions during date parsing and SOQL..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsPreApproved_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class addresses duplicate lead insertion by modifying the second..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsPreQualifying.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling using try-catch blocks i..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplicationsPreQualifying_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements include removing duplicate lead creation, adding robust e..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientApplications_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes more descriptive test data, robust exception ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedApplicationsApproved.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds robust error handling for date parsing and improves qu..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedApplicationsApproved_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes involve resolving duplicate lead issues in the test class by m..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedApplicationsClosed.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds crucial error handling and input validation to prevent..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedApplicationsClosed_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
     "summary": "- **Summary**: The primary change was adding a `try-catch` block to handle potential exceptions d..."
   },
   {
-    "file": "force-app/main/default/classes/OrderSummaryController.cls",
+    "file": "force-app/main/default/classes/ClientGApprovedApplicationsNewLeads.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The Apex code was improved for performance, governor limit adherence, and error ha..."
+    "summary": "- **Summary**: The improved Apex code enhances robustness and clarity.  Key changes include expli..."
   },
   {
-    "file": "force-app/main/default/classes/OrderSyncRetryJobHandler.cls",
+    "file": "force-app/main/default/classes/ClientGApprovedApplicationsNewLeads_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved `OrderSyncRetryJobHandler` class now uses a more robust method for ge..."
+    "summary": "- **Summary**: The improved test class now uses a more concise method for retrieving the RecordTy..."
   },
   {
-    "file": "force-app/main/default/classes/OrderSyncRetryJobHandlerTest.cls",
+    "file": "force-app/main/default/classes/ClientGApprovedDashboard.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved test class addresses a duplicate field assignment in `User` object cr..."
+    "summary": "- **Summary**: The improved Apex code enhances robustness and security.  Key changes include spec..."
   },
   {
-    "file": "force-app/main/default/classes/OrderSyncRetryScheduledJob.cls",
+    "file": "force-app/main/default/classes/ClientGApprovedDashboard_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved Apex code adds more robust error handling around `System.enqueueJob`,..."
+    "summary": "- **Summary**: The test class was improved by addressing duplicate lead insertion issues and addi..."
   },
   {
-    "file": "force-app/main/default/classes/OrderSyncRetryScheduledJobTest.cls",
+    "file": "force-app/main/default/classes/ClientGApprovedHome.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary changes in this Apex test class remove unnecessary scheduling and focu..."
+    "summary": "**Summary**:"
   },
   {
-    "file": "force-app/main/default/classes/OrderSyncToSAPQueueable.cls",
+    "file": "force-app/main/default/classes/ClientGApprovedHome_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes more descriptive test data, robust exception ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedPreQualification.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses potential `NullPointerExceptions` by initializing..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedPreQualification_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**: The Apex test class was improved by addressing duplicate lead issues and removing un..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedTraining.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `ClientGApprovedTraining` Apex class now includes error handling and ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientGApprovedTraining_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test class lacked crucial elements for robust testing.  The improved ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientLogo.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `ClientLogo` class now uses a constructor for better dependency injec..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientLogo_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class removes an unnecessary SOQL query and corrects a case-sens..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original Apex class was essentially empty, containing only an unnecessary cons..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test class was flawed because it didn't actually test anything.  The ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsAppApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change improves the readability and maintainability of the test class ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsApprovedApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsClosedApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses potential null pointer exceptions, improves error..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsClosed_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements involve adding robust error handling using `try-catch` bl..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsDclApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by adding robust error handling and ensuring the ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsDeclinedApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code now handles potential null `accId` values, uses bind variab..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsNLApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change enhances the test class's robustness by replacing the reliance ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsNewLeadsApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: This Apex code was improved by adding robust error handling for date parsing and S..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsPAApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is making the test code more robust by replacing the hardc..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsPreApprApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by correcting the return type of the `fetchApplications..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsPreQual_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements in this Apex test class include eliminating duplicate lea..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalApplicationsPreQualiApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**:  The improved Apex code enhances robustness and security. Key changes include spec..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalDashboardApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several key issues:  It now handles potential nul..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalDashboardApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements include resolving a duplicate lead insertion issue by mod..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalHomeApex_CAN.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/ClientPortalHomeApex_CAN_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClimbApplicationService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by adding comprehensive null checks and try-catch block..."
+  },
+  {
+    "file": "force-app/main/default/classes/ClimbApplicationServiceTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now handles potential `Lead` record retrieval failures by ..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommonUtil.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `CommonUtil` class now includes robust error handling for `createAPIL..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesLandingController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary:**"
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesLandingControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change improves the test method's robustness by replacing a flawed ass..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesLoginController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `CommunitiesLoginController` now includes crucial null checks for `st..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesLoginControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust exception handling, mocks HTTP callout..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesSelfRegConfirmController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original code was a blank controller.  The improved version adds a `handleConf..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesSelfRegConfirmControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test class lacked crucial elements for proper test execution and veri..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesSelfRegController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by fixing a case-sensitive variable name, adding a user..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunitiesSelfRegControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling, correctly simulates gu..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunityLeadComponent.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code replaces inefficient SOQL queries with a single, optimized query..."
+  },
+  {
+    "file": "force-app/main/default/classes/CommunityLeadComponent_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test class lacked essential keywords and proper test execution setup...."
+  },
+  {
+    "file": "force-app/main/default/classes/ContactTriggerHandler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses a potential infinite loop in agent code generatio..."
+  },
+  {
+    "file": "force-app/main/default/classes/ContactTrigger_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test class lacked error handling and debugging capabilities.  The imp..."
+  },
+  {
+    "file": "force-app/main/default/classes/ContentDocumentLinkTriggerHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses performance bottlenecks by combining SOQL queries..."
+  },
+  {
+    "file": "force-app/main/default/classes/ContentDocumentLinkTrigger_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by consolidating DML operations, optimizing SOQL ..."
+  },
+  {
+    "file": "force-app/main/default/classes/ContentVersionTriggerHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses null pointer exceptions, improves data type handl..."
+  },
+  {
+    "file": "force-app/main/default/classes/ContentVersionTrigger_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the optimization of SOQL queries.  The original code ma..."
+  },
+  {
+    "file": "force-app/main/default/classes/ConversationWithAgent.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/ConversationWithAgent_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/ConversationWithClient.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by clarifying return types, enhancing error handling, s..."
+  },
+  {
+    "file": "force-app/main/default/classes/ConversationWithClient_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding a `try-catch` block to handle potential exceptions d..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateAccAndContactForGA.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses SOQL injection vulnerabilities by properly bindin..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateAccAndContactForGA_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by adding error handling and fixing a potential D..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateDTCAEmailService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses null pointer exceptions, optimizes email service ..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateDTCAEmailService_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of robust error handling using `try-catch`..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateGaApplicationLead.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances robustness and error handling.  Key changes includ..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateGaApplicationLead_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by correcting data format inconsistencies in the ..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateSmsTemplate.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several null pointer exceptions by adding robust ..."
+  },
+  {
+    "file": "force-app/main/default/classes/CreateSmsTemplate_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes involve correcting method names in the test class to match the..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomLoginPage.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `CustomLoginPage` class addresses security vulnerabilities, enhances ..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomLoginPage_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/CustomResetPasswordPage.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses SOQL injection vulnerabilities by using bind vari..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomResetPasswordPage_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomerHomePageController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several issues, primarily focusing on data type c..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomerHomePageControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by addressing lead insertion requirements, incorp..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomerPortalLoginControler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds comprehensive error handling using try-catch blocks ar..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomerPortalLoginControlerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling using try-catch blocks,..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomerPortalPasswordController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses potential type mismatch errors, adds comprehensiv..."
+  },
+  {
+    "file": "force-app/main/default/classes/CustomerPortalPasswordControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The updated Apex test class improves robustness and accuracy by correcting paramet..."
+  },
+  {
+    "file": "force-app/main/default/classes/DHCustomerLeadListForAccountCls.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses null pointer exceptions by safely accessing User ..."
+  },
+  {
+    "file": "force-app/main/default/classes/DHCustomerLeadListForAccountCls_test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes a unique Account Name to prevent insertion er..."
+  },
+  {
+    "file": "force-app/main/default/classes/DemoWebserviceClass.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code enhances error handling and DML operations within the RESTful we..."
+  },
+  {
+    "file": "force-app/main/default/classes/DemoWebserviceClass_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes realistic test data, removes a wildcard from ..."
+  },
+  {
+    "file": "force-app/main/default/classes/EAZEServicingProgramFormController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling using try-catch blocks i..."
+  },
+  {
+    "file": "force-app/main/default/classes/EazeEliteProgramForm.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code includes robust error handling using try-catch blocks for b..."
+  },
+  {
+    "file": "force-app/main/default/classes/FileUploadController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances error handling, optimizes database queries, and im..."
+  },
+  {
+    "file": "force-app/main/default/classes/FileUploadController_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements enhance the test class robustness by addressing issues re..."
+  },
+  {
+    "file": "force-app/main/default/classes/ForgotPasswordController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/ForgotPasswordControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of robust error handling to the test metho..."
+  },
+  {
+    "file": "force-app/main/default/classes/FundingAnalyticsController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes involve adding null checks to prevent `NullPointerExceptions` ..."
+  },
+  {
+    "file": "force-app/main/default/classes/FundingAnalyticsControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding comprehensive try-catch blocks around all method cal..."
+  },
+  {
+    "file": "force-app/main/default/classes/FundingPaymentReminderEmailScheduler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by consolidating multiple scheduled jobs into one, addi..."
+  },
+  {
+    "file": "force-app/main/default/classes/FundingPaymentReminderEmailScheduler_TC.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change removes the unnecessary and potentially problematic scheduling ..."
+  },
+  {
+    "file": "force-app/main/default/classes/GA_ApplicationController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code now includes robust error handling using a `try-catch` bloc..."
+  },
+  {
+    "file": "force-app/main/default/classes/GA_ApplicationController_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes crucial annotations, null checks, exception h..."
+  },
+  {
+    "file": "force-app/main/default/classes/GenerateGA_PDF.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses security vulnerabilities, enhances error handling..."
+  },
+  {
+    "file": "force-app/main/default/classes/GenerateGA_PDF_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now correctly handles potential exceptions during PDF gene..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetAppointmentUpdates.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code incorporates robust error handling for JSON deserialization, Dat..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetAppointmentUpdates_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding robust error handling using try-catch blocks around ..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetCanadaLoanConnectCsv.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement was refactoring the scheduled job to use a queue job for b..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetCanadaLoanConnectCsv_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements involve correcting the `Content-Type` headers in the mock..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetLoanConnectCsvQueue.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses potential `ArrayIndexOutOfBoundsException`, `Numb..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetOfferFromPayPossible.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `GetOfferFromPayPossible` Apex class now includes comprehensive error..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetOfferFromPayPossibleTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of robust error handling using `try-catch`..."
+  },
+  {
+    "file": "force-app/main/default/classes/GetPayPossibleOffersQueueable.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of robust error handling to the `GetPayPos..."
+  },
+  {
+    "file": "force-app/main/default/classes/GuaranteeApprovalApplication.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code refactors the `uploadFiles` method to handle file uploads more e..."
+  },
+  {
+    "file": "force-app/main/default/classes/GuaranteeApprovalApplicationForm.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling, null checks, and optimi..."
+  },
+  {
+    "file": "force-app/main/default/classes/GuaranteeApprovalApplicationForm_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes in `GuaranteeApprovalApplicationForm_Test` improve robustness ..."
+  },
+  {
+    "file": "force-app/main/default/classes/GuaranteeApprovalApplication_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/HacApiCallout.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several key issues: potential SOQL injection, nul..."
+  },
+  {
+    "file": "force-app/main/default/classes/HacApiCallout_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by adding a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/InstantApprovalDocumentUpload.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses a SOQL injection vulnerability, a logic error in ..."
+  },
+  {
+    "file": "force-app/main/default/classes/InstantApprovalDocumentUpload_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class eliminates an unnecessary SOQL query within the test metho..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadAutoConvertTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes improve the test coverage and efficiency. The `testLeadNotConv..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadListForAccountCls.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: This improved Apex code addresses several key issues:  It eliminates a dynamic SOQ..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadListForAccountCls_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by adding a `LIMIT 1` clause to a SOQL query to p..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadListForDSADAccountCls.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances SOQL query efficiency, adds robust error handling,..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadListForDSADAccountCls_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling using a `try-catch` blo..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadOffersResponseWrapper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was correcting the data types of `minAmount`, `maxAmount`, and ..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadOffersWebService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several issues, including handling null values fo..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadOffersWebService_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes corrected parameter assignments in the test methods `testGetLe..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadPreQualificationApex.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses a SOQL injection vulnerability by using bind vari..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadPreQualificationApex_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes correct casing inconsistencies in Lead object field names (`la..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadStatusSwitchScheduler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by addressing minor syntax issues, enhancing error hand..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadStatusSwitchScheduler_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change removes the scheduled job execution within the test method. Thi..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadStatusUpdateClass.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: This improved Apex code corrects SOQL query syntax, fixes case sensitivity issues,..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadStatusUpdateClass_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTracker.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code corrects the return type of the `fetchLeads` method, fixes ..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerApproved.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements include replacing reliance on a custom label for the begi..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerApprovedDSAD.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes enhance exception handling and robustness in the `LeadTrackerA..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerApprovedDSAD_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerApproved_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was to correct duplicate lead records in the test method by mod..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDSAD.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements in the revised Apex code involve enhancing date handling,..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDSADCommunity.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary:**"
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDSADCommunity_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test class lacked error handling.  The improved version includes a `t..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDSAD_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes were to address duplicate lead insertion errors by modifying t..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDeclined.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by removing redundant code, enhancing date handling, si..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDeclinedDSAD.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by removing redundant code, enhancing SOQL efficiency, ..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDeclinedDSAD_test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary fix was un-commenting the `insert ldList;` line, allowing the test met..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerDeclined_test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary fix was un-commenting the `insert ldList;` line, allowing the test met..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerFileClosed.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code removes redundant code, enhances exception handling, and si..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerFileClosedDSAD.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved for efficiency and robustness.  Key changes include usi..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerFileClosedDSAD_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements were eliminating redundant lead creation, enhancing excep..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrackerFileClosed_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was removing a duplicate lead insertion, improving test efficie..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTracker_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes in `LeadTracker_Test` address a duplicate lead insertion error..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTriggerHandler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved for efficiency, correctness, and readability.  Key chan..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTriggerHandler_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements include removing sensitive data (Social Security Number, ..."
+  },
+  {
+    "file": "force-app/main/default/classes/LeadTrigger_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by correcting a minor typo in `updateAccountOnLea..."
+  },
+  {
+    "file": "force-app/main/default/classes/LoanApplicationWebService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved to handle potential `NullPointerExceptions`, enhance er..."
+  },
+  {
+    "file": "force-app/main/default/classes/LoanApplicationWebService_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements include correcting the `requestUri` in the test methods t..."
+  },
+  {
+    "file": "force-app/main/default/classes/LoanConnectSubmitApplication.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses a case-sensitive parameter issue, adds comprehens..."
+  },
+  {
+    "file": "force-app/main/default/classes/LoanConnectSubmitApplication_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is removing redundant SOQL queries within the test methods..."
+  },
+  {
+    "file": "force-app/main/default/classes/LwcUnsubscribePrimaryContactController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds robust error handling, input validation, and efficienc..."
+  },
+  {
+    "file": "force-app/main/default/classes/LwcUnsubscribePrimaryContact_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of robust error handling using a `try-catc..."
+  },
+  {
+    "file": "force-app/main/default/classes/MainAppPreQualiyingQuestions.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/MainAppPreQualiyingQuestions_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class includes a try-catch block for robust exception handling d..."
+  },
+  {
+    "file": "force-app/main/default/classes/MainApplicationPortal.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates several enhancements for robustness and effici..."
+  },
+  {
+    "file": "force-app/main/default/classes/MainApplicationPortal_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by enhancing data handling, adding exception hand..."
+  },
+  {
+    "file": "force-app/main/default/classes/MicrobatchSelfRegController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several issues, including inconsistent variable n..."
+  },
+  {
+    "file": "force-app/main/default/classes/MicrobatchSelfRegControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original test failed because it didn't simulate a guest user context and didn'..."
+  },
+  {
+    "file": "force-app/main/default/classes/MyProfilePageController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances error handling, removes redundant database queries..."
+  },
+  {
+    "file": "force-app/main/default/classes/MyProfilePageControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is enhanced query efficiency by adding a `LIMIT 1` clause ..."
+  },
+  {
+    "file": "force-app/main/default/classes/PayPossibbleHelper_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by fixing a logic error in `testdataToken` to cor..."
+  },
+  {
+    "file": "force-app/main/default/classes/PayPossibleHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by addressing performance issues, enhancing error handl..."
+  },
+  {
+    "file": "force-app/main/default/classes/PayPossibleLeadWrapper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by correcting data type inconsistencies (e.g., `boolean..."
+  },
+  {
+    "file": "force-app/main/default/classes/PayPossibleWebServiceClass.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `PayPossibleWebServiceClass` enhances exception handling, optimizes S..."
+  },
+  {
+    "file": "force-app/main/default/classes/RESTCalloutHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `RESTCalloutHelper` class now robustly handles potential `CalloutExce..."
+  },
+  {
+    "file": "force-app/main/default/classes/ReceiveTwilioSMS.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several issues:  incorrect map type, missing exce..."
+  },
+  {
+    "file": "force-app/main/default/classes/ReceiveTwilioSMS_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by correcting the HTTP method used for the Twilio..."
+  },
+  {
+    "file": "force-app/main/default/classes/RingCentralApiClass.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements involve adding robust error handling to the `RingCentralA..."
+  },
+  {
+    "file": "force-app/main/default/classes/RingCentralSMSClass.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances robustness and efficiency by adding comprehensive ..."
+  },
+  {
+    "file": "force-app/main/default/classes/RingCentralSMSClass_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by correcting test method declarations, enhancing..."
+  },
+  {
+    "file": "force-app/main/default/classes/SFC_XmlCallOut.cls",
     "type": "apex",
     "issues_fixed": 1,
     "summary": "- **Summary**: The improved Apex code incorporates robust error handling for SOQL queries, HTTP c..."
   },
   {
-    "file": "force-app/main/default/classes/OrderSyncToSAPQueueableTest.cls",
+    "file": "force-app/main/default/classes/SFC_XmlCallOut_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change was to fix a potential issue in the test class where the `testU..."
+    "summary": "- **Summary**: The primary change improves the code's readability and maintainability by renaming..."
   },
   {
-    "file": "force-app/main/default/classes/OrderTriggerControl.cls",
+    "file": "force-app/main/default/classes/ScheduleClientPaymentEmail.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change addressed a potential `NullPointerException` by explicitly init..."
+    "summary": "- **Summary**: The improved Apex code enhances robustness and error handling.  Key changes includ..."
   },
   {
-    "file": "force-app/main/default/classes/ProductServiceWrapperTest.cls",
+    "file": "force-app/main/default/classes/ScheduleClientPaymentEmail_Test.cls",
     "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The provided code was already functionally correct.  The only change made was addi..."
+    "summary": "- **Summary**: The improved test class now includes robust error handling within a `try-catch` bl..."
   },
   {
-    "file": "force-app/main/default/classes/ProformaOrderEmailService.cls",
+    "file": "force-app/main/default/classes/ScheduleTextMessages.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `ScheduleTextMessages` class incorporates better error handling, simp..."
+  },
+  {
+    "file": "force-app/main/default/classes/ScheduleTextMessages_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now uses `@testSetup` for efficient data setup, includes `..."
+  },
+  {
+    "file": "force-app/main/default/classes/SelectSmsTemplate.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses several issues, including typos, exception handli..."
+  },
+  {
+    "file": "force-app/main/default/classes/SelectSmsTemplate_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by removing commented-out code, correcting variab..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendClientBackendCredentials.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses potential `NullPointerExceptions`, enhances query..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendClientBackendCredentials_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now correctly establishes the Account-Contact relationship..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendFundingPartnerDetails.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances robustness and error handling.  Key changes includ..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendFundingPartnerDetails_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement in the updated test class is the addition of a `try-catch`..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendMessage.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code addresses null pointer exceptions and potential SOQL injection v..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendMessage_test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes involve adding variables to store the return values of the met..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendMsgViaSimpleTexting.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code enhances error handling, optimizes recipient number processing, ..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendMsgViaSimpleTexting_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling with `try-catch` blocks..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendPartnerGaDetails.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling, optimizes SOQL queries,..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendPartnerGaDetails_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement in the updated test class is the addition of robust error ..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendSMSToTelegram.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds robust error handling, uses `JSON.serialize` for bette..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendSMSToTelegram_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendSMSToTelegram_TestCallout.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement in the revised `SendSMSToTelegram_TestCallout` class is th..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendTelegramMsgToAgent.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements focus on resolving a potential SOQL injection vulnerabili..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendTelegramMsgToAgent_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes involve adding a `Parent__c` field to the `Sms_Template__c` re..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendToBelEAZEChatBtnApex.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances performance and robustness by adding governor limi..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendToBelEAZEChatBtnApex_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class addresses a potential `NullPointerException` by correctly ..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendToCreditPull.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `SendToCreditPull` class now includes robust error handling, preventi..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendToCreditPullTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/SendToPayPossible.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `SendToPayPossible` Apex class now includes robust error handling and..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendToPayPossibleHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The original code only processed the first Lead ID in the input list. The improved..."
+  },
+  {
+    "file": "force-app/main/default/classes/SendToPayPossibleTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class removes sensitive data (Social Security Number), adds exce..."
+  },
+  {
+    "file": "force-app/main/default/classes/SfResourceApex.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved by adding comprehensive error handling for missing para..."
+  },
+  {
+    "file": "force-app/main/default/classes/SfResourceApex_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class addresses the issue of relying on `ApexPages.currentPage()..."
+  },
+  {
+    "file": "force-app/main/default/classes/SfResourceAuraApex.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling and null checks to preve..."
+  },
+  {
+    "file": "force-app/main/default/classes/SfResourceAuraApex_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is the addition of a `try-catch` block to handle potential..."
+  },
+  {
+    "file": "force-app/main/default/classes/SfResourceLwcApex.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling and null checks to preve..."
+  },
+  {
+    "file": "force-app/main/default/classes/SfResourceLwcApex_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding a `try-catch` block to handle potential exceptions d..."
+  },
+  {
+    "file": "force-app/main/default/classes/ShareLeadsAndAccountsWithDSAD.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds crucial error handling, prevents potential `NullPointe..."
+  },
+  {
+    "file": "force-app/main/default/classes/ShareLeadsAndAccountsWithDSAD_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes crucial field values (`Client_Code__c` and `A..."
+  },
+  {
+    "file": "force-app/main/default/classes/ShareTrainingDoc.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances type safety, improves error handling, and refactor..."
+  },
+  {
+    "file": "force-app/main/default/classes/ShareTrainingDoc_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes involved correcting a typo in a method call and improving effi..."
+  },
+  {
+    "file": "force-app/main/default/classes/SimpleTextingApi.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses a `NullPointerException` in DML operations, optim..."
+  },
+  {
+    "file": "force-app/main/default/classes/SiteLoginController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/SiteLoginControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class utilizes a dynamically created test user instead of hardco..."
+  },
+  {
+    "file": "force-app/main/default/classes/SiteRegisterController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses critical issues in portal user registration. Key ..."
+  },
+  {
+    "file": "force-app/main/default/classes/SiteRegisterControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/classes/TelegramApiClass.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `TelegramApiClass` uses `StringBuilder` for better performance and se..."
+  },
+  {
+    "file": "force-app/main/default/classes/TelegramApiClass_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class now includes robust error handling using a `try-catch` blo..."
+  },
+  {
+    "file": "force-app/main/default/classes/TelegramGroupTriggerHelper.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code corrects data type mismatches in maps and sets, preventing ..."
+  },
+  {
+    "file": "force-app/main/default/classes/TelegramGroupTrigger_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change removes redundant and inefficient code from the test class. The..."
+  },
+  {
+    "file": "force-app/main/default/classes/TelegramMessageTriggerHandler.cls",
     "type": "apex",
     "issues_fixed": 1,
     "summary": "- **Summary**: The improved Apex code incorporates robust error handling using try-catch blocks a..."
   },
   {
-    "file": "force-app/main/default/lwc/accountSearch/accountSearch.css",
-    "type": "lwc",
-    "component": "accountSearch",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS was refactored to leverage Salesforce Lightning Design System (SLDS) class..."
-  },
-  {
-    "file": "force-app/main/default/lwc/accountSearch/accountSearch.js",
-    "type": "lwc",
-    "component": "accountSearch",
+    "file": "force-app/main/default/classes/TelegramMessageTrigger_Test.cls",
+    "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved LWC code addresses an ESLint parsing error, enhances error handling b..."
+    "summary": "- **Summary**: The primary change was to correct a duplicate email error in the test method `meth..."
   },
   {
-    "file": "force-app/main/default/lwc/accountSearch/accountSearch.js-meta.xml",
-    "type": "lwc",
-    "component": "accountSearch",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The `accountSearch.js-meta.xml` file was updated to correctly reference the Lightn..."
+    "file": "force-app/main/default/classes/TrainingDocument.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved for better type safety, error handling, efficiency, and..."
   },
   {
-    "file": "force-app/main/default/lwc/app/__tests__/app.test.js",
-    "type": "lwc",
-    "component": "__tests__",
+    "file": "force-app/main/default/classes/TrainingDocumentUpdateNotification.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds robust error handling, input validation, and efficienc..."
+  },
+  {
+    "file": "force-app/main/default/classes/TrainingDocumentUpdateNotification_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes improve the robustness and correctness of the test class.  A `..."
+  },
+  {
+    "file": "force-app/main/default/classes/TrainingDocument_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvement is a performance optimization by replacing two separate SO..."
+  },
+  {
+    "file": "force-app/main/default/classes/attachmentList.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances readability, type safety, and error handling.  Key..."
+  },
+  {
+    "file": "force-app/main/default/classes/attachmentList_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary improvements to `attachmentList_Test` include correcting typos in the ..."
+  },
+  {
+    "file": "force-app/main/default/classes/createNewCanadaLead.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code addresses SOQL injection vulnerabilities, enhances error ha..."
+  },
+  {
+    "file": "force-app/main/default/classes/createNewCanadaLead_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by removing unnecessary debug statements, correct..."
+  },
+  {
+    "file": "force-app/main/default/classes/downloadLeadDataCsv.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code adds crucial error handling for missing `AccountId` parameters a..."
+  },
+  {
+    "file": "force-app/main/default/classes/downloadLeadDataCsv_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change addresses how the test class interacts with page parameters.  I..."
+  },
+  {
+    "file": "force-app/main/default/classes/filePreviewAndDownloadController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved code addresses performance issues and adds crucial error handling.  I..."
+  },
+  {
+    "file": "force-app/main/default/classes/filePreviewAndDownloadController_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The test class was improved by fixing a ContentVersion insertion issue, removing u..."
+  },
+  {
+    "file": "force-app/main/default/classes/loanServicingEmailService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `loanServicingEmailService` class robustly handles CSV email attachme..."
+  },
+  {
+    "file": "force-app/main/default/classes/loanServicingEmailService_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved by correcting a typo in `fromName`, extracting th..."
+  },
+  {
+    "file": "force-app/main/default/classes/sendMeetingReminder.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "**Summary:**"
+  },
+  {
+    "file": "force-app/main/default/classes/sendMeetingReminder_Test.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex test class was improved to reliably test the `sendMeetingReminder` schedu..."
+  },
+  {
+    "file": "force-app/main/default/classes/sendPreApprovedEmailAgent.cls",
+    "type": "apex",
     "issues_fixed": 1,
     "summary": "**Summary**:"
   },
   {
-    "file": "force-app/main/default/lwc/bike/__tests__/bike.test.js",
-    "type": "lwc",
-    "component": "__tests__",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The improved test suite utilizes the public property setter (`element.bikeName = '..."
-  },
-  {
-    "file": "force-app/main/default/lwc/bikeCard/__tests__/bikeCard.test.js",
-    "type": "lwc",
-    "component": "__tests__",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The primary improvements enhance the test suite's effectiveness by adding crucial ..."
-  },
-  {
-    "file": "force-app/main/default/lwc/app/app.html",
-    "type": "lwc",
-    "component": "app",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The improved LWC code enhances accessibility and structure by wrapping the `c-bike..."
-  },
-  {
-    "file": "force-app/main/default/lwc/app/app.js",
-    "type": "lwc",
-    "component": "app",
+    "file": "force-app/main/default/classes/sendPreApprovedEmailAgent_Test.cls",
+    "type": "apex",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change addresses a parsing error caused by an incorrectly placed `@` s..."
+    "summary": "- **Summary**: The primary changes involve improving the test class by correctly simulating a pag..."
   },
   {
-    "file": "force-app/main/default/lwc/app/app.js-meta.xml",
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm/bothProgramApplicationForm.css",
     "type": "lwc",
-    "component": "app",
+    "component": "bothProgramApplicationForm",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary change enhances the Lightning Web Component's deployment by adding sup..."
+    "summary": "- **Summary**: The CSS was improved for better styling, maintainability, and Salesforce Lightning..."
   },
   {
-    "file": "force-app/main/default/lwc/bike/bike.html",
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm/bothProgramApplicationForm.html",
     "type": "lwc",
-    "component": "bike",
+    "component": "bothProgramApplicationForm",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The improved Lightning Web Component (LWC) code enhances data binding consistency,..."
+    "summary": "- **Summary**: The LWC HTML was improved for accessibility, maintainability, and styling consiste..."
   },
   {
-    "file": "force-app/main/default/lwc/bike/bike.js",
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm/bothProgramApplicationForm.js",
     "type": "lwc",
-    "component": "bike",
+    "component": "bothProgramApplicationForm",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code enhances readability, efficiency, and error handling.  Key c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm/bothProgramApplicationForm.js-meta.xml",
+    "type": "lwc",
+    "component": "bothProgramApplicationForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change enhances the Lightning Web Component (LWC) `bothProgramApplicat..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm_K/BothProgramApplicationForm_K.css",
+    "type": "lwc",
+    "component": "bothProgramApplicationForm_K",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved for maintainability, theming, and responsiveness.  Hardcoded ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm_K/bothProgramApplicationForm_K.html",
+    "type": "lwc",
+    "component": "bothProgramApplicationForm_K",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC's HTML template was improved for accessibility, maintainability, and visua..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm_K/bothProgramApplicationForm_K.js",
+    "type": "lwc",
+    "component": "bothProgramApplicationForm_K",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code enhances error handling, uses modern JavaScript features, im..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bothProgramApplicationForm_K/bothProgramApplicationForm_K.js-meta.xml",
+    "type": "lwc",
+    "component": "bothProgramApplicationForm_K",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change enhances the Lightning Web Component (LWC) `bothProgramApplicat..."
+  },
+  {
+    "file": "force-app/main/default/lwc/canadaApplicationPortal/canadaApplicationPortal.css",
+    "type": "lwc",
+    "component": "canadaApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS code was significantly improved by renaming classes for better clarity and..."
+  },
+  {
+    "file": "force-app/main/default/lwc/canadaApplicationPortal/canadaApplicationPortal.html",
+    "type": "lwc",
+    "component": "canadaApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC HTML was significantly improved for readability, maintainability, and acce..."
+  },
+  {
+    "file": "force-app/main/default/lwc/canadaApplicationPortal/canadaApplicationPortal.js",
+    "type": "lwc",
+    "component": "canadaApplicationPortal",
     "issues_fixed": 2,
-    "summary": "- **Summary**: The primary changes involve correcting a naming convention violation, improving er..."
+    "summary": "Summary"
   },
   {
-    "file": "force-app/main/default/lwc/bikeCard/bikeCard.html",
+    "file": "force-app/main/default/lwc/canadaApplicationPortal/canadaApplicationPortal.js-meta.xml",
     "type": "lwc",
-    "component": "bikeCard",
+    "component": "canadaApplicationPortal",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The improved Lightning Web Component (LWC) `bikeCard.html` now incorporates crucia..."
+    "summary": "- **Summary**: The `canadaApplicationPortal.js-meta.xml` file was improved by adding a descriptiv..."
   },
   {
-    "file": "force-app/main/default/lwc/bikeCard/bikeCard.js",
+    "file": "force-app/main/default/lwc/createAccAndContactForGA/createAccAndContactForGA.css",
     "type": "lwc",
-    "component": "bikeCard",
+    "component": "createAccAndContactForGA",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The original CSS was improved by adding a structured layout using flexbox, styling..."
+  },
+  {
+    "file": "force-app/main/default/lwc/createAccAndContactForGA/createAccAndContactForGA.html",
+    "type": "lwc",
+    "component": "createAccAndContactForGA",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary changes involve removing all inline styling and replacing it with Sale..."
+  },
+  {
+    "file": "force-app/main/default/lwc/createAccAndContactForGA/createAccAndContactForGA.js",
+    "type": "lwc",
+    "component": "createAccAndContactForGA",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved `bikeCard.js` LWC addresses an ESLint parsing error, enhances error h..."
+    "summary": "- **Summary**: The primary changes involve correcting an Apex method name mismatch, improving var..."
   },
   {
-    "file": "force-app/main/default/lwc/bikeCard/bikeCard.js-meta.xml",
+    "file": "force-app/main/default/lwc/createAccAndContactForGA/createAccAndContactForGA.js-meta.xml",
     "type": "lwc",
-    "component": "bikeCard",
+    "component": "createAccAndContactForGA",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `bikeCard.js-meta.xml` file was improved by adding a descriptive component des..."
+    "summary": "- **Summary**: The primary improvement to `createAccAndContactForGA.js-meta.xml` is the addition ..."
   },
   {
-    "file": "force-app/main/default/lwc/createOrder/createOrder.css",
+    "file": "force-app/main/default/lwc/eAZEEliteProgramForm/eAZEEliteProgramForm.css",
     "type": "lwc",
-    "component": "createOrder",
+    "component": "eAZEEliteProgramForm",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary change involves replacing all instances of `lwc` design tokens with th..."
+    "summary": "- **Summary**: The CSS code was improved by renaming the class to adhere to Lightning Web Compone..."
   },
   {
-    "file": "force-app/main/default/lwc/createOrder/createOrder.html",
+    "file": "force-app/main/default/lwc/eAZEEliteProgramForm/eAZEEliteProgramForm.html",
     "type": "lwc",
-    "component": "createOrder",
+    "component": "eAZEEliteProgramForm",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary change was adding an `aria-label` attribute to the `<c-order-summary>`..."
+    "summary": "- **Summary**: The LWC HTML was improved for accessibility, maintainability, and responsiveness. ..."
   },
   {
-    "file": "force-app/main/default/lwc/createOrder/createOrder.js",
+    "file": "force-app/main/default/lwc/eAZEEliteProgramForm/eAZEEliteProgramForm.js",
     "type": "lwc",
-    "component": "createOrder",
+    "component": "eAZEEliteProgramForm",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code enhances readability, efficiency, and error handling.  Key c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/eAZEEliteProgramForm/eAZEEliteProgramForm.js-meta.xml",
+    "type": "lwc",
+    "component": "eAZEEliteProgramForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `eAZEEliteProgramForm.js-meta.xml` file was improved by adding a descriptive c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/eazeServicingProgramForm/eazeServicingProgramForm.css",
+    "type": "lwc",
+    "component": "eazeServicingProgramForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved by renaming the class to adhere to Salesforce Lightning Web C..."
+  },
+  {
+    "file": "force-app/main/default/lwc/eazeServicingProgramForm/eazeServicingProgramForm.html",
+    "type": "lwc",
+    "component": "eazeServicingProgramForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC HTML was improved for accessibility, maintainability, and adherence to Sal..."
+  },
+  {
+    "file": "force-app/main/default/lwc/eazeServicingProgramForm/eazeServicingProgramForm.js",
+    "type": "lwc",
+    "component": "eazeServicingProgramForm",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code removes redundant properties, enhances error handling, simpl..."
+  },
+  {
+    "file": "force-app/main/default/lwc/eazeServicingProgramForm/eazeServicingProgramForm.js-meta.xml",
+    "type": "lwc",
+    "component": "eazeServicingProgramForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement is enhanced compatibility.  The original code only support..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalytics/fundingAnalytics.html",
+    "type": "lwc",
+    "component": "fundingAnalytics",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes Salesforce's SLDS styling for consistent margins, employ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalytics/fundingAnalytics.js",
+    "type": "lwc",
+    "component": "fundingAnalytics",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved `fundingAnalytics` LWC now retrieves funding data from an Apex contro..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalytics/fundingAnalytics.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalytics",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalytics.js-meta.xml` file was updated to improve compatibility and e..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsAvgAmountperDeal/fundingAnalyticsAvgAmountperDeal.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsAvgAmountperDeal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements focus on enhancing accessibility and adding a data handli..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsAvgAmountperDeal/fundingAnalyticsAvgAmountperDeal.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsAvgAmountperDeal",
     "issues_fixed": 2,
-    "summary": "- **Summary**: The primary changes involved correcting the lifecycle hook used for loading styles..."
+    "summary": "- **Summary**: The code was improved by fixing syntax errors, enhancing error handling, and impro..."
   },
   {
-    "file": "force-app/main/default/lwc/createOrder/createOrder.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsAvgAmountperDeal/fundingAnalyticsAvgAmountperDeal.js-meta.xml",
     "type": "lwc",
-    "component": "createOrder",
+    "component": "fundingAnalyticsAvgAmountperDeal",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `createOrder` LWC metadata was improved for broader compatibility and to elimi..."
+    "summary": "- **Summary**: The `fundingAnalyticsAvgAmountperDeal.js-meta.xml` file was improved by adding a d..."
   },
   {
-    "file": "force-app/main/default/lwc/data/data.js",
+    "file": "force-app/main/default/lwc/fundingAnalyticsClientFundDeal/fundingAnalyticsClientFundDeal.html",
     "type": "lwc",
-    "component": "data",
+    "component": "fundingAnalyticsClientFundDeal",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary change was adding a getter method (`bikeList`) for the `bikes` array. ..."
+    "summary": "- **Summary**: The improved LWC enhances accessibility and semantics by replacing inappropriate `..."
   },
   {
-    "file": "force-app/main/default/lwc/data/data.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsClientFundDeal/fundingAnalyticsClientFundDeal.js",
     "type": "lwc",
-    "component": "data",
+    "component": "fundingAnalyticsClientFundDeal",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The code was improved by fixing a parsing error caused by incorrect spacing in `@s..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsClientFundDeal/fundingAnalyticsClientFundDeal.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsClientFundDeal",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `data.js-meta.xml` file was improved by adding a descriptive component name an..."
+    "summary": "- **Summary**: The `fundingAnalyticsClientFundDeal.js-meta.xml` file was improved by adding a des..."
   },
   {
-    "file": "force-app/main/default/lwc/detail/detail.css",
+    "file": "force-app/main/default/lwc/fundingAnalyticsClosedLostBreakdown/fundingAnalyticsClosedLostBreakdown.html",
     "type": "lwc",
-    "component": "detail",
+    "component": "fundingAnalyticsClosedLostBreakdown",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The improved CSS enhances visual presentation and maintainability.  Key changes in..."
+    "summary": "- **Summary**: The improved LWC code enhances accessibility and semantic correctness by replacing..."
   },
   {
-    "file": "force-app/main/default/lwc/detail/detail.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsClosedLostBreakdown/fundingAnalyticsClosedLostBreakdown.js",
     "type": "lwc",
-    "component": "detail",
+    "component": "fundingAnalyticsClosedLostBreakdown",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC utilizes `@wire` for reactive data fetching, enhancing error hand..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsClosedLostBreakdown/fundingAnalyticsClosedLostBreakdown.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsClosedLostBreakdown",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary improvement in this LWC's HTML template focuses on enhancing accessibi..."
+    "summary": "- **Summary**: The `fundingAnalyticsClosedLostBreakdown.js-meta.xml` file was improved by adding ..."
   },
   {
-    "file": "force-app/main/default/lwc/detail/detail.js",
+    "file": "force-app/main/default/lwc/fundingAnalyticsClosedLostToPreApproval/fundingAnalyticsClosedLostToPreApproval.html",
     "type": "lwc",
-    "component": "detail",
+    "component": "fundingAnalyticsClosedLostToPreApproval",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC enhances accessibility by adding ARIA attributes to anchor elemen..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsClosedLostToPreApproval/fundingAnalyticsClosedLostToPreApproval.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsClosedLostToPreApproval",
     "issues_fixed": 2,
-    "summary": "- **Summary**: The primary changes involve removing a redundant function call, improving variable..."
+    "summary": "- **Summary**:  The LWC code was improved by fixing syntax errors, enhancing error handling, impr..."
   },
   {
-    "file": "force-app/main/default/lwc/detail/detail.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsClosedLostToPreApproval/fundingAnalyticsClosedLostToPreApproval.js-meta.xml",
     "type": "lwc",
-    "component": "detail",
+    "component": "fundingAnalyticsClosedLostToPreApproval",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `detail.js-meta.xml` file was improved by adding a descriptive component descr..."
+    "summary": "- **Summary**: The primary improvements to `fundingAnalyticsClosedLostToPreApproval.js-meta.xml` ..."
   },
   {
-    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.css",
+    "file": "force-app/main/default/lwc/fundingAnalyticsFundedRecurringMonths/fundingAnalyticsFundedRecurringMonths.html",
     "type": "lwc",
-    "component": "genericErrorComponent",
+    "component": "fundingAnalyticsFundedRecurringMonths",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS for the generic error component was improved for clarity, consistency, and..."
+    "summary": "- **Summary**: The improved LWC uses semantically correct HTML elements, enhancing accessibility ..."
   },
   {
-    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsFundedRecurringMonths/fundingAnalyticsFundedRecurringMonths.js",
     "type": "lwc",
-    "component": "genericErrorComponent",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The improved component enhances accessibility and semantic meaning.  Key changes i..."
-  },
-  {
-    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.js",
-    "type": "lwc",
-    "component": "genericErrorComponent",
+    "component": "fundingAnalyticsFundedRecurringMonths",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved `GenericErrorComponent` removes unnecessary lifecycle hook logic and ..."
+    "summary": "- **Summary**: The code was improved by fixing a parsing error caused by incorrect template liter..."
   },
   {
-    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsFundedRecurringMonths/fundingAnalyticsFundedRecurringMonths.js-meta.xml",
     "type": "lwc",
-    "component": "genericErrorComponent",
+    "component": "fundingAnalyticsFundedRecurringMonths",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `genericErrorComponent.js-meta.xml` file was improved by adding a descriptive ..."
+    "summary": "- **Summary**: The `fundingAnalyticsFundedRecurringMonths.js-meta.xml` file was improved by addin..."
   },
   {
-    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.css",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient/fundingAnalyticsNoAppClient.html",
     "type": "lwc",
-    "component": "genericProductCard",
+    "component": "fundingAnalyticsNoAppClient",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS for the `genericProductCard` LWC was improved by adding `display: block` t..."
+    "summary": "- **Summary**: The primary change was correcting a case mismatch between the HTML event handler (..."
   },
   {
-    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient/fundingAnalyticsNoAppClient.js",
     "type": "lwc",
-    "component": "genericProductCard",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The improved LWC HTML utilizes nested templates more efficiently, removing redunda..."
-  },
-  {
-    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.js",
-    "type": "lwc",
-    "component": "genericProductCard",
+    "component": "fundingAnalyticsNoAppClient",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved `genericProductCard.js` LWC addresses an ESLint parsing error by remo..."
+    "summary": "- **Summary**: The code was improved by fixing a parsing error caused by incorrect import stateme..."
   },
   {
-    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient/fundingAnalyticsNoAppClient.js-meta.xml",
     "type": "lwc",
-    "component": "genericProductCard",
+    "component": "fundingAnalyticsNoAppClient",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `genericProductCard.js-meta.xml` file was improved by adding a descriptive com..."
+    "summary": "- **Summary**: The `fundingAnalyticsNoAppClient.js-meta.xml` file was updated to improve compatib..."
   },
   {
-    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.css",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient180/fundingAnalyticsNoAppClient180.html",
     "type": "lwc",
-    "component": "genericQuantityEditor",
+    "component": "fundingAnalyticsNoAppClient180",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS for the `qtyWrapper` class was improved by replacing generic LWC design to..."
+    "summary": "- **Summary**: The primary changes enhance accessibility by adding appropriate ARIA attributes to..."
   },
   {
-    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient180/fundingAnalyticsNoAppClient180.js",
     "type": "lwc",
-    "component": "genericQuantityEditor",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The primary improvement enhances accessibility by adding `title` attributes to the..."
-  },
-  {
-    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.js",
-    "type": "lwc",
-    "component": "genericQuantityEditor",
+    "component": "fundingAnalyticsNoAppClient180",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change addresses a parsing error caused by an unexpected `@` symbol in..."
+    "summary": "- **Summary**: The improved LWC code addresses a parsing error by correcting the import statement..."
   },
   {
-    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient180/fundingAnalyticsNoAppClient180.js-meta.xml",
     "type": "lwc",
-    "component": "genericQuantityEditor",
+    "component": "fundingAnalyticsNoAppClient180",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `genericQuantityEditor.js-meta.xml` file was improved by adding a descriptive ..."
+    "summary": "- **Summary**: The primary improvements to `fundingAnalyticsNoAppClient180.js-meta.xml` involve e..."
   },
   {
-    "file": "force-app/main/default/lwc/genericSVGComponent/genericSVGComponent.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient270/fundingAnalyticsNoAppClient270.html",
     "type": "lwc",
-    "component": "genericSVGComponent",
+    "component": "fundingAnalyticsNoAppClient270",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary improvement was refactoring the SVG icons to remove inline styling for..."
+    "summary": "- **Summary**: The primary change was correcting the naming convention of the `openModal` method ..."
   },
   {
-    "file": "force-app/main/default/lwc/genericSVGComponent/genericSVGComponent.js",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient270/fundingAnalyticsNoAppClient270.js",
     "type": "lwc",
-    "component": "genericSVGComponent",
+    "component": "fundingAnalyticsNoAppClient270",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved `GenericSvgComponent` now correctly renders SVG icons based on boolea..."
+    "summary": "- **Summary**: The LWC code was improved by fixing a parsing error caused by incorrect import sta..."
   },
   {
-    "file": "force-app/main/default/lwc/genericSVGComponent/genericSVGComponent.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient270/fundingAnalyticsNoAppClient270.js-meta.xml",
     "type": "lwc",
-    "component": "genericSVGComponent",
+    "component": "fundingAnalyticsNoAppClient270",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `genericSVGComponent.js-meta.xml` file was improved by adding a descriptive me..."
+    "summary": "- **Summary**: The `fundingAnalyticsNoAppClient270.js-meta.xml` file was improved by adding a des..."
   },
   {
-    "file": "force-app/main/default/lwc/genericSearchBar/genericSearchBar.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient365/fundingAnalyticsNoAppClient365.html",
     "type": "lwc",
-    "component": "genericSearchBar",
+    "component": "fundingAnalyticsNoAppClient365",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary improvement was adding a placeholder attribute to the `lightning-input..."
+    "summary": "- **Summary**: The Lightning Web Component HTML template was improved for consistency and readabi..."
   },
   {
-    "file": "force-app/main/default/lwc/genericSearchBar/genericSearchBar.js",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient365/fundingAnalyticsNoAppClient365.js",
     "type": "lwc",
-    "component": "genericSearchBar",
+    "component": "fundingAnalyticsNoAppClient365",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The improved `genericSearchBar` LWC addresses an ESLint parsing error by renaming ..."
+    "summary": "- **Summary**: The code was improved by fixing a parsing error caused by incorrect spacing in Ape..."
   },
   {
-    "file": "force-app/main/default/lwc/genericSearchBar/genericSearchBar.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient365/fundingAnalyticsNoAppClient365.js-meta.xml",
     "type": "lwc",
-    "component": "genericSearchBar",
+    "component": "fundingAnalyticsNoAppClient365",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `genericSearchBar.js-meta.xml` file was improved by adding a descriptive compo..."
+    "summary": "- **Summary**: The `fundingAnalyticsNoAppClient365.js-meta.xml` file was improved by adding a des..."
   },
   {
-    "file": "force-app/main/default/lwc/list/list.css",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient90/fundingAnalyticsNoAppClient90.html",
     "type": "lwc",
-    "component": "list",
+    "component": "fundingAnalyticsNoAppClient90",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS was improved for clarity, maintainability, and responsiveness.  The main c..."
+    "summary": "- **Summary**: The primary change was correcting a naming inconsistency between the HTML's event ..."
   },
   {
-    "file": "force-app/main/default/lwc/list/list.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient90/fundingAnalyticsNoAppClient90.js",
     "type": "lwc",
-    "component": "list",
-    "issues_fixed": 0,
-    "summary": "- **Summary**: The improved Lightning Web Component now includes crucial accessibility enhancemen..."
-  },
-  {
-    "file": "force-app/main/default/lwc/list/list.js",
-    "type": "lwc",
-    "component": "list",
+    "component": "fundingAnalyticsNoAppClient90",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary fix resolved a parsing error caused by incorrect use of the `@api` dec..."
+    "summary": "- **Summary**: The improved LWC code addresses a parsing error by correcting the import statement..."
   },
   {
-    "file": "force-app/main/default/lwc/list/list.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNoAppClient90/fundingAnalyticsNoAppClient90.js-meta.xml",
     "type": "lwc",
-    "component": "list",
+    "component": "fundingAnalyticsNoAppClient90",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `list.js-meta.xml` file was improved by adding a descriptive component descrip..."
+    "summary": "- **Summary**: The `fundingAnalyticsNoAppClient90.js-meta.xml` file was updated to improve compat..."
   },
   {
-    "file": "force-app/main/default/lwc/searchProducts/searchProducts.css",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNonConsecutiveFund/fundingAnalyticsNonConsecutiveFund.html",
     "type": "lwc",
-    "component": "searchProducts",
+    "component": "fundingAnalyticsNonConsecutiveFund",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The original CSS lacked specific styling and relied on a generic class name.  The ..."
+    "summary": "- **Summary**: The improved LWC uses buttons instead of anchor tags for better accessibility and ..."
   },
   {
-    "file": "force-app/main/default/lwc/searchProducts/searchProducts.html",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNonConsecutiveFund/fundingAnalyticsNonConsecutiveFund.js",
     "type": "lwc",
-    "component": "searchProducts",
+    "component": "fundingAnalyticsNonConsecutiveFund",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code corrects a syntax error in Apex method imports, enhances err..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsNonConsecutiveFund/fundingAnalyticsNonConsecutiveFund.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsNonConsecutiveFund",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary changes enhance accessibility by adding appropriate ARIA attributes (`..."
+    "summary": "- **Summary**: The primary changes update the `apiVersion` to 57.0 for improved compatibility and..."
   },
   {
-    "file": "force-app/main/default/lwc/searchProducts/searchProducts.js",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNumClientsSubmittedApp/fundingAnalyticsNumClientsSubmittedApp.html",
     "type": "lwc",
-    "component": "searchProducts",
+    "component": "fundingAnalyticsNumClientsSubmittedApp",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC uses semantically correct HTML elements, enhancing accessibility ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsNumClientsSubmittedApp/fundingAnalyticsNumClientsSubmittedApp.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsNumClientsSubmittedApp",
     "issues_fixed": 2,
-    "summary": "- **Summary**: The primary changes involved removing an unused import (`Quantity` from schema), c..."
+    "summary": "- **Summary**: The LWC code was improved by fixing syntax errors, enhancing error handling, impro..."
   },
   {
-    "file": "force-app/main/default/lwc/searchProducts/searchProducts.js-meta.xml",
+    "file": "force-app/main/default/lwc/fundingAnalyticsNumClientsSubmittedApp/fundingAnalyticsNumClientsSubmittedApp.js-meta.xml",
     "type": "lwc",
-    "component": "searchProducts",
+    "component": "fundingAnalyticsNumClientsSubmittedApp",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsNumClientsSubmittedApp.js-meta.xml` file was improved by addi..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsNumOfClients/fundingAnalyticsNumOfClients.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsNumOfClients",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC uses semantically correct HTML elements, enhancing accessibility ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsNumOfClients/fundingAnalyticsNumOfClients.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsNumOfClients",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The code was improved by fixing syntax errors, correcting typos, enhancing error h..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsNumOfClients/fundingAnalyticsNumOfClients.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsNumOfClients",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsNumOfClients.js-meta.xml` file was improved by adding a descr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentClientsSubmitApp/fundingAnalyticsPercentClientsSubmitApp.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentClientsSubmitApp",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC code enhances consistency, readability, and accessibility.  Key c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentClientsSubmitApp/fundingAnalyticsPercentClientsSubmitApp.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentClientsSubmitApp",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The code was improved by fixing syntax errors, enhancing error handling, improving..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentClientsSubmitApp/fundingAnalyticsPercentClientsSubmitApp.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentClientsSubmitApp",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsPercentClientsSubmitApp.js-meta.xml` file was improved by add..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentFundedRecurring/fundingAnalyticsPercentFundedRecurring.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentFundedRecurring",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC uses buttons instead of anchor tags where appropriate, enhancing ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentFundedRecurring/fundingAnalyticsPercentFundedRecurring.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentFundedRecurring",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC addresses the parsing error by correcting the import statements. ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentFundedRecurring/fundingAnalyticsPercentFundedRecurring.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentFundedRecurring",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsPercentFundedRecurring.js-meta.xml` file was updated to impro..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentNonConsecutive/fundingAnalyticsPercentNonConsecutive.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentNonConsecutive",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes better semantic HTML elements, enhancing accessibility a..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentNonConsecutive/fundingAnalyticsPercentNonConsecutive.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentNonConsecutive",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The code was improved by fixing a parsing error caused by incorrect backticks in A..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentNonConsecutive/fundingAnalyticsPercentNonConsecutive.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentNonConsecutive",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary changes involve updating the `apiVersion` to 57.0 for improved compati..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentageClientFundDeal/fundingAnalyticsPercentageClientFundDeal.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentageClientFundDeal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary changes improve accessibility and semantics by replacing `<a>` tags wi..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentageClientFundDeal/fundingAnalyticsPercentageClientFundDeal.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentageClientFundDeal",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The code was improved by fixing parsing errors related to incorrect Apex method im..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPercentageClientFundDeal/fundingAnalyticsPercentageClientFundDeal.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsPercentageClientFundDeal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements to `fundingAnalyticsPercentageClientFundDeal.js-meta.xml`..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPreApprovalsToFunded/fundingAnalyticsPreApprovalsToFunded.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsPreApprovalsToFunded",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements focus on enhancing accessibility and adding a data handli..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPreApprovalsToFunded/fundingAnalyticsPreApprovalsToFunded.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsPreApprovalsToFunded",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The LWC code was improved by fixing parsing errors, enhancing error handling, impr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPreApprovalsToFunded/fundingAnalyticsPreApprovalsToFunded.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsPreApprovalsToFunded",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsPreApprovalsToFunded.js-meta.xml` file was improved by adding..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPreApprovedPercent/fundingAnalyticsPreApprovedPercent.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsPreApprovedPercent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary changes involved correcting a typo in the `lightning-datatable` compon..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPreApprovedPercent/fundingAnalyticsPreApprovedPercent.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsPreApprovedPercent",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The improved LWC code addresses parsing errors by correcting template literal synt..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsPreApprovedPercent/fundingAnalyticsPreApprovedPercent.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsPreApprovedPercent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsPreApprovedPercent.js-meta.xml` file was improved by adding a..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab1/fundingAnalyticsTab1.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab1",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The Lightning Web Component's HTML template was improved for responsiveness and ma..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab1/fundingAnalyticsTab1.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab1",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved `FundingAnalyticsTab1` LWC now dynamically fetches and displays Accou..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab1/fundingAnalyticsTab1.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab1",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTab1.js-meta.xml` file was improved by adding a descriptive c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab2/fundingAnalyticsTab2.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab2",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The Lightning Web Component's HTML template was improved by wrapping the content w..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab2/fundingAnalyticsTab2.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab2",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved `FundingAnalyticsTab2` LWC now retrieves and displays Account Name da..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab2/fundingAnalyticsTab2.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab2",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTab2.js-meta.xml` file was improved by adding a descriptive c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab3/fundingAnalyticsTab3.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab3",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The code was improved by refactoring repetitive child components into a single reu..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab3/fundingAnalyticsTab3.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab3",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The original LWC was enhanced to dynamically retrieve and display Account Name dat..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTab3/fundingAnalyticsTab3.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTab3",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTab3.js-meta.xml` file was improved by adding a descriptive c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalApps/fundingAnalyticsTotalApps.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalApps",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes the Salesforce Lightning Design System (SLDS) more consi..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalApps/fundingAnalyticsTotalApps.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalApps",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The improved LWC code addresses parsing errors by correcting import statements, en..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalApps/fundingAnalyticsTotalApps.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalApps",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTotalApps.js-meta.xml` file was improved by adding a descript..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalAppsToFunded/fundingAnalyticsTotalAppsToFunded.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalAppsToFunded",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements focus on enhancing accessibility and adding a data handli..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalAppsToFunded/fundingAnalyticsTotalAppsToFunded.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalAppsToFunded",
+    "issues_fixed": 2,
+    "summary": "Lightning Web Component Code Improvements: `fundingAnalyticsTotalAppsToFunded`"
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalAppsToFunded/fundingAnalyticsTotalAppsToFunded.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalAppsToFunded",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTotalAppsToFunded.js-meta.xml` file was improved by adding a ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalDealsFunded/fundingAnalyticsTotalDealsFunded.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalDealsFunded",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC code corrects a typo in the `lightning-datatable` component,  fix..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalDealsFunded/fundingAnalyticsTotalDealsFunded.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalDealsFunded",
+    "issues_fixed": 2,
+    "summary": "Lightning Web Component Code Improvements: `fundingAnalyticsTotalDealsFunded`"
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalDealsFunded/fundingAnalyticsTotalDealsFunded.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalDealsFunded",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTotalDealsFunded.js-meta.xml` file was updated to improve com..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalDenialApps/fundingAnalyticsTotalDenialApps.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalDenialApps",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The code was improved primarily for accessibility and semantic correctness.  Unnec..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalDenialApps/fundingAnalyticsTotalDenialApps.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalDenialApps",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The code was updated to fix parsing errors, improve error handling, enhance code r..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalDenialApps/fundingAnalyticsTotalDenialApps.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalDenialApps",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements to `fundingAnalyticsTotalDenialApps.js-meta.xml` involve ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalFundedAmount/fundingAnalyticsTotalFundedAmount.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalFundedAmount",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC enhances accessibility and semantic correctness.  Unnecessary `<a..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalFundedAmount/fundingAnalyticsTotalFundedAmount.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalFundedAmount",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The LWC code was improved by fixing parsing errors, enhancing error handling, impr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalFundedAmount/fundingAnalyticsTotalFundedAmount.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalFundedAmount",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `fundingAnalyticsTotalFundedAmount.js-meta.xml` file was improved by adding a ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalPreApprovedApps/fundingAnalyticsTotalPreApprovedApps.html",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalPreApprovedApps",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes the Salesforce Lightning Design System (SLDS) consistent..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalPreApprovedApps/fundingAnalyticsTotalPreApprovedApps.js",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalPreApprovedApps",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The LWC code was improved by fixing parsing errors, enhancing error handling, impr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/fundingAnalyticsTotalPreApprovedApps/fundingAnalyticsTotalPreApprovedApps.js-meta.xml",
+    "type": "lwc",
+    "component": "fundingAnalyticsTotalPreApprovedApps",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements to `fundingAnalyticsTotalPreApprovedApps.js-meta.xml` inv..."
+  },
+  {
+    "file": "force-app/main/default/lwc/gaApplicationPortal/gaApplicationPortal.css",
+    "type": "lwc",
+    "component": "gaApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: This CSS code was improved by replacing vague class names with more descriptive an..."
+  },
+  {
+    "file": "force-app/main/default/lwc/gaApplicationPortal/gaApplicationPortal.html",
+    "type": "lwc",
+    "component": "gaApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC HTML utilizes semantic HTML5 elements, enhances accessibility wit..."
+  },
+  {
+    "file": "force-app/main/default/lwc/gaApplicationPortal/gaApplicationPortal.js",
+    "type": "lwc",
+    "component": "gaApplicationPortal",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The LWC code was significantly improved by refactoring repetitive code, consolidat..."
+  },
+  {
+    "file": "force-app/main/default/lwc/gaApplicationPortal/gaApplicationPortal.js-meta.xml",
+    "type": "lwc",
+    "component": "gaApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement to `gaApplicationPortal.js-meta.xml` is the addition of `<..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplication/guaranteeApprovalApplication.html",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplication",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The Lightning Web Component's HTML template was improved by replacing inline style..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplication/guaranteeApprovalApplication.js",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplication",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses several issues, including improved null handling, ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplication/guaranteeApprovalApplication.js-meta.xml",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplication",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `guaranteeApprovalApplication.js-meta.xml` file was improved by adding a descr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplicationForm/guaranteeApprovalApplicationForm.css",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplicationForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved for better layout, theming, and maintainability.  Key changes..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplicationForm/guaranteeApprovalApplicationForm.html",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplicationForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes Salesforce's utility classes for styling, enhancing resp..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplicationForm/guaranteeApprovalApplicationForm.js",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplicationForm",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code enhances readability, robustness, and maintainability throug..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteeApprovalApplicationForm/guaranteeApprovalApplicationForm.js-meta.xml",
+    "type": "lwc",
+    "component": "guaranteeApprovalApplicationForm",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change enhances the Lightning Web Component's (LWC) deployability and ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteedApprovalApplicationForm_K/GuaranteedApprovalApplicationForm_K.css",
+    "type": "lwc",
+    "component": "guaranteedApprovalApplicationForm_K",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved for maintainability, themeability, and responsiveness.  Hardc..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteedApprovalApplicationForm_K/guaranteedApprovalApplicationForm_K.html",
+    "type": "lwc",
+    "component": "guaranteedApprovalApplicationForm_K",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC's HTML was improved for accessibility, maintainability, and responsiveness..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteedApprovalApplicationForm_K/guaranteedApprovalApplicationForm_K.js",
+    "type": "lwc",
+    "component": "guaranteedApprovalApplicationForm_K",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC addresses several issues:  unnecessary spinner display, inefficie..."
+  },
+  {
+    "file": "force-app/main/default/lwc/guaranteedApprovalApplicationForm_K/guaranteedApprovalApplicationForm_K.js-meta.xml",
+    "type": "lwc",
+    "component": "guaranteedApprovalApplicationForm_K",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change enhances the Lightning Web Component (LWC) `guaranteedApprovalA..."
+  },
+  {
+    "file": "force-app/main/default/lwc/instantApprovalDocumentUpload/instantApprovalDocumentUpload.css",
+    "type": "lwc",
+    "component": "instantApprovalDocumentUpload",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS code was improved for readability and maintainability.  The primary change..."
+  },
+  {
+    "file": "force-app/main/default/lwc/instantApprovalDocumentUpload/instantApprovalDocumentUpload.html",
+    "type": "lwc",
+    "component": "instantApprovalDocumentUpload",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The Lightning Web Component HTML template was improved for accessibility, maintain..."
+  },
+  {
+    "file": "force-app/main/default/lwc/instantApprovalDocumentUpload/instantApprovalDocumentUpload.js",
+    "type": "lwc",
+    "component": "instantApprovalDocumentUpload",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The improved LWC code addresses parsing errors, enhances reactivity, improves erro..."
+  },
+  {
+    "file": "force-app/main/default/lwc/instantApprovalDocumentUpload/instantApprovalDocumentUpload.js-meta.xml",
+    "type": "lwc",
+    "component": "instantApprovalDocumentUpload",
     "issues_fixed": 0,
     "summary": "- **Summary**: The primary change enhances the Lightning Web Component's (LWC) compatibility by a..."
   },
   {
-    "file": "force-app/main/default/lwc/selector/selector.css",
+    "file": "force-app/main/default/lwc/instantApprovalDocuments/instantApprovalDocuments.css",
     "type": "lwc",
-    "component": "selector",
+    "component": "instantApprovalDocuments",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS was improved for consistency, maintainability, and visual appeal.  Key cha..."
+    "summary": "- **Summary**: The original CSS was improved by adding specificity, responsiveness, and Salesforc..."
   },
   {
-    "file": "force-app/main/default/lwc/selector/selector.html",
+    "file": "force-app/main/default/lwc/instantApprovalDocuments/instantApprovalDocuments.html",
     "type": "lwc",
-    "component": "selector",
+    "component": "instantApprovalDocuments",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The improved Lightning Web Component (LWC) code enhances accessibility and consist..."
+    "summary": "- **Summary**: The improved LWC utilizes Salesforce Lightning Design System (SLDS) classes for st..."
   },
   {
-    "file": "force-app/main/default/lwc/selector/selector.js",
+    "file": "force-app/main/default/lwc/instantApprovalDocuments/instantApprovalDocuments.js",
     "type": "lwc",
-    "component": "selector",
+    "component": "instantApprovalDocuments",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change addresses an ESLint parsing error caused by an incorrectly plac..."
+    "summary": "- **Summary**: The code was improved for readability, error handling, and efficiency.  Variable n..."
   },
   {
-    "file": "force-app/main/default/lwc/selector/selector.js-meta.xml",
+    "file": "force-app/main/default/lwc/instantApprovalDocuments/instantApprovalDocuments.js-meta.xml",
     "type": "lwc",
-    "component": "selector",
+    "component": "instantApprovalDocuments",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The `selector.js-meta.xml` file was improved by adding a descriptive component des..."
+    "summary": "- **Summary**: The `instantApprovalDocuments.js-meta.xml` file was improved by adding support for..."
   },
   {
-    "file": "force-app/main/default/lwc/tile/tile.css",
+    "file": "force-app/main/default/lwc/loanConnectOffersLwc/loanConnectOffersLwc.css",
     "type": "lwc",
-    "component": "tile",
+    "component": "loanConnectOffersLwc",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The CSS was improved by replacing hardcoded spacing values with Salesforce Lightni..."
+    "summary": "- **Summary**: The CSS was refactored to improve maintainability, scalability, and adherence to S..."
   },
   {
-    "file": "force-app/main/default/lwc/tile/tile.html",
+    "file": "force-app/main/default/lwc/loanConnectOffersLwc/loanConnectOffersLwc.html",
     "type": "lwc",
-    "component": "tile",
+    "component": "loanConnectOffersLwc",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The improved Lightning Web Component (LWC) tile now uses simplified data access, e..."
+    "summary": "- **Summary**: The improved LWC code enhances security, accessibility, and readability.  Key chan..."
   },
   {
-    "file": "force-app/main/default/lwc/tile/tile.js",
+    "file": "force-app/main/default/lwc/loanConnectOffersLwc/loanConnectOffersLwc.js",
     "type": "lwc",
-    "component": "tile",
+    "component": "loanConnectOffersLwc",
     "issues_fixed": 1,
-    "summary": "- **Summary**: The primary change was removing a spurious comment that caused a parsing error on ..."
+    "summary": "- **Summary**: The improved LWC code addresses a parsing error caused by incorrect Apex import sy..."
   },
   {
-    "file": "force-app/main/default/lwc/tile/tile.js-meta.xml",
+    "file": "force-app/main/default/lwc/loanConnectOffersLwc/loanConnectOffersLwc.js-meta.xml",
     "type": "lwc",
-    "component": "tile",
+    "component": "loanConnectOffersLwc",
     "issues_fixed": 0,
-    "summary": "- **Summary**: The primary change was adding support for Lightning App Builder.  The original cod..."
+    "summary": "- **Summary**: The `loanConnectOffersLwc.js-meta.xml` file was improved by adding a descriptive c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/lwcUnsubscribePrimaryContact/lwcUnsubscribePrimaryContact.html",
+    "type": "lwc",
+    "component": "lwcUnsubscribePrimaryContact",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC HTML template was improved for better structure, styling, accessibility, a..."
+  },
+  {
+    "file": "force-app/main/default/lwc/lwcUnsubscribePrimaryContact/lwcUnsubscribePrimaryContact.js",
+    "type": "lwc",
+    "component": "lwcUnsubscribePrimaryContact",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The LWC was significantly improved by changing the email input method, enhancing e..."
+  },
+  {
+    "file": "force-app/main/default/lwc/lwcUnsubscribePrimaryContact/lwcUnsubscribePrimaryContact.js-meta.xml",
+    "type": "lwc",
+    "component": "lwcUnsubscribePrimaryContact",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `lwcUnsubscribePrimaryContact.js-meta.xml` file was improved by adding a descr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainAppPreQualifyingQuestions/mainAppPreQualifyingQuestions.css",
+    "type": "lwc",
+    "component": "mainAppPreQualifyingQuestions",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was refactored to leverage Salesforce Lightning Design System (SLDS) class..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainAppPreQualifyingQuestions/mainAppPreQualifyingQuestions.html",
+    "type": "lwc",
+    "component": "mainAppPreQualifyingQuestions",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: This LWC code was improved by replacing custom styling with the Salesforce Lightni..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainAppPreQualifyingQuestions/mainAppPreQualifyingQuestions.js",
+    "type": "lwc",
+    "component": "mainAppPreQualifyingQuestions",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The LWC code was improved by fixing a parsing error caused by an incorrect Apex cl..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainAppPreQualifyingQuestions/mainAppPreQualifyingQuestions.js-meta.xml",
+    "type": "lwc",
+    "component": "mainAppPreQualifyingQuestions",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change to `mainAppPreQualifyingQuestions.js-meta.xml` was adding a des..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationHighestEducation/mainApplicationHighestEducation.css",
+    "type": "lwc",
+    "component": "mainApplicationHighestEducation",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS code was improved by removing unnecessary `!important` flags, making selec..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationHighestEducation/mainApplicationHighestEducation.html",
+    "type": "lwc",
+    "component": "mainApplicationHighestEducation",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes standard Salesforce components (`lightning-icon`, `light..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationHighestEducation/mainApplicationHighestEducation.js",
+    "type": "lwc",
+    "component": "mainApplicationHighestEducation",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses a parsing error by removing an unnecessary `@` sym..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationHighestEducation/mainApplicationHighestEducation.js-meta.xml",
+    "type": "lwc",
+    "component": "mainApplicationHighestEducation",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement to `mainApplicationHighestEducation.js-meta.xml` is the ad..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortal/mainApplicationPortal.css",
+    "type": "lwc",
+    "component": "mainApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS code was improved by replacing generic classes with more specific and sema..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortal/mainApplicationPortal.html",
+    "type": "lwc",
+    "component": "mainApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The HTML code was significantly improved for accessibility and semantic correctnes..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortal/mainApplicationPortal.js",
+    "type": "lwc",
+    "component": "mainApplicationPortal",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The LWC code was improved by addressing a parsing error caused by an incorrectly p..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortal/mainApplicationPortal.js-meta.xml",
+    "type": "lwc",
+    "component": "mainApplicationPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change was adding a descriptive `<description>` tag to the `LightningC..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortalFaq/mainApplicationPortalFaq.css",
+    "type": "lwc",
+    "component": "mainApplicationPortalFaq",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was refactored to leverage Salesforce Lightning Design System (SLDS) class..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortalFaq/mainApplicationPortalFaq.html",
+    "type": "lwc",
+    "component": "mainApplicationPortalFaq",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC HTML was refactored to leverage the Salesforce Lightning Design System (SL..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortalFaq/mainApplicationPortalFaq.js",
+    "type": "lwc",
+    "component": "mainApplicationPortalFaq",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The original code's repetitive structure for handling multiple FAQs was refactored..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationPortalFaq/mainApplicationPortalFaq.js-meta.xml",
+    "type": "lwc",
+    "component": "mainApplicationPortalFaq",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement to `mainApplicationPortalFaq.js-meta.xml` is the addition ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationSelfEmployedYear/mainApplicationSelfEmployedYear.css",
+    "type": "lwc",
+    "component": "mainApplicationSelfEmployedYear",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS code was improved by removing unnecessary `!important` flags, making selec..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationSelfEmployedYear/mainApplicationSelfEmployedYear.html",
+    "type": "lwc",
+    "component": "mainApplicationSelfEmployedYear",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC was significantly improved by replacing custom-built UI elements (back but..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationSelfEmployedYear/mainApplicationSelfEmployedYear.js",
+    "type": "lwc",
+    "component": "mainApplicationSelfEmployedYear",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses an ESLint parsing error, enhances code readability..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationSelfEmployedYear/mainApplicationSelfEmployedYear.js-meta.xml",
+    "type": "lwc",
+    "component": "mainApplicationSelfEmployedYear",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement to `mainApplicationSelfEmployedYear.js-meta.xml` is the ad..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationTypeOfResidence/mainApplicationTypeOfResidence.css",
+    "type": "lwc",
+    "component": "mainApplicationTypeOfResidence",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS code was improved by removing unnecessary `!important` flags, enhancing se..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationTypeOfResidence/mainApplicationTypeOfResidence.html",
+    "type": "lwc",
+    "component": "mainApplicationTypeOfResidence",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes standard Salesforce components (`lightning-icon`, `light..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationTypeOfResidence/mainApplicationTypeOfResidence.js",
+    "type": "lwc",
+    "component": "mainApplicationTypeOfResidence",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses the parsing error by correcting the import stateme..."
+  },
+  {
+    "file": "force-app/main/default/lwc/mainApplicationTypeOfResidence/mainApplicationTypeOfResidence.js-meta.xml",
+    "type": "lwc",
+    "component": "mainApplicationTypeOfResidence",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change improves the LWC's deployability and usability by explicitly de..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selfEmployedYearsGaPortal/selfEmployedYearsGaPortal.css",
+    "type": "lwc",
+    "component": "selfEmployedYearsGaPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved for maintainability and readability by removing unnecessary `..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selfEmployedYearsGaPortal/selfEmployedYearsGaPortal.html",
+    "type": "lwc",
+    "component": "selfEmployedYearsGaPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC was significantly improved by replacing custom-built UI elements (back but..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selfEmployedYearsGaPortal/selfEmployedYearsGaPortal.js",
+    "type": "lwc",
+    "component": "selfEmployedYearsGaPortal",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses an ESLint parsing error by removing unnecessary co..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selfEmployedYearsGaPortal/selfEmployedYearsGaPortal.js-meta.xml",
+    "type": "lwc",
+    "component": "selfEmployedYearsGaPortal",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement is the addition of `targets` within the `LightningComponen..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendClientBackendCredentials/sendClientBackendCredentials.html",
+    "type": "lwc",
+    "component": "sendClientBackendCredentials",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The LWC HTML was significantly improved for readability, maintainability, and acce..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendClientBackendCredentials/sendClientBackendCredentials.js",
+    "type": "lwc",
+    "component": "sendClientBackendCredentials",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code enhances readability, maintainability, and error handling.  ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendClientBackendCredentials/sendClientBackendCredentials.js-meta.xml",
+    "type": "lwc",
+    "component": "sendClientBackendCredentials",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change was adding support for Lightning App Builder as a deployment ta..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendGaLeadToSfcLwc/sendGaLeadToSfcLwc.html",
+    "type": "lwc",
+    "component": "sendGaLeadToSfcLwc",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC HTML leverages Salesforce Lightning Design System (SLDS) classes ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendGaLeadToSfcLwc/sendGaLeadToSfcLwc.js",
+    "type": "lwc",
+    "component": "sendGaLeadToSfcLwc",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses an ESLint parsing error, enhances error handling, ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendGaLeadToSfcLwc/sendGaLeadToSfcLwc.js-meta.xml",
+    "type": "lwc",
+    "component": "sendGaLeadToSfcLwc",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement is the addition of `targetConfigs` to the Lightning Web Co..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendToBelEAZEChatBtnLwc/sendToBelEAZEChatBtnLwc.html",
+    "type": "lwc",
+    "component": "sendToBelEAZEChatBtnLwc",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC HTML leverages Salesforce Lightning Design System (SLDS) classes ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendToBelEAZEChatBtnLwc/sendToBelEAZEChatBtnLwc.js",
+    "type": "lwc",
+    "component": "sendToBelEAZEChatBtnLwc",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The improved LWC code addresses parsing errors, enhances error handling, and impro..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sendToBelEAZEChatBtnLwc/sendToBelEAZEChatBtnLwc.js-meta.xml",
+    "type": "lwc",
+    "component": "sendToBelEAZEChatBtnLwc",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement was adding a `<targetConfig>` section to the `sendToBelEAZ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sfResourceLwc/sfResourceLwc.html",
+    "type": "lwc",
+    "component": "sfResourceLwc",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC code corrects the syntax of the conditional rendering, adds cruci..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sfResourceLwc/sfResourceLwc.js",
+    "type": "lwc",
+    "component": "sfResourceLwc",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The improved LWC code addresses parsing errors, enhances code structure, and impro..."
+  },
+  {
+    "file": "force-app/main/default/lwc/sfResourceLwc/sfResourceLwc.js-meta.xml",
+    "type": "lwc",
+    "component": "sfResourceLwc",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `sfResourceLwc.js-meta.xml` file was updated to improve its compatibility and ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/submitApplicationToHac/submitApplicationToHac.html",
+    "type": "lwc",
+    "component": "submitApplicationToHac",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC utilizes Salesforce Lightning Design System (SLDS) classes for co..."
+  },
+  {
+    "file": "force-app/main/default/lwc/submitApplicationToHac/submitApplicationToHac.js",
+    "type": "lwc",
+    "component": "submitApplicationToHac",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses an ESLint parsing error, enhances error handling, ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/submitApplicationToHac/submitApplicationToHac.js-meta.xml",
+    "type": "lwc",
+    "component": "submitApplicationToHac",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `submitApplicationToHac.js-meta.xml` file was improved by adding a descriptive..."
   }
 ]

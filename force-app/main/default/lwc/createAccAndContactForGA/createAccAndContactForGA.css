@@ -1,3 +1,42 @@
-.test{
-    
+.container {
+    /* AI_FIXED: Added a container class for better scoping and structure */
+    display: flex;
+    flex-direction: column;
+    width: 500px; /* AI_FIXED: Added width for better layout */
+    padding: 1rem; /* AI_FIXED: Added padding for better spacing */
+    border: 1px solid #d9d9d9; /* AI_FIXED: Added border for visual separation */
+    border-radius: 4px; /* AI_FIXED: Added border radius for better visual appeal */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* AI_FIXED: Added box shadow for depth */
 }
+
+.form-group {
+    /* AI_FIXED: Added a class for form groups for better organization */
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    /* AI_FIXED: Added styles for labels */
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    /* AI_FIXED: Added styles for input fields */
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    /* AI_FIXED: Added styles for the submit button */
+    background-color: var(--salesforce-button-brand); /* AI_FIXED: Using SLDS token for button color */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* AI_FIXED: Removed the unused .test class */

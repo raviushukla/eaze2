@@ -12,11 +12,11 @@ global class LeadPreQualificationApex_Test {
         }
     }
     public Static testMethod void preQualSuccessCase(){
-        lead led = new lead();
+        Lead led = new Lead(); // AI_FIXED: Changed lead to Lead for correct casing
         led.Loan_Amount__c = 5678;
         led.Status = 'New Lead';
         led.FirstName = 'test';
-        led.lastname = 'kumar';
+        led.LastName = 'kumar'; // AI_FIXED: Corrected casing of lastname to LastName
         led.LeadSource = 'OEA Application'; 
         led.Date_of_Birth__c = system.today();
         led.Social_Security_Number__c = '123456789';
@@ -24,8 +24,8 @@ global class LeadPreQualificationApex_Test {
         led.MobilePhone = '9255007723';
         led.ErrorLog__c = 'error';
         led.Street = 'United States';
-        led.city = 'Hoover';
-        led.state = 'AL';
+        led.City = 'Hoover'; // AI_FIXED: Corrected casing of city to City
+        led.State = 'AL'; // AI_FIXED: Corrected casing of state to State
         led.PostalCode = 'dsdsd';
         insert led;
         
@@ -46,19 +46,19 @@ global class LeadPreQualificationApex_Test {
         }
     }
     public Static testMethod void preQualErrorCase1(){
-        lead led = new lead();
+        Lead led = new Lead(); // AI_FIXED: Changed lead to Lead for correct casing
         led.Loan_Amount__c = 5678;
         led.Status = 'New Lead';
         led.FirstName = 'test';
-        led.lastname = 'kumar';
+        led.LastName = 'kumar'; // AI_FIXED: Corrected casing of lastname to LastName
         led.LeadSource = 'OEA Application'; 
         led.Date_of_Birth__c = system.today();
         led.Social_Security_Number__c = '123456789';
         led.Email = 'abc@gmail.com';
         led.MobilePhone = '9255007723';
         led.Street = 'United States';
-        led.city = 'Hoover';
-        led.state = 'AL';
+        led.City = 'Hoover'; // AI_FIXED: Corrected casing of city to City
+        led.State = 'AL'; // AI_FIXED: Corrected casing of state to State
         led.PostalCode = 'dsdsd';
         insert led;
         
@@ -79,19 +79,19 @@ global class LeadPreQualificationApex_Test {
         }
     }
     public Static testMethod void preQualErrorCase2(){
-        lead led = new lead();
+        Lead led = new Lead(); // AI_FIXED: Changed lead to Lead for correct casing
         led.Loan_Amount__c = 5678;
         led.Status = 'New Lead';
         led.FirstName = 'test';
-        led.lastname = 'kumar';
+        led.LastName = 'kumar'; // AI_FIXED: Corrected casing of lastname to LastName
         led.LeadSource = 'OEA Application'; 
         led.Date_of_Birth__c = system.today();
         led.Social_Security_Number__c = '123456789';
         led.Email = 'abc@gmail.com';
         led.MobilePhone = '9255007723';
         led.Street = 'United States';
-        led.city = 'Hoover';
-        led.state = 'AL';
+        led.City = 'Hoover'; // AI_FIXED: Corrected casing of city to City
+        led.State = 'AL'; // AI_FIXED: Corrected casing of state to State
         led.PostalCode = 'dsdsd';
         insert led;
         
@@ -101,19 +101,19 @@ global class LeadPreQualificationApex_Test {
         Test.stopTest();
     }
     public Static testMethod void preQualErrorCase3(){
-        lead led = new lead();
+        Lead led = new Lead(); // AI_FIXED: Changed lead to Lead for correct casing
         led.Loan_Amount__c = 5678;
         led.Status = 'New Lead';
         led.FirstName = 'test';
-        led.lastname = 'kumar';
+        led.LastName = 'kumar'; // AI_FIXED: Corrected casing of lastname to LastName
         led.LeadSource = 'OEA Application'; 
         led.Date_of_Birth__c = system.today();
         led.Social_Security_Number__c = '123456789';
         led.Email = 'abc@gmail.com';
         led.MobilePhone = '9255007723';
         led.Street = 'United States';
-        led.city = '';
-        led.state = '';
+        led.City = ''; // AI_FIXED: Corrected casing of city to City
+        led.State = ''; // AI_FIXED: Corrected casing of state to State
         led.PostalCode = 'dsdsd';
         insert led;
         

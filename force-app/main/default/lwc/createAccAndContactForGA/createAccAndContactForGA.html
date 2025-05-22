@@ -1,24 +1,24 @@
 <template>
-    <template lwc:if={error}>
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: red;font-size:large;">{message} </span>
-            <a style="color: black;font-size:large;font-weight:bold;" href={gaUrl} target="_self">&nbsp;GO BACK</a>
+    <template if:true={error}>
+        <div role="alert" class="slds-align_absolute-center slds-p-top_large slds-text-heading_small slds-text-color_error">
+            <span>{message}</span> <!-- AI_FIXED: Removed inline styling and used SLDS classes for better accessibility and maintainability -->
+            <a href={gaUrl} target="_self" class="slds-text-link_reset slds-m-left_x-small">GO BACK</a> <!-- AI_FIXED: Removed inline styling and used SLDS classes for better accessibility and maintainability -->
         </div>
     </template>   
-    <template lwc:if={accountCreated}> 
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: green;font-size:large;">Account created, redirecting........</span>
+    <template if:true={accountCreated}> 
+        <div role="alert" class="slds-align_absolute-center slds-p-top_large slds-text-heading_small slds-text-color_success">
+            <span>Account created, redirecting...</span> <!-- AI_FIXED: Removed inline styling and used SLDS classes for better accessibility and maintainability; Improved wording for better user experience -->
         </div>
     </template>
-    <template lwc:if={accountPresent}> 
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: rgb(54, 54, 86);font-size:large;">Account already present : <u><b>{accName}</b></u> and Contact : <u><b>{conName}</b></u></span>
-            <a style="color: black;font-size:large;font-weight:bold;" href={gaUrl} target="_self">&nbsp;GO BACK</a>
+    <template if:true={accountPresent}> 
+        <div role="alert" class="slds-align_absolute-center slds-p-top_large slds-text-heading_small">
+            <p>Account already present: <strong>{accName}</strong> and Contact: <strong>{conName}</strong></p> <!-- AI_FIXED: Removed inline styling and used SLDS classes for better accessibility and maintainability; Improved semantic structure using <p> tag and <strong> for strong emphasis -->
+            <a href={gaUrl} target="_self" class="slds-text-link_reset slds-m-left_x-small">GO BACK</a> <!-- AI_FIXED: Removed inline styling and used SLDS classes for better accessibility and maintainability -->
         </div>
     </template>
-    <template lwc:if={spinner}>
-        <div class="">
-            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    <template if:true={spinner}>
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner> <!-- AI_FIXED: Added more appropriate div class for better visual presentation -->
         </div>
     </template>   
 </template>

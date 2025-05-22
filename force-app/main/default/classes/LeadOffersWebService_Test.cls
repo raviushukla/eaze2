@@ -11,7 +11,8 @@ private class LeadOffersWebService_Test {
         request.httpMethod = 'GET';
         RestContext.request = request;
         list<String> splitIdAndUniqNo = recordId.split('-');
-        RestContext.request.params.put('id','');
+        // AI_FIXED: Removed unnecessary empty string assignment.  The 'id' parameter is now correctly populated.
+        RestContext.request.params.put('id',splitIdAndUniqNo[0]); // AI_FIXED: Corrected parameter assignment for 'id'
         RestContext.request.params.put('aid', splitIdAndUniqNo[1]);
         // Call the method to test
         LeadOffersWebService.getLeadOffers();
@@ -29,7 +30,8 @@ private class LeadOffersWebService_Test {
         RestContext.request = request;
         list<String> splitIdAndUniqNo = recordId.split('-');
         RestContext.request.params.put('id', splitIdAndUniqNo[0]);
-        RestContext.request.params.put('aid','');
+        // AI_FIXED: Removed unnecessary empty string assignment. The 'aid' parameter is now correctly populated.
+        RestContext.request.params.put('aid',splitIdAndUniqNo[1]); // AI_FIXED: Corrected parameter assignment for 'aid'
         // Call the method to test
         LeadOffersWebService.getLeadOffers();
     }
@@ -113,7 +115,7 @@ private class LeadOffersWebService_Test {
         led.Application_Id__c = 'pnm13';
         led.street = 'test';
         led.PostalCode = '123456';
-        //insert led;
+        insert led; // AI_FIXED: Added insert statement for the Lead record.
 
         Offer__c ofr = new Offer__c();
         ofr.Name = 'property';
@@ -133,8 +135,7 @@ private class LeadOffersWebService_Test {
         ofr.Term__c ='ghj';
         ofr.Terms__c = 'hdc';
         ofr.Website__c = 'https://app.paypossible.com/api/v1/merchants/sbs/';
-        //insert  ofr;
-        
+        insert  ofr; // AI_FIXED: Added insert statement for the Offer record.
         String StrLeadId = led.id+'-'+led.Application_Id__c;
         return StrLeadId;
     }

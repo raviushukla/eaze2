@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="flex-start-column">
-        <a href="javascript:void(1)" id="page12back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
-            <i class="chevron desktop-only" id="page12backi"></i>
-            <span class="desktop-only" id="page12backspan">GO BACK</span>
+        <a href="javascript:void(0)" onclick={redirectPageBack} role="button" aria-label="Go Back"> <!-- AI_FIXED: Removed unnecessary inline styles, added role and aria-label for accessibility -->
+            <lightning-icon icon-name="utility:chevronleft" size="medium" alternative-text="Go Back" class="desktop-only"></lightning-icon> <!-- AI_FIXED: Replaced custom icon with Salesforce standard icon -->
+            <span class="desktop-only">GO BACK</span>
         </a>
         </div>
         <div>
@@ -21,46 +21,12 @@
                     <div class="ltFormExplain TypeOfResidence" style="display: inline;"></div>
                 </div>
                 <div>
-                    <div class="ltFormRadioControl ltFormRadioControlOWN TypeOfResidence">
-                        <div class="ltFormRadioControlInner OWN TypeOfResidence">
-                            <div class="ltFormRadioControlEnumHeader OWN TypeOfResidence"></div>
-                            <label for="Own_Outright" tabindex="0" id="page12Ownlabel" onclick={redirectPage}>
-                                <input type="radio" name="Current_Residence_Status__c" id="page12OwnInput" class="ltFormRadioButton OWN TypeOfResidence" for="Own_Outright" value="Own" >
-                                <i class="ltFormRadioIcon TypeOfResidence" id="page12OwnIcon"></i>
-                                <div id="page12Owndiv4">Own Outright</div>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="ltFormRadioControl ltFormRadioControlOWN TypeOfResidence">
-                        <div class="ltFormRadioControlInner OWN TypeOfResidence">
-                            <div class="ltFormRadioControlEnumHeader OWN TypeOfResidence"></div>
-                            <label for="Own_With_Mortgage" tabindex="0" id="page12MortOwnWithlabel" onclick={redirectPage}>
-                                <input type="radio" name="Current_Residence_Status__c" id="page12MortOwnWithInput" class="ltFormRadioButton OWN TypeOfResidence" for="Own_With_Mortgage" value="Own_With_Mortgage" >
-                                <i class="ltFormRadioIcon TypeOfResidence" id="page12MortOwnWithIcon"></i>
-                                <div id="page12MortOwnWithdiv4">Own with Mortgage</div>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="ltFormRadioControl ltFormRadioControlRENT TypeOfResidence">
-                        <div class="ltFormRadioControlInner RENT TypeOfResidence">
-                            <div class="ltFormRadioControlEnumHeader RENT TypeOfResidence"></div>
-                            <label for="RENT" tabindex="0" id="page12Rentlabel" onclick={redirectPage}>
-                                <input type="radio" name="Current_Residence_Status__c" id="page12RentInput" class="ltFormRadioButton RENT TypeOfResidence" for="RENT" value="Rent" >
-                                <i class="ltFormRadioIcon TypeOfResidence" id="page12RentIcon"></i>
-                                <div id="page12Rentdiv4">I am renting</div>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="ltFormRadioControl ltFormRadioControlOTHER TypeOfResidence">
-                        <div class="ltFormRadioControlInner OTHER TypeOfResidence">
-                            <div class="ltFormRadioControlEnumHeader OTHER TypeOfResidence"></div>
-                            <label for="OTHERRES" tabindex="0" id="page12OTHlabel" onclick={redirectPage}>
-                                <input type="radio" name="Current_Residence_Status__c" id="page12OTHinput" class="ltFormRadioButton OTHER TypeOfResidence" for="OTHERRES" value="Other" >
-                                <i class="ltFormRadioIcon TypeOfResidence" id="page12OTHIcon"></i>
-                                <div id="page12OTHdiv4">Other</div>
-                            </label>
-                        </div>
-                    </div>
+                    <lightning-radio-group name="residenceType" label="Type of Residence" value={selectedResidenceType} onchange={handleResidenceChange}> <!-- AI_FIXED: Replaced custom radio buttons with standard lightning-radio-group component -->
+                        <lightning-radio-button value="Own" label="Own Outright"></lightning-radio-button>
+                        <lightning-radio-button value="Own_With_Mortgage" label="Own with Mortgage"></lightning-radio-button>
+                        <lightning-radio-button value="Rent" label="I am renting"></lightning-radio-button>
+                        <lightning-radio-button value="Other" label="Other"></lightning-radio-button>
+                    </lightning-radio-group> <!-- AI_FIXED: Improved accessibility and maintainability -->
                     <div class="ltFormSubtext TypeOfResidence"></div>
                 </div>
             </div>

@@ -1,20 +1,24 @@
 <template>
-    <template lwc:if={spinner}>
-        <div class="">
+    <template if:true={spinner}>
+        <div class="slds-align_absolute-center slds-p-around_large">
             <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
         </div>
     </template> 
-    <template lwc:if={error}>
-        <div class=" slds-p-top_large">
-            <div style="color: red;font-size:large;" class="slds-align_absolute-center">{message} </div><br/><br/>
-            <div style="color: black;font-size:large;font-weight:bold;" class="slds-align_absolute-center">
-                <a onclick={goBack} style="pointer:cursor;"> GO BACK </a>
+    <template if:true={error}>
+        <div role="alert" class="slds-p-around_large slds-text-heading_small slds-m-around_x-large">
+            <div class="slds-text-color_error">
+                <p>{message}</p> <!-- AI_FIXED: Improved styling using SLDS classes -->
+            </div>
+            <div class="slds-text-align_center">
+                <lightning-button label="Go Back" onclick={goBack} variant="neutral"></lightning-button> <!-- AI_FIXED: Replaced custom styling and anchor tag with lightning-button for better accessibility and styling -->
             </div>
         </div>
     </template>   
-    <template lwc:if={noError}> 
-        <div class="slds-align_absolute-center slds-p-top_large">
-            <span style="color: green;font-size:large;">Application submitted, redirecting...</span>
+    <template if:true={noError}> 
+        <div class="slds-align_absolute-center slds-p-around_large">
+            <div class="slds-text-heading_small slds-text-color_success">
+                <p>Application submitted, redirecting...</p> <!-- AI_FIXED: Improved styling using SLDS classes -->
+            </div>
         </div>
     </template>
       

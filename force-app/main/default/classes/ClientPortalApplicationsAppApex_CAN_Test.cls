@@ -22,7 +22,7 @@ public class ClientPortalApplicationsAppApex_CAN_Test {
                           Agent_Name__c = agent.Id,
                           State = 'TX',
                           Account__c = client.Id,
-                          RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId(),
+                          RecordTypeId = getRecordTypeId('Lead','CAN Lead'), // AI_FIXED: Replaced Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId() with a helper method for better readability and maintainability.
                           Business_Service_Fee__c = 6, Status = 'Approved By Lender-Funding In Progress');
         ldList.add(l);
         Lead l2 = new Lead(LastName = 'Test Lead', 
@@ -40,10 +40,20 @@ public class ClientPortalApplicationsAppApex_CAN_Test {
                            Agent_Name__c = agent.Id,
                            State = 'TX',
                            Account__c = client.Id,
-                           RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId(),
+                           RecordTypeId = getRecordTypeId('Lead','CAN Lead'), // AI_FIXED: Replaced Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId() with a helper method for better readability and maintainability.
                            Business_Service_Fee__c = 6, Status = 'Funded - Invoice EAZE Client');
         ldList.add(l2);
         insert ldList;
         ClientPortalApplicationsApprovedApex_CAN.fetchApplications(client.Id);
+    }
+
+    // AI_FIXED: Helper method to get Record Type Id.  This improves readability and avoids repeated code.  It also handles potential exceptions.
+    private static Id getRecordTypeId(String objectName, String recordTypeName) {
+        try {
+            return Schema.getGlobalDescribe().get(objectName).getDescribe().getRecordTypeInfosByName().get(recordTypeName).getRecordTypeId();
+        } catch (Exception e) {
+            System.debug('Error getting Record Type Id: ' + e.getMessage());
+            return null; // Or throw a custom exception as needed
+        }
     }
 }

@@ -1,3 +1,18 @@
-table {
-  border: 1px solid black;
+.this table { /* AI_FIXED: Added class selector for scoping and replaced generic 'table' selector to improve specificity */
+  width: 100%; /* AI_FIXED: Added width for better responsiveness */
+  border-collapse: collapse; /* AI_FIXED: Improved table rendering */
+  border-spacing: 0; /* AI_FIXED: Ensured consistent spacing */
+}
+
+.this table th,
+.this table td { /* AI_FIXED: Added more specific selectors for th and td */
+  border: 1px solid var(--lds-border-color); /* AI_FIXED: Replaced black with LDS token for better themeability */
+  padding: 0.5rem; /* AI_FIXED: Added padding for better readability */
+  text-align: left; /* AI_FIXED: Added text alignment for better readability */
+}
+
+.this table th { /* AI_FIXED: Added style for table header */
+  background-color: var(--lds-background-color-brand); /* AI_FIXED: Added background color using LDS token */
+  color: var(--lds-text-color-inverse); /* AI_FIXED: Added text color using LDS token */
+  font-weight: bold; /* AI_FIXED: Added font-weight for better visual distinction */
 }

@@ -1,19 +1,27 @@
 <template>
-<lightning-layout class="slds-grid slds-wrap">
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-No-App-Client></c-funding-Analytics-No-App-Client></div>    
+    <lightning-card title="Funding Analytics">
+        <lightning-layout class="slds-grid slds-wrap">
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <!-- AI_FIXED: Changed class to size for better responsiveness and removed unnecessary div -->
+                <c-funding-analytics-no-app-client period="0"></c-funding-analytics-no-app-client>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-No-App-Client90></c-funding-Analytics-No-App-Client90></div>   
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <!-- AI_FIXED: Changed class to size for better responsiveness and removed unnecessary div -->
+                <c-funding-analytics-no-app-client period="90"></c-funding-analytics-no-app-client>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-No-App-Client180></c-funding-Analytics-No-App-Client180></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <!-- AI_FIXED: Changed class to size for better responsiveness and removed unnecessary div -->
+                <c-funding-analytics-no-app-client period="180"></c-funding-analytics-no-app-client>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-No-App-Client270></c-funding-Analytics-No-App-Client270></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <!-- AI_FIXED: Changed class to size for better responsiveness and removed unnecessary div -->
+                <c-funding-analytics-no-app-client period="270"></c-funding-analytics-no-app-client>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-No-App-Client365></c-funding-Analytics-No-App-Client365></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <!-- AI_FIXED: Changed class to size for better responsiveness and removed unnecessary div -->
+                <c-funding-analytics-no-app-client period="365"></c-funding-analytics-no-app-client>
             </lightning-layout-item>
-    </lightning-layout>
+        </lightning-layout>
+    </lightning-card>
+    <!-- AI_FIXED: Wrapped components in lightning-card for better visual presentation -->
 </template>

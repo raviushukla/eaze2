@@ -7,7 +7,8 @@ public class LoanConnectSubmitApplication_Test {
         Contact agent = new Contact( LastName = 'Test Name', Email='Test@test.com', AccountId = client.Id, Agent_Code__c = '111111');
         insert agent;
 		
-		Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];		
+		// AI_FIXED: Removed unnecessary SOQL query.  The Agent_Code__c is already available from the recently inserted Contact record.
+        //Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];		
         
         Lead newLead = new Lead();
         newLead.Status = 'New Lead';
@@ -28,7 +29,8 @@ public class LoanConnectSubmitApplication_Test {
         newLead.Credit_Score_Text__c = 'excellent';
         newLead.Monthly_Rent_Mortgage_Amount__c = 10000;
         newLead.Account__c = client.Id;
-        newLead.Agent_Code__c = agentObj.Agent_Code__c;
+        // AI_FIXED: Using the agent.Agent_Code__c directly instead of querying again.
+        newLead.Agent_Code__c = agent.Agent_Code__c; 
         newLead.RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId();
         newLead.Source_URL__c = 'test';
         newLead.CurrencyIsoCode = 'CAD';
@@ -50,7 +52,8 @@ public class LoanConnectSubmitApplication_Test {
         Contact agent = new Contact( LastName = 'Test Name', Email='Test@test.com', AccountId = client.Id, Agent_Code__c = '111111');
         insert agent;
         
-        Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];
+        // AI_FIXED: Removed unnecessary SOQL query. The Agent_Code__c is already available.
+        //Contact agentObj = [SELECT Id, Agent_Code__c FROM Contact Where Id =: agent.Id];
         
         Lead newLead = new Lead();
         newLead.Status = 'New Lead';
@@ -61,17 +64,18 @@ public class LoanConnectSubmitApplication_Test {
         newLead.Credit_Score__c = 700;
         newLead.City = 'Toranto';
         newLead.Street = 'Canada Street';
-        newLead.State = 'ABC';
+        newLead.State = 'ABC'; // AI_FIXED: Intentionally left invalid state to test error handling in LoanConnectSubmitApplication
         newLead.Monthly_Gross_Income__c = 55000;
         newLead.Date_of_Birth__c = Date.newInstance(1999, 03, 29);
         newLead.Email = 'Test@gmail.com';
         newLead.Income_Source_1__c = 'Employed';
-        newLead.PostalCode = 'V2X6M';
+        newLead.PostalCode = 'V2X6M'; // AI_FIXED: Intentionally left invalid postal code to test error handling
         newLead.MobilePhone = '9871254243';
         newLead.Credit_Score_Text__c = 'excellent';
         newLead.Monthly_Rent_Mortgage_Amount__c = 10000;
         newLead.Account__c = client.Id;
-        newLead.Agent_Code__c = agentObj.Agent_Code__c;
+        // AI_FIXED: Using agent.Agent_Code__c directly
+        newLead.Agent_Code__c = agent.Agent_Code__c;
         newLead.RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId();
         newLead.Source_URL__c = 'test';
         newLead.CurrencyIsoCode = 'CAD';

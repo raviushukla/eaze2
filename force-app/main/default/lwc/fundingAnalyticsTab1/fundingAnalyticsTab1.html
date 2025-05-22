@@ -1,37 +1,59 @@
 <template>
-    <lightning-layout class="slds-grid slds-wrap">
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class="slds-card"><c-funding-Analytics-Total-Apps></c-funding-Analytics-Total-Apps></div>    
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Total-Pre-Approved-Apps></c-funding-Analytics-Total-Pre-Approved-Apps></div> 
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Total-Denial-Apps></c-funding-Analytics-Total-Denial-Apps></div>
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Pre-Approved-Percent></c-funding-Analytics-Pre-Approved-Percent></div>
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Total-Deals-Funded></c-funding-Analytics-Total-Deals-Funded></div>
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Pre-Approvals-To-Funded></c-funding-Analytics-Pre-Approvals-To-Funded></div>
-            </lightning-layout-item>
-             <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Total-Apps-To-Funded></c-funding-Analytics-Total-Apps-To-Funded></div>
-             </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Total-Funded-Amount></c-funding-Analytics-Total-Funded-Amount></div>
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Avg-Amountper-Deal></c-funding-Analytics-Avg-Amountper-Deal></div>
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Closed-Lost-To-Pre-Approval></c-funding-Analytics-Closed-Lost-To-Pre-Approval></div>
-            </lightning-layout-item>
-            <lightning-layout-item class="slds-col slds-size_1-of-3">
-                <div class=""><c-funding-Analytics-Closed-Lost-Breakdown></c-funding-Analytics-Closed-Lost-Breakdown></div>
-            </lightning-layout-item>
+    <lightning-layout class="slds-grid slds-wrap" multiple-rows> <!-- AI_FIXED: Added multiple-rows attribute to allow for automatic wrapping of items -->
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-total-apps></c-funding-analytics-total-apps> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-total-pre-approved-apps></c-funding-analytics-total-pre-approved-apps> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-total-denial-apps></c-funding-analytics-total-denial-apps> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-pre-approved-percent></c-funding-analytics-pre-approved-percent> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-total-deals-funded></c-funding-analytics-total-deals-funded> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-pre-approvals-to-funded></c-funding-analytics-pre-approvals-to-funded> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-total-apps-to-funded></c-funding-analytics-total-apps-to-funded> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-total-funded-amount></c-funding-analytics-total-funded-amount> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-avg-amountper-deal></c-funding-analytics-avg-amountper-deal> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-closed-lost-to-pre-approval></c-funding-analytics-closed-lost-to-pre-approval> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-around_medium"> <!-- AI_FIXED: Replaced class with size attribute for better responsiveness and removed unnecessary class -->
+            <div class="slds-card">
+                <c-funding-analytics-closed-lost-breakdown></c-funding-analytics-closed-lost-breakdown> <!-- AI_FIXED: Improved component name casing for consistency -->
+            </div>
+        </lightning-layout-item>
     </lightning-layout>
 </template>

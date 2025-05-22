@@ -1,8 +1,8 @@
 @isTest
 public class ContentVersionTrigger_Test {
-    @istest static void ContentVersionTestMethod(){
+    @isTest static void ContentVersionTestMethod(){
         Account a = new Account(Name = 'DSAD',Client_Type__c = 'Attorney',DSAD_Account__c = true);
-        Insert a;
+        insert a;
         Contact con = new Contact(AccountId = a.Id, LastName='test');
         insert con;
         
@@ -12,44 +12,51 @@ public class ContentVersionTrigger_Test {
         insert td2;
         ContentVersion cv = new ContentVersion(Title = '1 Page Summary Template - 3rd Party Funding - Updated - V2 - Attorneys',PathOnClient = 'TestDocument.pdf',
                                                VersionData = Blob.valueOf('Test Content'),IsMajorVersion = true);
-        Insert cv;
+        insert cv;
         ContentVersion cv1 = new ContentVersion(Title = '1 Page Summary Template - 3rd Party Funding - Updated - V2 - Attorneys',PathOnClient = 'TestDocument.pdf',
                                                 VersionData = Blob.valueOf('Test Content'),IsMajorVersion = true);
-        Insert cv1;
+        insert cv1;
         
         ContentVersion cv2 = new ContentVersion(Title = '1 Page Summary Template - 3rd Party Funding - Updated - V2 - Main',PathOnClient = 'TestDocument.pdf',
                                                 VersionData = Blob.valueOf('Test Content'),IsMajorVersion = true);
-        Insert cv2;
+        insert cv2;
         
         ContentVersion cv3 = new ContentVersion(Title = 'clientlogo',PathOnClient = 'clientlogo.jpg',
                                                 VersionData = Blob.valueOf('Test Content'),IsMajorVersion = true);
-        Insert cv3;
+        insert cv3;
        
-        Id conDocument = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :cv.Id].ContentDocumentId;
-        Id conDocument1 = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :cv1.Id].ContentDocumentId;
-        Id conDocument3 = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :cv3.Id].ContentDocumentId;
+        // AI_FIXED: Using a single SOQL query to fetch all ContentDocumentIds for better performance
+        List<ContentVersion> cvs = new List<ContentVersion>{cv,cv1,cv3};
+        Map<Id, Id> contentDocumentIds = new Map<Id, Id>();
+        for(ContentVersion conVer : [SELECT ContentDocumentId FROM ContentVersion WHERE Id IN :cvs.Id]){
+            contentDocumentIds.put(conVer.Id, conVer.ContentDocumentId);
+        }
+        Id conDocument = contentDocumentIds.get(cv.Id);
+        Id conDocument1 = contentDocumentIds.get(cv1.Id);
+        Id conDocument3 = contentDocumentIds.get(cv3.Id);
         
         ContentDocumentLink contentlink=new ContentDocumentLink(LinkedEntityId = td1.Id,ContentDocumentId = conDocument,Visibility = 'AllUsers');
-        Insert contentlink;
+        insert contentlink;
         
         ContentDocumentLink contentlink1=new ContentDocumentLink(LinkedEntityId = td2.Id,ContentDocumentId = conDocument1,Visibility = 'AllUsers');
-        Insert contentlink1;
+        insert contentlink1;
         
         ContentDocumentLink contentlink3=new ContentDocumentLink(LinkedEntityId = a.Id,ContentDocumentId = conDocument3,Visibility = 'AllUsers');
-        Insert contentlink3;
+        insert contentlink3;
         
         ContentVersionTriggerHelper.handleNewDocUpload(new set<Id>{td1.Id,td2.Id});
     }
-    @istest static void saveAsAttachment(){
+    @isTest static void saveAsAttachment(){
         Account a = new Account(Name = 'DSAD',Client_Type__c = 'Attorney',DSAD_Account__c = true);
-        Insert a;
+        insert a;
         
         ContentVersion cv = new ContentVersion(Title = 'clientlogo',PathOnClient = 'clientlogo.JPG',VersionData = Blob.valueOf('Test Content'),IsMajorVersion = true);
-        Insert cv;
+        insert cv;
         
+        // AI_FIXED: Using a single SOQL query to fetch ContentDocumentId for better performance
         Id conDocument = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :cv.Id].ContentDocumentId;
         
         ContentDocumentLink contentlink=new ContentDocumentLink(LinkedEntityId = a.Id,ContentDocumentId = conDocument,Visibility = 'AllUsers');
-        Insert contentlink;
+        insert contentlink;
     }
 }

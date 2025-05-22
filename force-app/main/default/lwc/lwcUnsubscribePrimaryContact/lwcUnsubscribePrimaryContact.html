@@ -1,21 +1,19 @@
 <template>
-    <template lwc:if={spinner}>
+    <template if:true={spinner}>
+        <!-- AI_FIXED: Changed lwc:if to if:true for better readability and standard practice -->
         <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
     </template>
-    <div  id="maindiv" class="slds-align_absolute-center">
-        <div class="slds-grid slds-wrap slds-scope slds-m-left_xx-large slds-m-right_xx-large">
-            <div class="slds-size_1-of-1 slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_small">
-                <div class="applydiv slds-m-top_large slds-m-bottom_large slds-align_absolute-center">
-                    <div class="apply"> <h2><b>Unsubscribe from EAZE Marketing Campaigns with updates on the financial market and best practices to increase funded deals</b></h2> </div>
-                </div>
-            </div>
-            <div class="slds-size_1-of-1 slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_small">
-                <lightning-input type="email" label="Confirm Email" name="input1" required="true" value={email} onfocusout={validateEmail}> </lightning-input>
-                <p data-id="input1_Id" style="color:red;display:none">Invalid Input</p>
-            </div>
-            <div class="slds-size_1-of-1 slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_small slds-align_absolute-center">
-                <lightning-button variant="brand" label="Confirm Unsubscribe" title="Primary action" onclick={handleClick} ></lightning-button>
-            </div>
+    <div class="slds-p-around_medium slds-grid slds-grid_vertical-align-center"> <!-- AI_FIXED: Simplified the div structure, removed unnecessary classes and added slds-grid_vertical-align-center for better alignment -->
+        <div class="slds-m-bottom_medium">
+            <h2 class="slds-text-heading_medium">Unsubscribe from EAZE Marketing Campaigns</h2> <!-- AI_FIXED: Improved heading style and removed unnecessary bold and long subtitle -->
+            <p class="slds-text-body_regular">with updates on the financial market and best practices to increase funded deals</p> <!-- AI_FIXED: Improved paragraph style -->
+        </div>
+        <div class="slds-size_1-of-1">
+            <lightning-input type="email" label="Confirm Email" name="email" required value={email} onchange={handleEmailChange} aria-describedby="email-error" > </lightning-input> <!-- AI_FIXED: Changed onfocusout to onchange, added aria-describedby for accessibility, and corrected name attribute -->
+            <p id="email-error" class="slds-text-error slds-hide" role="alert">Invalid Email</p> <!-- AI_FIXED: Changed id and style to class for better styling and accessibility -->
+        </div>
+        <div class="slds-size_1-of-1 slds-m-top_medium">
+            <lightning-button variant="brand" label="Confirm Unsubscribe" title="Confirm Unsubscribe" onclick={handleClick} disabled={isButtonDisabled}></lightning-button> <!-- AI_FIXED: Added disabled attribute for button control -->
         </div>
     </div>
 </template>

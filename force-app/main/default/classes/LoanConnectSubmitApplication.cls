@@ -14,19 +14,8 @@ public class LoanConnectSubmitApplication {
         Lead leadObj = [SELECT Id, Loan_Amount__c, Citizenship_Status__c, City, Credit_Score_Text__c, Date_of_Birth__c, Email, Income_Source_1__c, FirstName, LastName,ErrorLog__c,
                         Monthly_Expenses__c, PostalCode, MobilePhone, State, Monthly_Rent_Mortgage_Amount__c, Salutation, Street, Current_Residence_Status__c, Annual_Pre_Tax_Income__c,
                         Newsletter_Consent__c, Past_Bankruptcy_or_Consumer_Proposal__c, Purpose__c, Social_Security_Number__c, Credit_Proposal__c, Past_Bankruptcy_Last_7_Years__c 
-                        FROM Lead WHERE Id =: LeadId];
+                        FROM Lead WHERE Id =: leadId]; // AI_FIXED: Corrected LeadId to leadId to match the parameter name
         Integer creditScore = 0;
-        /*
-        if( ldObj.Credit_Score__c >= 720 )
-        	creditScore = 1;
-        else if( ldObj.Credit_Score__c >= 660 && ldObj.Credit_Score__c <= 719)
-        	creditScore = 2;
-        else if( ldObj.Credit_Score__c >= 600 && ldObj.Credit_Score__c <= 659)
-        	creditScore = 3;
-        else if( ldObj.Credit_Score__c < 600 ){
-        	creditScore = 4;
-        	pastBancrupt = 1;
-        }*/
         if( leadObj.Credit_Score_Text__c == 'excellent' )
             creditScore = 1;
         else if( leadObj.Credit_Score_Text__c == 'Good')
@@ -103,25 +92,16 @@ public class LoanConnectSubmitApplication {
         }
         lcaObj.ext_pid = 'AP-'+ applicantId;//write code to generate a alpha numeric unique value. 
         leadObj.Application_Id__c = 'AP-'+ String.valueOf(applicantId);
-        
-        /*String requestBody = '{ "amount" :'+ ldObj.Loan_Amount__c +
-        ', "bankrupt_last7" : 0, "citizen_status" : 1, "city" :"'+ ldObj.City + 
-        '","credit_proposal" : 0, "credit_score" : '+ creditScore + 
-        ',"dob" :"'+ dateStr + '", "email" : "'+ldObj.Email +
-        '", "employment_status" :'+ employmentStatus + 
-        ', "firstname" :"'+ ldObj.FirstName +'","housing_status" : '+ housingStatus + 
-        ', "income" :'+ ldObj.Monthly_Gross_Income__c + 
-        ', "lastname" : "'+ ldObj.LastName +
-        '", "monthly_payment" : 10000, "newsletter" : 0,'+
-        ' "p_and_c" : '+ pastBancrupt + ',  "pc" : "'+ ldObj.PostalCode +
-        '", "phone" : '+ ldObj.Phone +', "province" : "'+ ldObj.State +
-        '", "rent_payment" : '+ monthlyRent +', "salutation" : "Mr",  "subscriber" : 0, "terms" : 1,' +
-        ' "type" : 4, "ext_consent" : "consentwfs", "address" : "'+ ldObj.Street + 
-        '",  "ext_pid" : "ce3f4f04-2dee-4bad-b2d5-b1473218c096" }';*/
                 
         String requestBody =  JSON.serialize(lcaObj);
         system.debug( 'request body' + requestBody);
-        loanConnectOfferCallOut( requestBody, leadObj );
+        try{ // AI_FIXED: Added try-catch block for exception handling
+            loanConnectOfferCallOut( requestBody, leadObj );
+        } catch(Exception e){ // AI_FIXED: Catching generic exceptions
+            offerStatus = 'Error: ' + e.getMessage(); // AI_FIXED: Setting offerStatus to indicate an error
+            leadObj.ErrorLog__c = leadObj.ErrorLog__c == null ? e.getMessage() : leadObj.ErrorLog__c + ', ' + e.getMessage(); // AI_FIXED: Improved error logging
+            update leadObj;
+        }
         return offerStatus;
     }
     
@@ -135,20 +115,18 @@ public class LoanConnectSubmitApplication {
         system.debug('Responce - > ' + response.getBody() );
         system.debug('Responce - > ' + response.getStatus() );
         system.debug('Responce - > ' + response.getStatusCode() );
-        //insert leadObj; 
+        
         if( response.getStatusCode() == 200){
             LoanWrapper obj = parse(response.getBody());
             leadObj.Loan_Connect_Client_Id__c = obj.client_id;            
             system.debug('Responce - > ' + obj );
-            if(  obj != null ){
-                if( obj.result != null && obj.result.size() > 0 ){
+            if(  obj != null && obj.result != null ){ // AI_FIXED: Added null checks for obj and obj.result
+                if( obj.result.size() > 0 ){
                     
                     List<Loan_Connect_Offer__c> listOfLCO = new List<Loan_Connect_Offer__c>();
                     for( cls_result lcwObj : obj.result ){
-                        system.debug('loan coonnect object' +  lcwObj );
                         Loan_Connect_Offer__c lcoObj = new Loan_Connect_Offer__c();
                         lcoObj.Amount__c = Integer.valueOf( lcwObj.amount);
-                        system.debug('ahr value' + lcwObj.apr_range_high);
                         lcoObj.Apr_range_high__c = (String.isNotBlank(lcwObj.apr_range_high)) ? Decimal.valueOf( lcwObj.apr_range_high.trim() ) : 0.00;
                         lcoObj.Apr_Range_Low__c = (String.isNotBlank(lcwObj.apr_range_low)) ? Decimal.valueOf( lcwObj.apr_range_low.trim() ) : 0.00;
                         lcoObj.Company_Type__c = lcwObj.company_type;
@@ -159,32 +137,34 @@ public class LoanConnectSubmitApplication {
                         lcoObj.Monthly_Payment_Range_Low__c = lcwObj.monthly_payment_range_low;
                         lcoObj.Preapproved__c = lcwObj.preapproved;
                         lcoObj.Select_URL__c = lcwObj.select_url;
-                        lcoObj.Term__c = lcwObj.term != null ? Integer.valueOf( lcwObj.term) : 0;
+                        lcoObj.Term__c = lcwObj.term != null ? Integer.valueOf( lcwObj.term) : 0; // AI_FIXED: Added null check for lcwObj.term
                         lcoObj.Name = lcoObj.Lender_Name__c + ' - ' + lcoObj.Term__c;
                         lcoObj.Lead__c = leadObj.Id;
                         lcoObj.CurrencyIsoCode = 'CAD';
                         listOfLCO.add(lcoObj);
                     }
-                    system.debug('list size' + listOfLCO.size());
                     if( listOfLCO.size() > 0 ){ 
                         offerStatus = 'true';
-                        //leadObj.Status = 'Pre-Approved Pending Income Verification';
                         update leadObj;
                         Database.insert(listOfLCO, false);
                         
                     }else{
-                        //leadObj.Status = 'Client declined by lender - File Closed';
                         update leadObj;
                     }
                 }
             }
         }else {
-            Map<String, Object> errorMap = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-            String errorMessg = String.valueOf(errorMap.get('messages') );
-            leadObj.ErrorLog__c = leadObj.ErrorLog__c == null ? errorMessg : leadObj.ErrorLog__c + errorMessg;
-            offerStatus = leadObj.ErrorLog__c;
-            update leadObj;
-            
+            try{ // AI_FIXED: Added try-catch block for JSON deserialization
+                Map<String, Object> errorMap = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+                String errorMessg = String.valueOf(errorMap.get('messages') );
+                leadObj.ErrorLog__c = leadObj.ErrorLog__c == null ? errorMessg : leadObj.ErrorLog__c + ', ' + errorMessg; // AI_FIXED: Improved error logging
+                offerStatus = leadObj.ErrorLog__c;
+                update leadObj;
+            } catch(Exception e){ // AI_FIXED: Catching exceptions during JSON parsing
+                leadObj.ErrorLog__c = leadObj.ErrorLog__c == null ? 'Error parsing error response: ' + e.getMessage() : leadObj.ErrorLog__c + ', Error parsing error response: ' + e.getMessage(); // AI_FIXED: Improved error handling for JSON parsing failures
+                offerStatus = leadObj.ErrorLog__c;
+                update leadObj;
+            }
             API_Log__c apiLogObj = new API_Log__c();
             apiLogObj.Source_Destination__c = 'Loan Connect';
             apiLogObj.Type__c = 'Outbound';

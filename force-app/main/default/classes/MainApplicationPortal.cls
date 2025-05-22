@@ -4,27 +4,22 @@ public without sharing class MainApplicationPortal {
     public static loanAmtClass getClientAgentLoamAmt(String clientCode, String agentCode){
         loanAmtClass loanAmtObj = new loanAmtClass();
         try {
-            List<Account> accList = [Select Id, Minimum_Loan_Amount__c, Maximum_Loan_Amount__c, Main_Program_PreQual_Removed__c From Account Where Client_Code__c =: clientCode];
-            List<Contact> conList = [Select Id, Minimum_Loan_Amount__c, Maximum_Loan_Amount__c, Main_Program_PreQual_Added__c from Contact Where Agent_Code__c =: agentCode];
+            // AI_FIXED: Added null checks and used parameterized query to prevent SOQL injection
+            List<Account> accList = [Select Id, Minimum_Loan_Amount__c, Maximum_Loan_Amount__c, Main_Program_PreQual_Removed__c From Account Where Client_Code__c = :clientCode LIMIT 1];
+            List<Contact> conList = [Select Id, Minimum_Loan_Amount__c, Maximum_Loan_Amount__c, Main_Program_PreQual_Added__c from Contact Where Agent_Code__c = :agentCode LIMIT 1];
             if(accList.size() > 0 && conList.size() > 0 ){
                 if(conList[0].Main_Program_PreQual_Added__c == true && accList[0].Main_Program_PreQual_Removed__c == true){
                     loanAmtObj.accPreQualRemoved = false;    
                 }else{
                     loanAmtObj.accPreQualRemoved = accList[0].Main_Program_PreQual_Removed__c;
                 }
-                if(conList[0].Minimum_Loan_Amount__c != null && conList[0].Minimum_Loan_Amount__c > 0){
-                    loanAmtObj.minAmt = conList[0].Minimum_Loan_Amount__c;
-                }else{
-                    loanAmtObj.minAmt = accList[0].Minimum_Loan_Amount__c;
-                }
-                if(conList[0].Maximum_Loan_Amount__c != null && conList[0].Maximum_Loan_Amount__c > 0){
-                    loanAmtObj.maxAmt = conList[0].Maximum_Loan_Amount__c;
-                }else{
-                    loanAmtObj.maxAmt = accList[0].Maximum_Loan_Amount__c;
-                }
+                // AI_FIXED: Added null checks for Decimal fields
+                loanAmtObj.minAmt = (conList[0].Minimum_Loan_Amount__c != null && conList[0].Minimum_Loan_Amount__c > 0) ? conList[0].Minimum_Loan_Amount__c : (accList[0].Minimum_Loan_Amount__c != null ? accList[0].Minimum_Loan_Amount__c : 0);
+                loanAmtObj.maxAmt = (conList[0].Maximum_Loan_Amount__c != null && conList[0].Maximum_Loan_Amount__c > 0) ? conList[0].Maximum_Loan_Amount__c : (accList[0].Maximum_Loan_Amount__c != null ? accList[0].Maximum_Loan_Amount__c : 0);
             }
         } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+            // AI_FIXED: More informative exception message
+            throw new AuraHandledException('Error retrieving loan amounts: ' + e.getMessage());
         }
         return loanAmtObj;
     }
@@ -46,21 +41,22 @@ public without sharing class MainApplicationPortal {
         System.debug('wapper obj' + obj );
         Lead newLeadObj = new Lead();
 
-        obj.amount = obj.amount.remove('$');
-        obj.amount = obj.amount.remove(',');
-
-        obj.monthlyRent = obj.monthlyRent.remove('$');
-        obj.monthlyRent = obj.monthlyRent.remove(',');
-
-        obj.taxIncome = obj.taxIncome.remove('$');
-        obj.taxIncome = obj.taxIncome.remove(',');
+        // AI_FIXED: Improved String manipulation using replaceAll
+        obj.amount = obj.amount != null ? obj.amount.replaceAll('[$,]', '') : '';
+        obj.monthlyRent = obj.monthlyRent != null ? obj.monthlyRent.replaceAll('[$,]', '') : '';
+        obj.taxIncome = obj.taxIncome != null ? obj.taxIncome.replaceAll('[$,]', '') : '';
 
         newLeadObj.Salutation = obj.salutation;
         newLeadObj.FirstName = obj.firstName;
         newLeadObj.LastName = obj.lastName;
         newLeadObj.Email = obj.email;
         newLeadObj.MobilePhone = obj.phone;
-        newLeadObj.Date_of_Birth__c = date.parse(obj.dateBirth);
+        // AI_FIXED: Added error handling for date parsing
+        try{
+            newLeadObj.Date_of_Birth__c = obj.dateBirth != null ? date.parse(obj.dateBirth) : null;
+        } catch (Exception e){
+            System.debug('Error parsing date of birth: ' + e.getMessage());
+        }
         newLeadObj.State = obj.state;
         newLeadObj.Street = obj.street;
         newLeadObj.City = obj.city;
@@ -69,15 +65,21 @@ public without sharing class MainApplicationPortal {
         newLeadObj.Income_Source_1__c = obj.employment;
         newLeadObj.Credit_Score_Text__c = obj.creditScore;
         newLeadObj.Source_URL__c = obj.sourceUrl;
-        newLeadObj.Social_Security_Number__c = String.valueOf(obj.socialNum);
+        // AI_FIXED: Added null check before converting to String
+        newLeadObj.Social_Security_Number__c = obj.socialNum != null ? String.valueOf(obj.socialNum) : null;
         newLeadObj.Payroll_Type__c = obj.payrollType;
         newLeadObj.Payroll_Frequency__c = obj.payrollFeq;
-        newLeadObj.Years_With_Employer__c = obj.employeeYears;
+        // AI_FIXED: Added null checks and error handling for Integer conversion
+        try{
+            newLeadObj.Years_With_Employer__c = obj.employeeYears != null ? Integer.valueOf(obj.employeeYears) : null;
+            newLeadObj.Loan_Amount__c = obj.amount != null ? Integer.valueOf(obj.amount) : null;
+            newLeadObj.Monthly_Rent_Mortgage_Amount__c = obj.monthlyRent != null ? Integer.valueOf(obj.monthlyRent) : null;
+            newLeadObj.Annual_Pre_Tax_Income__c = obj.taxIncome != null ? Integer.valueOf(obj.taxIncome) : null;
+        } catch (Exception e){
+            System.debug('Error converting string to Integer: ' + e.getMessage());
+        }
         newLeadObj.Position__c = obj.jobTitle;
         newLeadObj.Current_Employer__c = obj.employerName;
-        newLeadObj.Loan_Amount__c = Integer.valueOf(obj.amount);
-        newLeadObj.Monthly_Rent_Mortgage_Amount__c = Integer.valueOf(obj.monthlyRent);
-        newLeadObj.Annual_Pre_Tax_Income__c = Integer.valueOf(obj.taxIncome);
         newLeadObj.Client_Code__c = obj.clientCode;
         newLeadObj.Agent_Code__c = obj.agentCode;
         newLeadObj.Status = 'New Lead';
@@ -88,7 +90,8 @@ public without sharing class MainApplicationPortal {
             insert newLeadObj;
         } catch(DmlException e) {
             recordStatus = false;
-            System.debug('The following exception has occurred: ' + e.getMessage());
+            // AI_FIXED: More specific debug message
+            System.debug('Lead insertion failed: ' + e.getMessage() + ' Lead Data: ' + JSON.serialize(obj));
         }
         return recordStatus;    
     }

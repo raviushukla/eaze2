@@ -31,12 +31,14 @@ public class SFC_XmlCallOut_Test {
                           RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('USA Lead').getRecordTypeId());
         insert leadObj;
         Test.startTest();
-        Test.setMock(HttpCalloutMock.class, new ExampleCalloutMock());
+        // AI_FIXED: Using a more descriptive name for the mock class
+        Test.setMock(HttpCalloutMock.class, new MockHttpCallout()); 
         SFC_XmlCallOut.makeXMLCallout(leadObj.Id);
         Test.stopTest();
     }
 
-    public class ExampleCalloutMock implements HttpCalloutMock{
+    // AI_FIXED: Using a more descriptive name for the mock class
+    public class MockHttpCallout implements HttpCalloutMock{
       public HttpResponse respond(HTTPRequest req){
         HttpResponse res = new HttpResponse();
         res.setStatus('OK');

@@ -1,168 +1,223 @@
 <template>
-    <div class="FrequentlyAskedQuestions"><b>Frequently Asked Questions</b></div>
-                <div id="question01Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon1}><span id="question01Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon1}><span id="question01Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question01" class="questionText"> Do you have minimum income and credit score requirements to apply? </div>
-                </div>
-                <template if:true={answer1Div}>
-                    <div class="answer">
-                        <p class="answerpara">Yes. Requirements for each lender are different. They each have unique criteria, and current market conditions will play a factor. With that said, keep in mind it is a soft pull to find out whether you may be approved, meaning it won’t affect your credit score to review what offers are available for your situation. You have nothing to lose and everything to gain by applying and, once preapproved; you can then determine which option is best for you.</p>
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <h3 class="slds-card__header-title slds-text-heading_medium">Frequently Asked Questions</h3>
+        </div>
+        <div class="slds-card__body">
+            <ul role="list" class="slds-list_vertical slds-has-dividers_around-space">
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="1">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer1}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer1}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer1} tabindex="0">Do you have minimum income and credit score requirements to apply?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question2Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon2}><span id="question2Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon2}><span id="question2Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question2" class="questionText"> I submitted my application! Now what?</div>
-                </div>
-                
-                <template if:true={answer2Div}>
-                    <div class="answer">
-                        <p class="answerpara">You’ll receive a notification within a few business hours on different offers. You’ll then get a chance to speak with an Eaze consulting specialist to find out which offer may be best for you! If you’re pre-approved, you’ll then be able to go through the official approval process and get funding within a few days.</p>
+                    <template if:true={showAnswer1}>
+                        <div class="slds-p-around_medium">
+                            <p>Yes. Requirements for each lender are different. They each have unique criteria, and current market conditions will play a factor. With that said, keep in mind it is a soft pull to find out whether you may be approved, meaning it won’t affect your credit score to review what offers are available for your situation. You have nothing to lose and everything to gain by applying and, once preapproved; you can then determine which option is best for you.</p>
+                        </div>
+                    </template>
+                </li>
+                <!-- AI_FIXED: Replaced div structure with Salesforce design system components (lightning-icon, slds classes) for better accessibility and styling.  Added ARIA attributes for better accessibility.  Replaced onclick with a more robust event handler. -->
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="2">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer2}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer2}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer2} tabindex="0">I submitted my application! Now what?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question3Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon3}><span id="question3Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon3}><span id="question3Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question3" class="questionText"> I just got some great news! I got pre-approved! What are the chances of me going from pre-approved to getting approved?</div>
-                </div>
-                <template if:true={answer3Div}>
-                    <div class="answer">
-                        <p class="answerpara">Very good! Most of the time, when you’re pre-approved, as long as you can verify the income you filled out on your application, you’ll be able to get the full pre-approval amount.</p>
+                    <template if:true={showAnswer2}>
+                        <div class="slds-p-around_medium">
+                            <p>You’ll receive a notification within a few business hours on different offers. You’ll then get a chance to speak with an Eaze consulting specialist to find out which offer may be best for you! If you’re pre-approved, you’ll then be able to go through the official approval process and get funding within a few days.</p>
+                        </div>
+                    </template>
+                </li>
+                <!-- AI_FIXED: Repeated the above fix for all subsequent questions -->
+                <!-- AI_FIXED:  Added a list structure for better semantic HTML -->
+                <!-- AI_FIXED: Removed unnecessary <br> tags -->
+                <!-- AI_FIXED:  Added data-question-id attribute for easier event handling -->
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="3">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer3}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer3}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer3} tabindex="0">I just got some great news! I got pre-approved! What are the chances of me going from pre-approved to getting approved?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question4Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon4}><span id="question4Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon4}><span id="question4Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question4" class="questionText">What’s the best way to connect with funding specialist after I’ve been pre-approved?</div>
-                </div>
-                <template if:true={answer4Div}>
-                    <div class="answer">
-                        <p class="answerpara">After you receive offers, we’ll send you a calendar link to book a time that works for you and our number you can call if you have any questions. We’ll then go over the best offers to decide which may be the best option for you.</p>
+                    <template if:true={showAnswer3}>
+                        <div class="slds-p-around_medium">
+                            <p>Very good! Most of the time, when you’re pre-approved, as long as you can verify the income you filled out on your application, you’ll be able to get the full pre-approval amount.</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="4">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer4}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer4}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer4} tabindex="0">What’s the best way to connect with funding specialist after I’ve been pre-approved?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question5Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon5}><span id="question5Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon5}><span id="question5Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question5" class="questionText">If I apply for a specific amount and don’t qualify for that amount, will I receive offers on any amounts that might be lower?</div>
-                </div>
-                <template if:true={answer5Div}>
-                    <div class="answer">
-                        <p class="answerpara">Absolutely. Let’s say you apply for $15k. We’ll share with you all the different pre-approvals that you qualify for. You may qualify for $5k, $10k, $12k, and so on! On the application, fill out the amount you would like. If you don’t qualify for that amount, we’ll share any amounts you do qualify for.</p>
+                    <template if:true={showAnswer4}>
+                        <div class="slds-p-around_medium">
+                            <p>After you receive offers, we’ll send you a calendar link to book a time that works for you and our number you can call if you have any questions. We’ll then go over the best offers to decide which may be the best option for you.</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="5">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer5}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer5}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer5} tabindex="0">If I apply for a specific amount and don’t qualify for that amount, will I receive offers on any amounts that might be lower?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question6Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon6}><span id="question6Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon6}><span id="question6Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question6" class="questionText">Does my credit get hit when I apply?</div>
-                </div>
-                <template if:true={answer6Div}>
-                    <div class="answer">
-                        <p class="answerpara">No. We do what’s called a “soft” pull which means you’ll see all the different offers without it affecting their credit score. Once you set up a call with an Eaze consultant on the best funding for you, you’ll be able to get the funding then and choose the best option for you! Only after you decide to move forward on the best funding option for you will there be a hard pull by the lender to complete the funding process.</p>
+                    <template if:true={showAnswer5}>
+                        <div class="slds-p-around_medium">
+                            <p>Absolutely. Let’s say you apply for $15k. We’ll share with you all the different pre-approvals that you qualify for. You may qualify for $5k, $10k, $12k, and so on! On the application, fill out the amount you would like. If you don’t qualify for that amount, we’ll share any amounts you do qualify for.</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="6">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer6}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer6}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer6} tabindex="0">Does my credit get hit when I apply?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question7Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon7}><span id="question7Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon7}><span id="question7Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question7" class="questionText">Once I get the funding and make payments or payoff the loan, does it positively affect my credit score?</div>
-                </div>
-                <template if:true={answer7Div}>
-                    <div class="answer">
-                        <p class="answerpara">Yes. As long as you pay your monthly installments on time and follow all the loan guidelines, you’re positively impacting your credit score.</p>
+                    <template if:true={showAnswer6}>
+                        <div class="slds-p-around_medium">
+                            <p>No. We do what’s called a “soft” pull which means you’ll see all the different offers without it affecting their credit score. Once you set up a call with an Eaze consultant on the best funding for you, you’ll be able to get the funding then and choose the best option for you! Only after you decide to move forward on the best funding option for you will there be a hard pull by the lender to complete the funding process.</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="7">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer7}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer7}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer7} tabindex="0">Once I get the funding and make payments or payoff the loan, does it positively affect my credit score?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question8Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon8}><span id="question8Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon8}><span id="question8Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question8" class="questionText"> Once I get the loan and pay it off, can I return and use the funding again to work with the same client?</div>
-                </div>
-                <template if:true={answer8Div}>
-                    <div class="answer">
-                        <p class="answerpara">Yes, as long as your credit is in good standing and you properly followed the loan guidelines. If you have established a relationship with one of our lenders and come back to fund again after paying off your original loan, you’ll be able to use our platform again to work with the same client.</p>
+                    <template if:true={showAnswer7}>
+                        <div class="slds-p-around_medium">
+                            <p>Yes. As long as you pay your monthly installments on time and follow all the loan guidelines, you’re positively impacting your credit score.</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="8">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer8}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer8}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer8} tabindex="0">Once I get the loan and pay it off, can I return and use the funding again to work with the same client?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question9Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon9}><span id="question9Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon9}><span id="question9Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question9" class="questionText">Do we have funding in Canada or internationally?</div>
-                </div>
-                <template if:true={answer9Div}>
-                    <div class="answer">
-                        <p class="answerpara">We’re currently funding in the U.S. only! We’ll keep you posted once we expand outside the U.S.!</p>
+                    <template if:true={showAnswer8}>
+                        <div class="slds-p-around_medium">
+                            <p>Yes, as long as your credit is in good standing and you properly followed the loan guidelines. If you have established a relationship with one of our lenders and come back to fund again after paying off your original loan, you’ll be able to use our platform again to work with the same client.</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="9">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer9}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer9}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer9} tabindex="0">Do we have funding in Canada or internationally?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question10Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon10}><span id="question10Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon10}><span id="question10Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question10" class="questionText"> I’ve received the funds! What’s next?</div>
-                </div>
-                <template if:true={answer10Div}>
-                    <div class="answer">
-                        <p class="answerpara">That’s great, and congrats! Reach out to our client, and they will share with you how to send funds to get started with their program!</p>
+                    <template if:true={showAnswer9}>
+                        <div class="slds-p-around_medium">
+                            <p>We’re currently funding in the U.S. only! We’ll keep you posted once we expand outside the U.S.!</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="10">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer10}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer10}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_11-of-12 slds-truncate">
+                            <a href="#" role="button" aria-expanded={showAnswer10} tabindex="0">I’ve received the funds! What’s next?</a>
+                        </div>
                     </div>
-                </template>
-                <br/><br/>
-                <div id="question11Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon11}><span id="question11Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon11}><span id="question11Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question11" class="questionText">What happens if I get declined?</div>
-                </div>
-                <template if:true={answer11Div}>
-                    <div class="answer">
-                        <p class="answerpara">Feel free to reach back to our client. They may have some other options for you on how to get started.</p>
-                    </div>
-                </template>
-                <br/><br/>
-                <div id="question12Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon12}><span id="question12Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon12}><span id="question12Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question12" class="questionText"> I have a spouse. What’s the best way to apply?</div>
-                </div>
-                <template if:true={answer12Div}>
-                    <div class="answer">
-                        <p class="answerpara">Our funding is based on individuals, not spouses. If you’d like your spouse to apply, they would submit their own application. You can then use funding from your spouse to work with our client. You can have your spouse apply through the same application link.</p>
-                    </div>
-                </template>
-                <br/><br/>
-                <div id="question13Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon13}><span id="question13Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon13}><span id="question13Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question13" class="questionText">Which of the 3 credit check bureaus do you use to check credit?</div>
-                </div>
-                <template if:true={answer13Div}>
-                    <div class="answer">
-                        <p class="answerpara">We work with various lending institutions, and they all use different credit bureaus.</p>
-                    </div>
-                </template>
-                <br/><br/>
-                <div id="question14Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon14}><span id="question14Plus"  class="faqIcon"> + </span></template>
-                    <template if:false={showIcon14}><span id="question14Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question14" class="questionText"> Are there any fees I have to pay Eaze Consulting upon being funded?</div>
-                </div>
-                <template if:true={answer14Div}>
-                    <div class="answer">
-                        <p class="answerpara">No. We work on behalf of our clients, and they pay for our services. In some cases, you may have origination fees with the lender, unrelated to Eaze Consulting. We will let you know if there are any fees on our call once you’re pre-approved!</p>
-                    </div>
-                </template>
-                <br/><br/>
-                <div id="question15Div" class="question" onclick={btnClick}>
-                    <template if:true={showIcon15}><span id="question15Plus" class="faqIcon"> + </span></template>
-                    <template if:false={showIcon15}><span id="question15Check" class="faqIcon"> ✓ </span></template>
-                    <div id="question15" class="questionText"> What’s the next step to apply?</div>
-                </div>
-                <template if:true={answer15Div}>
-                    <div class="answer">
-                        <p class="answerpara">Really simple. Apply on the link below. You’ll know within a few business hours of any offers, book a time with a consultant to choose the best one, and we usually fund within 3-5 business days from the time you apply. So go ahead and do that now!</p>
-                    </div>
-                </template>
-</template>
+                    <template if:true={showAnswer10}>
+                        <div class="slds-p-around_medium">
+                            <p>That’s great, and congrats! Reach out to our client, and they will share with you how to send funds to get started with their program!</p>
+                        </div>
+                    </template>
+                </li>
+                <li role="presentation" class="slds-item" onclick={handleQuestionClick} data-question-id="11">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-12">
+                            <template if:true={showAnswer11}>
+                                <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Answer visible"></lightning-icon>
+                            </template>
+                            <template if:false={showAnswer11}>
+                                <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Show answer"></lightning-icon>
+                            </template>
+                        </div>
+                        <div class="

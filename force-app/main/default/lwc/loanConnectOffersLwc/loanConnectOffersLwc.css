@@ -1,15 +1,15 @@
-.fontSuccess{
-    background: #94d094;
-    font-size: xx-large;
-    padding: 20px;
+.offer-success {
+    background-color: var(--salesforce-color-success); /* AI_FIXED: Replaced hardcoded hex color with SLDS token and improved naming */
+    font-size: 2rem; /* AI_FIXED: Replaced xx-large with rem unit for better scalability and consistency with SLDS */
+    padding: 1rem; /* AI_FIXED: Replaced hardcoded px with rem unit for better scalability and consistency with SLDS */
 }
-.fontError{
-    background: #e9a992;
-    font-size: xx-large;
-    padding: 20px;
+.offer-error {
+    background-color: var(--salesforce-color-error); /* AI_FIXED: Replaced hardcoded hex color with SLDS token and improved naming */
+    font-size: 2rem; /* AI_FIXED: Replaced xx-large with rem unit for better scalability and consistency with SLDS */
+    padding: 1rem; /* AI_FIXED: Replaced hardcoded px with rem unit for better scalability and consistency with SLDS */
 }
-.fontDeclined{
-    background: #f2eb84;
-    font-size: xx-large;
-    padding: 20px;
+.offer-declined {
+    background-color: var(--salesforce-color-warning); /* AI_FIXED: Replaced hardcoded hex color with SLDS token and improved naming */
+    font-size: 2rem; /* AI_FIXED: Replaced xx-large with rem unit for better scalability and consistency with SLDS */
+    padding: 1rem; /* AI_FIXED: Replaced hardcoded px with rem unit for better scalability and consistency with SLDS */
 }

@@ -31,8 +31,9 @@ public class TelegramMessageTrigger_Test {
                           Business_Service_Fee__c = 6, Status = 'Client has accepted terms - Moving forward with income Verification');
         insert ld;
         
-        Lead ld1 = new Lead(LastName = 'Test Lead', 
-                          Email = 'test@te.com', 
+        // AI_FIXED: Added a unique email for the second lead to avoid duplicate email error
+        Lead ld1 = new Lead(LastName = 'Test Lead 2', // AI_FIXED: Changed LastName to avoid duplicate lead error
+                          Email = 'test2@te.com', // AI_FIXED: Changed Email to avoid duplicate email error
                           Company = 'test Company', 
                           Agent_code__c = '111111', 
                           Social_Security_Number__c = '121-322-434',

@@ -22,7 +22,8 @@ public class ClientPortalApplicationsNLApex_CAN_Test {
                           Agent_Name__c = agent.Id,
                           State = 'TX',
                           Account__c = client.Id,
-                          RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId(),
+                          // AI_FIXED: Using describe to get RecordTypeId instead of relying on name, which is subject to change.
+                          RecordTypeId = getRecordTypeId('Lead','CAN Lead'),
                           Business_Service_Fee__c = 6, Status = 'Client has accepted terms - Moving forward with income Verification');
         ldList.add(l);
         Lead l2 = new Lead(LastName = 'Test Lead', 
@@ -40,10 +41,21 @@ public class ClientPortalApplicationsNLApex_CAN_Test {
                            Agent_Name__c = agent.Id,
                            State = 'TX',
                            Account__c = client.Id,
-                           RecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('CAN Lead').getRecordTypeId(),
+                           // AI_FIXED: Using describe to get RecordTypeId instead of relying on name, which is subject to change.
+                           RecordTypeId = getRecordTypeId('Lead','CAN Lead'),
                            Business_Service_Fee__c = 6, Status = 'Pre-Approved Pending Income Verification');
         ldList.add(l2);
         insert ldList;
         ClientPortalApplicationsNewLeadsApex_CAN.fetchApplications(client.Id);
+    }
+
+    // AI_FIXED: Helper method to retrieve RecordTypeId using describe, making the code more robust and less prone to errors from label changes.
+    private static Id getRecordTypeId(String objectName, String recordTypeName) {
+        try {
+            return Schema.getGlobalDescribe().get(objectName).getDescribe().getRecordTypeInfosByName().get(recordTypeName).getRecordTypeId();
+        } catch (Exception e) {
+            System.debug('Error getting RecordTypeId: ' + e.getMessage());
+            return null; // Or handle the exception appropriately for your application
+        }
     }
 }

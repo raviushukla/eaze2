@@ -1,8 +1,10 @@
 <template>
- <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>% funded 1+ deal</a></div>
+    <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
+        <div class="slds-text-heading_medium">
+            <button class="slds-button slds-button_neutral" onclick={OpenModal}>% funded 1+ deal</button> <!-- AI_FIXED: Replaced <a> tag with <button> for better accessibility and semantics -->
+        </div>
         <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a style="color: darkgreen;" onclick={OpenModal}>{value}%</a>
+            <span>{value}%</span> <!-- AI_FIXED: Replaced <a> tag with <span> as it's not a hyperlink -->
         </div>
     </div>
     <template if:true={isModalOpen}>
@@ -15,7 +17,7 @@
                         <lightning-icon icon-name="utility:close"
                             alternative-text="close"
                             variant="inverse"
-                            size="small" ></lightning-icon>
+                            size="small"></lightning-icon>
                         <span class="slds-assistive-text">Close</span>
                     </button>
                     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Clients fund 1+ deal</h2>
@@ -23,13 +25,13 @@
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <lightning-datatable
-                    key-field="Id"
-                    data={accountDataFundDeal}
-                    columns={Listcolumns}
-                    hide-checkbox-column=true
+                        key-field="Id"
+                        data={accountDataFundDeal}
+                        columns={Listcolumns}
+                        hide-checkbox-column=true
                     >
                     </lightning-datatable>
-                </div>     
+                </div>
             </div>
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>

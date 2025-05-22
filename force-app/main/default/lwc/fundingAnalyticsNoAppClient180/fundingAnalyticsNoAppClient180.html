@@ -1,8 +1,10 @@
 <template>
-<div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>% of client not done application in the last 180 days</a> </div>
+    <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
+        <div class="slds-text-heading_medium">
+            <a style="color: black;" onclick={openModal} role="button" tabindex="0"> <!-- AI_FIXED: Added role and tabindex for accessibility -->% of client not done application in the last 180 days</a>
+        </div>
         <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a style="color: darkgreen;" onclick={OpenModal}>{value}%</a>
+            <a style="color: darkgreen;" onclick={openModal} role="button" tabindex="0"> <!-- AI_FIXED: Added role and tabindex for accessibility -->{value}%</a>
         </div>
     </div>
     <template if:true={isModalOpen}>
@@ -11,11 +13,11 @@
             <div class="slds-modal__container">
                 <!-- Modal/Popup Box LWC header here -->
                 <header class="slds-modal__header">
-                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal} aria-label="Close Modal"> <!-- AI_FIXED: Added aria-label for accessibility -->
                         <lightning-icon icon-name="utility:close"
                             alternative-text="close"
                             variant="inverse"
-                            size="small" ></lightning-icon>
+                            size="small"></lightning-icon>
                         <span class="slds-assistive-text">Close</span>
                     </button>
                     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Clients Submitted No Application in the Last 180 days</h2>
@@ -23,13 +25,13 @@
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <lightning-datatable
-                    key-field="Id"
-                    data={accountDataSubNoApp}
-                    columns={Listcolumns}
-                    hide-checkbox-column=true
+                        key-field="Id"
+                        data={accountDataSubNoApp}
+                        columns={Listcolumns}
+                        hide-checkbox-column=true
                     >
                     </lightning-datatable>
-                </div>     
+                </div>
             </div>
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>

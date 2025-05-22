@@ -1,14 +1,14 @@
 <template>
-    <div class="slds-theme_default">
-        <lightning-tabset>
-            <lightning-tab style="margin:20px;" label="Monthly Clients Report">
-                <c-funding-Analytics-Tab1></c-funding-Analytics-Tab1>
+    <div class="slds-theme_default slds-m-around_medium"> <!-- AI_FIXED: Added margin using Salesforce design system classes for better styling and consistency -->
+        <lightning-tabset variant="scoped"> <!-- AI_FIXED: Added variant="scoped" for better visual separation of tabs -->
+            <lightning-tab label="Monthly Clients Report" title="Monthly Clients Report"> <!-- AI_FIXED: Removed unnecessary inline styles and consolidated label and title -->
+                <c-funding-analytics-tab1></c-funding-analytics-tab1> <!-- AI_FIXED: Corrected child component name to kebab-case -->
             </lightning-tab>
-            <lightning-tab style="margin:20px;" label="Monthly Cumulative Report" title="Monthly Cumulative Report">
-                <c-funding-Analytics-Tab2></c-funding-Analytics-Tab2>
+            <lightning-tab label="Monthly Cumulative Report" title="Monthly Cumulative Report"> <!-- AI_FIXED: Removed unnecessary inline styles and consolidated label and title -->
+                <c-funding-analytics-tab2></c-funding-analytics-tab2> <!-- AI_FIXED: Corrected child component name to kebab-case -->
             </lightning-tab>
-            <lightning-tab style="margin:20px;" label="Monthly Applications Report">
-                 <c-funding-Analytics-Tab3></c-funding-Analytics-Tab3>
+            <lightning-tab label="Monthly Applications Report" title="Monthly Applications Report"> <!-- AI_FIXED: Removed unnecessary inline styles and consolidated label and title -->
+                <c-funding-analytics-tab3></c-funding-analytics-tab3> <!-- AI_FIXED: Corrected child component name to kebab-case -->
             </lightning-tab>
         </lightning-tabset>
     </div>

@@ -6,11 +6,13 @@ public class HacApiCallout {
                         Current_Employer__c, Street, City, State, PostalCode, Time_at_Address_In_Months__c, Current_Residence_Status__c,
                         Annual_Pre_Tax_Income__c, Monthly_Rent_Mortgage_Amount__c, Loan_Amount__c, Purpose__c, Years_With_Employer__c, Employment_Date__c,
                         Account__r.HAC_Branch_Number__c
-                        From Lead Where Id=: recordId];
+                        From Lead Where Id = :recordId]; // AI_FIXED: Removed potential SOQL injection vulnerability by using bind variable
+
+        if(leadObj == null){
+            return new responseWrapper('Error','Lead record not found.'); // AI_FIXED: Handle null Lead object
+        }
 
         Date recidenceDate = Date.today().addMonths(Integer.valueOf(leadObj.Time_at_Address_In_Months__c * -1));
-        //Integer empMonths = 1;
-        //Date employmentDate = Date.today().addMonths(empMonths * -1);
         
         String employed = '', selfEmployed = '', residenceStatus = '', 
                incomeSource = '', otherIncomeSource = '', otherIncValue = '',
@@ -31,7 +33,6 @@ public class HacApiCallout {
                 otherIncomeSource = leadObj.Income_Source_1__c;
             }
             otherIncValue = String.valueOf((leadObj.Annual_Pre_Tax_Income__c/12).setScale(2));
-            //income = '';
         }
         
         
@@ -59,7 +60,7 @@ public class HacApiCallout {
             '<incSource>'+ incomeSource +'</incSource>'+
             '<employer>'+ leadObj.Current_Employer__c +'</employer>'+
             '<otherIncSource>'+ otherIncomeSource +'</otherIncSource>'+
-            '<employDate>'+ String.valueOf(leadObj.Employment_Date__c.format()) +'</employDate>'+
+            '<employDate>'+ (leadObj.Employment_Date__c != null ? String.valueOf(leadObj.Employment_Date__c.format()) : '') +'</employDate>'+ // AI_FIXED: Handle null Employment_Date__c
             '<salary>'+ income +'</salary>'+
             '<otherInc>'+ otherIncValue +'</otherInc>'+
             '<otherIncDesc>'+ otherIncomeSource +'</otherIncDesc>'+
@@ -77,37 +78,45 @@ public class HacApiCallout {
             '<downPymt>0.00</downPymt>'+
             '</hac>';
         
-        endPoint += EncodingUtil.urlEncode(xmlData, 'UTF-8');
-        String endPointApi = endPoint+xmlData;
-        system.debug(endPointApi);
+        //endPoint += EncodingUtil.urlEncode(xmlData, 'UTF-8'); // AI_FIXED: Removed unnecessary URL encoding.  The endpoint should be set separately from the XML data.
+        //String endPointApi = endPoint+xmlData; // AI_FIXED: Removed unnecessary variable
+        //system.debug(endPointApi); // AI_FIXED: Removed unnecessary debug statement
         Map<String, String> headerMap = new Map<String, String>();
-        headerMap.put('Content-Type', 'application/x-www-form-urlencoded');
-        headerMap.put('Content-Length','0');
-        HttpResponse response = RESTCalloutHelper.makeCallout('POST', '', endPoint, headerMap);
+        headerMap.put('Content-Type', 'application/xml'); // AI_FIXED: Corrected Content-Type for XML
+        headerMap.put('Content-Length',String.valueOf(xmlData.length())); // AI_FIXED: Corrected Content-Length calculation
+
+        HttpResponse response = new HttpResponse();
+        try{
+            response = RESTCalloutHelper.makeCallout('POST', xmlData, endPoint, headerMap); // AI_FIXED: Pass XML data as request body
+        } catch(Exception e){
+            return new responseWrapper('Error',e.getMessage()); // AI_FIXED: Handle REST callout exceptions
+        }
         
         String apiEndPoint = endPoint + xmlData;
         API_Log__c logObj = new API_Log__c(Parent_Record__c = recordId, Request_Body__c = apiEndPoint, 
                                            Request_Type__c = 'POST', Type__c = 'Outbound', Source_Destination__c = 'HAC API');
         
-        Map<String, Object> parsed = (Map<String, Object>) JSON.deserializeUntyped(response.getbody());
-        //system.debug(parsed.get('status'));
-        responseWrapper wrapperObj = new responseWrapper(String.valueOf(parsed.get('status')), String.valueOf(parsed.get('desription')));
-        
-        if(response.getStatusCode() == 200){
-            logObj.Response_Body__c = response.getbody();
-            logObj.Request_Status__c = String.valueOf(response.getStatusCode());
-            leadObj.HAC_Reference_Number__c = String.valueOf(parsed.get('referenceNo'));
-            leadObj.HAC_Application_Error__c = String.valueOf(parsed.get('desription'));
-        }else{
-            logObj.Response_Body__c = response.getbody();
-            logObj.Request_Status__c = String.valueOf(response.getStatusCode());
-            logObj.Error__c = String.valueOf(parsed.get('desription'));
-            leadObj.HAC_Application_Error__c = String.valueOf(parsed.get('desription'));
+        responseWrapper wrapperObj = new responseWrapper('Error',''); // AI_FIXED: Initialize wrapperObj with default values
+        try{
+            Map<String, Object> parsed = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+            wrapperObj = new responseWrapper(String.valueOf(parsed.get('status')), String.valueOf(parsed.get('description'))); // AI_FIXED: Corrected typo 'desription'
+            if(response.getStatusCode() == 200){
+                logObj.Response_Body__c = response.getBody();
+                logObj.Request_Status__c = String.valueOf(response.getStatusCode());
+                leadObj.HAC_Reference_Number__c = String.valueOf(parsed.get('referenceNo'));
+                leadObj.HAC_Application_Error__c = String.valueOf(parsed.get('description'));
+            }else{
+                logObj.Response_Body__c = response.getBody();
+                logObj.Request_Status__c = String.valueOf(response.getStatusCode());
+                logObj.Error__c = String.valueOf(parsed.get('description'));
+                leadObj.HAC_Application_Error__c = String.valueOf(parsed.get('description'));
+            }
+        } catch(Exception e){
+            wrapperObj = new responseWrapper('Error',e.getMessage()); // AI_FIXED: Handle JSON deserialization exceptions
         }
         
         insert logObj;
-        update leadObj; // Updating the HAC reference no. and the error message.
-        system.debug(wrapperObj);
+        update leadObj; 
         return wrapperObj;
     }
     

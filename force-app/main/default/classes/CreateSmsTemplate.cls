@@ -9,7 +9,7 @@ public class CreateSmsTemplate {
         {
             String name = obj.getDescribe().getName();
             if (!obj.getDescribe().isCustomSetting() && obj.getDescribe().getRecordTypeInfos().size() > 0 && obj.getDescribe().isCreateable() &&
-                !string.valueOf(obj).containsIgnoreCase('history') && !name.containsIgnoreCase('tag') && !name.containsIgnoreCase('share') && !name.containsIgnoreCase('feed')) 
+                !name.containsIgnoreCase('history') && !name.containsIgnoreCase('tag') && !name.containsIgnoreCase('share') && !name.containsIgnoreCase('feed')) 
             {
                 objlist.add(obj.getDescribe().getName());
             }
@@ -23,10 +23,12 @@ public class CreateSmsTemplate {
     public static List<String> getsObjectFields(String sendobj){
         List<string> getfieldList = new List<string>();
         Map<String,Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
-        Map<String, Schema.SObjectField> schemaFieldMap = gd.get(sendobj).getDescribe().fields.getMap(); 
-        for (String objfield : schemaFieldMap.keySet()){
-            Schema.DescribeFieldResult field = schemaFieldMap.get( objfield ).getDescribe();
-            getfieldList.add(objfield);
+        if(gd.containsKey(sendobj)){ // AI_FIXED: Added null check to prevent NullPointerException
+            Map<String, Schema.SObjectField> schemaFieldMap = gd.get(sendobj).getDescribe().fields.getMap(); 
+            for (String objfield : schemaFieldMap.keySet()){
+                Schema.DescribeFieldResult field = schemaFieldMap.get( objfield ).getDescribe();
+                getfieldList.add(objfield);
+            }
         }
         return getfieldList;
     }
@@ -40,26 +42,26 @@ public class CreateSmsTemplate {
     {
         List<String> getLookUpfieldList = new List<String>();
         Map<String,Schema.sObjectType> gd = Schema.getGlobalDescribe(); 
-        Map<String, Schema.sObjectField> schemaFieldMap = gd.get(sendobj).getDescribe().fields.getMap(); 
-        Schema.DisplayType field = schemaFieldMap.get(fieldName).getDescribe().getType();
-        if(String.valueOf(field) == 'reference'){
-            // Get the describe for the object
-            DescribeSObjectResult objResult = Schema.getGlobalDescribe().get(sendobj).getDescribe();
-            // Get the field dynamically
-            DescribeFieldResult fieldResult = objResult.fields.getMap().get(fieldName).getDescribe();
-            List<Schema.sObjectType> name =  fieldResult.getReferenceTo();
-            
-            Map<String,Schema.SObjectType> gd1 = Schema.getGlobalDescribe(); 
-            Map<String, Schema.SObjectField> schemaFieldMap1 = gd1.get(string.valueOf(name[0])).getDescribe().fields.getMap(); 
-            for (String objfield1 : schemaFieldMap1.keySet()){
-                Schema.DescribeFieldResult field1 = schemaFieldMap1.get( objfield1 ).getDescribe();
-                getLookUpfieldList.add(String.valueOf(objfield1));
+        if(gd.containsKey(sendobj) && gd.get(sendobj).getDescribe().fields.getMap().containsKey(fieldName)){ // AI_FIXED: Added null checks to prevent NullPointerExceptions
+            Map<String, Schema.sObjectField> schemaFieldMap = gd.get(sendobj).getDescribe().fields.getMap(); 
+            Schema.DisplayType field = schemaFieldMap.get(fieldName).getDescribe().getType();
+            if(field == Schema.DisplayType.Reference){ // AI_FIXED: Changed String comparison to direct comparison of DisplayType
+                DescribeSObjectResult objResult = Schema.getGlobalDescribe().get(sendobj).getDescribe();
+                DescribeFieldResult fieldResult = objResult.fields.getMap().get(fieldName).getDescribe();
+                List<Schema.sObjectType> refToTypes =  fieldResult.getReferenceTo();
+                for(Schema.sObjectType refToType : refToTypes){ // AI_FIXED: Iterating through the list of reference types
+                    Map<String, Schema.SObjectField> refSchemaFieldMap = Schema.getGlobalDescribe().get(refToType.getDescribe().getName()).getDescribe().fields.getMap();
+                    for (String objfield1 : refSchemaFieldMap.keySet()){
+                        getLookUpfieldList.add(objfield1);
+                    }
+                }
+                return getLookUpfieldList;
             }
-            
-            return getLookUpfieldList;
-        }
-        else{
-            return null;
+            else{
+                return null;
+            }
+        } else {
+            return null; // AI_FIXED: Return null if sendobj or fieldName is not found
         }
         
     }
@@ -80,7 +82,7 @@ public class CreateSmsTemplate {
             upsert sms;
             return sms.Id;
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }
@@ -93,13 +95,8 @@ public class CreateSmsTemplate {
     public static List<String>  getSecondclick(){
         
         List<String> objlist1 = new List<String>();
-        for( Schema.SObjectType obj: Schema.getGlobalDescribe().values())
-        {
-            if(obj.getDescribe().getName()=='Account' || obj.getDescribe().getName()=='contact')
-            {
-                objlist1.add(obj.getDescribe().getName());
-            }
-        }
+        objlist1.add('Account'); // AI_FIXED: Directly added values instead of looping through Schema
+        objlist1.add('Contact'); // AI_FIXED: Directly added values instead of looping through Schema
         return objlist1; 
         
     }
@@ -108,8 +105,16 @@ public class CreateSmsTemplate {
     //For editing the template
     @AuraEnabled
     public static SMS_Template__c editTemplate(String recordId){
-        SMS_Template__c sms = [SELECT Id, Name,Subject__c, SMS_Text__c,Parent__c FROM SMS_Template__c WHERE Id = : recordId];
-        return sms;
+        // AI_FIXED: Added try-catch block for exception handling and added a check for null or empty recordId
+        try{
+            if(String.isBlank(recordId)){
+                return null;
+            }
+            SMS_Template__c sms = [SELECT Id, Name,Subject__c, SMS_Text__c,Parent__c FROM SMS_Template__c WHERE Id = :recordId]; // AI_FIXED: Removed extra space in WHERE clause
+            return sms;
+        } catch(Exception e){
+            return null; // AI_FIXED: Return null if an error occurs during query
+        }
         
     }
     

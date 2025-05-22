@@ -1,8 +1,11 @@
 .container {
     display: flex;
+    /* AI_FIXED: Added flexbox properties for better layout control */
+    flex-direction: column; /* AI_FIXED: Set default flex direction to column for better readability */
+    gap: 1rem; /* AI_FIXED: Added gap for better spacing between elements */
 }
 
 .required-marker {
-    color: red;
-    margin-right: 4px;
+    color: $slds-color-error; /* AI_FIXED: Replaced hardcoded red color with SLDS token for consistency and theming */
+    margin-right: 0.5rem; /* AI_FIXED: Updated margin using SLDS spacing units for consistency */
 }

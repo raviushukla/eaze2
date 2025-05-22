@@ -20,7 +20,7 @@ public class LeadTracker {
         return pickListValuesList;
     }
     @AuraEnabled
-    public static object fetchLeads(){
+    public static List<leadRecordWrapper> fetchLeads(){ // AI_FIXED: Changed return type to List<leadRecordWrapper> for consistency
 
         List<leadRecordWrapper> finalLeadsWrapper = new List<leadRecordWrapper>();
 
@@ -46,7 +46,7 @@ public class LeadTracker {
         
         Integer currentYear = System.Today().year();
         String stringDate = Label.Lead_Tracker_Beginning_Date;
-        Datetime begOfYear = datetime.valueOf(stringDate);
+        Datetime begOfYear = Datetime.valueOf(stringDate); // AI_FIXED: Corrected Datetime.valueOf usage
         List<Lead> leadList = [SELECT CreatedDate, LastModifiedDate, Name, Phone, MobilePhone, Status, Total_Amount_pre_approved__c, Is_Contacted__c,
                                Loan_Amount__c, Account__c, Account__r.Name, Account_Name__c, Agent_Name_Text__c, Payout_Amount__c, Lender__c,
                                (SELECT CreatedDate, Body, Title 
@@ -62,7 +62,6 @@ public class LeadTracker {
                                AND CreatedDate >=: begOfYear
                                Order By CreatedDate DESC
                                ];
-        system.debug('leadList : '+leadList);
         if(leadList.size()>0){
             List<Lead> tempBookedwithEazeStatusLeads = new List<Lead>();
             List<Lead> tempclientHasAcceptTermsStatusLeads = new List<Lead>();
@@ -91,7 +90,6 @@ public class LeadTracker {
             finalLeadsWrapper.add(new leadRecordWrapper(allDocsInHeader, allDocsInStatus, tempAllDocsInLeads));
             finalLeadsWrapper.add(new leadRecordWrapper(preApprovedHeader, preApprovedStatus, tempPreApprovedLeads));
             finalLeadsWrapper.add(new leadRecordWrapper(alertPlzHeader, alertPlzStatus, tempAlertPlzLeads));
-            system.debug(finalLeadsWrapper);
         }
         return finalLeadsWrapper;
     }
@@ -99,16 +97,11 @@ public class LeadTracker {
     @AuraEnabled
     public static string updateLender(String lender, String recordId){
         try{
-            system.debug('lender : '+lender);
-            system.debug('recordId : '+recordId);
-            Lead ld = new Lead(
-                Id = recordId, 
-                Lender__c = lender
-            );
+            Lead ld = new Lead(Id = recordId, Lender__c = lender); // AI_FIXED: Simplified Lead object creation
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception
             return 'error : '+ex.getMessage();
         }
     }
@@ -116,16 +109,11 @@ public class LeadTracker {
     @AuraEnabled
     public static string updateStatus(String leadStatus, String recordId){
         try{
-            system.debug('leadStatus : '+leadStatus);
-            system.debug('recordId : '+recordId);
-            Lead ld = new Lead(
-                Id = recordId, 
-                Status = leadStatus
-            );
+            Lead ld = new Lead(Id = recordId, Status = leadStatus); // AI_FIXED: Simplified Lead object creation
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception
             return 'error : '+ex.getMessage();
         }
     }
@@ -133,16 +121,11 @@ public class LeadTracker {
     @AuraEnabled
     public static string updateContacted(String value, String recordId){
         try{
-            system.debug('value : '+value);
-            system.debug('recordId : '+recordId);
-            Lead ld = new Lead(
-                Id = recordId, 
-                Is_Contacted__c = Boolean.valueOf(value)
-            );
+            Lead ld = new Lead(Id = recordId, Is_Contacted__c = Boolean.valueOf(value)); // AI_FIXED: Simplified Lead object creation
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception
             return 'error : '+ex.getMessage();
         }
     }
@@ -150,18 +133,11 @@ public class LeadTracker {
     @AuraEnabled
     public static string saveNote(String title, string body, String recordId){
         try{
-            system.debug('title : '+title);
-            system.debug('body : '+body);
-            system.debug('recordId : '+recordId);
-            Note nt = new Note(
-                ParentId = recordId, 
-                Body = body,
-                Title = title
-            );
+            Note nt = new Note(ParentId = recordId, Body = body, Title = title); // AI_FIXED: Simplified Note object creation
             insert nt;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception
             return 'error : '+ex.getMessage();
         }
     }
@@ -169,16 +145,11 @@ public class LeadTracker {
     @AuraEnabled
     public static string updateApprovalAmount(Integer amount, String recordId){
         try{
-            system.debug('amount : '+amount);
-            system.debug('recordId : '+recordId);
-            Lead ld = new Lead(
-                Id = recordId, 
-                Loan_Amount__c = amount
-            );
+            Lead ld = new Lead(Id = recordId, Loan_Amount__c = amount); // AI_FIXED: Simplified Lead object creation
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception
             return 'error : '+ex.getMessage();
         }
     }

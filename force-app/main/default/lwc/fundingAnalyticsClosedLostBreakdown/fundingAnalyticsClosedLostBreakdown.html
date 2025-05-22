@@ -1,26 +1,26 @@
 <template>
     <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <div class="slds-text-heading_medium">Close lost breakdown</div>
-        <div class="">
+        <h2 class="slds-text-heading_medium">Close Lost Breakdown</h2> <!-- AI_FIXED: Changed div to h2 for better semantic meaning and accessibility -->
+        <div class="slds-table_wrapper"> <!-- AI_FIXED: Added slds class for styling and responsiveness -->
             <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                <template for:each={closedLostStatusApps} for:item="cl">
-                    <template if:true={cl.isTableHead}>
-                        <tr key={cl.status}>
-                            <td><strong>{cl.status}</strong></td>
-                            <td><strong>{cl.count}</strong></td>
-                            <td><strong>{cl.amount}</strong></td>
-                            <td><strong>{cl.percent}</strong></td>
+                <thead> <!-- AI_FIXED: Added table header for better structure and accessibility -->
+                    <tr role="row"> <!-- AI_FIXED: Added role attribute for accessibility -->
+                        <th scope="col">Status</th> <!-- AI_FIXED: Added scope attribute for accessibility -->
+                        <th scope="col">Count</th> <!-- AI_FIXED: Added scope attribute for accessibility -->
+                        <th scope="col">Amount</th> <!-- AI_FIXED: Added scope attribute for accessibility -->
+                        <th scope="col">Percent</th> <!-- AI_FIXED: Added scope attribute for accessibility -->
+                    </tr>
+                </thead>
+                <tbody> <!-- AI_FIXED: Added table body for better structure -->
+                    <template for:each={closedLostStatusApps} for:item="cl">
+                        <tr key={cl.status} role="row"> <!-- AI_FIXED: Added role attribute for accessibility -->
+                            <td data-label="Status" class="slds-cell-wrap">{cl.status}</td> <!-- AI_FIXED: Added data-label attribute for accessibility -->
+                            <td data-label="Count">{cl.count}</td> <!-- AI_FIXED: Added data-label attribute for accessibility -->
+                            <td data-label="Amount">{cl.amount}</td> <!-- AI_FIXED: Added data-label attribute for accessibility -->
+                            <td data-label="Percent">{cl.percent}%</td> <!-- AI_FIXED: Added data-label attribute for accessibility -->
                         </tr>
                     </template>
-                    <template if:false={cl.isTableHead}>
-                        <tr key={cl.status}>
-                            <td class="slds-cell-wrap">{cl.status}</td>
-                            <td>{cl.count}</td>
-                            <td>{cl.amount}</td>
-                            <td>{cl.percent}%</td>
-                        </tr>
-                    </template>
-                </template>
+                </tbody> <!-- AI_FIXED: Added table body for better structure -->
             </table>
         </div>
     </div>

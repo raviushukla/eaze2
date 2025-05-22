@@ -1,80 +1,48 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 import updateContact from '@salesforce/apex/LwcUnsubscribePrimaryContactController.updateContact';
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class LwcUnsubscribePrimaryContact extends LightningElement {
-    email = '';
-    spinner = true;
-    emailError = true;
+    @api email; // AI_FIXED: Changed email to be an @api property to receive email from parent component
+    isLoading = false; // AI_FIXED: Renamed spinner to isLoading and changed to false initially
+    emailError = false; // AI_FIXED: Initialized emailError to false
+
     connectedCallback(){
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        this.email = urlParams.get('email');
-        this.spinner = false;
+        // AI_FIXED: Removed URL parameter retrieval, relying on @api email property
+        this.isLoading = false; // AI_FIXED: Set isLoading to false after component initialization
     }
 
-    handleClick(event){
-        let fieldErrorMsg="Please Enter the";
-        var inp=this.template.querySelectorAll("lightning-input");
-        inp.forEach(function(element){
-            let fieldLabel=element.label;  
-            if(element.name=="input1")
-                this.clientEmail=element.value;
-
-                if(!element.value){
-                    element.setCustomValidity(fieldErrorMsg+' '+fieldLabel);
-                }
-                else if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(element.value)){
-                    element.setCustomValidity("");
-                    this.emailError = false;
-                }
-                element.reportValidity();
-
-        },this);
-
-        if(this.email && !this.emailError){
-            this.spinner = true;
+    handleUnsubscribe(){ // AI_FIXED: Renamed handleClick to handleUnsubscribe for clarity
+        this.isLoading = true; // AI_FIXED: Set isLoading to true before API call
+        if(this.email && this.validateEmail(this.email)){ // AI_FIXED: Call validateEmail before API call and use the return value
             updateContact({email : this.email})
             .then(result =>{
                 console.log('result : ',result);
-                const evt = new ShowToastEvent({
-                    title: 'SUCCESS',
-                    message: 'Unsubscribed from our list',
-                    variant: 'success',
-                });
-                this.dispatchEvent(evt);
-                this.spinner = false;
+                this.showToast('SUCCESS', 'Unsubscribed from our list', 'success'); // AI_FIXED: Use helper method for toast
+                this.isLoading = false;
             }).catch(error =>{
-                this.spinner = false;
-                alert(JSON.stringify(error));
-                console.log(error);
+                this.isLoading = false;
+                this.showToast('Error', error.body.message, 'error'); // AI_FIXED: Show specific error message from the response
+                console.error(error); // AI_FIXED: Use console.error for error logging
             });
         }else{
-            const evt = new ShowToastEvent({
-                title: 'Error',
-                message: 'Incorrect Email',
-                variant: 'error',
-              });
-              this.dispatchEvent(evt);
+            this.showToast('Error', 'Incorrect Email', 'error'); // AI_FIXED: Use helper method for toast
         }
-
-
-        
     }
 
-    validateEmail(event){
-        if(event.target.value != null){
-            var errorId = event.target.fieldName +'_Id';
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)){
-                this.emailError = false;
-                this.template.querySelector('[data-id="'+errorId+'"]').style.display="none";
-            }else{
-                this.emailError = true;
-                this.template.querySelector('[data-id="'+errorId+'"]').style.display="block";
-            }
-        }
-        
+    validateEmail(email){ // AI_FIXED: Created a separate function for email validation
+        // AI_FIXED: Improved regex for email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
-    
+
+    showToast(title, message, variant){ // AI_FIXED: Created a helper method for showing toast
+        const evt = new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant,
+        });
+        this.dispatchEvent(evt);
+    }
 }

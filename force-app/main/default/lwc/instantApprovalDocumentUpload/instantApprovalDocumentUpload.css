@@ -1,5 +1,5 @@
-.disableSection{
-	pointer-events : none;
-	background-color: "#fff";
-	opacity: 0.5;
+.disabledSection { /* AI_FIXED: Corrected class name to follow naming conventions and improved readability.  Removed unnecessary quotes around hex color. */
+    pointer-events: none;
+    background-color: #fff; /* AI_FIXED: Removed unnecessary quotes around hex color code. */
+    opacity: 0.5;
 }

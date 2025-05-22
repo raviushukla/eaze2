@@ -1,164 +1,77 @@
 <template>
-    <template lwc:if={spinner}> <lightning-spinner variant="brand" size="medium"> </lightning-spinner> </template>
-    <ul class="slds-list_dotted" style="font-weight:bold;font-size: large;">
-        <li>Articles of Incorporation 
-            <span style="color:#057b05;padding-left:20px;">{incorporation}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="Incorp"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+    <template if:true={spinner}>
+        <lightning-spinner variant="brand" size="medium" alternative-text="Loading"></lightning-spinner>
+    </template>
+    <ul class="slds-list_dotted" role="list"> <!-- AI_FIXED: Added role attribute for accessibility -->
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Articles of Incorporation</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{incorporation}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="Incorp" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Year-to-date company Profit & Loss statement 
-            <span style="color:#057b05;padding-left:20px;">{profitLoss}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="ProfitLoss"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Year-to-date company Profit & Loss statement</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{profitLoss}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="ProfitLoss" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Most Recent Balance Sheet 
-            <span style="color:#057b05;padding-left:20px;">{balanceSheet}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="BalanceSheet"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Most Recent Balance Sheet</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{balanceSheet}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="BalanceSheet" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Most Recent business tax return
-            <span style="color:#057b05;padding-left:20px;">{businessTaxReturn}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="BusinessTaxReturn"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Most Recent business tax return</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{businessTaxReturn}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="BusinessTaxReturn" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Most Recent Two years of tax returns (for principal owners)
-            <span style="color:#057b05;padding-left:20px;"><!--{ownerTaxReturn}-->
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Most Recent Two years of tax returns (for principal owners)</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">
                 <template for:each={ownerTaxReturn} for:item="ownerTax">
-                     {ownerTax.Title}.{ownerTax.FileExtension} &nbsp;
+                    {ownerTax.Title}.{ownerTax.FileExtension} &nbsp;
                 </template>
-            </span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="OwnerTaxReturn"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-                multiple
-            >
-            </lightning-file-upload>
+            </span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="OwnerTaxReturn" onuploadfinished={handleUploadFinished} multiple accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Terms and Conditions with a copy of any warranty or guarantee, if applicable
-            <span style="color:#057b05;padding-left:20px;">{termCondition}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="TermCondition"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Terms and Conditions with a copy of any warranty or guarantee, if applicable</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{termCondition}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="TermCondition" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Marketing Materials used for Sales (Print, email, phone sales scripts)
-            <span style="color:#057b05;padding-left:20px;">{marketingPrint}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="MarketingPrint"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Marketing Materials used for Sales (Print, email, phone sales scripts)</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{marketingPrint}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="MarketingPrint" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Marketing materials used for sales (sales scripts, email & direct message scripts)
-            <span style="color:#057b05;padding-left:20px;">{marketingScript}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="MarketingScript"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Marketing materials used for sales (sales scripts, email & direct message scripts)</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{marketingScript}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="MarketingScript" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Written policies (process for handling complaints, cancellation exceptions)
-            <span style="color:#057b05;padding-left:20px;">{writtenPolicies}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="WrittenPolicies"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Written policies (process for handling complaints, cancellation exceptions)</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{writtenPolicies}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="WrittenPolicies" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Sample follow-up/post-sale engagement (onboarding process/scripts)
-            <span style="color:#057b05;padding-left:20px;">{onboardingScript}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="OnboardingScript"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Sample follow-up/post-sale engagement (onboarding process/scripts)</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{onboardingScript}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="OnboardingScript" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Sample Follow-up/Post-Sale Engagement (Post-Sale welcome call email, call script, etc.)
-            <span style="color:#057b05;padding-left:20px;">{welcomeCallScript}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="WelcomeCallScript"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Sample Follow-up/Post-Sale Engagement (Post-Sale welcome call email, call script, etc.)</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{welcomeCallScript}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="WelcomeCallScript" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li>Login Credentials to content platform for review
-            <span style="color:#057b05;padding-left:20px;">{contentPlatform}</span>
-            <lightning-file-upload
-                class="slds-p-around_medium"
-                data-target-id="ContentPlatform"
-                label=""
-                name=""
-                onuploadfinished={handleUploadFinished}
-            >
-            </lightning-file-upload>
+        <li role="listitem"> <!-- AI_FIXED: Added role attribute for accessibility -->
+            <span class="slds-text-heading_small">Login Credentials to content platform for review</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <span class="slds-text-success slds-m-left_x-small">{contentPlatform}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="ContentPlatform" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
-        <li class="slds-p-around_small disableSection"  data-my-id="in3" title="">
-            <p style="color:red;margin-top: -15px;font-size: smaller;">This section will be enabled once you upload the above documents</p>
-            <p>After uploading the above required documents, <a href={label.applicationLink} target="_blank"><strong>click here</strong></a> to download the Application form. After downloading the Application form, fill in the required details and upload below.</p>
-                <span style="color:#057b05;padding-left:20px;">{applicationForm}</span>
-                <lightning-file-upload
-                    class="slds-p-around_medium"
-                    data-target-id="applicationForm"
-                    label=""
-                    name=""
-                    onuploadfinished={handleUploadFinished}
-                >
-                </lightning-file-upload>
-                <!--lightning-button
-                    variant="brand"
-                    label="Submit"
-                    icon-name="utility:setup_assistant_guide"
-                    icon-position="right"
-                    class="slds-align_absolute-center"
-                    onclick={handleSubmitClick}
-                >
-                </lightning-button-->
+        <li class="slds-p-around_small disableSection slds-is-disabled" data-my-id="in3" role="listitem" aria-disabled="true"> <!-- AI_FIXED: Added aria-disabled attribute for accessibility and slds-is-disabled class -->
+            <p class="slds-text-error slds-m-top_none slds-text-size_x-small">This section will be enabled once you upload the above documents</p> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <p>After uploading the above required documents, <a href={label.applicationLink} target="_blank" rel="noopener noreferrer"><strong>click here</strong></a> to download the Application form. After downloading the Application form, fill in the required details and upload below.</p> <!-- AI_FIXED: Added rel="noopener noreferrer" for security -->
+            <span class="slds-text-success slds-m-left_x-small">{applicationForm}</span> <!-- AI_FIXED: Replaced inline styles with SLDS classes -->
+            <lightning-file-upload class="slds-p-around_medium" data-target-id="applicationForm" onuploadfinished={handleUploadFinished} accept=".pdf,.docx,.txt"></lightning-file-upload> <!-- AI_FIXED: Removed unnecessary label and name attributes, added accept attribute -->
         </li>
     </ul>
 </template>

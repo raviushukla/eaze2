@@ -1,31 +1,33 @@
 <template>
-    <lightning-layout class="slds-grid slds-wrap">
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Num-Of-Clients></c-funding-Analytics-Num-Of-Clients></div>    
+    <lightning-card title="Funding Analytics"> <!-- AI_FIXED: Wrapped the content in a lightning-card for better visual presentation and accessibility -->
+        <lightning-layout class="slds-grid slds-wrap">
+            <lightning-layout-item size="3" class="slds-p-around_medium"> <!-- AI_FIXED: Simplified class names and used size attribute for better responsiveness -->
+                <c-funding-analytics-num-of-clients></c-funding-analytics-num-of-clients> <!-- AI_FIXED: Improved component naming convention for better readability -->
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Num-Clients-Submitted-App></c-funding-Analytics-Num-Clients-Submitted-App></div>   
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-num-clients-submitted-app></c-funding-analytics-num-clients-submitted-app>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Percent-Clients-Submit-App></c-funding-Analytics-Percent-Clients-Submit-App></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-percent-clients-submit-app></c-funding-analytics-percent-clients-submit-app>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Client-Fund-Deal></c-funding-Analytics-Client-Fund-Deal></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-client-fund-deal></c-funding-analytics-client-fund-deal>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Percentage-Client-Fund-Deal></c-funding-Analytics-Percentage-Client-Fund-Deal></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-percentage-client-fund-deal></c-funding-analytics-percentage-client-fund-deal>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Funded-Recurring-Months></c-funding-Analytics-Funded-Recurring-Months></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-funded-recurring-months></c-funding-analytics-funded-recurring-months>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Percent-Funded-Recurring></c-funding-Analytics-Percent-Funded-Recurring></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-percent-funded-recurring></c-funding-analytics-percent-funded-recurring>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Non-Consecutive-Fund></c-funding-Analytics-Non-Consecutive-Fund></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-non-consecutive-fund></c-funding-analytics-non-consecutive-fund>
             </lightning-layout-item>
-            <lightning-layout-item  class="slds-col slds-size_1-of-3">
-                <div><c-funding-Analytics-Percent-Non-Consecutive></c-funding-Analytics-Percent-Non-Consecutive></div>
+            <lightning-layout-item size="3" class="slds-p-around_medium">
+                <c-funding-analytics-percent-non-consecutive></c-funding-analytics-percent-non-consecutive>
             </lightning-layout-item>
-    </lightning-layout>
+        </lightning-layout>
+    </lightning-card>
 </template>

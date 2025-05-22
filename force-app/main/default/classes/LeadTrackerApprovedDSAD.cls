@@ -37,8 +37,14 @@ public class LeadTrackerApprovedDSAD {
 
         Integer currentYear = System.Today().year();
         String stringDate = Label.Lead_Tracker_Beginning_Date;
-        Datetime begOfYear = datetime.valueOf(stringDate);
-        //DateTime begOfYear  = Datetime.newInstance(currentYear, 1, 1, 00, 00, 00);
+        // AI_FIXED:  Handle potential exception during Datetime conversion from Label
+        Datetime begOfYear;
+        try{
+            begOfYear = Datetime.valueOf(stringDate);
+        } catch (Exception e){
+            begOfYear = Datetime.newInstance(currentYear, 1, 1, 00, 00, 00); //Fallback to beginning of current year
+        }
+
         List<Lead> leadList = [SELECT CreatedDate, LastModifiedDate, Name, Phone,MobilePhone, Status, Total_Amount_pre_approved__c, Is_Contacted__c, Share_With_DSAD__c,
                                Loan_Amount__c, Account__c, Account__r.Name, Account_Name__c, Agent_Name_Text__c, Payout_Amount__c, Lender__c, Pre_Approval_Date__c,Invoice_Paid_Date__c,
                                (SELECT CreatedDate, Body, Title FROM Notes Order By CreatedDate DESC Limit 1) 
@@ -79,7 +85,7 @@ public class LeadTrackerApprovedDSAD {
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }
@@ -96,7 +102,7 @@ public class LeadTrackerApprovedDSAD {
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }
@@ -113,7 +119,7 @@ public class LeadTrackerApprovedDSAD {
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }
@@ -132,7 +138,7 @@ public class LeadTrackerApprovedDSAD {
             insert nt;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }
@@ -149,7 +155,7 @@ public class LeadTrackerApprovedDSAD {
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }
@@ -169,7 +175,7 @@ public class LeadTrackerApprovedDSAD {
             update ld;
             return 'success';
         }
-        catch(exception ex){
+        catch(Exception ex){ // AI_FIXED: Changed exception type to Exception for better handling
             return 'error : '+ex.getMessage();
         }
     }

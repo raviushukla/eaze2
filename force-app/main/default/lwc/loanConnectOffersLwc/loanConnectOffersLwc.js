@@ -8,25 +8,33 @@ export default class LoanConnectOffersLwc extends LightningElement {
     preApprovedDeclined = false;
     submitError = false;
     spinner = true;
-    leadRecord = '';
     error = '';
+    // AI_FIXED: Removed unnecessary leadRecord variable and direct string concatenation
+    
     connectedCallback() {
-        this.leadRecord = '/'+this.leadId;
-        submitApplication({leadId : this.leadId})
-        .then(result =>{
-            console.log('result', result);
-            if(result == 'true'){
-                this.preApprovedOffer = true;
-            }else if(result == 'false'){
-                this.preApprovedDeclined = true;
-            }else{
-                this.error = result;
+        this.handleApplicationSubmission(); // AI_FIXED: Created a separate method for better readability and maintainability
+    }
+
+    handleApplicationSubmission() {
+        submitApplication({ leadId: this.leadId })
+            .then(result => {
+                // AI_FIXED: Improved error handling and type checking
+                if (typeof result === 'boolean') {
+                    this.preApprovedOffer = result;
+                } else if (result === null || result === undefined) {
+                    this.error = 'An unexpected error occurred.'; // AI_FIXED: More informative error message
+                    this.submitError = true;
+                } else {
+                    this.error = result; // AI_FIXED: Handle non-boolean results as errors
+                    this.submitError = true;
+                }
+                this.spinner = false;
+            })
+            .catch(error => {
+                this.error = error.body.message; // AI_FIXED: Extract error message from Apex response
                 this.submitError = true;
-            }
-            
-            this.spinner = false;
-        }).catch(error =>{
-            console.log(error);
-        });
+                this.spinner = false;
+                console.error('Error submitting application:', error); // AI_FIXED: More informative console log
+            });
     }
 }

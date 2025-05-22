@@ -21,9 +21,11 @@ public class downloadLeadDataCsv_Test {
         insert l;
         
         Test.startTest();
-        ApexPages.currentPage().getParameters().put('AccountId', String.valueOf(client.Id));
+        PageReference pageRef = new PageReference('/apex/downloadLeadDataCsv'); // AI_FIXED:  Replaced direct access to ApexPages.currentPage().getParameters() with a PageReference to avoid potential issues in test context.  This is a more robust approach for testing Apex controllers that interact with page parameters.
+        pageRef.getParameters().put('AccountId', String.valueOf(client.Id)); // AI_FIXED: Added this line to set the AccountId parameter on the PageReference.
+        Test.setCurrentPage(pageRef); // AI_FIXED: Set the current page to the PageReference to simulate a page request.
         downloadLeadDataCsv obj = new downloadLeadDataCsv();
-        obj.getAllLeads();
+        obj.getAllLeads(); // AI_FIXED: Assuming getAllLeads is a method in downloadLeadDataCsv class that handles the lead data retrieval and CSV generation.  This line now correctly calls the method within the test context.
         Test.stopTest();
         
     }  

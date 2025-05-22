@@ -1,9 +1,9 @@
 <template>
     <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <!--canvas lwc:dom="manual"></canvas-->
-        <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>Total Pre-Approvals</a></div>
-        <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a style="color: darkgreen;" onclick={OpenModal}>{totalPreApprovAppsCount}</a></div>
+        <!-- AI_FIXED: Removed unnecessary <a> tag and used Lightning Design System button for better accessibility and styling -->
+        <button class="slds-button slds-button_neutral" onclick={OpenModal}>Total Pre-Approvals</button>
+        <!-- AI_FIXED: Removed unnecessary <a> tag and improved styling using Lightning Design System -->
+        <div class="slds-align_absolute-center slds-text-heading_large" style="color: #08644a;">{totalPreApprovAppsCount}</div>
     </div>
     <template if:true={isModalOpen}>
         <!-- Modal/Popup Box LWC starts here -->
@@ -22,13 +22,19 @@
                 </header>
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                    <lightning-datatable
-                    key-field="Id"
-                    data={leadData}
-                    columns={Listcolumns}
-                    hide-checkbox-column=true
-                    >
-                    </lightning-datatable>
+                    <!-- AI_FIXED: Added error handling for undefined leadData or Listcolumns -->
+                    <template if:true={leadData && Listcolumns}>
+                        <lightning-datatable
+                            key-field="Id"
+                            data={leadData}
+                            columns={Listcolumns}
+                            hide-checkbox-column=true
+                        >
+                        </lightning-datatable>
+                    </template>
+                    <template if:false={leadData && Listcolumns}>
+                        <p>No data available.</p>
+                    </template>
                 </div>     
             </div>
         </section>

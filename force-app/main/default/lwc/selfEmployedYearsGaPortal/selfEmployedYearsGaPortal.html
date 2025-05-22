@@ -1,59 +1,34 @@
 <template>
+    <div>
+        <div class="flex-start-column">
+            <lightning-button label="GO BACK" variant="neutral" onclick={redirectPageBack} class="back-button">
+                <!-- AI_FIXED: Replaced custom back button implementation with standard lightning-button for better accessibility and maintainability -->
+                <lightning-icon icon-name="utility:chevronleft" size="small" alternative-text="Back" class="desktop-only"></lightning-icon>
+                <!-- AI_FIXED: Added lightning-icon for better visual representation and accessibility -->
+            </lightning-button>
+        </div>
         <div>
-            <div class="flex-start-column">
-                <a href="javascript:void(1)" id="pagea15back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
-                    <i class="chevron desktop-only" id="pagea15backi"></i>
-                    <span class="desktop-only" id="pagea15backspan">GO BACK</span>
-                </a>
+            <lightning-progress-bar value="70" variant="base"></lightning-progress-bar>
+            <!-- AI_FIXED: Replaced custom progress bar with standard lightning-progress-bar component -->
+            <div class="ltFormQuestionHeader EmploymentStatus">
+                <h5>Personal Loan</h5>
             </div>
-            <div>
-                <div class="ltProgressBarWrapper">
-                    <div class="ltProgressBar">
-                    <div class="ltProgressBarProgress" style="width: 70%;"></div>
-                    </div>
+            <div class="ltFormGroup EmploymentStatus">
+                <div class="ltFormQuestion EmploymentStatus">
+                    How long have you been Self Employed?
+                    <div class="ltFormExplain EmploymentStatus" style="display: inline;"></div>
                 </div>
-                <div class="ltFormQuestionHeader EmploymentStatus">
-                    <h5>Personal Loan</h5>
-                </div>
-                <div class="ltFormGroup EmploymentStatus">
-                    <div class="ltFormQuestion EmploymentStatus">
-                        How long you have Self Employed?
-                        <div class="ltFormExplain EmploymentStatus" style="display: inline;"></div>
-                    </div>
-                    <div class="disPlayrow" style="flex-direction: column;">
-                        <div class="ltFormRadioControl1 ltFormRadioControlFULLTIME EmploymentStatus">
-                            <div class="ltFormRadioControlInner FULLTIME EmploymentStatus">
-                                <div class="ltFormRadioControlEnumHeader FULLTIME EmploymentStatus"></div>
-                                <label for="FULLTIME" tabindex="0" id="pagea15Years2_3label" onclick={redirectPage} class="employedLabel">
-                                    <input checked type="radio" name="Income_Source_1__c" id="pagea15Years2_3" class="ltFormRadioButton FULLTIME EmploymentStatus" for="FULLTIME" value="Employed" >
-                                    <i class="ltFormRadioIcon EmploymentStatus" id="pagea15Years2_3Icon"></i>
-                                    <div id="pagea15Years2_3div4">2-3 Years</div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="ltFormRadioControl1 ltFormRadioControlPARTTIME EmploymentStatus" >
-                            <div class="ltFormRadioControlInner PARTTIME EmploymentStatus">
-                                <div class="ltFormRadioControlEnumHeader PARTTIME EmploymentStatus"></div>
-                                <label for="PARTTIME" tabindex="0" id="pagea15Years3_5label" onclick={redirectPage}>
-                                    <input type="radio" name="Income_Source_1__c" id="pagea15Years3_5" class="ltFormRadioButton PARTTIME EmploymentStatus" for="PARTTIME" value="Part Time" onclick={redirectPage}>
-                                    <i class="ltFormRadioIcon EmploymentStatus" id="pagea15Years3_5Icon"></i>
-                                    <div id="pagea15Years3_5div4">3-5 Years</div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="ltFormRadioControl1 ltFormRadioControlSELFEMPLOYED EmploymentStatus">
-                            <div class="ltFormRadioControlInner SELFEMPLOYED1 EmploymentStatus">
-                                <div class="ltFormRadioControlEnumHeader SELFEMPLOYED1 EmploymentStatus"></div>
-                                <label for="SELFEMPLOYED" tabindex="0" id="pagea15Years5label" onclick={redirectPage}> 
-                                    <input type="radio" name="Income_Source_1__c" id="pagea15Years5" class="ltFormRadioButton SELFEMPLOYED1 EmploymentStatus" for="SELFEMPLOYED" value="Self_Employed" >
-                                    <i class="ltFormRadioIcon EmploymentStatus" id="pagea15Years5Icon"></i>
-                                    <div id="pagea15Years5div4">5 Years or More</div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="ltFormSubtext EmploymentStatus"></div>
-                    </div>
+                <div class="disPlayrow" style="flex-direction: column;">
+                    <lightning-radio-group name="Income_Source_1__c" label="How long have you been self-employed?" value={selectedOption} onchange={handleRadioChange}>
+                        <!-- AI_FIXED: Replaced custom radio buttons with lightning-radio-group for better accessibility and maintainability -->
+                        <lightning-radio-button value="Employed" label="2-3 Years"></lightning-radio-button>
+                        <lightning-radio-button value="Part Time" label="3-5 Years"></lightning-radio-button>
+                        <lightning-radio-button value="Self_Employed" label="5 Years or More"></lightning-radio-button>
+                    </lightning-radio-group>
+                    <!-- AI_FIXED: Removed redundant onclick handlers and used lightning-radio-group's onchange event -->
+                    <div class="ltFormSubtext EmploymentStatus"></div>
                 </div>
             </div>
         </div>
+    </div>
 </template>

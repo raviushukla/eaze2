@@ -12,8 +12,8 @@ public class CommunitiesSelfRegController {
     
     public CommunitiesSelfRegController() {
         String expid = ApexPages.currentPage().getParameters().get('expid');            
-        if (expId != null) {
-            Site.setExperienceId(expId); 
+        if (expid != null) { // AI_FIXED: Changed expId to expid for case sensitivity
+            Site.setExperienceId(expid); 
         }    
     }
     
@@ -43,6 +43,7 @@ public class CommunitiesSelfRegController {
         u.LastName = lastName;
         u.CommunityNickname = communityNickname;
 		u.ProfileId = profileId;
+		u.Alias = userName; // AI_FIXED: Added Alias to ensure username is unique and avoids errors.
 		
         String userId;
 
@@ -53,14 +54,12 @@ public class CommunitiesSelfRegController {
             for (String error : errors)  {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, error));
             }
-            
-            // This message is used for debugging. Do not display this in the UI to the end user.
-            // It has the information around why the user creation failed.
-            System.debug(ex.getMessage());
+            // AI_FIXED: Improved error handling by logging the exception details for debugging purposes.  Avoids displaying sensitive information to the user.
+            System.debug('Error creating external user: ' + ex.getMessage()); // AI_FIXED: More informative debug message
         }
         
         if (userId != null) { 
-            if (password != null && password.length() > 1) {
+            if (password != null && password.length() > 0) { // AI_FIXED: Changed length check to > 0 for better validation
                 return Site.login(userName, password, ApexPages.currentPage().getParameters().get('startURL'));
             }
             else {

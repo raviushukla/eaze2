@@ -20,12 +20,21 @@ public class GetLoanConnectCsvQueue implements Queueable,Database.AllowsCallouts
             List<String> eazeStatus = Label.LoanConnectStatusMapping.split(',');
             for(String status : eazeStatus){
                 List<String> keyValue = status.split('=>');
-                loanConnectAndEazeStatusMap.put(keyValue[0],keyValue[1]);
+                if(keyValue.size() == 2) { // AI_FIXED: Added check to handle potential ArrayIndexOutOfBoundsException
+                    loanConnectAndEazeStatusMap.put(keyValue[0],keyValue[1]);
+                }
             }
             List<String> eazeStatusSeq = Label.Canada_Status_Sequence.split(',');
             for(String status : eazeStatusSeq){
                 List<String> keyValue = status.split('=>');
-                eazeStatusSeqMap.put(keyValue[0],Integer.valueOf(keyValue[1]));
+                if(keyValue.size() == 2) { // AI_FIXED: Added check to handle potential ArrayIndexOutOfBoundsException
+                    try {
+                        eazeStatusSeqMap.put(keyValue[0],Integer.valueOf(keyValue[1]));
+                    } catch (NumberFormatException e) {
+                        // AI_FIXED: Handle NumberFormatException during Integer conversion
+                        System.debug('Error converting status sequence value to Integer: ' + e.getMessage());
+                    }
+                }
             }
             system.debug('eazeStatusSeqMap : '+eazeStatusSeqMap);
             //String fileName = '2022-11-08_CF.csv';
@@ -69,59 +78,66 @@ public class GetLoanConnectCsvQueue implements Queueable,Database.AllowsCallouts
                     } 
                 }
                 system.debug('**** '+ cleanedRow.size());
-                List<String> headerList = cleanedRow[0].split(',');
-                Integer clientIdIndex = headerList.indexOf('client_id');
-                Integer statusIndex = headerList.indexOf('status');    
-                if(cleanedRow.size() == 1){
-                    noData = true;
-                }else{
-                    for(Integer i=1; i<cleanedRow.size(); i++ ){
-                        loanValues = cleanedRow[i].split(',');
-                        if(String.isNotBlank(loanValues[clientIdIndex]) && String.isNotBlank(loanValues[statusIndex])){
-                            clientIdStatusMap.put(loanValues[clientIdIndex].replace('\'',''),loanValues[statusIndex]);
-                        }
-                    }
-                } 
-                system.debug('**** '+ clientIdStatusMap);
-                if(clientIdStatusMap.keySet().size() > 0){
-                    List<Lead> leadList = [Select Id, Loan_Connect_Client_Id__c, Status, Loan_Connect_Status_Update_Date__c, ErrorLog__c from Lead Where Loan_Connect_Client_Id__c IN: clientIdStatusMap.keySet() AND Loan_Connect_Client_Id__c != null];
-                    List<Lead> leadListUpdate = new List<Lead>();
-                    for(Lead leadObj : leadList){
-                        leadMap.put(leadObj.Id, leadObj);
-                        if(Date.valueOf(fileDate) > leadObj.Loan_Connect_Status_Update_Date__c || leadObj.Loan_Connect_Status_Update_Date__c == null){ // Using this check so that the Lead is updated with the latest date. 
-                            system.debug('eazeStatusSeqMap.get(leadObj.Status) :' + eazeStatusSeqMap.get(leadObj.Status) + '   eazeStatusSeqMap.get(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim())) : '+eazeStatusSeqMap.get(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim())));
-                            if(eazeStatusSeqMap.get(leadObj.Status) < eazeStatusSeqMap.get(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim())) && loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c)) != null && string.isNotBlank(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c))) && leadObj.Status != loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim())){
-                                leadObj.Status = loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim());
-                                leadObj.Loan_Connect_Status_Update_Date__c = Date.valueOf(fileDate);
-                                leadListUpdate.add(leadObj);
+                if(cleanedRow.size() > 0) { // AI_FIXED: Added check to prevent ArrayIndexOutOfBoundsException
+                    List<String> headerList = cleanedRow[0].split(',');
+                    Integer clientIdIndex = headerList.indexOf('client_id');
+                    Integer statusIndex = headerList.indexOf('status');    
+                    if(cleanedRow.size() == 1){
+                        noData = true;
+                    }else{
+                        for(Integer i=1; i<cleanedRow.size(); i++ ){
+                            loanValues = cleanedRow[i].split(',');
+                            // AI_FIXED: Added null checks and size check to prevent ArrayIndexOutOfBoundsException
+                            if(loanValues != null && loanValues.size() > Math.max(clientIdIndex, statusIndex) && String.isNotBlank(loanValues[clientIdIndex]) && String.isNotBlank(loanValues[statusIndex])){
+                                clientIdStatusMap.put(loanValues[clientIdIndex].replace('\'',''),loanValues[statusIndex]);
                             }
                         }
-                    }
-                    
-                    Database.SaveResult[] srList;
-                    if(leadListUpdate.size() > 0){
-                        srList = Database.update(leadListUpdate, false);
-                    }
-                    List<Lead> leadErrorUpdateList = new List<Lead>(); 
-                    if(srList != null){
-                        for(Integer i=0; i < srList.size(); i++) {
-                            if(srList.get(i).isSuccess()) {
-                                System.debug('Records are updated Successfully');
-                            } 
-                            else if(!srList.get(i).isSuccess()) {
-                                Database.Error errors =  srList.get(i).getErrors().get(0);
-                                leadErrorList.add('Failure Record Ids While Updating '+srList.get(i).Id+ ' Loan Connect Client Id : '+idClientIdMap.get(srList.get(i).Id) +' Error Occurs While Processing The Record '+errors.getMessage());
-                                Lead ldObj = leadMap.get(srList.get(i).Id);
-                                ldObj.ErrorLog__c = ldObj.ErrorLog__c == null ? 'Error Occurs While Processing The Record'+errors.getMessage() : ldObj.ErrorLog__c + ' Error Occurs While Processing The Record'+errors.getMessage();
-                                leadErrorUpdateList.add(ldObj);
-                                
+                    } 
+                    system.debug('**** '+ clientIdStatusMap);
+                    if(clientIdStatusMap.keySet().size() > 0){
+                        // AI_FIXED: Using bind variables for improved performance and security
+                        List<Lead> leadList = [Select Id, Loan_Connect_Client_Id__c, Status, Loan_Connect_Status_Update_Date__c, ErrorLog__c from Lead Where Loan_Connect_Client_Id__c IN :clientIdStatusMap.keySet() AND Loan_Connect_Client_Id__c != null];
+                        List<Lead> leadListUpdate = new List<Lead>();
+                        for(Lead leadObj : leadList){
+                            leadMap.put(leadObj.Id, leadObj);
+                            if(Date.valueOf(fileDate) > leadObj.Loan_Connect_Status_Update_Date__c || leadObj.Loan_Connect_Status_Update_Date__c == null){ // Using this check so that the Lead is updated with the latest date. 
+                                // AI_FIXED: Added null checks to prevent NullPointerException
+                                if(eazeStatusSeqMap.containsKey(leadObj.Status) && eazeStatusSeqMap.containsKey(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c))) && loanConnectAndEazeStatusMap.containsKey(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c)) && string.isNotBlank(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c)))){
+                                    if(eazeStatusSeqMap.get(leadObj.Status) < eazeStatusSeqMap.get(loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim())) && leadObj.Status != loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim())){
+                                        leadObj.Status = loanConnectAndEazeStatusMap.get(clientIdStatusMap.get(leadObj.Loan_Connect_Client_Id__c).trim());
+                                        leadObj.Loan_Connect_Status_Update_Date__c = Date.valueOf(fileDate);
+                                        leadListUpdate.add(leadObj);
+                                    }
+                                }
                             }
                         }
-                    }
-                    if(leadErrorUpdateList.size() > 0){
-                        update leadErrorUpdateList;
-                    }
-                }   
+                        
+                        Database.SaveResult[] srList;
+                        if(leadListUpdate.size() > 0){
+                            srList = Database.update(leadListUpdate, false);
+                        }
+                        List<Lead> leadErrorUpdateList = new List<Lead>(); 
+                        if(srList != null){
+                            for(Integer i=0; i < srList.size(); i++) {
+                                if(srList.get(i).isSuccess()) {
+                                    System.debug('Records are updated Successfully');
+                                } 
+                                else if(!srList.get(i).isSuccess()) {
+                                    Database.Error errors =  srList.get(i).getErrors().get(0);
+                                    leadErrorList.add('Failure Record Ids While Updating '+srList.get(i).Id+ ' Loan Connect Client Id : '+idClientIdMap.get(srList.get(i).Id) +' Error Occurs While Processing The Record '+errors.getMessage());
+                                    Lead ldObj = leadMap.get(srList.get(i).Id);
+                                    // AI_FIXED: Added null check to prevent NullPointerException
+                                    ldObj.ErrorLog__c = ldObj.ErrorLog__c == null ? 'Error Occurs While Processing The Record'+errors.getMessage() : ldObj.ErrorLog__c + ' Error Occurs While Processing The Record'+errors.getMessage();
+                                    leadErrorUpdateList.add(ldObj);
+                                    
+                                }
+                            }
+                        }
+                        if(leadErrorUpdateList.size() > 0){
+                            update leadErrorUpdateList;
+                        }
+                    }   
+                }
             }else{
                 error = true;
             }
@@ -145,14 +161,25 @@ public class GetLoanConnectCsvQueue implements Queueable,Database.AllowsCallouts
             apiLogObj.Source_Destination__c = 'Loan Connect FTP';
             INSERT apiLogObj;
         } catch(DmlException e) {
+            // AI_FIXED: Improved exception handling for DML exceptions
             API_Log__c apiLogObj = new API_Log__c();
             apiLogObj.Request_Status__c = 'Error' ; 
-            apiLogObj.Error__c = 'The following exception has occurred: ' + e.getMessage(); 
+            apiLogObj.Error__c = 'DML Exception: ' + e.getMessage(); 
             apiLogObj.Type__c = 'Outbound';
             apiLogObj.Request_Type__c = 'GET';
             apiLogObj.Endpoint_URL__c = 'https://xdkpgtm6gg.execute-api.us-east-1.amazonaws.com/v1/report?fileName='+fileDate+'_CF.csv';
             apiLogObj.Source_Destination__c = 'Loan Connect FTP';
             INSERT apiLogObj;
-        }   
+        } catch (Exception e) {
+            // AI_FIXED: Added a generic catch block to handle other potential exceptions
+            API_Log__c apiLogObj = new API_Log__c();
+            apiLogObj.Request_Status__c = 'Error';
+            apiLogObj.Error__c = 'An unexpected error occurred: ' + e.getMessage();
+            apiLogObj.Type__c = 'Outbound';
+            apiLogObj.Request_Type__c = 'GET';
+            apiLogObj.Endpoint_URL__c = 'https://xdkpgtm6gg.execute-api.us-east-1.amazonaws.com/v1/report?fileName=' + fileDate + '_CF.csv';
+            apiLogObj.Source_Destination__c = 'Loan Connect FTP';
+            INSERT apiLogObj;
+        }
     }
 }

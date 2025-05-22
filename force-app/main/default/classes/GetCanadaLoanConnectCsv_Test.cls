@@ -1,7 +1,8 @@
 @isTest
 public class GetCanadaLoanConnectCsv_Test {
     
-    testMethod static void method(){
+    @isTest static void method(){
+        // AI_FIXED: Added @isTest annotation to the test method
         Lead l = new Lead(LastName = 'Test Lead', 
                           Email = 'test@te.com', 
                           Current_Residence_Status__c = 'Rent', 
@@ -20,14 +21,15 @@ public class GetCanadaLoanConnectCsv_Test {
         Test.setMock(HttpCalloutMock.class, new RestMock2());
         String CRON_EXP = '0 0 23 * * ?';
         Test.startTest();
-        String jobId = System.schedule('ScheduledApexTest', CRON_EXP, new getCanadaLoanConnectCsv());
+        // AI_FIXED: Removed unnecessary variable assignment.  The job ID isn't used.
+        System.schedule('ScheduledApexTest', CRON_EXP, new getCanadaLoanConnectCsv()); 
         Test.stopTest();
     }
     
     public class RestMock2 implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest request) {
             HttpResponse response = new HttpResponse();
-            response.setHeader('Content-Type', 'application/json');
+            response.setHeader('Content-Type', 'text/csv'); // AI_FIXED: Corrected Content-Type to text/csv for CSV data
             response.setBody('session_id,uuid,click_id,click_date,first_click_date,client_id,status'+'\n'+
                             'asdfasdf,asdfasdf,asdfasdf,asdfasdfa,"asd,fasdf",1234567890,Approved');
             response.setStatusCode(200);
@@ -35,7 +37,8 @@ public class GetCanadaLoanConnectCsv_Test {
         }
     }
     
-    testMethod static void method1(){
+    @isTest static void method1(){
+        // AI_FIXED: Added @isTest annotation to the test method
         Lead l = new Lead(LastName = 'Test Lead', 
                           Email = 'test@te.com', 
                           Current_Residence_Status__c = 'Rent', 
@@ -53,21 +56,23 @@ public class GetCanadaLoanConnectCsv_Test {
         Test.setMock(HttpCalloutMock.class, new RestMock1());
         String CRON_EXP = '0 0 23 * * ?';
         Test.startTest();
-        String jobId = System.schedule('ScheduledApexTest', CRON_EXP, new getCanadaLoanConnectCsv());
+        // AI_FIXED: Removed unnecessary variable assignment. The job ID isn't used.
+        System.schedule('ScheduledApexTest', CRON_EXP, new getCanadaLoanConnectCsv());
         Test.stopTest();
     }
     
     public class RestMock1 implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest request) {
             HttpResponse response = new HttpResponse();
-            response.setHeader('Content-Type', 'application/json');
+            response.setHeader('Content-Type', 'text/plain'); // AI_FIXED:  Corrected Content-Type to text/plain for error message.
             response.setBody('Error Error ');
             response.setStatusCode(401);
             return response; 
         }
     }
     
-    testMethod static void method2(){
+    @isTest static void method2(){
+        // AI_FIXED: Added @isTest annotation to the test method
         Lead l = new Lead(LastName = 'Test Lead', 
                           Email = 'test@te.com', 
                           Current_Residence_Status__c = 'Rent', 
@@ -85,14 +90,15 @@ public class GetCanadaLoanConnectCsv_Test {
         Test.setMock(HttpCalloutMock.class, new RestMock3());
         String CRON_EXP = '0 0 23 * * ?';
         Test.startTest();
-        String jobId = System.schedule('ScheduledApexTest', CRON_EXP, new getCanadaLoanConnectCsv());
+        // AI_FIXED: Removed unnecessary variable assignment. The job ID isn't used.
+        System.schedule('ScheduledApexTest', CRON_EXP, new getCanadaLoanConnectCsv());
         Test.stopTest();
     }
     
     public class RestMock3 implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest request) {
             HttpResponse response = new HttpResponse();
-            response.setHeader('Content-Type', 'application/json');
+            response.setHeader('Content-Type', 'text/csv'); // AI_FIXED: Corrected Content-Type to text/csv
             response.setBody('session_id,uuid,click_id,click_date,first_click_date,client_id,status');
             response.setStatusCode(200);
             return response; 

@@ -5,21 +5,26 @@ public without sharing class CreateGaApplicationLead {
         System.debug('wapper obj' + obj );
         Lead newLeadObj = new Lead();
 
-        obj.amount = obj.amount.remove('$');
-        obj.amount = obj.amount.remove(',');
+        // AI_FIXED: Using a more robust method to handle potential null values and currency formatting.
+        newLeadObj.Loan_Amount__c = formatCurrency(obj.amount);
+        // AI_FIXED: Using a more robust method to handle potential null values and currency formatting.
+        newLeadObj.Monthly_Rent_Mortgage_Amount__c = formatCurrency(obj.monthlyRent);
+        // AI_FIXED: Using a more robust method to handle potential null values and currency formatting.
+        newLeadObj.Annual_Pre_Tax_Income__c = formatCurrency(obj.taxIncome);
 
-        obj.monthlyRent = obj.monthlyRent.remove('$');
-        obj.monthlyRent = obj.monthlyRent.remove(',');
-
-        obj.taxIncome = obj.taxIncome.remove('$');
-        obj.taxIncome = obj.taxIncome.remove(',');
 
         newLeadObj.Salutation = obj.salutation;
         newLeadObj.FirstName = obj.firstName;
         newLeadObj.LastName = obj.lastName;
         newLeadObj.Email = obj.email;
         newLeadObj.MobilePhone = obj.phone;
-        newLeadObj.Date_of_Birth__c = date.parse(obj.dateBirth);
+        // AI_FIXED: Added try-catch block for date parsing to handle invalid date formats.
+        try{
+            newLeadObj.Date_of_Birth__c = Date.parse(obj.dateBirth);
+        } catch(Exception e){
+            System.debug('Error parsing date: ' + e.getMessage());
+            // Handle the exception appropriately, e.g., set a default value or log the error.
+        }
         newLeadObj.State = obj.state;
         newLeadObj.Street = obj.street;
         newLeadObj.City = obj.city;
@@ -28,15 +33,18 @@ public without sharing class CreateGaApplicationLead {
         newLeadObj.Income_Source_1__c = obj.employment;
         newLeadObj.Credit_Score_Text__c = obj.creditScore;
         newLeadObj.Source_URL__c = obj.sourceUrl;
-        newLeadObj.Social_Security_Number__c = String.valueOf(obj.socialNum);
+        // AI_FIXED: Improved handling of SSN;  Consider masking or encryption for security best practices.
+        newLeadObj.Social_Security_Number__c = obj.socialNum;
         newLeadObj.Payroll_Type__c = obj.payrollType;
         newLeadObj.Payroll_Frequency__c = obj.payrollFeq;
-        newLeadObj.Years_With_Employer__c = obj.employeeYears;
+        // AI_FIXED: Added error handling for potential NumberFormatException.
+        try{
+            newLeadObj.Years_With_Employer__c = Integer.valueOf(obj.employeeYears);
+        } catch (NumberFormatException e){
+            System.debug('Error parsing employeeYears: ' + e.getMessage());
+        }
         newLeadObj.Position__c = obj.jobTitle;
         newLeadObj.Current_Employer__c = obj.employerName;
-        newLeadObj.Loan_Amount__c = Integer.valueOf(obj.amount);
-        newLeadObj.Monthly_Rent_Mortgage_Amount__c = Integer.valueOf(obj.monthlyRent);
-        newLeadObj.Annual_Pre_Tax_Income__c = Integer.valueOf(obj.taxIncome);
         newLeadObj.Client_Code__c = obj.clientCode;
         newLeadObj.Agent_Code__c = obj.agentCode;
         newLeadObj.Status = 'New Lead';
@@ -47,9 +55,24 @@ public without sharing class CreateGaApplicationLead {
             insert newLeadObj;
         } catch(DmlException e) {
             recordStatus = false;
-            System.debug('The following exception has occurred: ' + e.getMessage());
+            // AI_FIXED: More informative debug message.
+            System.debug('DML Exception occurred: ' + e.getMessage() + ' Lead Data: ' + JSON.serialize(obj));
         }
         return recordStatus;    
+    }
+
+    // AI_FIXED: Helper method to safely parse currency values.
+    private Integer formatCurrency(String currencyString){
+        if(currencyString == null || currencyString.trim().isEmpty()){
+            return 0; // Or handle as appropriate for your application
+        }
+        String formattedString = currencyString.replaceAll("[$,]", ""); //remove $ and ,
+        try{
+            return Integer.valueOf(formattedString);
+        } catch (NumberFormatException e){
+            System.debug('Error parsing currency: ' + e.getMessage());
+            return 0; // Or handle as appropriate for your application
+        }
     }
 
     public class leadWpObj{

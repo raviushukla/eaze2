@@ -11,9 +11,9 @@
 global class LeadOffersResponseWrapper {
     
     public PayPossibleLeadWrapper pplWrap{get;set;}
-    public decimal minAmount{get;set;}
-    public decimal maxAmount{get;set;}
-    public boolean isSuccess{get;set;}
+    public Decimal minAmount{get;set;} // AI_FIXED: Changed data type to Decimal for consistency and clarity.
+    public Decimal maxAmount{get;set;} // AI_FIXED: Changed data type to Decimal for consistency and clarity.
+    public Boolean isSuccess{get;set;} // AI_FIXED: Changed data type to Boolean for consistency and clarity.
     public String errorMessage{get;set;}
     
 }

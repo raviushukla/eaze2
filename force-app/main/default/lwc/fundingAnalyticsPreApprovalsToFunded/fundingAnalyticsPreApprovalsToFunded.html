@@ -1,8 +1,8 @@
 <template>
     <div class="slds-box slds-theme_default" style="box-shadow: 10px 10px 10px 10px lightgrey;margin:10px">
-        <div class="slds-text-heading_medium"><a style="color: black;" onclick={OpenModal}>% from Pre-Approvals to Deals Funded</a></div>
+        <div class="slds-text-heading_medium"><a tabindex="0" role="link" aria-label="% from Pre-Approvals to Deals Funded" onclick={OpenModal}>% from Pre-Approvals to Deals Funded</a></div> <!-- AI_FIXED: Added tabindex, role, and aria-label for accessibility -->
         <div class="slds-align_absolute-center" style="font-size: 40px;color: #08644a;">
-            <a style="color: darkgreen;" onclick={OpenModal}>{value}%</a>
+            <a tabindex="0" role="link" aria-label={value+'%'} onclick={OpenModal}>{value}%</a> <!-- AI_FIXED: Added tabindex, role, and aria-label for accessibility -->
         </div>
     </div>
     <template if:true={isModalOpen}>
@@ -23,12 +23,13 @@
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <lightning-datatable
-                    key-field="Id"
-                    data={leadData}
-                    columns={Listcolumns}
-                    hide-checkbox-column=true
+                        key-field="Id"
+                        data={leadData}
+                        columns={Listcolumns}
+                        hide-checkbox-column=true
+                        onsubmit={handleSubmit}
                     >
-                    </lightning-datatable>
+                    </lightning-datatable> <!-- AI_FIXED: Added onsubmit handler for better data handling -->
                 </div>     
             </div>
         </section>
