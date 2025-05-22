@@ -1,0 +1,176 @@
+name: Deploy to Salesforce
+
+on:
+  push:
+    branches: [main]
+  # workflow_run:
+  #   workflows: ["Code Quality Checks"]
+  #   types:
+  # - completed
+  # push:
+  #   branches: [main, dev]
+
+# permissions:
+#   contents: write
+#   pull-requests: write
+
+jobs:
+  deploy-to-qa:
+    name: Deploy to Salesforce
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code (last 2 commits only)
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Install Salesforce CLI
+        run: |
+          npm install --global @salesforce/cli
+          sf --version || true
+
+      - name: Create JWT Key File
+        run: echo "${{ secrets.SF_JWT_KEY }}" > server.key
+
+      - name: Authenticate to Salesforce
+        run: |
+          echo "Logging in with JWT..."
+          if ! sf org login jwt \
+            --client-id ${{ secrets.SF_UAT_CLIENT_ID }} \
+            --jwt-key-file server.key \
+            --username ${{ secrets.SF_USERNAME_UAT }} \
+            --alias QA \
+            --instance-url https://test.salesforce.com; then
+            echo "sf CLI failed, falling back to sfdx..."
+            sfdx auth:jwt:grant \
+              --clientid ${{ secrets.SF_UAT_CLIENT_ID }} \
+              --jwtkeyfile server.key \
+              --username ${{ secrets.SF_USERNAME_UAT }} \
+              --instanceurl https://test.salesforce.com \
+              --setalias QA
+          fi
+
+      - name: Detect changed component folders
+        id: changes
+        run: |
+          echo "Changed folders:"
+          git diff --name-only HEAD^ HEAD | grep "^force-app" | cut -d'/' -f1-5 | sort -u > changed-folders.txt || true
+          cat changed-folders.txt
+
+      - name: Deploy changed components
+        run: |
+          if [ -s changed-folders.txt ]; then
+            echo "Deploying changed folders..."
+            while read folder; do
+              echo "Deploying $folder"
+              sf project deploy start \
+                --source-dir "$folder" \
+                --target-org QA \
+                --ignore-conflicts \
+                --wait 10
+            done < changed-folders.txt
+
+          else
+            echo "No deployable changes found. Skipping deployment."
+          fi
+
+  # auto-merge:
+  #   name: Auto Merge PR After Deploy Success
+  #   needs: deploy-to-qa
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Auto-merge PR
+  #       run: gh pr merge ${{ github.event.pull_request.number }} --squash --admin
+  #       env:
+  #         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  #     # - name: Rollback commit by opening a PR if deployment fails
+  #     #   if: failure()
+  #     #   env:
+  #     #     GH_PAT: ${{ secrets.GH_PAT }}
+  #     #   run: |
+  #     #     echo "Deployment failed, creating rollback branch and PR..."
+
+  #     #     git config --global user.name "raj-patel-149"
+  #     #     git config --global user.email "rdpatel11124@gmail.com"
+
+  #     #     ROLLBACK_BRANCH="rollback-$(date +%s)"
+  #     #     git checkout -b "$ROLLBACK_BRANCH" HEAD^
+
+  #     #     git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}"$ROLLBACK_BRANCH"
+
+  #     #     echo "Installing GitHub CLI..."
+  #     #     curl -sSL https://cli.github.com/install.sh | sh
+  #     #     export PATH=$PATH:/usr/local/bin
+  #     #     gh --version
+
+  #     #     echo "$GH_PAT" | gh auth login --with-token
+
+  #     #     gh pr create \
+  #     #       --title "🔁 Rollback: Failed deployment from main" \
+  #     #       --body "This PR reverts the latest commit on \`main\` due to a failed Salesforcedeployment." \
+  #     #       --base main \
+  #     #       --head "$ROLLBACK_BRANCH"
+
+  #     # - name: Rollback commit by opening a PR if deployment fails
+  #     #   if: failure()
+  #     #   env:
+  #     #     GH_PAT: ${{ secrets.GH_PAT }}
+  #     #   run: |
+  #     #     echo "Deployment failed, creating rollback branch and PR..."
+  #     #     echo "${GH_PAT}"
+
+  #     #     git config --global user.name "raj-patel-149"
+  #     #     git config --global user.email "rdpatel11124@gmail.com"
+
+  #     #     ROLLBACK_BRANCH="rollback-$(date +%s)"
+  #     #     git checkout -b "$ROLLBACK_BRANCH" HEAD^
+
+  #     #     git push https://x-access-token:$GH_PAT@github.com/${{ github.repository }} "$ROLLBACK_BRANCH"
+
+  #     #     echo "Installing GitHub CLI..."
+  #     #     curl -sSL https://cli.github.com/install.sh | sh
+  #     #     export PATH=$PATH:/usr/local/bin
+  #     #     gh --version
+
+  #     #     echo "${GH_PAT}" | gh auth login --with-token
+
+  #     #     gh pr create \
+  #     #       --title "🔁 Rollback: Failed deployment from main" \
+  #     #       --body "This PR reverts the latest commit on \`main\` due to a failed Salesforce deployment." \
+  #     #       --base main \
+  #     #       --head "$ROLLBACK_BRANCH"
+
+  #     # - name: Send rollback notification email
+  #     #   if: failure()
+  #     #   env:
+  #     #     SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+  #     #     SMTP_PORT: ${{ secrets.SMTP_PORT }}
+  #     #     EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+  #     #     EMAIL_TO: ${{ secrets.EMAIL_TO }}
+  #     #     EMAIL_USER: ${{ secrets.EMAIL_USER }}
+  #     #     EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+  #     #     GITHUB_REPO: ${{ github.repository }}
+  #     #     GITHUB_SHA: ${{ github.sha }}
+
+  #     #   run: |
+  #     #     echo "Downloading mailsend-go..."
+  #     #     curl -L -o mailsend-go.tar.gz https://github.com/muquit/mailsend-go/releases/download/v1.06/mailsend-go-linux-amd64.tar.gz
+  #     #     tar -xzf mailsend-go.tar.gz
+  #     #     chmod +x mailsend-go/mailsend-go
+
+  #     #     MESSAGE="🚨 Salesforce deployment to QA failed for commit: https://github.com/$GITHUB_REPOcommit/$GITHUB_SHA
+
+  #     #     Please review and merge the rollback as needed."
+
+  #     #     ./mailsend-go/mailsend-go \
+  #     #       -smtp "$SMTP_SERVER" \
+  #     #       -port "$SMTP_PORT" \
+  #     #       -auth \
+  #     #       -user "$EMAIL_USER" \
+  #     #       -pass "$EMAIL_PASS" \
+  #     #       -from "$EMAIL_FROM" \
+  #     #       -to "$EMAIL_TO" \
+  #     #       -sub "❌ Salesforce Deployment Failed – Rollback PR Created" \
+  #     #       -M "$MESSAGE"

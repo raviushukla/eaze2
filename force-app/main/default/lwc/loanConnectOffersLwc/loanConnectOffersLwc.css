@@ -1,0 +1,15 @@
+.fontSuccess{
+    background: #94d094;
+    font-size: xx-large;
+    padding: 20px;
+}
+.fontError{
+    background: #e9a992;
+    font-size: xx-large;
+    padding: 20px;
+}
+.fontDeclined{
+    background: #f2eb84;
+    font-size: xx-large;
+    padding: 20px;
+}

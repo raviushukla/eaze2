@@ -1,0 +1,1499 @@
+<template>
+    <div style="background:#f5f5f5;cursor:auto;position:relative;">
+        <template if:true={frontPage}>
+            <div class="brochure" >
+                <div class="brochureImage">
+                    <template if:true = {showLogo}>
+                        <div class="eazeLogo">
+                            <img src={logoImage} class="eazeLogoIMG"/>
+                        </div>
+                    </template>
+                    <div class="YourClients">
+                        <div style="margin-bottom:1%"><b>Do you need Funding?</b></div>
+                        <div style=""><b>EAZE is your solution!</b></div>
+                    </div>
+                    <div class="applynowbttn">
+                        <button style="background:#1A2755;color:white;border-radius: 5px;width:180px;height: 45px;">
+                            <a target="_blank" style="color:white;position: relative;" tabindex="0" onclick={handleApplyNow}>
+                                <div>APPLY NOW &nbsp;<b> → </b></div>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div style="margin-top:5%;">
+                        <div class="benifitsSec" style="">
+                            <div class="benifitsHeader" style="">Here are the benefits of using Eaze Consulting:</div>
+                            <div class="benifitsPoints">
+                                <table>
+                                    <tr>
+                                        <td><div class="ourprocessCheck">✓</div></td>
+                                        <td>
+                                            <div class="ourprocessspan" style="">Small affordable monthly payments</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="ourprocessCheck">✓</div></td>
+                                        <td>
+                                            <div class="ourprocessspan" style="">Long terms (2-5 years)</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="ourprocessCheck">✓</div></td>
+                                        <td>
+                                            <div class="ourprocessspan" style="">No prepayment penalty (can pay off anytime)</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="ourprocessCheck">✓</div></td>
+                                        <td>
+                                            <div class="ourprocessspan" style="">Soft pull (to apply)</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="ourprocessCheck">✓</div></td>
+                                        <td>
+                                            <div class="ourprocessspan" style="">Quick pre-approval (know within hours of applying)</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="ourprocessCheck">✓</div></td>
+                                        <td>
+                                            <div class="ourprocessspan" style="">Fast approval (3-5 business days from applying)</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+                <div style="margin-top:5%;">
+                    <div class="ourProcess">
+                        <div class="processHeader" style="color:#1A2755;text-align: center;justify-content: center;">
+                            OUR PROCESS IS AS EAZY AS 1-2-3
+                        </div>
+                        <div class="" style="margin: 0 auto;width: 90%;">
+                            <table>
+                                <tr>    
+                                    <td style="width: 30%;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img src={easyImage1} class="stepImg">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5%;"><div class="aParent1First alignCenter" style="font-weight: bold;">1</div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="stepContent" style="">Fill out our short application (takes 5 mins) on your phone or laptop - It's safe and secure</div>
+                                                </td>
+                                            </tr>
+                                        </table>										
+                                    </td>
+                                    <td class="ourProcessImgTD"></td>
+                                    <td style="width: 30%;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img src={easyImage2} class="stepImg">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5%;"><div class="aParent1First alignCenter" style="font-weight: bold;">2</div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="stepContent" style="">Talk to an Eaze consultant to review your best offer (within hours of applying) </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="ourProcessImgTD"></td>
+                                    <td style="width: 30%;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img src={easyImage3} class="stepImg">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5%;"><div class="aParent1First alignCenter" style="font-weight: bold;">3</div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="stepContent" style=""> Once approved through one of our loan providers, funds are fulfilled (within days)</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div style="color:white;background-color:#1A2755;margin-top:5%;">
+                    <center>
+                        <button style="background-color:#fff;border-radius: 5px;margin-top: 2%;margin-bottom: 2%;width:180px;height: 45px;font-size: 15px;">
+                            <a target="_blank" style="color:#1A2755;;position: relative;font-weight: 600;" tabindex="0" onclick={handleApplyNow}>
+                                <div>APPLY NOW &nbsp;<b> → </b></div>
+                            </a>
+                        </button>
+                    </center>
+                </div>
+                <div style="margin-top:5%;">
+                    <div class="paraSec" style="">
+                        <p class="sec1" style="">We provide white-glove service to walk you through the loan process and help you secure the lowest rates possible with one soft pull without affecting your credit score!</p><br/>
+                        <p class="sec1" style="">Once you pre-qualify, we can go over the best offer with you personally!</p><br/>
+                        <p class="sec1" style="">The next step is to <b style="text-decoration: underline;cursor: pointer;" onclick={handleApplyNow}>apply</b> now through the link below.</p><br/>
+                        <p class="sec1" style="">We look forward to helping you through this exciting time and providing you with the support you need for a seamless funding experience!</p>
+                    </div>
+                </div>
+                <div style="color:white;background-color:#1A2755;margin-top:5%;">
+                    <center>
+                        <button style="background-color:#fff;border-radius: 5px;margin-top: 2%;margin-bottom: 2%;width:180px;height: 45px;font-size: 15px;">
+                            <a target="_blank" style="color:#1A2755;;position: relative;font-weight: 600;" tabindex="0" onclick={handleApplyNow}>
+                                <div>APPLY NOW &nbsp;<b> → </b></div>
+                            </a>
+                        </button>
+                    </center>
+                </div>
+
+                <div style="margin-top:5%" class="faq">
+                    <div class="FrequentlyAskedQuestions"><b>Frequently Asked Questions</b></div>
+                    <div id="question01Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon1}><span id="question01Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon1}><span id="question01Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question01" class="questionText"> Do you have minimum income and credit score requirements to apply? </div>
+                    </div>
+                    <template if:true={answer1Div}>
+                        <div class="answer">
+                            <p class="answerpara">Yes. Requirements for each lender are different. They each have unique criteria, and current market conditions will play a factor. With that said, keep in mind it is a soft pull to find out whether you may be approved, meaning it won’t affect your credit score to review what offers are available for your situation. You have nothing to lose and everything to gain by applying and, once preapproved; you can then determine which option is best for you.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question2Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon2}><span id="question2Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon2}><span id="question2Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question2" class="questionText"> I submitted my application! Now what?</div>
+                    </div>
+                    
+                    <template if:true={answer2Div}>
+                        <div class="answer">
+                            <p class="answerpara">You’ll receive a notification within a few business hours on different offers. You’ll then get a chance
+                                to speak with an Eaze consulting specialist to find out which offer may be best for you! If you’re
+                                pre-approved, you’ll then be able to go through the official approval process and get funding within
+                                a few days.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question3Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon3}><span id="question3Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon3}><span id="question3Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question3" class="questionText"> I just got some great news! I got pre-approved! What are the chances of me going from pre-approved to getting approved?</div>
+                    </div>
+                    <template if:true={answer3Div}>
+                        <div class="answer">
+                            <p class="answerpara">Very good! Most of the time, when you’re pre-approved, as long as you can verify the income you filled out on your application, you’ll be able to get the full pre-approval amount.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question4Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon4}><span id="question4Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon4}><span id="question4Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question4" class="questionText"> What’s the best way to connect with funding specialist after I’ve been pre-approved?</div>
+                    </div>
+                    <template if:true={answer4Div}>
+                        <div class="answer">
+                            <p class="answerpara">After you receive offers, we’ll send you a calendar link to book a time that works for you and our number you can call if you have any questions. We’ll then go over the best offers to decide which may be the best option for you.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question5Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon5}><span id="question5Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon5}><span id="question5Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question5" class="questionText"> If I apply for a specific amount and don’t qualify for that amount, will I receive offers on any amounts that might be lower?</div>
+                    </div>
+                    <template if:true={answer5Div}>
+                        <div class="answer">
+                            <p class="answerpara">Absolutely. Let’s say you apply for $15k. We’ll share with you all the different pre-approvals that you qualify for. You may qualify for $5k, $10k, $12k, and so on! On the application, fill out the amount you would like. If you don’t qualify for that amount, we’ll share any amounts you do qualify for.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question6Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon6}><span id="question6Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon6}><span id="question6Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question6" class="questionText"> Does my credit get hit when I apply?</div>
+                    </div>
+                    <template if:true={answer6Div}>
+                        <div class="answer">
+                            <p class="answerpara">No. We do what’s called a “soft” pull which means you’ll see all the different offers without it affecting their credit score. Once you set up a call with an Eaze consultant on the best funding for you, you’ll be able to get the funding then and choose the best option for you! Only after you decide to move forward on the best funding option for you will there be a hard pull by the lender to complete the funding process.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question7Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon7}><span id="question7Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon7}><span id="question7Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question7" class="questionText"> Once I get the funding and make payments or payoff the loan, does it positively affect my credit score?</div>
+                    </div>
+                    <template if:true={answer7Div}>
+                        <div class="answer">
+                            <p class="answerpara">Yes. As long as you pay your monthly installments on time and follow all the loan guidelines, you’re positively impacting your credit score.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question8Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon8}><span id="question8Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon8}><span id="question8Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question8" class="questionText"> Once I get the loan and pay it off, can I return and use the funding again to work with the same client?</div>
+                    </div>
+                    <template if:true={answer8Div}>
+                        <div class="answer">
+                            <p class="answerpara">Yes, as long as your credit is in good standing and you properly followed the loan guidelines. If you have established a relationship with one of our lenders and come back to fund again after paying off your original loan, you’ll be able to use our platform again to work with the same client.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <!--div id="question9Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon9}><span id="question9Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon9}><span id="question9Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question9" class="questionText"> Do we have funding in Canada or internationally?</div>
+                    </div>
+                    <template if:true={answer9Div}>
+                        <div class="answer">
+                            <p class="answerpara">We’re currently funding in the U.S. only! We’ll keep you posted once we expand outside the U.S.!</p>
+                        </div>
+                    </template>
+                    <br/><br/-->
+                    <div id="question10Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon10}><span id="question10Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon10}><span id="question10Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question10" class="questionText"> I’ve received the funds! What’s next?</div>
+                    </div>
+                    <template if:true={answer10Div}>
+                        <div class="answer">
+                            <p class="answerpara">That’s great, and congrats! Reach out to our client, and they will share with you how to send funds to get started with their program!</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question11Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon11}><span id="question11Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon11}><span id="question11Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question11" class="questionText"> What happens if I get declined?</div>
+                    </div>
+                    <template if:true={answer11Div}>
+                        <div class="answer">
+                            <p class="answerpara">Feel free to reach back to our client. They may have some other options for you on how to get started.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question12Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon12}><span id="question12Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon12}><span id="question12Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question12" class="questionText"> I have a spouse. What’s the best way to apply?</div>
+                    </div>
+                    <template if:true={answer12Div}>
+                        <div class="answer">
+                            <p class="answerpara">Our funding is based on individuals, not spouses. If you’d like your spouse to apply, they would
+                        submit their own application. You can then use funding from your spouse to work with our client.
+                        You can have your spouse apply through the same application link.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question13Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon13}><span id="question13Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon13}><span id="question13Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question13" class="questionText"> Which of the 3 credit check bureaus do you use to check credit?</div>
+                    </div>
+                    <template if:true={answer13Div}>
+                        <div class="answer">
+                            <p class="answerpara">We work with various lending institutions, and they all use different credit bureaus.</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question14Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon14}><span id="question14Plus"  class="faqIcon"> + </span></template>
+                        <template if:false={showIcon14}><span id="question14Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question14" class="questionText"> Are there any fees I have to pay Eaze Consulting upon being funded?</div>
+                    </div>
+                    <template if:true={answer14Div}>
+                        <div class="answer">
+                            <p class="answerpara">No. We work on behalf of our clients, and they pay for our services. In some cases, you may have origination fees with the lender, unrelated to Eaze Consulting. We will let you know if there are any fees on our call once you’re pre-approved!</p>
+                        </div>
+                    </template>
+                    <br/><br/>
+                    <div id="question15Div" class="question" onclick={btnClick}>
+                        <template if:true={showIcon15}><span id="question15Plus" class="faqIcon"> + </span></template>
+                        <template if:false={showIcon15}><span id="question15Check" class="faqIcon"> ✓ </span></template>
+                        <div id="question15" class="questionText"> What’s the next step to apply?</div>
+                    </div>
+                    <template if:true={answer15Div}>
+                        <div class="answer">
+                            <p class="answerpara">Really simple. Apply on the link below. You’ll know within a few business hours of any offers, book a time with a consultant to choose the best one, and we usually fund within 3-5 business days from the time you apply. So go ahead and do that now!</p>
+                        </div>
+                    </template>
+                </div>
+                <div style="color:white;background-color:#1A2755;margin-top:5%;">
+                    <center>
+                        <button style="background-color:#fff;border-radius: 5px;margin-top: 2%;margin-bottom: 2%;width:180px;height: 45px;font-size: 15px;">
+                            <a target="_blank" style="color:#1A2755;;position: relative;font-weight: 600;" tabindex="0" onclick={handleApplyNow}>
+                                <div>APPLY NOW &nbsp;<b> → </b></div>
+                            </a>
+                        </button>
+                    </center>
+                </div>
+                <div style="padding-top:50px;margin-top:6%;margin-top:4%">
+                    <div class="" style="text-align: center;">
+                        <div style="padding-top:5px;" >Eaze Consulting © 2023</div>
+                        <div style="padding-top:5px;">All Rights Reserved</div>
+                        <div style="padding-top:5px;">For more information please click on our <a href="https://www.eazeconsulting.com/privacy-policy/" target="_blank"><u>Privacy Policy</u></a> or <a href="https://www.eazeconsulting.com/terms-of-services/" target="_blank"><u>Terms of Services</u></a></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div>
+        <template if:false={frontPage}>    
+            <template if:true = {showLogo}>
+                <div class="eazeLogo">
+                    <img src={logoImage}  class="eazeLogoIMG imagePosition" />
+                </div>
+            </template>
+        </template>
+            <template if:true={accCancel}>
+                <div id="appBlockSec" class="appBlockSec">
+                    <div class="slds-m-top_large slds-m-bottom_large">
+                        <h3 style="color: #FC4034">Account has been cancelled.</h3>
+                    </div>
+                </div>
+            </template>     
+        </div>
+        <template if:true = {showSpinner}>
+            <div>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>    
+        </template>
+        <div class="Template-body topMargin">
+            <div class="Template-content" >
+                <form id="phoenixform" class="ltFormContainer PersonalLoanPurposeCode" action="" method="POST"> 
+                    <template if:true = {page1}>
+                            <div class="ltProgressBarWrapper">
+                                <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 5%;"></div>
+                                </div>
+                            </div>
+                            <div class="ltFormQuestionHeader PersonalLoanPurposeCode">
+                                <h5>Personal Loan</h5>
+                            </div>
+                            <div class="ltFormGroup PersonalLoanPurposeCode">
+                                <div class="ltFormQuestion PersonalLoanPurposeCode">
+                                    Select a loan purpose
+                                    <div class="ltFormExplain PersonalLoanPurposeCode" style="display: inline;"></div>
+                                </div>
+                                <div id="page01div" >
+                                    <div class="ltFormRadioControl ltFormRadioControlMAJORPURCHASE PersonalLoanPurposeCode" id="page01div1" >
+                                        <div class="ltFormRadioControlInner MAJORPURCHASE PersonalLoanPurposeCode" id="page01div2">
+                                            <div class="ltFormRadioControlEnumHeader MAJORPURCHASE PersonalLoanPurposeCode" id="page01div3"></div>
+                                            <label for="MAJORPURCHASE" tabindex="0" id="page01label" onclick={redirectPage}>
+                                                <input type="radio" name="Purpose__c" id="page01MAJORPURCHASE" class="ltFormRadioButton MAJORPURCHASE PersonalLoanPurposeCode" for="MAJORPURCHASE" value="Major Purchase">
+                                                <i class="ltFormRadioIcon PersonalLoanPurposeCode" id="page01Icon"></i>
+                                                <div id="page01div4">Major Purchase</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page2}>
+                        <div>
+                            <div class="flex-start-column" >
+                                <a href="javascript:void(1)" id="page02back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page02backi"></i>
+                                    <span class="desktop-only" id="page02backspan">GO BACK</span>
+                                </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 10%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader Amount">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup Amount">
+                                    <div class="ltFormQuestion Amount">
+                                        How much would you like to borrow?
+                                        <div class="ltFormExplain Amount" style="display: inline;"></div>
+                                    </div>
+                                    <div>
+                                        <div class="ltFormControlRange Amount">
+                                            <div style="display: flex;" class="">
+                                                <div class="ltFormRangeFeedback Amount displayAmount" id="amountOutput"><span style="font-size: x-large;">CAD</span> <br/>{amountOutput}</div>
+                                                <div class="ltFormRangeFeedback Amount displayAmount" id="amountOutputUSD" style="border-left: 2px solid grey;"><span style="font-size: x-large;">USD</span> <br/>{amountOutputUSD}</div>     
+                                            </div>
+                                            <div>
+                                                <input type="range" id="Amount" class="ltFormRange Amount" min={amountMin} max={amountMax} step="500" name="Loan_Amount__c" value={amount} style="--min:1000; --max:50000; --val:1000;" oninput={onAmountChange}>
+                                            </div>
+                                            <div class="ltFormRangeRange Amount">
+                                                <div class="lowerRange Amount" id="lowerRangeAmount">{lowerRangeAmount}</div>
+                                                <div class="upperRange Amount" id="upperRangeAmount">{upperRangeAmount}</div>
+                                                <div style="clear: both;"></div>
+                                            </div>
+                                        </div>
+                                    <div class="ltFormSubtext undefined" id="amountRangeInfo">{amountRangeInfo}</div>
+                                    <div class="ltFormSubtext undefined" style="font-size: larger;"><b>Please make sure to apply for the correct USD Amount to MATCH the program amount (in USD) before moving to the next page!</b></div>
+                                    <div class="ltFormSubtext undefined" >The conversion rates are based on monthly average</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ltFormButtonContainer" id="page02div" >
+                                <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;"></button>
+                                <a class="ltFormButton Amount" target="_blank" tabindex="0" id="page02" onclick={redirectPage}>
+                                    <span class="ltFormButtonLabelContainer Amount">
+                                        <span class="ltFormButtonLabelBackground Amount"></span>
+                                        <span class="ltFormButtonLabelSuccess Amount"></span>
+                                    </span>
+                                    <span class="ltFormActionIcon Amount"></span>
+                                    <div class="ltFormActionText Amount" id="page02div2">Continue</div>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page3}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page03back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page03backi"></i>
+                                    <span class="desktop-only" id="page03backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 15%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader FirstName">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup FirstName">
+                                        <div class="ltFormQuestion FirstName">
+                                        Your name?
+                                        <div class="ltFormExplain FirstName" style="display: inline;"></div>
+                                        </div>
+                                    <div class="ltFormGroup State">
+                                        <div>
+                                            <div class="ltFormControlText State">
+                                                <select class="stateOption" id="page3salutations" onchange={selectSalutation}>
+                                                    <option value="" disabled selected>Select Salutation</option>
+                                                    <template for:each={salutationArray} for:item="obj">
+                                                        <option key={obj.value} value={obj.value} selected={obj.selected}>{obj.value}</option>
+                                                    </template>
+                                                </select>
+                                            </div>
+                                            <div class="ltFormValidating State">
+                                                <template if:true={salutationError}>
+                                                    <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Select Salutation First.</div>
+                                                </template>
+                                            </div>
+                                            <div class="ltFormSubtext State"></div>
+                                        </div>
+                                    </div>
+                                        <div>
+                                            <div class="ltFormControlText FirstName">
+                                                <input type="default" onkeyup={validateFirstName} id="firstName" autocomplete="given-name" 
+                                                    placeholder="First name" name="FirstName" class="ltFormControl FirstName" maxlength="50" value={fistNameValue}  required >
+                                            </div>
+                                            <template if:true={firstNameError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid First Name. </div>
+                                            </template>
+                                            <div class="ltFormValidating FirstName"></div>
+                                            <div class="ltHasError FirstName" id="firstNameError" style="display:none">Please enter a valid first name.</div>
+                                            <div class="ltFormSubtext FirstName"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormGroup LastName">
+                                        <div>
+                                            <div class="ltFormControlText LastName">
+                                                <input type="default" onkeyup={validateLastName}  id="lastName" placeholder="Last name" name="LastName" 
+                                                class="ltFormControl LastName" maxlength="50" value={lastNameValue} required>
+                                            </div>
+                                            <template if:true={lastNameError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid Last Name. </div>
+                                            </template>
+                                            <div class="ltFormValidating LastName"></div>
+                                            <div class="ltHasError LastName" id="lastNameError" style="display:none">Please enter a valid last name.</div>
+                                            <div>
+                                            </div>
+                                            <div class="ltFormSubtext LastName"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer" id="page03div">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton FirstName" target="_blank" tabindex="0" id="page03" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer FirstName">
+                                            <span class="ltFormButtonLabelBackground FirstName"></span>
+                                            <span class="ltFormButtonLabelSuccess FirstName"></span>
+                                        </span>
+                                        <span class="ltFormActionIcon FirstName"></span>
+                                        <div class="ltFormActionText FirstName" id="page03div2">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page4}>
+                        <div >
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page04back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page04backi"></i>
+                                    <span class="desktop-only" id="page04backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 20%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader EmailAddress">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup EmailAddress">
+                                        <div class="ltFormQuestion EmailAddress">
+                                            Email address?
+                                        <div class="ltFormExplain EmailAddress" style="display: inline;"></div>
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormControlText  EmailAddress">
+                                                <input type="email" required id="formData.EmailAddress" autocomplete="email" placeholder="you@example.com" name="Email" 
+                                                    class="ltFormControl EmailAddress" maxlength="150" value={emailValue} onkeyup={setEmailValue}>
+                                            </div>
+                                            <template if:true={emailError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid Email Address. </div>
+                                            </template>
+                                            <template if:true={enterEmailError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Enter Email First.</div>
+                                            </template>
+                                            <div class="ltFormValidating EmailAddress"></div>
+                                            <div class="ltFormSubtext EmailAddress"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;"></button>
+                                    <a class="ltFormButton EmailAddress" target="_blank" tabindex="0" id="page04" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer EmailAddress">
+                                            <span class="ltFormButtonLabelBackground EmailAddress"></span>
+                                            <span class="ltFormButtonLabelSuccess EmailAddress"></span>
+                                        </span>
+                                        <span class="ltFormActionIcon EmailAddress"></span>
+                                        <div id="page04div" class="ltFormActionText EmailAddress">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page5}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page05back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page05backi"></i>
+                                    <span class="desktop-only" id="page05backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 25%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader PhoneNumber">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup PhoneNumber">
+                                        <div class="ltFormQuestion PhoneNumber">
+                                        What is your cell phone number?<br/>(Do not list a landline)
+                                        </div>
+                                        <div class="disPlayrow">
+                                        <div class="ltFormControlText  PhoneNumber">
+                                            <input id="phoneNumber" onkeyup={validatePhone} name="Phone" type="tel" autocomplete="tel" 
+                                                class="ltFormControl PhoneNumber" maxlength="14" placeholder="Enter Phone" value={phoneValue} onfocusout ={checkPhoneNumber} required>
+                                            </div>
+                                            <div class="ltFormValidating PhoneNumber"></div>
+                                            <template if:true={phoneError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Invalid Phone number.</div>
+                                            </template>
+                                            <template if:true={enterPhoneError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Enter Phone Number First.</div>
+                                            </template>
+                                        <div class="ltFormSubtext ltHasError PhoneNumber" id="phoneError" style="display:none;">Invalid Phone Number</div>
+                                        <div class="ltFormSubtext PhoneNumber">Providing your number is consent to receive calls, texts, and recorded messages from Eaze Consulting Group Inc, SBS Financial Solutions LLC, and its partners.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;"></button>
+                                    <a class="ltFormButton PhoneNumber" target="_blank" tabindex="0" id="page05" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer PhoneNumber">
+                                            <span class="ltFormButtonLabelBackground PhoneNumber"></span>
+                                            <span class="ltFormButtonLabelSuccess PhoneNumber"></span>
+                                        </span>
+                                        <span class="ltFormActionIcon PhoneNumber"></span>
+                                        <div id="page05div" class="ltFormActionText PhoneNumber">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page6}>
+                        <div>
+                            <div class="flex-start-column">
+                            <a href="javascript:void(1)" class="backButton" id="page6back" style="display: flex;" onclick={redirectPageBack}>
+                                <i class="chevron desktop-only" id="page6backi"></i>
+                                <span class="desktop-only" id="page6backspan">GO BACK</span>
+                            </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 30%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader DOB">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup DOB">
+                                    <div class="ltFormQuestion DOB">
+                                        What is your date of birth?
+                                    </div>
+                                    <div class="disPlayrow">
+                                        <div class="ltFormControlText DOB">
+                                            <input id="formData.DOB" onkeyup={setBirthDate} required name="Date_of_Birth__c" onfocusout={checkDateBirth}
+                                            type="tel" class="ltFormControl DOB" placeholder="MM/DD/YYYY" value={dateBirthValue} maxlength="10">
+                                        </div>
+                                        <template if:true={dateBirthError}>
+                                            <div id="dobError" class="ltHasError DOB">
+                                                <div class="ltHasError DOB">Please enter a valid date.</div></div>
+                                        </template>
+                                        <div class="ltFormSubtext DOB" id="DOBsubtext">
+                                            Your date of birth is secure with us. We use it to verify your identity.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ltFormButtonContainer">
+                                <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                <a class="ltFormButton DOB" target="_blank" tabindex="0" id="page6" onclick={redirectPage}>
+                                    <span class="ltFormButtonLabelContainer DOB">
+                                        <span class="ltFormButtonLabelBackground DOB"></span>
+                                        <span class="ltFormButtonLabelSuccess DOB"></span>
+                                    </span>
+                                    <span class="ltFormActionIcon DOB"></span>
+                                    <div class="ltFormActionText DOB" id="page6div">Continue</div>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page7}>
+                        <div>
+                            <div class="flex-start-column">
+                            <a href="javascript:void(1)" id="page7back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                <i class="chevron desktop-only" id="page7backi"></i>
+                                <span class="desktop-only" id="page7backspan">GO BACK</span>
+                            </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 35%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader CitizenshipStatus">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup CitizenshipStatus">
+                                    <div class="ltFormQuestion CitizenshipStatus">
+                                        What is your Citizenship Status
+                                    <div class="ltFormExplain CitizenshipStatus" style="display: inline;"></div>
+                                    </div>
+                                    <div class="ltFormGroup State">
+                                        <div>
+                                            <div class="ltFormControlText State">
+                                                <select class="stateOption" id="citizenship" onchange={selectCitizenship}>
+                                                    <option value="" disabled selected>Select Citizenship</option>
+                                                    <template for:each={citizenShipArray} for:item="obj">
+                                                        <option key={obj.value} value={obj.value} selected={obj.selected}>{obj.value}</option>
+                                                    </template>
+                                                </select>
+                                            </div>
+                                            <template if:true={citizenShipError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Please Select CitizenShip First.</div>
+                                            </template>
+                                            <div class="ltFormValidating State"></div>
+                                            <div class="ltFormSubtext State"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ltFormButtonContainer">
+                                <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;"></button>
+                                <a class="ltFormButton CitizenshipStatus" target="_blank" tabindex="0" id="page7" onclick={redirectPage}>
+                                    <span class="ltFormButtonLabelContainer CitizenshipStatus"><span class="ltFormButtonLabelBackground CitizenshipStatus"></span><span class="ltFormButtonLabelSuccess CitizenshipStatus"></span></span><span class="ltFormActionIcon CitizenshipStatus"></span>
+                                    <div class="ltFormActionText CitizenshipStatus" id="page7div">Continue</div>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page8}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page8back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page8backi"></i>
+                                    <span class="desktop-only" id="page8backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 40%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader MonthlyExpense">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup MonthlyExpense">
+                                        <div class="ltFormQuestion MonthlyExpense">
+                                            Social Insurance Number?
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormControlText MonthlyExpense">
+                                                <input type="tel" required onkeyup={formatSocialInsuranceNum} id="formData.socialInsuranceNum" placeholder="Enter Social Insurance Number" 
+                                                    name="" class="ltFormControl MonthlyExpense" maxlength="9" value={socialNumValue}>
+                                            </div>
+                                            <template if:true={socialInsuranceError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Please Enter Valid Social Insurance Number.</div>
+                                            </template>
+                                            <div class="ltFormValidating MonthlyExpense"></div>
+                                            <div class="ltFormSubtext MonthlyExpense"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton MonthlyExpense" target="_blank" tabindex="0" id="page8" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer MonthlyExpense"><span class="ltFormButtonLabelBackground MonthlyExpense"></span><span class="ltFormButtonLabelSuccess MonthlyExpense"></span></span><span class="ltFormActionIcon MonthlyExpense"></span>
+                                        <div id="page8div" class="ltFormActionText MonthlyExpense">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page9}>
+                        <div>
+                            <div class="flex-start-column">
+                            <a href="javascript:void(1)" id="page9back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                <i class="chevron desktop-only" id="page9backi"></i>
+                                <span class="desktop-only" id="page9backspan">GO BACK</span>
+                            </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 45%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader ZipCode">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup ZipCode">
+                                    <div class="ltFormQuestion ZipCode">
+                                        What is your Postal Code?
+                                    <div class="ltFormExplain ZipCode" style="display: inline;"></div>
+                                    </div>
+                                    <div class="disPlayrow">
+                                        <div class="ltFormControlText ZipCode">
+                                            <input onkeyup={validateZip} type="text" id="zipCode" required autocomplete="postal-code" onfocusout={checkZip}
+                                                placeholder="Enter Postal Code" name="PostalCode" class="ltFormControl ZipCode" maxlength="7" value={zipCodeValue}>
+                                        </div>
+                                        <template if:true={zipCodeError}>
+                                            <div id="zipError" class="ltHasError ZipCode">Invalid Postal Code.</div>
+                                        </template>
+                                        <template if:true={zipCodeEmpty}>
+                                            <div class="ltHasError ZipCode">Please Enter Valid Your Postal Code.</div>
+                                        </template>
+                                        <div class="ltFormValidating ZipCode" id="zipValidating" style="display:none;">validating....</div>
+                                        <div class="ltFormSubtext ZipCode" id="zipSubText" style="display:none;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ltFormButtonContainer">
+                                <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;"></button>
+                                <a class="ltFormButton ZipCode" target="_blank" tabindex="0" id="page9" onclick={redirectPage}>
+                                    <span class="ltFormButtonLabelContainer ZipCode"><span class="ltFormButtonLabelBackground ZipCode"></span><span class="ltFormButtonLabelSuccess ZipCode"></span></span><span class="ltFormActionIcon ZipCode"></span>
+                                    <div class="ltFormActionText ZipCode" id="page9div">Continue</div>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page10}>
+                        <div>
+                            <div class="flex-start-column">
+                            <a href="javascript:void(1)" id="page10back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                <i class="chevron desktop-only" id="page10backi"></i>
+                                <span class="desktop-only" id="page10backspan">GO BACK</span>
+                            </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader StreetAddress">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup StreetAddress">
+                                    <div class="ltFormQuestion StreetAddress at-element-marker" at-action-key="StreetAddress">
+                                        What's your address?
+                                        <div class="ltFormExplain StreetAddress" style="display: inline;"></div>
+                                    </div>
+                                    <div class="disPlayrow">
+                                        <div class="ltFormControlText ltHasError StreetAddress">
+                                            <input type="default" required id="formData.StreetAddress" autocomplete="new-password" placeholder="Enter street address" name="Street" 
+                                            class="ltFormControl StreetAddress" maxlength="64" value={streetValue} onchange={setStreeValue}>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormGroup City">
+                                    <div>
+                                        <div class="ltFormControlText City">
+                                            <input type="default" id="formData.City" required placeholder="City" name="City" class="ltFormControl City" 
+                                                maxlength="64" value={cityValue} onchange={setCityValue}>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormGroup State">
+                                    <div>
+                                        <div class="ltFormControlText State">
+                                            <select class="stateOption stateName" id="state" onchange={selectState} >
+                                                <option value="" disabled selected>Select Province</option>
+                                                <template for:each={stateArray} for:item="obj">
+                                                        <option key={obj.value} value={obj.value} selected={obj.selected}>{obj.name}</option>
+                                                </template>  
+                                            </select>
+                                        </div>
+                                        <div class="ltFormValidating State"></div>
+                                        <div class="ltFormSubtext State"></div>
+                                        <template if:true={addressError}>
+                                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Please fill All Values First.</div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ltFormButtonContainer">
+                                <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                <a class="ltFormButton StreetAddress" target="_blank" tabindex="0" id="page10" onclick={redirectPage}>
+                                    <span class="ltFormButtonLabelContainer StreetAddress"><span class="ltFormButtonLabelBackground StreetAddress"></span><span class="ltFormButtonLabelSuccess StreetAddress"></span></span><span class="ltFormActionIcon StreetAddress"></span>
+                                    <div class="ltFormActionText StreetAddress" id="page10div">Continue</div>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page11}>
+                        <div>
+                            <div class="flex-start-column">
+                            <a href="javascript:void(1)" id="page11back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                <i class="chevron desktop-only" id="page11backi"></i>
+                                <span class="desktop-only" id="page11backspan">GO BACK</span>
+                            </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 55%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader TypeOfResidence">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup TypeOfResidence">
+                                    <div class="ltFormQuestion TypeOfResidence">
+                                        Type of residence?
+                                        <div class="ltFormExplain TypeOfResidence" style="display: inline;"></div>
+                                    </div>
+                                    <div>
+                                        <div class="ltFormRadioControl ltFormRadioControlOWN TypeOfResidence">
+                                            <div class="ltFormRadioControlInner OWN TypeOfResidence">
+                                                <div class="ltFormRadioControlEnumHeader OWN TypeOfResidence"></div>
+                                                <label for="Own_Outright" tabindex="0" id="page11Ownlabel" onclick={redirectPage}>
+                                                    <input type="radio" name="Current_Residence_Status__c" id="page11OwnInput" class="ltFormRadioButton OWN TypeOfResidence" for="Own_Outright" value="Own" >
+                                                    <i class="ltFormRadioIcon TypeOfResidence" id="page11OwnIcon"></i>
+                                                    <div id="page11Owndiv4">Own</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormRadioControl ltFormRadioControlRENT TypeOfResidence">
+                                            <div class="ltFormRadioControlInner RENT TypeOfResidence">
+                                                <div class="ltFormRadioControlEnumHeader RENT TypeOfResidence"></div>
+                                                <label for="RENT" tabindex="0" id="page11Rentlabel" onclick={redirectPage}>
+                                                    <input type="radio" name="Current_Residence_Status__c" id="page11RentInput" class="ltFormRadioButton RENT TypeOfResidence" for="RENT" value="Rent" >
+                                                    <i class="ltFormRadioIcon TypeOfResidence" id="page11RentIcon"></i>
+                                                    <div id="page11Rentdiv4">Rent</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormRadioControl ltFormRadioControlOTHER TypeOfResidence">
+                                            <div class="ltFormRadioControlInner OTHER TypeOfResidence">
+                                                <div class="ltFormRadioControlEnumHeader OTHER TypeOfResidence"></div>
+                                                <label for="OTHERRES" tabindex="0" id="page11OTHlabel" onclick={redirectPage}>
+                                                    <input type="radio" name="Current_Residence_Status__c" id="page11OTHinput" class="ltFormRadioButton OTHER TypeOfResidence" for="OTHERRES" value="Other" >
+                                                    <i class="ltFormRadioIcon TypeOfResidence" id="page11OTHIcon"></i>
+                                                    <div id="page11OTHdiv4">Other</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormSubtext TypeOfResidence"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page12}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page12back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page12backi"></i>
+                                    <span class="desktop-only" id="page12backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 60%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader AnnualIncome">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup AnnualIncome">
+                                        <div class="ltFormQuestion AnnualIncome">
+                                            What's your Monthly Rent/Mortgage Amount?
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormControlText AnnualIncome">
+                                                <input type="tel" required onkeyup={formatRentAmount} id="monthlyRent" placeholder="Enter Monthly Rent" 
+                                                name="Monthly_Rent_Mortgage_Amount__c" class="ltFormControl AnnualIncome" maxlength="11" value={monthlyRentAmount}  >
+                                            </div>
+                                            <div class="ltFormValidating AnnualIncome"></div>
+                                            <template if:true={monthlyRentReq}>
+                                                <div class="ltFormSubtext ltHasError PhoneNumber" id="monthlyRentError">This is required.</div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton AnnualIncome" target="_blank" tabindex="0" id="page12" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer AnnualIncome"><span class="ltFormButtonLabelBackground AnnualIncome"></span><span class="ltFormButtonLabelSuccess AnnualIncome"></span></span><span class="ltFormActionIcon AnnualIncome"></span>
+                                        <div class="ltFormActionText AnnualIncome" id="page12div">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page13}>
+                        <div>
+                            <div class="flex-start-column">
+                            <a href="javascript:void(1)" id="page13back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                <i class="chevron desktop-only" id="page13backi"></i>
+                                <span class="desktop-only" id="page13backspan">GO BACK</span>
+                            </a>
+                            </div>
+                            <div>
+                                <div class="ltProgressBarWrapper">
+                                    <div class="ltProgressBar">
+                                    <div class="ltProgressBarProgress" style="width: 65%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ltFormQuestionHeader EstimatedCreditRating">
+                                    <h5>Personal Loan</h5>
+                                </div>
+                                <div class="ltFormGroup EstimatedCreditRating">
+                                    <div class="ltFormQuestion EstimatedCreditRating">
+                                        Estimate your credit
+                                    </div>
+                                    <div class="disPlayrow">
+                                        <div class="ltFormRadioControl1 ltFormRadioControlEXCELLENT EstimatedCreditRating">
+                                            <div class="ltFormRadioControlInner EXCELLENT EstimatedCreditRating">
+                                                <div class="ltFormRadioControlEnumHeader EXCELLENT EstimatedCreditRating"></div>
+                                                <label for="EXCELLENT" tabindex="0" id="page13Exlable" onclick={redirectPage} class="abc">
+                                                    <input type="radio" name="Credit_Score_Text__c" id="page13Ex" class="ltFormRadioButton EXCELLENT EstimatedCreditRating" for="EXCELLENT" value="excellent">
+                                                    <i class="ltFormRadioIcon EstimatedCreditRating" id="page13ExIcon"></i>
+                                                    <div id="page13Exdiv4">Excellent (720-850)</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormRadioControl1 ltFormRadioControlSOMECREDITPROBLEMS EstimatedCreditRating">
+                                            <div class="ltFormRadioControlInner SOMECREDITPROBLEMS EstimatedCreditRating" >
+                                                <div class="ltFormRadioControlEnumHeader SOMECREDITPROBLEMS EstimatedCreditRating"></div>
+                                                <label for="SOMECREDITPROBLEMS" tabindex="0" id="page13Golable" onclick={redirectPage} class="">
+                                                    <input type="radio" name="Credit_Score_Text__c" id="page13Go" class="ltFormRadioButton SOMECREDITPROBLEMS EstimatedCreditRating" for="SOMECREDITPROBLEMS" value="Good" >
+                                                    <i class="ltFormRadioIcon EstimatedCreditRating" id="page13GoIcon"></i>
+                                                    <div id="page13Godiv4">Good (680-719)</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormRadioControl1 ltFormRadioControlMAJORCREDITPROBLEMS EstimatedCreditRating">
+                                            <div class="ltFormRadioControlInner MAJORCREDITPROBLEMS EstimatedCreditRating">
+                                                <div class="ltFormRadioControlEnumHeader MAJORCREDITPROBLEMS EstimatedCreditRating"></div>
+                                                <label for="MAJORCREDITPROBLEMS" tabindex="0" id="page13Falable" onclick={redirectPage} class="">
+                                                    <input type="radio" name="Credit_Score_Text__c" id="page13Fa" class="ltFormRadioButton MAJORCREDITPROBLEMS EstimatedCreditRating" for="MAJORCREDITPROBLEMS" value="fair" >
+                                                    <i class="ltFormRadioIcon EstimatedCreditRating" id="page13FaIcon"></i>
+                                                    <div id="page13Fadiv4">Fair (640-679)</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormRadioControl1 ltFormRadioControlLITTLEORNOCREDITHISTORY EstimatedCreditRating" >
+                                            <div class="ltFormRadioControlInner LITTLEORNOCREDITHISTORY EstimatedCreditRating">
+                                                <div class="ltFormRadioControlEnumHeader LITTLEORNOCREDITHISTORY EstimatedCreditRating"></div>
+                                                <label for="LITTLEORNOCREDITHISTORY" tabindex="0" id="page13Polable" onclick={redirectPage} class="">
+                                                    <input type="radio" name="Credit_Score_Text__c" id="page13Po" class="ltFormRadioButton LITTLEORNOCREDITHISTORY EstimatedCreditRating" for="LITTLEORNOCREDITHISTORY" value="poor" >
+                                                    <i class="ltFormRadioIcon EstimatedCreditRating" id="page13PoIcon"></i>
+                                                    <div id="page13Podiv4">Poor (0-639)</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="ltFormSubtext EstimatedCreditRating"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true = {page14}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page14back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page14backi"></i>
+                                    <span class="desktop-only" id="page14backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 70%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader EmploymentStatus">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup EmploymentStatus">
+                                        <div class="ltFormQuestion EmploymentStatus">
+                                            What's your employment status?
+                                            <div class="ltFormExplain EmploymentStatus" style="display: inline;"></div>
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormRadioControl1 ltFormRadioControlFULLTIME EmploymentStatus">
+                                                <div class="ltFormRadioControlInner FULLTIME EmploymentStatus">
+                                                    <div class="ltFormRadioControlEnumHeader FULLTIME EmploymentStatus"></div>
+                                                    <label for="FULLTIME" tabindex="0" id="page14Ftlable" onclick={redirectPage} class="employedLabel">
+                                                        <input checked type="radio" name="Income_Source_1__c" id="page14Ft" class="ltFormRadioButton FULLTIME EmploymentStatus" for="FULLTIME" value="Employed" >
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page14FtIcon"></i>
+                                                        <div id="page14Ftdiv4">Full Time Employed</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormRadioControl1 ltFormRadioControlPARTTIME EmploymentStatus" >
+                                                <div class="ltFormRadioControlInner PARTTIME EmploymentStatus">
+                                                    <div class="ltFormRadioControlEnumHeader PARTTIME EmploymentStatus"></div>
+                                                    <label for="PARTTIME" tabindex="0" id="page14Ptlabel" onclick={redirectPage}>
+                                                        <input type="radio" name="Income_Source_1__c" id="page14Pt" class="ltFormRadioButton PARTTIME EmploymentStatus" for="PARTTIME" value="Part Time" onclick={redirectPage}>
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page14PtIcon"></i>
+                                                        <div id="page14Ptdiv4">Part Time Employed</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormRadioControl1 ltFormRadioControlSELFEMPLOYED EmploymentStatus">
+                                                <div class="ltFormRadioControlInner SELFEMPLOYED1 EmploymentStatus">
+                                                    <div class="ltFormRadioControlEnumHeader SELFEMPLOYED1 EmploymentStatus"></div>
+                                                    <label for="SELFEMPLOYED" tabindex="0" id="page14Selabel" onclick={redirectPage}> 
+                                                        <input type="radio" name="Income_Source_1__c" id="page14Se" class="ltFormRadioButton SELFEMPLOYED1 EmploymentStatus" for="SELFEMPLOYED" value="Self_Employed" >
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page14SeIcon"></i>
+                                                        <div id="page14Sediv4">Self-Employed</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormRadioControl1 ltFormRadioControlUNEMPLOYED EmploymentStatus">
+                                                <div class="ltFormRadioControlInner UNEMPLOYED EmploymentStatus" >
+                                                    <div class="ltFormRadioControlEnumHeader UNEMPLOYED EmploymentStatus" ></div>
+                                                    <label for="UNEMPLOYED" tabindex="0" id="page14Uelabel" onclick={redirectPage}>
+                                                        <input type="radio" name="Income_Source_1__c" id="page14Ue" class="ltFormRadioButton UNEMPLOYED EmploymentStatus" for="UNEMPLOYED" value="not_employed" >
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page14UeIcon"></i>
+                                                        <div id="page14Uediv4">Unemployed</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormRadioControl1  EmploymentStatus">
+                                                <div class="ltFormRadioControlInner OTHER EmploymentStatus" >
+                                                    <div class="ltFormRadioControlEnumHeader OTHER EmploymentStatus"></div>
+                                                    <label for="retirementBenefits" tabindex="0" id="page14Relabel" onclick={redirectPage}>
+                                                        <input type="radio" name="Income_Source_1__c" id="page14Re" class="ltFormRadioButton OTHER EmploymentStatus" for="retirementBenefits" value="retired">
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page14ReIcon"></i>
+                                                        <div id="page14Rediv4">Retired</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormRadioControl1 EmploymentStatus">
+                                                <div class="ltFormRadioControlInner OTHER EmploymentStatus" >
+                                                    <div class="ltFormRadioControlEnumHeader OTHER EmploymentStatus"></div>
+                                                    <label for="OTHEREMP" tabindex="0" id="page14Otlabel" onclick={redirectPage}>
+                                                        <input type="radio" name="Income_Source_1__c" id="page14Ot" class="ltFormRadioButton OTHER EmploymentStatus" for="OTHEREMP" value="Other">
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page14OtIcon"></i>
+                                                        <div id="page14Otdiv4">Other</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormSubtext EmploymentStatus"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page15}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page15back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page15backi"></i>
+                                    <span class="desktop-only" id="page15backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 75%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader AnnualIncome">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup AnnualIncome">
+                                        <div class="ltFormQuestion AnnualIncome">
+                                            What's your yearly pre-tax income?
+                                        </div>
+                                        <div class="disPlayrow" >
+                                            <div class="ltFormControlText AnnualIncome">
+                                                <input type="tel" required onkeyup={formatTaxAmount} id="formData.AnnualIncome" placeholder="Enter Income" 
+                                                name="Annual_Pre_Tax_Income__c" class="ltFormControl AnnualIncome" maxlength="11" value={yearlyTaxIncomeValue} >
+                                            </div>
+                                            <template if:true={yearlyTaxError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Please Enter amount first.</div>
+                                            </template>
+                                            <div class="ltFormValidating AnnualIncome"></div>
+                                            <div class="ltFormSubtext AnnualIncome">You may include bonus, commissions, part-time earnings, social security, retirement and disability.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton AnnualIncome" target="_blank" tabindex="0" id="page15" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer AnnualIncome"><span class="ltFormButtonLabelBackground AnnualIncome"></span><span class="ltFormButtonLabelSuccess AnnualIncome"></span></span><span class="ltFormActionIcon AnnualIncome"></span>
+                                        <div id="page15div" class="ltFormActionText AnnualIncome">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page16}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page16back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page16backi"></i>
+                                    <span class="desktop-only" id="page16backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 80%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader MonthlyExpense">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup MonthlyExpense">
+                                        <div class="ltFormQuestion MonthlyExpense">
+                                            What's your Monthly Expenses?
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormControlText MonthlyExpense">
+                                                <input type="tel" required onkeyup={formatExpenseAmount} id="formData.MonthlyExpense" placeholder="Enter Monthly Expenses" 
+                                                    name="Monthly_Expenses__c" class="ltFormControl MonthlyExpense" maxlength="11" value={monthlyExpensValue}>
+                                            </div>
+                                            <template if:true={monthlyExpensError}>
+                                                <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Please Enter Expense Amount First.</div>
+                                            </template>
+                                            <div class="ltFormValidating MonthlyExpense"></div>
+                                            <div class="ltFormSubtext MonthlyExpense">Sum of all other Monthly payments excluding housing costs</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton MonthlyExpense" target="_blank" tabindex="0" id="page16" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer MonthlyExpense"><span class="ltFormButtonLabelBackground MonthlyExpense"></span><span class="ltFormButtonLabelSuccess MonthlyExpense"></span></span><span class="ltFormActionIcon MonthlyExpense"></span>
+                                        <div id="page16div" class="ltFormActionText MonthlyExpense">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page17}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page17back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page17backi"></i>
+                                    <span class="desktop-only" id="page17backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 90%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader MonthlyExpense">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup MonthlyExpense">
+                                        <div class="ltFormQuestion MonthlyExpense">
+                                            Past Bankruptcy or Consumer Proposal?
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormRadioControl1 ltFormRadioControlFULLTIME EmploymentStatus">
+                                                <div class="ltFormRadioControlInner FULLTIME EmploymentStatus">
+                                                    <div class="ltFormRadioControlEnumHeader FULLTIME EmploymentStatus"></div>
+                                                    <label for="Yes" tabindex="0" id="page17BankYeslabel" onclick={redirectPage} class="employedLabel">
+                                                        <input type="radio" name="Income_Source_1__c" id="page17BankYes" class="ltFormRadioButton FULLTIME EmploymentStatus" for="Yes" value="Yes" >
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page17BankYesIcon"></i>
+                                                        <div id="page17BankYesdiv4">Yes</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="ltFormRadioControl1 ltFormRadioControlPARTTIME EmploymentStatus" >
+                                                <div class="ltFormRadioControlInner PARTTIME EmploymentStatus">
+                                                    <div class="ltFormRadioControlEnumHeader PARTTIME EmploymentStatus"></div>
+                                                    <label for="No" tabindex="0" id="page17BankNolabel" onclick={redirectPage}>
+                                                        <input type="radio" name="Income_Source_1__c" id="page17BankNo" class="ltFormRadioButton PARTTIME EmploymentStatus" for="No" value="No" >
+                                                        <i class="ltFormRadioIcon EmploymentStatus" id="page17BankNoIcon"></i>
+                                                        <div id="page17BankNodiv4">No</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page18}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page18back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page18backi"></i>
+                                    <span class="desktop-only" id="page18backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 95%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader MonthlyExpense">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup MonthlyExpense">
+                                        <div class="ltFormQuestion MonthlyExpense">
+                                            Bankruptcy in the last 7 years
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormGroup State">
+                                                <div>
+                                                    <div class="ltFormControlText State">
+                                                        <select class="stateOption" id="page17BankruptOption" onchange={selectBankrupt}>
+                                                            <option value="" disabled selected>Select Bankruptcy Option</option>
+                                                            <template for:each={bankruptcyArray} for:item="obj">
+                                                                <option key={obj.value} value={obj.value} selected={obj.selected}>{obj.name}</option>
+                                                            </template>
+                                                        </select>
+                                                    </div>
+                                                    <div class="ltFormValidating State">
+                                                        <template if:true={bankruptError}>
+                                                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Select Bankrupt Option first.</div>
+                                                        </template>
+                                                    </div>
+                                                    <div class="ltFormSubtext State"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton MonthlyExpense" target="_blank" tabindex="0" id="page18" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer MonthlyExpense"><span class="ltFormButtonLabelBackground MonthlyExpense"></span><span class="ltFormButtonLabelSuccess MonthlyExpense"></span></span><span class="ltFormActionIcon MonthlyExpense"></span>
+                                        <div id="page18div" class="ltFormActionText MonthlyExpense">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true = {page19}>
+                        <div>
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page19back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page19backi"></i>
+                                    <span class="desktop-only" id="page19backspan">GO BACK</span>
+                                </a>
+                                </div>
+                                <div>
+                                    <div class="ltProgressBarWrapper">
+                                        <div class="ltProgressBar">
+                                        <div class="ltProgressBarProgress" style="width: 98%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ltFormQuestionHeader MonthlyExpense">
+                                        <h5>Personal Loan</h5>
+                                    </div>
+                                    <div class="ltFormGroup MonthlyExpense">
+                                        <div class="ltFormQuestion MonthlyExpense">
+                                            Consumer Proposal in the last 3 years
+                                        </div>
+                                        <div class="disPlayrow">
+                                            <div class="ltFormGroup State">
+                                                <div>
+                                                    <div class="ltFormControlText State">
+                                                        <select class="stateOption" id="page18CreditProposalOption" onchange={selectCreditProposal}>
+                                                            <option value="" disabled selected>Select Consumer Proposal Option</option>
+                                                            <template for:each={creditProposalArray} for:item="obj">
+                                                                <option key={obj.value} value={obj.value} selected={obj.selected}>{obj.name}</option>
+                                                            </template>
+                                                        </select>
+                                                    </div>
+                                                    <div class="ltFormValidating State">
+                                                        <template if:true={creditProposalError}>
+                                                            <div style='color:#FC4034;margin-top: 2px;' class='slds-m-left_small'>Select Consumer Proposal Option first.</div>
+                                                        </template>
+                                                    </div>
+                                                    <div class="ltFormSubtext State"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ltFormButtonContainer">
+                                    <button type="submit" style="padding: 0px; height: 0px; width: 0px; float: left; border: none;" ></button>
+                                    <a class="ltFormButton MonthlyExpense" target="_blank" tabindex="0" id="page19" onclick={redirectPage}>
+                                        <span class="ltFormButtonLabelContainer MonthlyExpense"><span class="ltFormButtonLabelBackground MonthlyExpense"></span><span class="ltFormButtonLabelSuccess MonthlyExpense"></span></span><span class="ltFormActionIcon MonthlyExpense"></span>
+                                        <div id="page19div" class="ltFormActionText MonthlyExpense">Continue</div>
+                                    </a>
+                                </div>
+                            </div>
+                    </template>
+                    <template if:true={page20}>
+                        <div id="page21">
+                            <div class="flex-start-column">
+                                <a href="javascript:void(1)" id="page20back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+                                    <i class="chevron desktop-only" id="page20backi"></i>
+                                    <span class="desktop-only" id="page20backspan">GO BACK</span>
+                                </a>
+                            </div>
+                            <div class="acknow mobileMarginClass">
+                                <div class="ltFormQuestion" style="margin-top: unset !important;margin-bottom: 20px !important;font-size: 50px;">Acknowledgement and Consent</div>
+                                <div style="float:left;font-size: 15px;" >
+                                    <input type="checkbox" name="consent" id="consent1" value={consent1} required class="inputSize" onclick={consentClick}> <b>I read, understand, and consent to:</b>  
+                                </div>
+                                <br/>
+                                <div class="acckn" style="text-align:justify">
+                                    By clicking the submit button on part three of this application, I consent, acknowledge, and certify that all the information provided in this application is accurate, current, and complete. I confirm that I have read and understand the <a id="privacy" href="https://www.eazeconsulting.com/privacypolicy/" target="_blank"><b><i><u>Privacy Policy</u></i></b></a> and <a id="terms" target="_blank" href="https://www.eazeconsulting.com/terms-of-service/"><b><i><u>Terms of Use</u></i></b></a>. I am providing express “written” consent to share my contact information with the Eaze Consulting Group, Inc. (“Company,” “we,” “us,” “our”) network of lenders and authorize Company to submit applications on your behalf to third-party lenders that unaffiliated with Company that may contact you including through automated means (e.g. autodialing, text and pre-recorded messaging) via telephone, mobile device (including SMS and MMS – charges may apply), or email. This consent authorizes Company or a third-party lender to contact you even if your telephone number is currently listed on any internal, corporate, state, federal or national Do-Not-Call (DNC) list. Our network of lenders will contact you directly to discuss your loan options as well as to obtain any additional financial information in relation to your offer or credit you receive. If you wish to stop receiving communications from the lenders, you will have to submit your request directly to the lenders processing your application. Note: Company will NEVER ask for your social security number or bank information over the phone. Please be aware of scams and be diligent with protecting your personal information. 
+                                </div>
+                                <br/>
+                                <div style="float:left;font-size: 15px;">
+                                    <input type="checkbox" name="consent" id="consent2" value={consent2} required class="inputSize" onclick={consentClick}> <b>I read, understand, and consent to:</b>  
+                                </div>
+                                <br/>
+                                <div class="acckn" style="text-align:justify">
+                                    Company, under the Fair Credit Reporting Act, to obtain information from my personal credit profile or other information from Experian and/or TransUnion for the purpose of pre-qualification for credit, acknowledge this pre-qualification WILL NOT result in a hard inquiry on my credit report as all of the lenders use soft inquiry reporting during the pre-approval process. PLEASE NOTE: If you choose an offer from the pre-approval process, at that time, the lender WILL pull a hard inquiry on your personal credit. Your credit will not be disturbed during the pre-approval process to see if you qualify.
+                                </div>
+                                <br/>
+                                <div style="float:left;font-size: 15px;">
+                                    <input type="checkbox"  name="consent" id="consent3" value={consent3} required class="inputSize" onclick={consentClick}> <b>I read, understand, and consent to:</b>  
+                                </div>
+                                <br/>
+                                <div class="acckn" style="text-align:justify">
+                                    Receiving consulting services from the Company. The Company is neither a licensed finance lender nor a broker in any state or province in the United States or Canada. The Company is not a fiduciary or broker for any third-party lenders of financial institutions. The information and guidance the Company provides to me are for purely informational purposes only. The Company makes no representation, warranty, or undertaking, express or implied, as to the accuracy, reliability, completeness, or reasonableness of the information and guidance we provide. The Company deals with me on a principal-to-principal basis and does not accept any responsibility for any dealings between me and any third parties.
+                                </div>
+                                <br/>
+                            </div>
+                            <!--div class="g-recaptcha" data-sitekey="6LeMOP4UAAAAAAlmgWC_RZAsPw3jXAMGWddBNwze"></div--><br>
+                            <div class="ltFormButtonContainer">
+                                <div class="required" style="font-size: 14px;" >Check all consent boxes.</div>
+                                <a class="ltFormButton" target="_blank" tabindex="0" onclick={checkSubmit} id="submitButton">
+                                    <span class="ltFormButtonLabelContainer">
+                                        <span class="ltFormButtonLabelBackground"></span>
+                                        <span class="ltFormButtonLabelSuccess"></span>
+                                    </span>
+                                    <span class="ltFormActionIcon"></span>
+                                    <div class="ltFormActionText">Submit</div>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                </form>
+            </div>
+        </div>
+        <template if:true={pageThankYou}>
+            <div class="slds-align_absolute-center">
+                <div class="maindiv" style="padding: var(--space);">
+                    <div class="applydiv  slds-m-top_large">
+                        <div class="apply"> <h2 style="font-size:24px"><b>Thank You</b></h2> </div>
+                    </div>
+                    <div class="thankYouDivStandard">	
+                    
+                        Hello {fistNameValue} {lastNameValue},<br/><br/>
+
+                        Thank you for submitting your application to EAZE Consulting Group. <br/><br/>
+
+                        Our team is working quickly to secure an offer from our network of lenders. If you have submitted your application between 9 am-5 pm PST, you will have a decision within 1-2 business hours. <br/><br/>
+
+                        If you have submitted your application after hours or during the weekend, you will have a decision by the following morning by 9 am PST.<br/><br/>
+
+                        PLEASE NOTE: During the pre-approval process, you may receive texts, phone calls, or e-mails with different offers from multiple financial institutions. <br/><br/>
+
+                        Therefore, <b><u>it is essential that you wait to respond to or accept any offers until you hear from our team at EAZE. We work with several lenders and want to ensure that you have the best terms and rates if you decide to proceed.</u></b> <br/><br/>
+
+                        Once pre-approved, you will receive an email from support@eazeconsulting.com, and a text message from 949-200-3131 with instructions to schedule an appointment with our team. <br/><br/>
+
+                        We thank you for your time and look forward to speaking with you soon.<br/><br/>
+
+                        Regards,<br/><br/>
+
+                        EAZE Consulting Team<br/><br/>
+
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:true={pageThankYouDeclined}>
+            <div class="slds-align_absolute-center">
+                <div class="maindiv" style="padding: var(--space);">
+                    <div class="applydiv  slds-m-top_large">
+                        <div class="apply"> <h2 style="font-size:24px"><b>Thank You</b></h2> </div>
+                    </div>
+                    <div class="thankYouDivStandard">	
+                    
+                        Hello {fistNameValue} {lastNameValue},<br/><br/>
+
+                        Error occured while submiting your application, please try again later. <br/><br/>
+
+                        Regards,<br/><br/>
+
+                        EAZE Consulting Team<br/><br/>
+
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

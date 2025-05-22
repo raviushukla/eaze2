@@ -1,0 +1,2875 @@
+@font-face {
+	font-family: lt5;
+	font-style: normal;
+	font-weight: 400;
+	src: url('/guaranteeApproval/resource/It5woffFont') format("woff");
+}
+
+@font-face {
+	font-family: 'Poppins-Regular';
+	src: url('/guaranteeApproval/resource/poppinsFont') format("opentype");
+}
+.brochure{
+	font-family: 'Poppins-Regular';
+	font-size: 15px;
+}
+
+.acckn{
+	font-size: 15px;
+    margin-top: 5px;
+}
+
+.ebcaptchainput {
+		position: relative;
+		width: 96px;
+		height: 33px;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid black;
+		color: #8a8a8a;
+		border-radius: 4px;
+    	padding: 0 10px;
+	}
+
+.required:before {
+		content: "* ";
+		color: #a94442;
+		font-weight: bold;
+	}
+
+.refreshBtn{
+		border: 1px solid;
+		border-radius: 3px;
+		padding: 7px;
+		cursor: pointer;
+	}
+
+.captchContainer {
+		position: relative;
+		width: 338px;
+		border: 1px solid;
+		padding: 28px;
+		border-radius: 10px;
+		text-align: initial !important;
+		max-width: 338px !important;
+		height: 152px;
+	}
+
+.inputSize{
+		transform: scale3d(1.5, 1.5, 1.5);
+		margin-right: 10px;
+		/*appearance: none;*/
+		display: inline-block;
+		position: relative;
+		outline: none;
+		width: 0.6rem;
+		height: 0.6rem;
+		vertical-align: middle;
+	}
+
+.acknow{
+		font-family: 'Poppins-Regular';
+		text-align: justify;
+		line-height: normal;
+		font-size: small;
+	}
+
+.input-group {
+		display: table;
+		border-collapse: separate;
+	}
+
+.eazeLogo {
+	/*width:100%;*/
+	padding-top:2.4%;
+	margin-left: 40px;
+}
+
+.slds-m-bottom_large {
+	margin-bottom: 1.5rem;
+}
+.slds-m-top_large {
+	margin-top: 1.5rem;
+}
+.slds-m-right_small {
+	margin-right: 0.75rem;
+}
+.slds-m-left_small {
+	margin-left: 0.75rem;
+}
+.slds-m-bottom_small {
+	margin-bottom: 0.75rem;
+}
+
+.stateOption{
+		border-radius: 4px !important;
+		font-family: 'Poppins-Regular' !important;
+		width: 280px !important;
+		color: #000000 !important;
+		border: solid 1px #ccc;
+		background-color: #ebebeb;
+		-webkit-appearance: none;
+		padding: 1em 1.65em;
+		height: calc(2.875rem + (1px * 2));
+		transition: background-color 0.5s ease-out;
+	}
+
+.stateOption:focus{
+	background-color: white;
+}
+
+select.ltHasError {
+		border-color: #d93551 !important;
+		background-color: #ffebee !important;
+	}
+
+.eazeLogoIMG {
+		width: 20%; 
+	}
+
+.YourClients {
+		width:100%;
+		color:#1A2755;
+		font-size:36px;
+		text-align: left;
+		margin-top: 5%;
+		margin-bottom: 5%;
+		padding-left: 2%;
+	}
+
+.applynowbttn {
+		font-size:15px;
+		margin-left:32px;
+		padding-bottom: 13%;
+	}
+
+.brochureImage{
+		background-position: center;
+		background-color: white;
+		background-size: 100vw;
+		background-repeat:no-repeat;
+		background-image:url('/guaranteeApproval/resource/canadaAppBgIMG');
+	}
+
+.benifitsSec{
+		width: 50%;
+		margin: 0 auto;
+	}
+
+.benifitsHeader{
+		font-size: 22px;
+		font-weight: 600;
+		margin-bottom: 3%;
+		color: black;
+	}
+
+label{
+		color: #1a2755;
+		font-family:'Poppins-Regular';
+	}
+
+.field_error{border: 1px solid #FC4034 !important;}	
+
+.benifitsPoints{
+		background-color: #FFFFFF;
+		border-left: 3.1px solid #e6e6e6;
+		border-bottom: 3.1px solid #e6e6e6;
+		border-right: 0.1px solid #e6e6e6;
+		border-top: 0.1px solid #e6e6e6;
+		border-radius: 8px;
+		padding: 3.5%;
+		color: #707070;
+	}
+
+.ourprocessCheck {
+		margin-top: 6.5px;
+		border-radius: 5px;
+		height: 33px;
+		width: 34px;
+		text-align: center;
+		padding: 1.6px;
+		background-color: #1A2755;
+		color: white;
+		font-size: 20px;
+	}
+
+.ourprocessspan {
+		font-size: 17px;
+	}
+
+.processHeader{
+		font-size: 30px;
+		font-weight: bold;
+		margin-bottom: 4%;
+	}
+
+.alignCenter{
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		margin: auto;
+	}
+
+.aParent1First {
+		font-size:20.5px;	
+		color:#1A2755;		
+		padding:14px;
+		height: 47px;
+		width: 47px;
+		background-color:#FFFFFF;
+		border-radius: 6px;
+		border-left: 3.1px solid #e6e6e6;
+		border-right: 0.1px solid #e6e6e6;
+		border-top: 0.1px solid #e6e6e6;
+		border-bottom: 3.1px solid #e6e6e6;
+	}
+
+.ourProcessImgTD {
+	padding-left:2.5%;
+	padding-right:2.5%;
+}
+
+.stepImg{
+		height: 273px;
+		/*aspect-ratio: 3/3;*/
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+.stepContent{
+		line-height: 1.5;
+		font-size: 15px;
+    	font-weight: 600;
+	}
+
+.paraSec{
+		width:50%;
+		margin:0 auto;
+}
+
+.sec1{
+		font-size: 17px;
+		line-height: 1.5;
+		color: black;
+	}
+
+.FrequentlyAskedQuestions {
+		text-align: center;
+		color:#1A2755;
+		font-size: 30px;
+		margin-bottom: 2%;
+	}
+
+.question {
+		color: #1A2755;
+		cursor: pointer;
+		padding: 8px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		transition: 0.4s;
+		font-size: 18px;
+	}
+
+.faqIcon{
+		float: left;
+		color: #1A2755;
+		font-size: 18px;
+		height: 30px;
+		width: 30px;
+		text-align: center;
+		border-radius: 35px;
+		border: 2.5px solid #1A2755;
+		padding: 0px;
+		margin-right: 18px;
+	}
+
+.faq{
+	margin: 0 auto;
+	width: 70%;
+	font-family: 'Poppins-Regular' !important;
+}
+
+.answerpara {
+		font-size: 14px;
+		margin-left: 32px;
+		line-height: 1.5;
+		
+	}
+.answer {
+		color:#858585;
+		text-align: left;
+		padding: 14px 25px;
+		overflow: hidden;
+	}
+
+.Template-content {
+	display: flex;
+	justify-content: center;
+	padding: 10px 0 60px;
+	margin: 0 auto;
+	width: 100%
+}
+
+.ltFormContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center
+}
+
+.ltFormContainer div {
+	max-width: 100%;
+}
+
+.ltProgressBarWrapper {
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ltProgressBarWrapper, .ltFormQuestionHeader {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ltFormQuestionHeader {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 18px;
+    font-family: 'Poppins-Regular';
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ltProgressBar {
+	display: flex;
+	margin: 0 auto;
+	max-width: 352px;
+	width: 90%;
+	height: 6px;
+	border-radius: 3px;
+	background-image: linear-gradient(to right, #c9c5d4, #c9c5d4);
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch
+}
+
+.ltProgressBarWrapper,
+.ltFormQuestionHeader {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.ltProgressBar .ltProgressBarProgress {
+    border-radius: 3px;
+    background-image: linear-gradient(to right, #6c6587, #6c6587);
+}
+
+@media(max-width:767px) {
+	.ltProgressBarWrapper,
+	.ltFormQuestionHeader {
+		width: 300px
+	}
+}
+
+@media only screen and (width: 320px) {
+		.YourClients {
+			font-size: 11px !important;
+			text-align: left !important;
+			/*margin-top: 11px !important;*/
+			/*margin-bottom: 0px !important;*/
+			margin-left: 22px !important;
+		}
+		.applynowbttn {
+			font-size: 9px !important;
+			margin-left: 22px !important;
+			padding-bottom: 11% !important;
+		}
+		.ourprocessspan {
+			font-size: 11px !important;
+		}
+}
+
+
+
+
+@media only screen and (width: 540px){
+		.benifitsSec {
+			width: 65% !important;
+		}
+		.paraSec {
+			width: 65% !important;
+		}
+		
+	}
+
+@media (min-width: 600px) and (max-width: 767px) {
+		.ourprocessspan {
+			font-size: 11px !important;
+		}
+		.stepImg {
+			height: 90px !important;
+		}
+	}
+
+@media only screen and (min-width: 600px) {
+	.imagePosition{
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+	.mobileMarginClass{
+			margin-right:10%;
+			margin-left:10%;
+		}
+}
+
+@media only screen and (max-width: 600px) {
+	.mobileMarginClass{
+			margin-right:10%;
+			margin-left:10%;
+		}
+	.topMargin{
+			margin-top: 100px;
+	}
+}
+@media only screen and (max-width: 767px) {
+		.eazeLogo {
+			padding-top: 2.2%;
+			margin-left: 22px;
+		}
+
+		.ltFormContainer {
+			max-width: 300px
+		}
+
+		.Template-body {
+			flex-direction: row
+		}
+
+		.Template-content {
+			margin: 0 auto;
+			max-width: 930px
+		}
+
+		.paraSec {
+			width: 90%;
+		}
+		.YourClients {
+			font-size: 15px;
+			text-align: left;
+			margin-top: 7%;
+			margin-bottom: 7%;
+			margin-left: 22px;
+		}
+
+		.applynowbttn {
+			font-size: 9px;
+			margin-left: 22px;
+			padding-bottom: 12%;
+		}
+
+		.sec1{
+			font-size: 14px;
+			line-height: 1.5;
+		}
+		.benifitsSec {
+			width: 90%;
+		}
+
+		.benifitsHeader {
+			font-size: 15px;
+		}
+
+		.ourprocessCheck {
+			border-radius: 3px;
+			height: 20px;
+			width: 20px;
+			margin-top: 2.8px;
+			padding: 1.4px;
+			font-size: 11px;
+		}
+		.ourprocessspan {
+			font-size: 11px;
+		}
+
+		.processHeader {
+			font-size: 16px;
+		}
+
+		.aParent1First {
+			font-size: 12px;
+			height: 32px;
+			width: 31px;
+			text-align: center;
+			padding: 9.4px;
+		}
+
+		.stepImg {
+			height: 90px;
+		}
+
+		.stepContent{
+			font-size: 12px;
+		}
+		
+		.FrequentlyAskedQuestions {
+			font-size: 16px;
+		}
+		.question {
+			font-size: 12px;
+		}
+
+		.faqIcon {
+			font-size: 14px;
+			height: 24px;
+			width: 24px;	
+			border-radius: 35px;
+			padding: 0px;
+			margin-right: 18px;
+		}
+
+		.answerpara {
+			transform: scale(1);
+		}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+		.YourClients {
+			font-size: 26px;
+		}
+		.applynowbttn {
+			padding-bottom: 13%;
+		}
+
+		.ourprocessCheck {
+			margin-top: 3px;
+			border-radius: 3.2px;
+			height: 25px;
+			width: 25px;
+			padding: 1.6px;
+			font-size: 15px;
+		}
+		.ourprocessspan {
+			font-size: 11px;
+		}
+
+		.aParent1First {
+			font-size: 17px;
+			height: 40px;
+			width: 40px;
+			padding: 12px;
+		}
+
+		.stepImg{
+			height: 160px !important;
+		}
+}
+
+@media only screen and (width: 1024px) {
+		.ourprocessCheck {
+			margin-top: 4px;
+			border-radius: 4px;
+			height: 28px;
+			width: 28px;
+			padding: 1.6px;
+			font-size: 18px;
+		}
+		.ourprocessspan {
+			font-size: 14px;
+		}
+		.stepImg {
+			height: 200px !important;
+		}
+		.aParent1First {
+			font-size: 17px;
+			padding: 10.5px;
+			width: 38px;
+			height: 38px;
+			border-radius: 4px;
+		}
+}
+
+@media(max-width:767px) {
+	.PersonalLoanPurposeCode .ltFormRadioControl,
+	.TypeOfResidence .ltFormRadioControl {
+		width: 100%
+	}
+}
+
+.PersonalLoanPurposeCode .ltFormGroup .disPlayrow{
+	flex-direction: column;
+}
+.PersonalLoanPurposeCode .ltFormGroup>div:nth-child(2),
+.TypeOfResidence .ltFormGroup>div:nth-child(2) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: auto;
+}
+
+
+.PersonalLoanPurposeCode .ltFormRadioControl label,
+.TypeOfResidence .ltFormRadioControl label {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 14px;
+	height: 100px;
+	width: 130px;
+	text-decoration: none;
+	background-color: #fff;
+	border-radius: 16px;
+	border: solid 1px #ccc;
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .1);
+	transition: background-color .2s ease-in-out, border .2s ease-in-out, transform .25s cubic-bezier(.17, .88, .42, 2.1)
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControl label:hover,
+.PersonalLoanPurposeCode .ltFormRadioControl1 label:hover,
+.TypeOfResidence .ltFormRadioControl label:hover {
+	transform: scale(1.05);
+	transition: background-color .2s ease-in-out, border .2s ease-in-out, transform .25s cubic-bezier(.17, .88, .42, 2.1);
+	background-color: #f3f2fc;
+	border: solid 1px darkblue
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControl label.selected,
+.PersonalLoanPurposeCode .ltFormRadioControl1 label.selected,
+.TypeOfResidence .ltFormRadioControl label.selected {
+	background-color: #f3f2fc;
+	border: solid 1px darkblue
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControl label div,
+.TypeOfResidence .ltFormRadioControl label div {
+	font-family: 'Poppins-Regular';
+	font-size: 13px;
+	line-height: 1.13;
+	color: #101f30;
+	margin-top: 10px;
+	padding-left: 0
+}
+
+@media(max-width:767px) {
+	.PersonalLoanPurposeCode .ltFormRadioControl label div,
+	.PersonalLoanPurposeCode .ltFormRadioControl1 label div,
+	.TypeOfResidence .ltFormRadioControl label div {
+		padding-left: 12px;
+		margin-top: 0
+	}
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControl label .ltFormRadioIcon,
+PersonalLoanPurposeCode .ltFormRadioControl1 label .ltFormRadioIcon,
+.TypeOfResidence .ltFormRadioControl label .ltFormRadioIcon {
+	font-family: lt5;
+	font-size: 35px;
+	color: darkblue;
+	line-height: 1;
+	margin-left: 0
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControl label .ltFormRadioIcon i::before,
+.PersonalLoanPurposeCode .ltFormRadioControl1 label .ltFormRadioIcon i::before,
+.TypeOfResidence .ltFormRadioControl label .ltFormRadioIcon i::before {
+	height: auto;
+	width: auto
+}
+
+@media(max-width:767px) {
+	.PersonalLoanPurposeCode .ltFormRadioControl label .ltFormRadioIcon,
+	.PersonalLoanPurposeCode .ltFormRadioControl1 label .ltFormRadioIcon,
+	.TypeOfResidence .ltFormRadioControl label .ltFormRadioIcon {
+		font-size: 24px;
+		margin-left: 16px;
+		width: 30px
+	}
+}
+
+@media(max-width:767px) {
+	.PersonalLoanPurposeCode .ltFormRadioControl label,
+	.PersonalLoanPurposeCode .ltFormRadioControl1 label,
+	.TypeOfResidence .ltFormRadioControl label {
+		width: 280px;
+		margin: 0 0 10px;
+		height: 50px;
+		flex-direction: row;
+		border-radius: 5px;
+		justify-content: flex-start
+	}
+}
+
+.PersonalLoanPurposeCode .ltFormSubtext,
+.TypeOfResidence .ltFormSubtext {
+	width: 100%
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlDEBTCONSOLIDATION i::before,
+.TypeOfResidence .ltFormRadioControlDEBTCONSOLIDATION i::before {
+	content: '\e937'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlCCREFI i::before,
+.TypeOfResidence .ltFormRadioControlCCREFI i::before {
+	content: '\e919'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlHOMEIMP i::before,
+.TypeOfResidence .ltFormRadioControlHOMEIMP i::before {
+	content: '\e927'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlHOMEBUYING i::before,
+.PersonalLoanPurposeCode .TypeOfResidence .ltFormRadioControlOWN i::before,
+.TypeOfResidence .ltFormRadioControlHOMEBUYING i::before,
+.TypeOfResidence .TypeOfResidence .ltFormRadioControlOWN i::before {
+	content: '\e911'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlMAJORPURCHASE i::before,
+.TypeOfResidence .ltFormRadioControlMAJORPURCHASE i::before {
+	content: '\e931'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlCARFINANCING i::before,
+.TypeOfResidence .ltFormRadioControlCARFINANCING i::before {
+	content: '\e91e'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlGREENLOAN i::before,
+.TypeOfResidence .ltFormRadioControlGREENLOAN i::before {
+	content: '\e9a1'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlBUSINESS i::before,
+.TypeOfResidence .ltFormRadioControlBUSINESS i::before {
+	content: '\e91a'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlVACATION i::before,
+.TypeOfResidence .ltFormRadioControlVACATION i::before {
+	content: '\e92b'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlWEDDING i::before,
+.TypeOfResidence .ltFormRadioControlWEDDING i::before {
+	content: '\e95e'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlMOVING i::before,
+.TypeOfResidence .ltFormRadioControlMOVING i::before {
+	content: '\e99c'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlMEDICAL i::before,
+.TypeOfResidence .ltFormRadioControlMEDICAL i::before {
+	content: '\e959'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .ltFormRadioControlOTHER i::before,
+.TypeOfResidence .ltFormRadioControlOTHER i::before {
+	content: '\e914'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .TypeOfResidence .ltFormRadioControlOTHER i::before,
+.TypeOfResidence .TypeOfResidence .ltFormRadioControlOTHER i::before {
+	content: '\e9c1'!important;
+	font-style: normal
+}
+
+.PersonalLoanPurposeCode .TypeOfResidence .ltFormRadioControlRENT i::before,
+.TypeOfResidence .TypeOfResidence .ltFormRadioControlRENT i::before {
+	content: '\e9c2'!important;
+	font-style: normal
+}
+
+
+
+/*Phoenixcss*/
+
+.Template {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column
+}
+
+.Template-header,
+.Template-footer {
+	flex: none
+}
+
+.Template-header .header {
+	max-width: 930px;
+	margin: 0 auto
+}
+
+.Template-body {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+	padding: var(--space)
+}
+
+.Template-body .ltFormContainer {
+	margin-bottom: 0
+}
+
+.Template-content {
+	margin-top: var(--space);
+	width: 100%
+}
+
+.Template-nav {
+	order: -1
+}
+
+.Template-nav,
+.Template-ads {
+	padding: 1em;
+	border-radius: 3px
+}
+
+@media(min-width:768px) {
+	.Template-body {
+		flex-direction: row
+	}
+	.Template-content {
+		margin: 0 auto;
+		max-width: 930px
+	}
+	.Template-nav,
+	.Template-ads {
+		flex: 0 0 12em
+	}
+}
+
+
+/*standardlayoutcss*/
+
+.Template-header {
+	background-color: #101f30
+}
+
+.header {
+	font-family: "Lato", sans-serif;
+	color: #fff
+}
+
+@media (max-width: 991px) {
+	.header {
+		width: 90%
+	}
+}
+
+.header a {
+	color: #ccc;
+	text-decoration: none
+}
+
+.header a:hover {
+	color: #fff
+}
+
+.header .row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center
+}
+
+.header .flex-start-column,
+.header .flex-end-column {
+	width: 33%
+}
+
+ .chevron {
+	font-family: "lt5";
+	font-size: 16px;
+	color: darkblue;
+}
+
+.chevron::before {
+	margin: 0;
+	padding: 0 5px 0 0;
+	height: 40px;
+	width: 40px;
+	font-size: 16px;
+	padding-top: 2px;
+	color: derkblue;
+	font-style: normal;
+	content: "\e989"
+}
+
+.header .header-logo {
+	margin-top: 6px;
+	margin-bottom: 6px;
+	width: 161px;
+	height: 59px
+}
+
+@media (max-width: 767px) {
+	.header .header-logo {
+		width: 120px;
+		height: 42px
+	}
+}
+
+.header .flex-end-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end
+}
+
+@media (max-width: 767px) {
+	.header .flex-end-column {
+		height: 26px;
+		justify-content: flex-end
+	}
+}
+
+.header .call-us {
+	font-size: 16px
+}
+
+
+.header .disclosure {
+	font-size: 12px
+}
+
+.Template-content {
+	display: flex;
+	justify-content: center;
+	padding: 10px 0 60px;
+	margin: 0 auto
+}
+
+.Template {
+	background-color: #f5f5f5;
+	min-height: 100vh
+}
+
+.ltFormContainer .ltFormQuestion,
+.ltFormContainer .ltFormRangeFeedback,
+.ltFormContainer .ltFormSubtext {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.Template-footer {
+	display: block;
+	text-align: center;
+	font-family: "Lato", sans-serif;
+	color: #A3A3A3
+}
+
+
+.Template-footer a {
+	text-decoration: none;
+	color: #00aeef
+}
+
+.Template-footer a:hover {
+	color: #2187c1
+}
+
+.Template-footer .footer-phone,
+.Template-footer .discLinks {
+	padding-bottom: 20px
+}
+
+.Template-footer .footer-phone {
+	font-size: 16px
+}
+
+.Template-footer .discLinks,
+.Template-footer .footer-text, {
+	font-size: 12px
+}
+
+.Template-footer .footer-text {
+	text-align: center
+}
+
+@media (max-width: 767px) {
+	.Template-footer .footer-text {
+		text-align: left
+	}
+}
+
+/*standardcss**************************************************************/
+
+.mask-input {
+	font-family: text-security-disc!important
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+label,
+legend,
+p,
+blockquote,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline
+	
+}
+
+body {
+	line-height: 1;
+	color: #000;
+	background: #fff
+}
+
+fieldset,
+img {
+	border: 0
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+	font-style: normal;
+	font-weight: 400
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 400
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: ""
+}
+
+blockquote,
+q {
+	quotes: "" ""
+}
+
+abbr,
+acronym {
+	border: 0
+}
+
+.mobile-only {
+	display: none !important;
+}
+
+@media(max-width:767px) {
+	.mobile-only {
+		display: block
+	}
+}
+
+.desktop-only {
+	display: block
+}
+
+@media(max-width:767px) {
+	.desktop-only {
+		display: none
+	}
+}
+
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: antialiased
+}
+
+h1 {
+	font-family: 'Poppins-Regular';
+	font-size: 48px
+}
+
+@media(max-width:767px) {
+	h1 {
+		font-size: 35px
+	}
+}
+
+.ltFormRangeFeedback {
+	font-size: 48px;
+	font-family: 'Poppins-Regular';
+	font-weight: 400
+}
+
+@media(max-width:767px) {
+	.ltFormRangeFeedback {
+		font-size: 35px
+	}
+}
+
+h2,
+.ltFormQuestion {
+	font-family: 'Poppins-Regular';
+	font-size: 40px;
+	margin-bottom: 30px;
+	line-height: 1.2
+}
+
+@media(max-width:767px) {
+	h2,
+	.ltFormQuestion {
+		font-size: 27px
+	}
+}
+
+h3 {
+	font-size: 27px;
+	font-family: 'Poppins-Regular';
+	font-weight: 400
+}
+
+@media(max-width:767px) {
+	h3 {
+		font-size: 22px
+	}
+}
+
+h4 {
+	font-size: 18px;
+	font-family: 'Poppins-Regular';
+	font-weight: 700
+}
+
+@media(max-width:767px) {
+	h4 {
+		font-size: 18px
+	}
+}
+
+h5 {
+	font-size: 18px;
+	font-family: 'Poppins-Regular';
+	color: darkblue;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px
+}
+
+@media(max-width:767px) {
+	h5 {
+		font-size: 15px
+	}
+}
+
+p,
+input,
+input.ltHasError,
+div.ltHasError,
+.ltFormSubtext,
+.ltFormControlSelect select {
+	font-size: 17px;
+	font-family: 'Poppins-Regular';
+}
+
+@media(max-width:767px) {
+	p,
+	input,
+	input.ltHasError,
+	div.ltHasError,
+	.ltFormSubtext,
+	.ltFormControlSelect select {
+		font-size: 15px
+	}
+}
+
+.lowerRange,
+.upperRange {
+	font-size: 17px;
+	font-family: 'Poppins-Regular';
+}
+
+@media(max-width:767px) {
+	.lowerRange,
+	.upperRange {
+		font-size: 15px
+	}
+}
+
+.ltFormSubtext,
+.ltFormValidating {
+	color: #666
+}
+
+div.ltHasError,
+.ltFormSubtext,
+.ltFormValidating {
+	font-size: 12px;
+	font-family: 'Poppins-Regular';
+	line-height: 1.35em;
+	width: 300px;
+	margin: 6px auto;
+	position: relative;
+	text-align: center
+}
+
+
+
+a {
+	color: darkblue
+}
+
+a:hover {
+	color: #2187c1;
+	text-deocration : none !important;
+}
+
+a{
+	text-decoration : none !important;
+}
+
+.ltFormTermsConditions {
+	font-size: 12px;
+	font-family: 'Poppins-Regular';
+	color: #454545;
+	line-height: 1.25
+}
+
+div.ltHasError {
+	color: #d93551
+}
+
+input::placeholder {
+	color: #454545
+}
+
+.Template-body {
+	padding: 0 5px
+}
+
+.ltFormContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center
+}
+
+@media(max-width:767px) {
+	.ltFormContainer {
+		max-width: 300px
+	}
+}
+
+.ltFormContainer div {
+	max-width: 100%
+}
+
+@media(max-width:767px) {
+	.ltFormContainer div {
+		max-width: 280px
+	}
+}
+
+.ltFormQuestion {
+	width: 975px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px
+}
+
+@media(max-width:767px) {
+	.ltFormQuestion {
+		width: 300px
+	}
+}
+
+.ltFormGroup {
+	width: 785px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.ltProgressBarWrapper,
+.ltFormQuestionHeader {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+@media(max-width:767px) {
+	.ltProgressBarWrapper,
+	.ltFormQuestionHeader {
+		width: 300px
+	}
+}
+
+.ltFormControlText,
+.ltFormControlSelect,
+.ltFormControlMultiWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center
+}
+
+.ltFormControlSelect {
+	margin: 0 auto
+}
+
+.ltFormQuestionHeader {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center
+}
+
+.ltFormQuestionSubHeader {
+	width: 625px;
+	font-family: 'Poppins-Regular';
+	font-size: 17px;
+	line-height: 1.33;
+	color: #454545;
+	margin: 0 auto
+}
+
+@media(max-width:767px) {
+	.ltFormQuestionSubHeader {
+		width: 300px
+	}
+}
+
+.ltFormExplain {
+	width: 100%;
+	max-width: 400px!important;
+	height: 20px;
+	text-align: right;
+	position: relative;
+	z-index: 10
+}
+
+.ltFormExplain .ltFormExplainIcon:before {
+	font-family: lt5;
+	content: "\e986";
+	color: darkblue;
+	font-size: 20px;
+	cursor: pointer;
+	vertical-align: top;
+	padding-left: 6px
+}
+
+@media(max-width:767px) {
+	.ltFormExplain .ltFormExplainIcon:before {
+		padding-left: 0;
+		padding-right: 0
+	}
+}
+
+aside.ltSidebar {
+	position: absolute;
+	display: flex;
+	justify-content: flex-end;
+	width: 400px;
+	max-width: 100%;
+	left: 40px;
+	z-index: 10
+}
+
+@media(max-width:767px) {
+	aside.ltSidebar {
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background: rgba(0, 0, 0, .7);
+		display: block;
+		left: 0;
+		top: 0
+	}
+}
+
+aside.ltSidebar div {
+	margin-bottom: 20px
+}
+
+aside.ltSidebar .content {
+	position: relative;
+	z-index: 9999;
+	font-family: 'Poppins-Regular';
+	min-width: 280px;
+	background: #fff;
+	border-radius: 8px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 2px 7px 0 rgba(8, 8, 8, .5)
+}
+
+aside.ltSidebar .content div,
+aside.ltSidebar .content p {
+	text-align: left;
+	font-size: 15px;
+	color: #454545;
+	line-height: 1.4
+}
+
+aside.ltSidebar .content div {
+	margin-top: -50px
+}
+
+@media(max-width:767px) {
+	aside.ltSidebar .content div {
+		margin-top: 0
+	}
+}
+
+@media(max-width:767px) {
+	aside.ltSidebar .content:before {
+		display: none;
+		top: 0;
+		left: 0
+	}
+}
+
+@media(max-width:767px) {
+	aside.ltSidebar .content {
+		width: 90%;
+		height: auto;
+		margin-top: 30%;
+		margin-right: auto;
+		margin-left: auto
+	}
+}
+
+@media screen and (-ms-high-contrast:active),
+(-ms-high-contrast:none) {
+	.Template-body {
+		padding: 0;
+		padding: var(--space)
+	}
+	aside.ltSidebar .content {
+		right: 300px
+	}
+}
+
+@media screen and (-ms-high-contrast:active) and (max-width:767px),
+(-ms-high-contrast:none) and (max-width:767px) {
+	aside.ltSidebar .content {
+		right: 0
+	}
+}
+
+.trustpilot-widget {
+	display: block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	max-width: 930px;
+	width: 90%;
+	margin: 0 auto
+}
+
+.ltFormRadioControlEnumHeader .coborrowerlist {
+	max-width: 310px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px
+}
+
+.ltFormRadioControlEnumHeader .coborrowerlist p {
+	margin-bottom: 20px
+}
+
+.ltFormRadioControlEnumHeader ul {
+	text-align: left;
+	font-family: 'Poppins-Regular';
+}
+
+.ltFormButton,
+.socialBtnGoogle {
+	display: flex;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	height: 50px;
+	border-radius: 4px;
+	font-family: 'Poppins-Regular';
+	font-size: 18px;
+	background-color: #6c6587;
+	color: #ffffff !important;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	text-deocration : none !important;
+}
+
+.ltFormButton:hover,
+.socialBtnGoogle:hover {
+	color: #ffffff !important;
+	background-color: #1a2755;
+}
+
+@media(max-width:767px) {
+	.ltFormButton,
+	.socialBtnGoogle {
+		width: 280px
+	}
+}
+
+.socialBtnGoogle {
+	justify-content: flex-start;
+	align-items: center;
+	background: #4285f4;
+	padding: 0;
+	border: none
+}
+
+.socialBtnGoogle:hover {
+	color: #fff;
+	background-color: #1266f1
+}
+
+.socialLoginHelp {
+	font-size: 17px;
+	color: #a3a3a3;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	line-height: 2px;
+	margin-top: 16px;
+	margin-bottom: 16px
+}
+
+.socialLoginHelp .socialOrLine {
+	background: #a3a3a3;
+	height: 1px;
+	width: 40%;
+	margin-top: 3px
+}
+
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=text],
+input[type=default],
+input[type=password] {
+	width: 280px;
+	height: 50px;
+	border-radius: 4px;
+	padding: 0 10px;
+	border: solid 1px #ccc;
+	margin-bottom: 5px
+}
+
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=default]:focus,
+input[type=password]:focus {
+	border-color: darkblue !important;
+	outline: 0 !important;
+}
+
+input[type=email].ltHasError,
+input[type=number].ltHasError,
+input[type=tel].ltHasError,
+input[type=text].ltHasError,
+input[type=default].ltHasError,
+input[type=password].ltHasError {
+	border-color: #d93551 !important;
+	background-color: #ffebee !important;
+}
+
+@media(max-width:767px) {
+	input[type=email],
+	input[type=number],
+	input[type=tel],
+	input[type=text],
+	input[type=default],
+	input[type=password] {
+		width: 260px
+	}
+}
+
+input.DOB {
+	text-align: center;
+	border-color: #ddd;
+    background-color: #ebebeb;
+	transition: background-color 0.5s ease-in-out;
+}
+
+input.DOB:focus{
+	background-color: white;
+}
+
+input.ZipCode,
+input.AnnualIncome,
+input.MonthlyExpense{
+	border-color: #ddd;
+    background-color: #ebebeb;
+    transition: background-color 0.5s ease-in-out;
+}
+
+input.ZipCode:focus,
+input.AnnualIncome:focus,
+input.MonthlyExpense:focus{
+	background-color:white;
+}
+
+
+
+.ltFormTermsConditions {
+	margin: 50px auto 0;
+	width: 90%;
+	color: #a3a3a3
+}
+
+@media(max-width:767px) {
+	.ltFormTermsConditions {
+		width: 280px
+	}
+}
+
+.ltFormRadioControl input,
+.ltFormRadioControl1 input {
+	display: none
+}
+
+.ltFormRadioControlEnumHeaderannual {
+	text-align: center;
+	margin-bottom: 30px
+}
+
+.ltFormRadioControl1 label {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	text-decoration: none;
+	background-color: #fff;
+	border-radius: 5px;
+	border: solid 1px #ccc;
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .1);
+	transition: background-color .2s ease-in-out, border .2s ease-in-out, transform .25s cubic-bezier(.17, .88, .42, 2.1);
+	width: 300px;
+	margin: 0 auto 10px;
+	height: 50px
+}
+
+@media(max-width:767px) {
+	.ltFormRadioControl label {
+		width: 100%
+	}
+}
+
+.ltFormRadioControl label:hover,
+.ltFormRadioControl1 label:hover {
+	transform: scale(1.05);
+	transition: background-color .2s ease-in-out, border .2s ease-in-out, transform .25s cubic-bezier(.17, .88, .42, 2.1);
+	background-color: #f3f2fc;
+	border: solid 1px darkblue
+}
+
+.ltFormRadioControl label.selected,
+.ltFormRadioControl1 label.selected {
+	background-color: #f3f2fc;
+	border: solid 1px darkblue
+}
+
+.ltFormRadioControl label div,
+.ltFormRadioControl1 label div {
+	font-family: 'Poppins-Regular';
+	font-size: 16px;
+	line-height: 1.13;
+	color: #101f30;
+	padding-left: 12px;
+	text-align: center;
+	max-width: 90%
+}
+
+@media(max-width:767px) {
+	.ltFormRadioControl label div,
+	.ltFormRadioControl1 label div {
+		text-align: left;
+		padding-right: 10px
+	}
+}
+
+.ltFormRadioControl label .ltFormRadioIcon,
+.ltFormRadioControl1 label .ltFormRadioIcon {
+	color: darkblue;
+	line-height: 1;
+	margin-left: 16px;
+	padding: 2px
+}
+
+.ltFormRadioControl label .ltFormRadioIcon::before,
+.ltFormRadioControl1 label .ltFormRadioIcon::before {
+	content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjExIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0MxQzFDMSIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=);
+	font-style: normal;
+	width: 24px;
+	height: 24px
+}
+
+.OOW .oowheader {
+	max-width: 85%;
+	margin-top: 0!important;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.OOW .ltFormRadioControl label div {
+	text-align: left
+}
+
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+	margin: 14px 0 0 16px;
+	padding-left: 0
+}
+
+aside.ltSidebar .content a {
+	cursor: pointer;
+	font-family: 'Poppins-Regular';
+	font-size: 20px
+}
+
+.ltProgressBarWrapper {
+	padding-top: 30px;
+	margin-bottom: 30px
+}
+
+.ltProgressBar {
+	display: flex;
+	margin: 0 auto;
+	max-width: 352px;
+	width: 90%;
+	height: 6px;
+	border-radius: 3px;
+	background-image: linear-gradient(to right, #c9c5d4, #c9c5d4);
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch
+}
+
+.ltProgressBar .ltProgressBarProgress {
+	border-radius: 3px;
+	background-image: linear-gradient(to right, #6c6587, #6c6587);
+}
+
+.ltFormControlRange {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.ltFormControlRange .ltFormRangeFeedback {
+	line-height: 100%;
+	color: #1a2755 !important;
+	margin-bottom: 20px
+}
+
+.ltFormControlRange .ltFormRangeRange {
+	font-size: 16px;
+	color: #1a2755 !important;
+	font-weight: 500;
+	width: 90%!important;
+	margin: 5px auto 0
+}
+
+.ltFormControlRange .ltFormRangeRange .lowerRange {
+	float: left
+}
+
+.ltFormControlRange .ltFormRangeRange .upperRange {
+	float: right
+}
+
+.ltFormControlRange input[type=range],
+.ltFormControlRange input[type=range]:focus {
+	border: none;
+	box-shadow: none;
+	-webkit-appearance: none
+}
+
+.ltFormControlRange input[type=range] {
+	display: inline-block;
+	width: 80%;
+	max-width: 450px;
+	height: 31px;
+	padding: 0
+}
+
+.ltFormRange {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative
+}
+
+input[type=range].ltFormRange:focus {
+	outline: none
+}
+
+[type=range] {
+	--range: calc(var(--max) - var(--min));
+	--ratio: calc((var(--val) - var(--min)) / var(--range));
+	--sx: calc(.5 * 16px + var(--ratio) * (100% - 16px));
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	height: 3px;
+	background: 0 0 !important;
+	font: 1em/1 Lato, arial, sans-serif
+}
+
+[type=range],
+[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none
+}
+
+[type=range]::-webkit-slider-runnable-track {
+	box-sizing: border-box;
+	max-width: 100%;
+	height: 3px;
+	background: #dbdfe8;
+	border-radius: 6px;
+	padding-top: 1.5px;
+	padding-bottom: 1.5px;
+	background: linear-gradient(darkblue, darkblue) 0/var(--sx) 100% no-repeat #dbdfe8;
+}
+
+[type=range]::-moz-range-track {
+	box-sizing: border-box;
+	max-width: 100%;
+	height: 3px;
+	background: #dbdfe8;
+	border-radius: 6px;
+	padding-top: 1.5px;
+	padding-bottom: 1.5px
+}
+
+[type=range]::-ms-track {
+	box-sizing: border-box;
+	max-width: 100%;
+	height: 3px;
+	background: #dbdfe8;
+	border-radius: 6px
+}
+
+[type=range]::-moz-range-progress {
+	height: 3px;
+	background: darkblue;
+	border-radius: 6px
+}
+
+[type=range]::-webkit-slider-thumb {
+	margin-top: -9px;
+	box-sizing: border-box;
+	background: darkblue;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 0!important;
+	box-shadow: 0 0 0 7px #0000b98f
+}
+
+[type=range]::-moz-range-thumb {
+	border: none;
+	box-sizing: border-box;
+	background: darkblue;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 0!important;
+	box-shadow: 0 0 0 7px #0000b98f
+}
+
+input[type=range]::-moz-focus-outer {
+	border: none!important
+}
+
+input[type=range].ltFormRange::-ms-track {
+	color: transparent;
+	border: none!important
+}
+
+input[type=range].ltFormRange::-ms-tooltip {
+	display: none
+}
+
+input[type=range].ltFormRange::-ms-fill-lower {
+	background: darkblue
+}
+
+input[type=range].ltFormRange::-ms-fill-upper {
+	background: #dbdfe8
+}
+
+input[type=range].ltFormRange::-ms-thumb {
+	margin-top: 1px!important;
+	height: 10px!important;
+	width: 10px!important;
+	border-radius: 50%;
+	background: darkblue;
+	cursor: pointer;
+	border: 10px solid #8addfb!important;
+	box-shadow: none!important
+}
+
+.ltFormControlSelect,
+.ltFormControlMultiWrapper {
+	width: 300px
+}
+
+@media(max-width:767px) {
+	.ltFormControlSelect,
+	.ltFormControlMultiWrapper {
+		width: 280px
+	}
+}
+
+.ltFormControlSelect select,
+.ltFormControlMultiWrapper select {
+	height: 50px;
+	width: 300px
+}
+
+.ltFormControlSelect:after,
+.ltFormControlMultiWrapper:after {
+	content: "";
+	background-image: url(/forms/assets/images/select-arrow.svg);
+	background-size: 15px 10px;
+	width: 15px;
+	height: 10px;
+	color: #00bdee;
+	position: relative;
+	z-index: 2;
+	margin: -29px 10px 29px auto;
+	pointer-events: none
+}
+
+.ltFormControlSelect select,
+.ltFormControlMultiWrapper select {
+	font-size: 17px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	text-align: left;
+	padding-left: 10px;
+	border: solid 1px #a3a3a3;
+	border-radius: 4px
+}
+
+.ltFormControlSelect select::-ms-expand,
+.ltFormControlMultiWrapper select::-ms-expand {
+	display: none
+}
+
+.ltFormControlSelect select:-moz-focusring,
+.ltFormControlMultiWrapper select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #000
+}
+
+.ltFormControlSelect select:focus,
+.ltFormControlMultiWrapper select:focus {
+	border: solid 1px darkblue;
+	outline: 0
+}
+
+.ltFormControlSelect select::-moz-placeholder,
+.ltFormControlMultiWrapper select::-moz-placeholder {
+	color: #454545;
+	opacity: 1
+}
+
+.ltFormControlSelect select:-ms-input-placeholder,
+.ltFormControlMultiWrapper select:-ms-input-placeholder {
+	color: #454545
+}
+
+.ltFormControlSelect select::-webkit-input-placeholder,
+.ltFormControlMultiWrapper select::-webkit-input-placeholder {
+	color: #454545
+}
+
+.ltFormControlSelect select .ltHasError,
+.ltFormControlMultiWrapper select .ltHasError {
+	border: solid 1px #d93551
+}
+
+@media(max-width:767px) {
+	.ltFormControlSelect select,
+	.ltFormControlMultiWrapper select {
+		width: 280px
+	}
+}
+
+
+.BusinessOrPersonalOption .ltFormQuestionHeader {
+	width: 100%
+}
+
+.BusinessOrPersonalOption h1 {
+	max-width: 400px;
+	margin: 0 auto 30px
+}
+
+.BusinessOrPersonalOption h2 {
+	font-size: 18px;
+	font-family: 'Poppins-Regular';
+	font-weight: 700
+}
+
+@media(max-width:767px) {
+	.BusinessOrPersonalOption h2 {
+		font-size: 18px
+	}
+}
+
+.BusinessOrPersonalOption p {
+	color: #454545;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 1.35em
+}
+
+.BusinessOrPersonalOption .ltFormRadioControl label {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	background-color: #fff;
+	border-radius: 5px;
+	border: none;
+	box-shadow: none;
+	transition: none;
+	max-width: 300px;
+	margin: 0 auto 10px;
+	height: 50px
+}
+
+.BusinessOrPersonalOption .ltFormRadioControl label:hover {
+	transform: none
+}
+
+.BusinessOrPersonalOption .ltFormRadioControl label i,
+.BusinessOrPersonalOption .ltFormRadioControl label div {
+	margin: 0;
+	padding: 0
+}
+
+
+.BusinessOrPersonalOption .ltFormRadioControl label.selected .ltFormRadioIcon::before,
+.BusinessOrPersonalOption .ltFormRadioControl label .ltFormRadioIcon::before {
+	width: 0;
+	height: 0;
+	content: none
+}
+
+.Password input {
+	border-radius: 0 5px 5px 0
+}
+
+.ltFormControlText.Password {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: auto
+}
+
+@media(max-width:767px) {
+	.ltFormControlText.Password {
+		width: 280px
+	}
+}
+
+.ltFormControlText.Password:before {
+	content: '\e93b';
+	font-family: lt5!important;
+	speak: none;
+	font-size: 24px!important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: darkblue;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fff;
+	height: 50px;
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px 0 0 5px;
+	border-right-width: 0
+}
+
+.Last4SSN .ltFormControlText input {
+	width: 100%;
+	
+	border-radius: 0 5px 5px 0;
+	font-size: 24px;
+	text-align: center
+}
+
+.Last4SSN .ltFormCheckBox input[type=checkbox]:checked+label.boxLabel,
+.Last4SSN .ltFormCheckBox input[type=checkbox]:not(:checked)+label.boxLabel {
+	top: 0!important
+}
+
+.Last4SSN .ltFormControlText {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.Last4SSN .ltFormControlText:before {
+	content: '\e93b';
+	font-family: lt5!important;
+	speak: none;
+	font-size: 24px!important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: darkblue;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fff;
+	height: 50px;
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px 0 0 5px;
+	border-right-width: 0
+}
+
+.Last4SSN .checkBoxContainer {
+	background: #ededed;
+	max-width: 352px;
+	margin-top: 20px;
+	padding: 15px 25px 25px;
+	text-align: center
+}
+
+@media(max-width:767px) {
+	.Last4SSN .checkBoxContainer {
+		max-width: 90%;
+		margin-left: auto;
+		margin-right: auto
+	}
+}
+
+.Last4SSN input[type=checkbox] {
+	margin-right: 10px
+}
+
+.Last4SSN .ltFormCheckBox {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 17px;
+	margin-top: 10px;
+	font-family: 'Poppins-Regular';
+	font-size: 17px;
+	color: #454545
+}
+
+@media(max-width:767px) {
+	.Last4SSN .ltFormCheckBox {
+		display: block
+	}
+}
+
+.Last4SSN .scoreNote {
+	font-family: 'Poppins-Regular';
+	font-size: 14px;
+	color: #999
+}
+
+.spin .inner {
+	margin-top: 25%
+}
+
+.verificationOnSSN {
+	text-align: center
+}
+
+.verificationOnSSN h4 {
+	margin: 20px auto
+}
+
+.verificationOnSSN h5 {
+	margin-left: auto;
+	margin-right: auto
+}
+
+.SSN .ltFormGroup {
+	margin-top: 40px;
+	margin-bottom: 20px
+}
+
+.SSN .ltFormControlText input {
+	width: 100%;
+	color: darkblue;
+	border-radius: 0 5px 5px 0;
+	font-size: 17px;
+	text-align: center
+}
+
+.SSN .ltFormCheckBox input[type=checkbox]:checked+label.boxLabel,
+.SSN .ltFormCheckBox input[type=checkbox]:not(:checked)+label.boxLabel {
+	top: 0!important
+}
+
+.SSN .ltFormControlText {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.SSN .ltFormControlText:before {
+	content: '\e93b';
+	font-family: lt5!important;
+	speak: none;
+	font-size: 24px!important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: darkblue;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fff;
+	height: 50px;
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px 0 0 5px;
+	border-right-width: 0
+}
+
+.SSN .checkBoxContainer {
+	background: #ededed;
+	max-width: 352px;
+	margin-top: 20px;
+	padding: 15px 25px 25px;
+	text-align: center
+}
+
+@media(max-width:767px) {
+	.SSN .checkBoxContainer {
+		max-width: 90%;
+		margin-left: auto;
+		margin-right: auto
+	}
+}
+
+.SSN input[type=checkbox] {
+	margin-right: 10px
+}
+
+.SSN .ltFormCheckBox {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 17px;
+	margin-top: 10px;
+	font-family: 'Poppins-Regular';
+	font-size: 17px;
+	color: #454545
+}
+
+@media(max-width:767px) {
+	.SSN .ltFormCheckBox {
+		display: block
+	}
+}
+
+.SSN .scoreNote {
+	font-family: 'Poppins-Regular';
+	font-size: 14px;
+	color: #999
+}
+
+.EmailAddress input {
+	border-radius: 0 5px 5px 0;
+	border-color: #ddd;
+    background-color: #ebebeb;
+	transition: background-color 0.5s ease-out;
+}
+
+.EmailAddress input:focus {
+    background-color: white;
+}
+
+.ltFormControlText.EmailAddress {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: auto
+}
+
+@media(max-width:767px) {
+	.ltFormControlText.EmailAddress {
+		width: 280px
+	}
+}
+
+.ltFormControlText.EmailAddress:before {
+	content: '\e967';
+	font-family: lt5!important;
+	speak: none;
+	font-size: 24px!important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: darkblue;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fff;
+	height: 50px;
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px 0 0 5px;
+	border-right-width: 0
+}
+
+.PhoneNumber input {
+	border-radius: 0 5px 5px 0;	
+    border-color: #ddd;
+    background-color: #ebebeb;
+	transition: background-color 0.5s ease-in-out ;
+
+}
+
+.PhoneNumber input:focus {
+	background-color: white;
+
+}
+
+.ltFormControlText.PhoneNumber {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: auto
+}
+
+@media(max-width:767px) {
+	.ltFormControlText.PhoneNumber {
+		width: 280px
+	}
+}
+
+.ltFormControlText.PhoneNumber:before {
+	content: '\e968';
+	font-family: lt5!important;
+	speak: none;
+	font-size: 24px!important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: darkblue;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fff;
+	height: 50px;
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px 0 0 5px;
+	border-right-width: 0
+}
+
+.Oops,
+.OopsBusinessAddressZipCode {
+	margin-top: 30px
+}
+
+.Oops .ltFormQuestionHeader h3,
+.OopsBusinessAddressZipCode .ltFormQuestionHeader h3 {
+	font-size: 25px;
+	color: #666;
+	line-height: 1.33em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-bottom: 20px
+}
+
+@media(max-width:767px) {
+	.Oops .ltFormQuestionHeader h3,
+	.OopsBusinessAddressZipCode .ltFormQuestionHeader h3 {
+		font-size: 22px
+	}
+}
+
+.Oops div.ltFormQuestion,
+.OopsBusinessAddressZipCode div.ltFormQuestion {
+	font-family: 'Poppins-Regular';
+	margin-bottom: 6px;
+	margin-top: 20px;
+	font-size: 17px;
+	color: #454545;
+	max-width: 302px;
+	text-align: left
+}
+
+@media(max-width:767px) {
+	.Oops div.ltFormQuestion,
+	.OopsBusinessAddressZipCode div.ltFormQuestion {
+		max-width: 280px
+	}
+}
+
+.Oops input[type=email],
+.Oops input[type=number],
+.Oops input[type=tel],
+.Oops input[type=text],
+.Oops input[type=default],
+.Oops input[type=password],
+.OopsBusinessAddressZipCode input[type=email],
+.OopsBusinessAddressZipCode input[type=number],
+.OopsBusinessAddressZipCode input[type=tel],
+.OopsBusinessAddressZipCode input[type=text],
+.OopsBusinessAddressZipCode input[type=default],
+.OopsBusinessAddressZipCode input[type=password] {
+	margin-top: 0
+}
+
+.Oops div.ltHasError,
+.Oops .ltFormSubtext,
+.Oops .ltFormValidating,
+.OopsBusinessAddressZipCode div.ltHasError,
+.OopsBusinessAddressZipCode .ltFormSubtext,
+.OopsBusinessAddressZipCode .ltFormValidating {
+	margin: 16px auto
+}
+
+.Oops .ltFormExplain .ltFormExplainIcon:before,
+.OopsBusinessAddressZipCode .ltFormExplain .ltFormExplainIcon:before {
+	font-size: 17px
+}
+
+.Oops.ltFormContainer div:nth-of-type(3),
+.OopsBusinessAddressZipCode.ltFormContainer div:nth-of-type(3) {
+	font-size: 12px;
+	font-family: 'Poppins-Regular';
+	line-height: 1.35em;
+	width: 300px;
+	margin: 20px auto 0;
+	position: relative;
+	text-align: center;
+	color: #666
+}
+
+.PersonalLoanPurposeCode .ltFormHelpBlock {
+	width: 100%!important;
+	text-align: center
+}
+
+.ltFormComboBoxOpen {
+	max-width: 302px!important;
+	margin: 0 auto
+}
+
+.ltFormComboBoxOpen .ltFormControl {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-radius: 4px 4px 0 0
+}
+
+.ltFormComboBoxContainerOpen {
+	width: 302px;
+	position: absolute;
+	z-index: 10
+}
+
+@media(max-width:767px) {
+	.ltFormComboBoxContainerOpen {
+		max-width: 282px!important
+	}
+}
+
+.ltFormComboBoxContainerOpen ul {
+	text-align: left;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	overflow-y: auto
+}
+
+.ltFormComboBoxContainerOpen ul li {
+	list-style: none!important;
+	margin: 0
+}
+
+.ltFormComboBoxContainerOpen ul li {
+	padding: 7px 5px;
+	line-height: 1.2;
+	font-size: 13px;
+	font-family: lato
+}
+
+.ltFormComboBoxContainerOpen ul li.ltFormComboBoxListHighlight {
+	background: #078181;
+	color: #fff
+}
+
+.CityState .ltFormComboBoxContainerOpen {
+	position: relative
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox:before {
+	content: '\e96b';
+	font-family: lt5!important;
+	speak: none;
+	font-size: 24px!important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: darkblue;
+	-webkit-font-smoothing: antialiased;
+	background-color: #fff;
+	height: 50px;
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px 0 0 5px;
+	border-right-width: 0
+}
+.ltFormControl {
+	color: #000000 !important;
+	font-size: 17px !important;
+    font-family: 'Poppins-Regular' !important;
+}
+.ltFormGroup.StreetAddress .ltFormComboBox input.ltFormControl {
+	width: 229px;
+	border-radius: 0 4px 4px 0
+}
+
+@media(max-width:767px) {
+	.ltFormGroup.StreetAddress .ltFormComboBox input.ltFormControl {
+		width: 205px
+	}
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox div {
+	width: 100%
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxOpen {
+	max-width: 302px!important;
+	margin: 0 auto
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxOpen .ltFormControl {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-radius: 4px 4px 0 0
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen {
+	width: 302px;
+	position: absolute;
+	padding-top: 50px;
+	z-index: 10
+}
+
+@media(max-width:767px) {
+	.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen {
+		max-width: 282px!important
+	}
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul {
+	text-align: left;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	overflow-y: auto
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li {
+	list-style: none!important;
+	margin: 0
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li {
+	padding: 10px 10px 10px 25px;
+	line-height: 1.2;
+	font-size: 14px;
+	font-family: lato;
+	border-bottom: 1px solid #ededed
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li.ltFormComboBoxListHighlight {
+	background: #e0f0f4;
+	color: #101f30
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li span {
+	margin-left: -15px
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li span:before {
+	content: '\e96b';
+	font-family: lt5!important;
+	color: darkblue;
+	margin-right: 4px
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li:last-child {
+	pointer-events: none;
+	display: flex;
+	justify-content: flex-end
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .ltFormComboBoxContainerOpen ul li:last-child span:before {
+	content: ''
+}
+
+.ltFormGroup.StreetAddress .ltFormComboBox .CityState .ltFormComboBoxContainerOpen {
+	position: relative
+}
+
+
+/* thank you page css****************************/
+.applydiv{
+	width:100%;
+	text-align:center;
+	font-size:20px;
+}
+.apply{
+	position: relative;
+	display: inline-block;
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
+.apply:before{
+	content:"";
+	background: #6c6587;
+	position: absolute;
+	top: 15px;
+	width: 80px;
+	height: 2px;
+	left: -100px;
+} 
+.apply:after{
+	background: #6c6587;
+	content: "";
+	position: absolute;
+	top: 15px;
+	width: 80px;
+	height: 2px;
+	right: -99px;
+}
+strong{
+	font-size: 15px;
+}
+.a{
+	color: #6c6587!important;
+	text-decoration: none;
+}
+.a:hover{
+	color: #1a2755!important;
+	text-decoration: none;
+}
+.maindiv{
+	font-family: 'Poppins-Regular';
+	margin-left: 12%;
+	margin-right: 12%;
+}
+.thankYouDivStandard{
+	font-size: 15px;
+	color: black;
+}
+.displayAmount{
+	padding : 10px;
+	font-size: 40px;
+}
+
+.captchContainer {
+	position: relative;
+	width: 338px;
+	border: 1px solid;
+	padding: 28px;
+	border-radius: 10px;
+	text-align: initial !important;
+	max-width: 338px !important;
+	height: 152px;
+}
+.ebcaptchScreenshot {
+	padding-right:1rem;
+	margin-left: 12px;
+	height: 43px;
+	transform: translateY(23px);	
+}
+.ebcaptchainput {
+	position: relative;
+	width: 96px;
+	height: 33px;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid black;
+}
+.captchaInputError{
+	border: 3px ​solid #a94442 !important;
+}
+.help-block {
+	display: block;
+	color: #a94442;
+	margin-left: 55px;
+}
+
+@media only screen and (max-width: 600px) {
+  .displayAmount{
+		padding : 10px;
+	}
+}

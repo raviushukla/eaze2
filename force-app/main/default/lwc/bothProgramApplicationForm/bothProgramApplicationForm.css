@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+}
+
+.required-marker {
+    color: red;
+    margin-right: 4px;
+}

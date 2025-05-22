@@ -1,0 +1,63 @@
+name: ChatGPT PR Suggestion Bot
+on:
+  pull_request:
+    branches: [dev, uat]
+    # paths:
+    #   - 'force-app/**'
+jobs:
+  suggest-improvements:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          pip install "httpx>=0.24.1" --force-reinstall
+          pip install "openai>=1.3.8" --force-reinstall
+          pip install PyGithub
+      - name: Debug Environment
+        run: |
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          git branch -a
+      # Optional step to run without OpenAI if you want to avoid API issues
+      - name: Validate OpenAI API Key
+        id: validate_key
+        continue-on-error: true
+        env:
+          OPEN_API_KEY_2: ${{ secrets.OPEN_API_KEY_2 }}
+        run: |
+          python -c "
+          import os
+          from openai import OpenAI
+          client = OpenAI(api_key=os.getenv('OPEN_API_KEY_2'))
+          try:
+            client.models.list()  # Removed limit parameter
+            print('API key is valid')
+            exit(0)
+          except Exception as e:
+            print(f'API key issue: {e}')
+            exit(1)
+          "
+      - name: Report API Key Status
+        run: |
+          if [ ${{ steps.validate_key.outcome }} == 'success' ]; then
+            echo "✅ OpenAI API key is valid"
+          else
+            echo "❌ OpenAI API key has issues (quota exceeded, invalid, etc.)"
+            echo "The script will create a PR with this information"
+          fi
+      - name: Run ChatGPT Suggestion Script
+        env:
+          OPEN_API_KEY_2: ${{ secrets.OPEN_API_KEY_2 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python .github/scripts/gpt_suggest_and_create_pr.py

@@ -1,0 +1,21 @@
+<template>
+    <template lwc:if={spinner}>
+        <div class="">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template> 
+    <template lwc:if={error}>
+        <div class=" slds-p-top_large">
+            <div style="color: red;font-size:large;" class="slds-align_absolute-center">{message} </div><br/><br/>
+            <div style="color: black;font-size:large;font-weight:bold;" class="slds-align_absolute-center">
+                <a onclick={goBack} style="pointer:cursor;"> GO BACK </a>
+            </div>
+        </div>
+    </template>   
+    <template lwc:if={noError}> 
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <span style="color: green;font-size:large;">Application submitted, redirecting...</span>
+        </div>
+    </template>
+      
+</template>
