@@ -1,0 +1,5 @@
+.disableSection{
+	pointer-events : none;
+	background-color: "#fff";
+	opacity: 0.5;
+}

@@ -1,0 +1,37 @@
+<template>
+    <template lwc:if={preApprovedOffer}>
+        <div class="slds-grid slds-wrap fontSuccess">
+            <div class="slds-col slds-size_1-of-2">
+                <span> Applicant has <b>Pre-Approved</b> loan offers available.</span>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                Go to the applicant record <a href={leadRecord}>click</a>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={preApprovedDeclined}>
+        <div class="slds-grid slds-wrap fontDeclined">
+            <div class="slds-col slds-size_1-of-2">
+                <span>The applicant has <b>No Pre-Approved</b> offes available.</span>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                Go to the applicant record <a href={leadRecord}>click</a>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={submitError}>
+        <div class="slds-grid slds-wrap fontError">
+            <div class="slds-col slds-size_1-of-2">
+                <span>Error occured on applicant submit. Error : {error}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                Go to the applicant record <a href={leadRecord}>click</a>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={spinner}>
+        <div class="">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+</template>

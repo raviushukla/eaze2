@@ -1,0 +1,164 @@
+<template>
+    <template lwc:if={spinner}> <lightning-spinner variant="brand" size="medium"> </lightning-spinner> </template>
+    <ul class="slds-list_dotted" style="font-weight:bold;font-size: large;">
+        <li>Articles of Incorporation 
+            <span style="color:#057b05;padding-left:20px;">{incorporation}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="Incorp"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Year-to-date company Profit & Loss statement 
+            <span style="color:#057b05;padding-left:20px;">{profitLoss}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="ProfitLoss"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Most Recent Balance Sheet 
+            <span style="color:#057b05;padding-left:20px;">{balanceSheet}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="BalanceSheet"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Most Recent business tax return
+            <span style="color:#057b05;padding-left:20px;">{businessTaxReturn}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="BusinessTaxReturn"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Most Recent Two years of tax returns (for principal owners)
+            <span style="color:#057b05;padding-left:20px;"><!--{ownerTaxReturn}-->
+                <template for:each={ownerTaxReturn} for:item="ownerTax">
+                     {ownerTax.Title}.{ownerTax.FileExtension} &nbsp;
+                </template>
+            </span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="OwnerTaxReturn"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+                multiple
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Terms and Conditions with a copy of any warranty or guarantee, if applicable
+            <span style="color:#057b05;padding-left:20px;">{termCondition}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="TermCondition"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Marketing Materials used for Sales (Print, email, phone sales scripts)
+            <span style="color:#057b05;padding-left:20px;">{marketingPrint}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="MarketingPrint"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Marketing materials used for sales (sales scripts, email & direct message scripts)
+            <span style="color:#057b05;padding-left:20px;">{marketingScript}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="MarketingScript"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Written policies (process for handling complaints, cancellation exceptions)
+            <span style="color:#057b05;padding-left:20px;">{writtenPolicies}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="WrittenPolicies"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Sample follow-up/post-sale engagement (onboarding process/scripts)
+            <span style="color:#057b05;padding-left:20px;">{onboardingScript}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="OnboardingScript"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Sample Follow-up/Post-Sale Engagement (Post-Sale welcome call email, call script, etc.)
+            <span style="color:#057b05;padding-left:20px;">{welcomeCallScript}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="WelcomeCallScript"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li>Login Credentials to content platform for review
+            <span style="color:#057b05;padding-left:20px;">{contentPlatform}</span>
+            <lightning-file-upload
+                class="slds-p-around_medium"
+                data-target-id="ContentPlatform"
+                label=""
+                name=""
+                onuploadfinished={handleUploadFinished}
+            >
+            </lightning-file-upload>
+        </li>
+        <li class="slds-p-around_small disableSection"  data-my-id="in3" title="">
+            <p style="color:red;margin-top: -15px;font-size: smaller;">This section will be enabled once you upload the above documents</p>
+            <p>After uploading the above required documents, <a href={label.applicationLink} target="_blank"><strong>click here</strong></a> to download the Application form. After downloading the Application form, fill in the required details and upload below.</p>
+                <span style="color:#057b05;padding-left:20px;">{applicationForm}</span>
+                <lightning-file-upload
+                    class="slds-p-around_medium"
+                    data-target-id="applicationForm"
+                    label=""
+                    name=""
+                    onuploadfinished={handleUploadFinished}
+                >
+                </lightning-file-upload>
+                <!--lightning-button
+                    variant="brand"
+                    label="Submit"
+                    icon-name="utility:setup_assistant_guide"
+                    icon-position="right"
+                    class="slds-align_absolute-center"
+                    onclick={handleSubmitClick}
+                >
+                </lightning-button-->
+        </li>
+    </ul>
+</template>

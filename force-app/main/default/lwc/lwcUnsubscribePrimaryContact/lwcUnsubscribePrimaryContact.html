@@ -1,0 +1,21 @@
+<template>
+    <template lwc:if={spinner}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+    <div  id="maindiv" class="slds-align_absolute-center">
+        <div class="slds-grid slds-wrap slds-scope slds-m-left_xx-large slds-m-right_xx-large">
+            <div class="slds-size_1-of-1 slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_small">
+                <div class="applydiv slds-m-top_large slds-m-bottom_large slds-align_absolute-center">
+                    <div class="apply"> <h2><b>Unsubscribe from EAZE Marketing Campaigns with updates on the financial market and best practices to increase funded deals</b></h2> </div>
+                </div>
+            </div>
+            <div class="slds-size_1-of-1 slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_small">
+                <lightning-input type="email" label="Confirm Email" name="input1" required="true" value={email} onfocusout={validateEmail}> </lightning-input>
+                <p data-id="input1_Id" style="color:red;display:none">Invalid Input</p>
+            </div>
+            <div class="slds-size_1-of-1 slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_small slds-align_absolute-center">
+                <lightning-button variant="brand" label="Confirm Unsubscribe" title="Primary action" onclick={handleClick} ></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

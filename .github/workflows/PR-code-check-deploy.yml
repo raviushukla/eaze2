@@ -1,0 +1,295 @@
+name: Enhanced PR Workflow with ChatGPT
+
+on:
+  pull_request:
+    branches: [main]
+    # paths:
+    #   - 'force-app/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ####################################
+  # Job 1: Code Quality Checks & AI Enhancement
+  ####################################
+  code-analysis-and-enhancement:
+    name: Code Quality & AI Enhancement
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Full history for diff comparison
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Run ESLint
+        continue-on-error: true
+        id: eslint
+        run: |
+          npx eslint . --format json > eslint-report.json || echo "ESLint completed with issues"
+          echo "ESLINT_ISSUES=$(cat eslint-report.json | jq 'length')" >> $GITHUB_ENV
+
+      - name: Run PMD for Apex
+        continue-on-error: true
+        id: pmd
+        run: |
+          wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.55.0/pmd-bin-6.55.0.zip
+          unzip pmd-bin-6.55.0.zip
+          ./pmd-bin-6.55.0/bin/run.sh pmd -d force-app -R category/apex/design.xml -f json > pmd-report.json || echo "PMD completed with issues"
+          echo "PMD_ISSUES=$(cat pmd-report.json | jq '.[]? | .violations | length' | awk '{sum+=$1} END {print sum}')" >> $GITHUB_ENV
+
+      - name: Install Salesforce CLI
+        run: |
+          npm install --global @salesforce/cli
+          sf --version || true
+
+      - name: Install SFDX Scanner Plugin
+        continue-on-error: true
+        run: |
+          echo "Installing Salesforce Code Scanner..."
+          sf plugins install @salesforce/sfdx-scanner
+
+      - name: Run Static Code Analysis (PMD, ESLint via SFDX Scanner)
+        continue-on-error: true
+        id: sfdx-scanner
+        run: |
+          echo "Running static code analysis..."
+          sf scanner run \
+            --format json \
+            --outfile scanner-report.json \
+            --target "./force-app"
+
+          echo "SCANNER_ISSUES=$(cat scanner-report.json | jq '. | length')" >> $GITHUB_ENV
+
+          # Also create a CSV version for the PR comment
+          sf scanner run \
+            --format csv \
+            --outfile code_analysis_report.csv \
+            --target "./force-app"
+
+      - name: Detect modified Apex files
+        id: detect-files
+        run: |
+          git diff --name-only origin/main...HEAD | grep -E "\.cls$" | grep "^force-app/" > modified-apex-files.txt || true
+          echo "MODIFIED_FILES=$(cat modified-apex-files.txt | wc -l)" >> $GITHUB_ENV
+          cat modified-apex-files.txt
+
+      - name: Get source branch name
+        id: source-branch
+        run: |
+          SOURCE_BRANCH=$(echo ${{ github.head_ref }})
+          echo "SOURCE_BRANCH=$SOURCE_BRANCH" >> $GITHUB_ENV
+          echo "Source branch is $SOURCE_BRANCH"
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Python dependencies
+        run: |
+          pip install "httpx>=0.24.1" --force-reinstall
+          # pip install "openai>=1.3.8" --force-reinstall
+          pip install PyGithub
+          # pip install mistralai --force-reinstall
+
+
+      - name: Run ChatGPT Enhancement Script
+        if: env.MODIFIED_FILES != '0'
+        env:
+          OPEN_API_KEY_2: ${{ secrets.OPEN_API_KEY_2 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SOURCE_BRANCH: ${{ env.SOURCE_BRANCH }}
+        run: python .github/scripts/gpt_suggest_and_create_pr.py
+
+      - name: Generate PR Comment
+        id: generate-pr-comment
+        run: |
+          echo "## 🚀 PR Analysis Summary" > pr-comment.md
+
+          ######################
+          # SFDX Scanner Report
+          ######################
+          echo -e "\n<details><summary>🔍 Static Code Analysis Report</summary>\n" >> pr-comment.md
+
+          if [ -f code_analysis_report.csv ]; then
+            echo "**🔧 Static Code Issues Summary:**" >> pr-comment.md
+            echo "<table>" >> pr-comment.md
+            echo "<tr><th>#</th><th>File</th><th>Line</th><th>Column</th><th>Severity</th><th>Rule</th><th>Description</th></tr>" >> pr-comment.md
+
+            tail -n +2 code_analysis_report.csv | head -n 20 | while IFS=',' read -r problem severity file line column rule description _ category _; do
+              # Emoji for severity
+              if [[ "$severity" == "3" ]]; then
+                sev="🔴 High"
+              elif [[ "$severity" == "2" ]]; then
+                sev="🟠 Medium"
+              elif [[ "$severity" == "1" ]]; then
+                sev="🟢 Low"
+              else
+                sev="$severity"
+              fi
+
+              # Clean and format values
+              filename=$(basename "$file")
+              rule=$(echo "$rule" | sed 's/^"//;s/"$//')
+              description=$(echo "$description" | sed 's/^"//;s/"$//')
+
+              # Add row
+              echo "<tr><td>$problem</td><td><code>$filename</code></td><td>$line</td><td>$column</td><td>$sev</td><td>$rule</td><td>$description</td></tr>" >> pr-comment.md
+            done
+
+            echo "</table>" >> pr-comment.md
+
+            # If there are more than 20 issues, show a note
+            TOTAL_ISSUES=$(cat code_analysis_report.csv | wc -l)
+            if [ $TOTAL_ISSUES -gt 21 ]; then  # +1 for header
+              REMAINING=$(($TOTAL_ISSUES - 21))
+              echo -e "\n_Note: Showing first 20 issues. $REMAINING more issues found._" >> pr-comment.md
+            fi
+          else
+            echo "_✅ No static issues found by code scanner._" >> pr-comment.md
+          fi
+
+          echo "</details>" >> pr-comment.md
+
+          ######################
+          # AI Enhancement Report
+          ######################
+          echo -e "\n## 🤖 ChatGPT Enhancement\n" >> pr-comment.md
+
+          # Check if we have any AI enhancements
+          if [ -f enhancement-comment.md ]; then
+            cat enhancement-comment.md >> pr-comment.md
+          elif [ -f ai-changes.json ] && [ -s ai-changes.json ]; then
+            # Check if ai-changes.json is valid JSON
+            if jq empty ai-changes.json 2>/dev/null; then
+              # Extract AI branch name if available
+              AI_BRANCH=""
+              if [ -f ai-branch-name.txt ] && [ -s ai-branch-name.txt ]; then
+                AI_BRANCH=$(cat ai-branch-name.txt)
+                echo "✨ **AI has created improvements in branch: \`$AI_BRANCH\`**" >> pr-comment.md
+              fi
+              
+              # Extract PR number if available
+              if [ -f ai-pr-number.txt ] && [ -s ai-pr-number.txt ]; then
+                PR_NUM=$(cat ai-pr-number.txt)
+                echo -e "\n🔍 [**View all AI changes in PR #$PR_NUM**](https://github.com/${{ github.repository }}/pull/$PR_NUM) 👈 *Click to review*" >> pr-comment.md
+              fi
+              
+              echo -e "\n**Summary of AI Improvements:**" >> pr-comment.md
+              echo "<table>" >> pr-comment.md
+              echo "<tr><th>File</th><th>Issues Addressed</th><th>Improvements Made</th></tr>" >> pr-comment.md
+              
+              cat ai-changes.json | jq -c '.[]' 2>/dev/null | while read -r change || [[ -n "$change" ]]; do
+                if [ -n "$change" ]; then
+                  FILE=$(echo "$change" | jq -r '.file // "Unknown"' 2>/dev/null)
+                  FILENAME=$(basename "$FILE")
+                  ISSUE_COUNT=$(echo "$change" | jq -r '.issues_fixed // "Unknown"' 2>/dev/null)
+                  SUMMARY=$(echo "$change" | jq -r '.summary // "Code improvements"' 2>/dev/null | sed 's/"/\\"/g')
+                  
+                  echo "<tr><td><code>$FILENAME</code></td><td>$ISSUE_COUNT</td><td>$SUMMARY</td></tr>" >> pr-comment.md
+                fi
+              done
+              echo "</table>" >> pr-comment.md
+            else
+              echo "_❌ AI changes file is not valid JSON._" >> pr-comment.md
+            fi
+          else
+            echo "No AI enhancements were made." >> pr-comment.md
+            
+            if [ "${MODIFIED_FILES}" == "0" ]; then
+              echo "_No Apex files were modified in this PR._" >> pr-comment.md
+            elif [ "${GPT_SCRIPT_EXISTS}" == "false" ]; then
+              echo "_GPT enhancement script not found at .github/scripts/gpt_suggest_and_create_pr.py_" >> pr-comment.md
+            else
+              echo "_No issues were detected that required AI enhancement._" >> pr-comment.md
+            fi
+          fi
+
+      - name: Comment on Pull Request
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ github.token }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: pr-comment.md
+
+      ####################################
+      # NEW: Auto-merge AI improvement PR
+      ####################################
+      - name: Check for AI PR
+        id: check-ai-pr
+        run: |
+          if [ -f ai-pr-number.txt ] && [ -s ai-pr-number.txt ]; then
+            AI_PR_NUM=$(cat ai-pr-number.txt)
+            echo "AI_PR_NUM=$AI_PR_NUM" >> $GITHUB_ENV
+            echo "AI PR found: #$AI_PR_NUM"
+            echo "has_ai_pr=true" >> $GITHUB_OUTPUT
+          else
+            echo "No AI PR found"
+            echo "has_ai_pr=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Auto-merge AI PR
+        if: steps.check-ai-pr.outputs.has_ai_pr == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Skip approval and directly enable auto-merge
+          echo "Setting up auto-merge for PR #${{ env.AI_PR_NUM }}"
+
+          # Enable auto-merge
+          gh pr merge ${{ env.AI_PR_NUM }} --merge --auto || true
+
+          echo "AI PR #${{ env.AI_PR_NUM }} set to auto-merge"
+
+          # Wait for merge to complete (up to 2 minutes)
+          for i in {1..24}; do
+            PR_STATE=$(gh pr view ${{ env.AI_PR_NUM }} --json state --jq .state 2>/dev/null || echo "UNKNOWN")
+            if [ "$PR_STATE" == "MERGED" ]; then
+              echo "AI PR successfully merged!"
+              break
+            fi
+            echo "Waiting for PR merge... ($i/24)"
+            sleep 5
+          done
+
+          # Final check if merge completed
+          PR_STATE=$(gh pr view ${{ env.AI_PR_NUM }} --json state --jq .state 2>/dev/null || echo "UNKNOWN")
+
+          if [ "$PR_STATE" != "MERGED" ]; then
+            echo "PR hasn't been merged yet, trying direct merge"
+            # Try direct merge with gh cli
+            gh pr merge ${{ env.AI_PR_NUM }} --merge || true
+            
+            # Wait a bit more
+            sleep 5
+            
+            # Check again
+            PR_STATE=$(gh pr view ${{ env.AI_PR_NUM }} --json state --jq .state 2>/dev/null || echo "UNKNOWN")
+            if [ "$PR_STATE" != "MERGED" ]; then
+              echo "Warning: AI PR #${{ env.AI_PR_NUM }} could not be merged automatically."
+              echo "Please review and merge manually."
+            fi
+          fi
+
+          # If merged, clean up branch
+          if [ "$PR_STATE" == "MERGED" ]; then
+            # Delete the AI branch after successful merge
+            if [ -f ai-branch-name.txt ] && [ -s ai-branch-name.txt ]; then
+              AI_BRANCH=$(cat ai-branch-name.txt)
+              echo "Deleting AI branch $AI_BRANCH after successful merge"
+              gh api repos/${{ github.repository }}/git/refs/heads/$AI_BRANCH -X DELETE || true
+            fi
+          fi
+  

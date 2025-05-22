@@ -1,0 +1,504 @@
+[
+  {
+    "file": "force-app/main/default/classes/AccountAndProductSearchController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances performance by reducing SOQL queries, improves err..."
+  },
+  {
+    "file": "force-app/main/default/classes/AccountAndProductSearchControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change addresses a vulnerability in the test class by ensuring unique ..."
+  },
+  {
+    "file": "force-app/main/default/classes/AccountSearchHandler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code enhances efficiency, robustness, and security.  Key changes..."
+  },
+  {
+    "file": "force-app/main/default/classes/AnimationController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds crucial null checks for the `customerId` parameter, in..."
+  },
+  {
+    "file": "force-app/main/default/classes/AnimationControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change improves the `testUser` username generation in the `@testSetup`..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderPDFControllerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was adding a `try-catch` block to handle potential exceptions d..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSummaryController.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The Apex code was improved for performance, governor limit adherence, and error ha..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSyncRetryJobHandler.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `OrderSyncRetryJobHandler` class now uses a more robust method for ge..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSyncRetryJobHandlerTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved test class addresses a duplicate field assignment in `User` object cr..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSyncRetryScheduledJob.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code adds more robust error handling around `System.enqueueJob`,..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSyncRetryScheduledJobTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary changes in this Apex test class remove unnecessary scheduling and focu..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSyncToSAPQueueable.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling for SOQL queries, HTTP c..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderSyncToSAPQueueableTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was to fix a potential issue in the test class where the `testU..."
+  },
+  {
+    "file": "force-app/main/default/classes/OrderTriggerControl.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change addressed a potential `NullPointerException` by explicitly init..."
+  },
+  {
+    "file": "force-app/main/default/classes/ProductServiceWrapperTest.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The provided code was already functionally correct.  The only change made was addi..."
+  },
+  {
+    "file": "force-app/main/default/classes/ProformaOrderEmailService.cls",
+    "type": "apex",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved Apex code incorporates robust error handling using try-catch blocks a..."
+  },
+  {
+    "file": "force-app/main/default/lwc/accountSearch/accountSearch.css",
+    "type": "lwc",
+    "component": "accountSearch",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was refactored to leverage Salesforce Lightning Design System (SLDS) class..."
+  },
+  {
+    "file": "force-app/main/default/lwc/accountSearch/accountSearch.js",
+    "type": "lwc",
+    "component": "accountSearch",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved LWC code addresses an ESLint parsing error, enhances error handling b..."
+  },
+  {
+    "file": "force-app/main/default/lwc/accountSearch/accountSearch.js-meta.xml",
+    "type": "lwc",
+    "component": "accountSearch",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `accountSearch.js-meta.xml` file was updated to correctly reference the Lightn..."
+  },
+  {
+    "file": "force-app/main/default/lwc/app/__tests__/app.test.js",
+    "type": "lwc",
+    "component": "__tests__",
+    "issues_fixed": 1,
+    "summary": "**Summary**:"
+  },
+  {
+    "file": "force-app/main/default/lwc/bike/__tests__/bike.test.js",
+    "type": "lwc",
+    "component": "__tests__",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved test suite utilizes the public property setter (`element.bikeName = '..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bikeCard/__tests__/bikeCard.test.js",
+    "type": "lwc",
+    "component": "__tests__",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvements enhance the test suite's effectiveness by adding crucial ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/app/app.html",
+    "type": "lwc",
+    "component": "app",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC code enhances accessibility and structure by wrapping the `c-bike..."
+  },
+  {
+    "file": "force-app/main/default/lwc/app/app.js",
+    "type": "lwc",
+    "component": "app",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change addresses a parsing error caused by an incorrectly placed `@` s..."
+  },
+  {
+    "file": "force-app/main/default/lwc/app/app.js-meta.xml",
+    "type": "lwc",
+    "component": "app",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change enhances the Lightning Web Component's deployment by adding sup..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bike/bike.html",
+    "type": "lwc",
+    "component": "bike",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved Lightning Web Component (LWC) code enhances data binding consistency,..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bike/bike.js",
+    "type": "lwc",
+    "component": "bike",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The primary changes involve correcting a naming convention violation, improving er..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bikeCard/bikeCard.html",
+    "type": "lwc",
+    "component": "bikeCard",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved Lightning Web Component (LWC) `bikeCard.html` now incorporates crucia..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bikeCard/bikeCard.js",
+    "type": "lwc",
+    "component": "bikeCard",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `bikeCard.js` LWC addresses an ESLint parsing error, enhances error h..."
+  },
+  {
+    "file": "force-app/main/default/lwc/bikeCard/bikeCard.js-meta.xml",
+    "type": "lwc",
+    "component": "bikeCard",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `bikeCard.js-meta.xml` file was improved by adding a descriptive component des..."
+  },
+  {
+    "file": "force-app/main/default/lwc/createOrder/createOrder.css",
+    "type": "lwc",
+    "component": "createOrder",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change involves replacing all instances of `lwc` design tokens with th..."
+  },
+  {
+    "file": "force-app/main/default/lwc/createOrder/createOrder.html",
+    "type": "lwc",
+    "component": "createOrder",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change was adding an `aria-label` attribute to the `<c-order-summary>`..."
+  },
+  {
+    "file": "force-app/main/default/lwc/createOrder/createOrder.js",
+    "type": "lwc",
+    "component": "createOrder",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The primary changes involved correcting the lifecycle hook used for loading styles..."
+  },
+  {
+    "file": "force-app/main/default/lwc/createOrder/createOrder.js-meta.xml",
+    "type": "lwc",
+    "component": "createOrder",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `createOrder` LWC metadata was improved for broader compatibility and to elimi..."
+  },
+  {
+    "file": "force-app/main/default/lwc/data/data.js",
+    "type": "lwc",
+    "component": "data",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change was adding a getter method (`bikeList`) for the `bikes` array. ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/data/data.js-meta.xml",
+    "type": "lwc",
+    "component": "data",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `data.js-meta.xml` file was improved by adding a descriptive component name an..."
+  },
+  {
+    "file": "force-app/main/default/lwc/detail/detail.css",
+    "type": "lwc",
+    "component": "detail",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved CSS enhances visual presentation and maintainability.  Key changes in..."
+  },
+  {
+    "file": "force-app/main/default/lwc/detail/detail.html",
+    "type": "lwc",
+    "component": "detail",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement in this LWC's HTML template focuses on enhancing accessibi..."
+  },
+  {
+    "file": "force-app/main/default/lwc/detail/detail.js",
+    "type": "lwc",
+    "component": "detail",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The primary changes involve removing a redundant function call, improving variable..."
+  },
+  {
+    "file": "force-app/main/default/lwc/detail/detail.js-meta.xml",
+    "type": "lwc",
+    "component": "detail",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `detail.js-meta.xml` file was improved by adding a descriptive component descr..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.css",
+    "type": "lwc",
+    "component": "genericErrorComponent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS for the generic error component was improved for clarity, consistency, and..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.html",
+    "type": "lwc",
+    "component": "genericErrorComponent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved component enhances accessibility and semantic meaning.  Key changes i..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.js",
+    "type": "lwc",
+    "component": "genericErrorComponent",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `GenericErrorComponent` removes unnecessary lifecycle hook logic and ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericErrorComponent/genericErrorComponent.js-meta.xml",
+    "type": "lwc",
+    "component": "genericErrorComponent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `genericErrorComponent.js-meta.xml` file was improved by adding a descriptive ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.css",
+    "type": "lwc",
+    "component": "genericProductCard",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS for the `genericProductCard` LWC was improved by adding `display: block` t..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.html",
+    "type": "lwc",
+    "component": "genericProductCard",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved LWC HTML utilizes nested templates more efficiently, removing redunda..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.js",
+    "type": "lwc",
+    "component": "genericProductCard",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `genericProductCard.js` LWC addresses an ESLint parsing error by remo..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericProductCard/genericProductCard.js-meta.xml",
+    "type": "lwc",
+    "component": "genericProductCard",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `genericProductCard.js-meta.xml` file was improved by adding a descriptive com..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.css",
+    "type": "lwc",
+    "component": "genericQuantityEditor",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS for the `qtyWrapper` class was improved by replacing generic LWC design to..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.html",
+    "type": "lwc",
+    "component": "genericQuantityEditor",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement enhances accessibility by adding `title` attributes to the..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.js",
+    "type": "lwc",
+    "component": "genericQuantityEditor",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change addresses a parsing error caused by an unexpected `@` symbol in..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericQuantityEditor/genericQuantityEditor.js-meta.xml",
+    "type": "lwc",
+    "component": "genericQuantityEditor",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `genericQuantityEditor.js-meta.xml` file was improved by adding a descriptive ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericSVGComponent/genericSVGComponent.html",
+    "type": "lwc",
+    "component": "genericSVGComponent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement was refactoring the SVG icons to remove inline styling for..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericSVGComponent/genericSVGComponent.js",
+    "type": "lwc",
+    "component": "genericSVGComponent",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `GenericSvgComponent` now correctly renders SVG icons based on boolea..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericSVGComponent/genericSVGComponent.js-meta.xml",
+    "type": "lwc",
+    "component": "genericSVGComponent",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `genericSVGComponent.js-meta.xml` file was improved by adding a descriptive me..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericSearchBar/genericSearchBar.html",
+    "type": "lwc",
+    "component": "genericSearchBar",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary improvement was adding a placeholder attribute to the `lightning-input..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericSearchBar/genericSearchBar.js",
+    "type": "lwc",
+    "component": "genericSearchBar",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The improved `genericSearchBar` LWC addresses an ESLint parsing error by renaming ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/genericSearchBar/genericSearchBar.js-meta.xml",
+    "type": "lwc",
+    "component": "genericSearchBar",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `genericSearchBar.js-meta.xml` file was improved by adding a descriptive compo..."
+  },
+  {
+    "file": "force-app/main/default/lwc/list/list.css",
+    "type": "lwc",
+    "component": "list",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved for clarity, maintainability, and responsiveness.  The main c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/list/list.html",
+    "type": "lwc",
+    "component": "list",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved Lightning Web Component now includes crucial accessibility enhancemen..."
+  },
+  {
+    "file": "force-app/main/default/lwc/list/list.js",
+    "type": "lwc",
+    "component": "list",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary fix resolved a parsing error caused by incorrect use of the `@api` dec..."
+  },
+  {
+    "file": "force-app/main/default/lwc/list/list.js-meta.xml",
+    "type": "lwc",
+    "component": "list",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `list.js-meta.xml` file was improved by adding a descriptive component descrip..."
+  },
+  {
+    "file": "force-app/main/default/lwc/searchProducts/searchProducts.css",
+    "type": "lwc",
+    "component": "searchProducts",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The original CSS lacked specific styling and relied on a generic class name.  The ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/searchProducts/searchProducts.html",
+    "type": "lwc",
+    "component": "searchProducts",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary changes enhance accessibility by adding appropriate ARIA attributes (`..."
+  },
+  {
+    "file": "force-app/main/default/lwc/searchProducts/searchProducts.js",
+    "type": "lwc",
+    "component": "searchProducts",
+    "issues_fixed": 2,
+    "summary": "- **Summary**: The primary changes involved removing an unused import (`Quantity` from schema), c..."
+  },
+  {
+    "file": "force-app/main/default/lwc/searchProducts/searchProducts.js-meta.xml",
+    "type": "lwc",
+    "component": "searchProducts",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change enhances the Lightning Web Component's (LWC) compatibility by a..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selector/selector.css",
+    "type": "lwc",
+    "component": "selector",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved for consistency, maintainability, and visual appeal.  Key cha..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selector/selector.html",
+    "type": "lwc",
+    "component": "selector",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved Lightning Web Component (LWC) code enhances accessibility and consist..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selector/selector.js",
+    "type": "lwc",
+    "component": "selector",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change addresses an ESLint parsing error caused by an incorrectly plac..."
+  },
+  {
+    "file": "force-app/main/default/lwc/selector/selector.js-meta.xml",
+    "type": "lwc",
+    "component": "selector",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The `selector.js-meta.xml` file was improved by adding a descriptive component des..."
+  },
+  {
+    "file": "force-app/main/default/lwc/tile/tile.css",
+    "type": "lwc",
+    "component": "tile",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The CSS was improved by replacing hardcoded spacing values with Salesforce Lightni..."
+  },
+  {
+    "file": "force-app/main/default/lwc/tile/tile.html",
+    "type": "lwc",
+    "component": "tile",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The improved Lightning Web Component (LWC) tile now uses simplified data access, e..."
+  },
+  {
+    "file": "force-app/main/default/lwc/tile/tile.js",
+    "type": "lwc",
+    "component": "tile",
+    "issues_fixed": 1,
+    "summary": "- **Summary**: The primary change was removing a spurious comment that caused a parsing error on ..."
+  },
+  {
+    "file": "force-app/main/default/lwc/tile/tile.js-meta.xml",
+    "type": "lwc",
+    "component": "tile",
+    "issues_fixed": 0,
+    "summary": "- **Summary**: The primary change was adding support for Lightning App Builder.  The original cod..."
+  }
+]

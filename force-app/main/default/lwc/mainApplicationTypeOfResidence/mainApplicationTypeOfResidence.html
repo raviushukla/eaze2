@@ -1,0 +1,69 @@
+<template>
+    <div>
+        <div class="flex-start-column">
+        <a href="javascript:void(1)" id="page12back" class="backButton" style="display: flex;" onclick={redirectPageBack}>
+            <i class="chevron desktop-only" id="page12backi"></i>
+            <span class="desktop-only" id="page12backspan">GO BACK</span>
+        </a>
+        </div>
+        <div>
+            <div class="ltProgressBarWrapper">
+                <div class="ltProgressBar">
+                <div class="ltProgressBarProgress" style="width: 55%;"></div>
+                </div>
+            </div>
+            <div class="ltFormQuestionHeader TypeOfResidence">
+                <h5>Personal Loan</h5>
+            </div>
+            <div class="ltFormGroup TypeOfResidence">
+                <div class="ltFormQuestion TypeOfResidence">
+                    Type of residence?
+                    <div class="ltFormExplain TypeOfResidence" style="display: inline;"></div>
+                </div>
+                <div>
+                    <div class="ltFormRadioControl ltFormRadioControlOWN TypeOfResidence">
+                        <div class="ltFormRadioControlInner OWN TypeOfResidence">
+                            <div class="ltFormRadioControlEnumHeader OWN TypeOfResidence"></div>
+                            <label for="Own_Outright" tabindex="0" id="page12Ownlabel" onclick={redirectPage}>
+                                <input type="radio" name="Current_Residence_Status__c" id="page12OwnInput" class="ltFormRadioButton OWN TypeOfResidence" for="Own_Outright" value="Own" >
+                                <i class="ltFormRadioIcon TypeOfResidence" id="page12OwnIcon"></i>
+                                <div id="page12Owndiv4">Own Outright</div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ltFormRadioControl ltFormRadioControlOWN TypeOfResidence">
+                        <div class="ltFormRadioControlInner OWN TypeOfResidence">
+                            <div class="ltFormRadioControlEnumHeader OWN TypeOfResidence"></div>
+                            <label for="Own_With_Mortgage" tabindex="0" id="page12MortOwnWithlabel" onclick={redirectPage}>
+                                <input type="radio" name="Current_Residence_Status__c" id="page12MortOwnWithInput" class="ltFormRadioButton OWN TypeOfResidence" for="Own_With_Mortgage" value="Own_With_Mortgage" >
+                                <i class="ltFormRadioIcon TypeOfResidence" id="page12MortOwnWithIcon"></i>
+                                <div id="page12MortOwnWithdiv4">Own with Mortgage</div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ltFormRadioControl ltFormRadioControlRENT TypeOfResidence">
+                        <div class="ltFormRadioControlInner RENT TypeOfResidence">
+                            <div class="ltFormRadioControlEnumHeader RENT TypeOfResidence"></div>
+                            <label for="RENT" tabindex="0" id="page12Rentlabel" onclick={redirectPage}>
+                                <input type="radio" name="Current_Residence_Status__c" id="page12RentInput" class="ltFormRadioButton RENT TypeOfResidence" for="RENT" value="Rent" >
+                                <i class="ltFormRadioIcon TypeOfResidence" id="page12RentIcon"></i>
+                                <div id="page12Rentdiv4">I am renting</div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ltFormRadioControl ltFormRadioControlOTHER TypeOfResidence">
+                        <div class="ltFormRadioControlInner OTHER TypeOfResidence">
+                            <div class="ltFormRadioControlEnumHeader OTHER TypeOfResidence"></div>
+                            <label for="OTHERRES" tabindex="0" id="page12OTHlabel" onclick={redirectPage}>
+                                <input type="radio" name="Current_Residence_Status__c" id="page12OTHinput" class="ltFormRadioButton OTHER TypeOfResidence" for="OTHERRES" value="Other" >
+                                <i class="ltFormRadioIcon TypeOfResidence" id="page12OTHIcon"></i>
+                                <div id="page12OTHdiv4">Other</div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ltFormSubtext TypeOfResidence"></div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</template>

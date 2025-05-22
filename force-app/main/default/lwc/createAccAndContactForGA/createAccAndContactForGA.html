@@ -1,0 +1,24 @@
+<template>
+    <template lwc:if={error}>
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <span style="color: red;font-size:large;">{message} </span>
+            <a style="color: black;font-size:large;font-weight:bold;" href={gaUrl} target="_self">&nbsp;GO BACK</a>
+        </div>
+    </template>   
+    <template lwc:if={accountCreated}> 
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <span style="color: green;font-size:large;">Account created, redirecting........</span>
+        </div>
+    </template>
+    <template lwc:if={accountPresent}> 
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <span style="color: rgb(54, 54, 86);font-size:large;">Account already present : <u><b>{accName}</b></u> and Contact : <u><b>{conName}</b></u></span>
+            <a style="color: black;font-size:large;font-weight:bold;" href={gaUrl} target="_self">&nbsp;GO BACK</a>
+        </div>
+    </template>
+    <template lwc:if={spinner}>
+        <div class="">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>   
+</template>

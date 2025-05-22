@@ -1,0 +1,13 @@
+<template>
+    <template lwc:if={error}>
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <span style="color: red;font-size:large;">{message} </span>
+            <a style="color: black;font-size:large;font-weight:bold;" href={recordUrl} target="_self">&nbsp;GO BACK</a>
+        </div>
+    </template>   
+    <template lwc:if={messageSent}> 
+        <div class="slds-align_absolute-center slds-p-top_large">
+            <span style="color: green;font-size:large;">Message sent, redirecting........</span>
+        </div>
+    </template>
+</template>
